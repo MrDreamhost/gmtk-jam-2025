@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://d3eu8ibj2ld1b"]
+
+[ext_resource type="Script" uid="uid://bpokfberniss4" path="res://level/level_01/level_01.gd" id="1_2n58o"]
+
+[node name="Level01" type="Node2D"]
+script = ExtResource("1_2n58o")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Level 01"

@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bcujsflu4nqbn"]
+
+[ext_resource type="Script" uid="uid://c5237mb4mfdt5" path="res://loop_system/spawn_point.gd" id="1_oh74y"]
+[ext_resource type="Texture2D" uid="uid://bjwnao17x8v8x" path="res://assets/sprites/icon.svg" id="2_1v1da"]
+
+[node name="SpawnPoint" type="Node2D"]
+script = ExtResource("1_oh74y")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(2.38419e-07, -14)
+scale = Vector2(0.257813, 0.21875)
+texture = ExtResource("2_1v1da")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -26.0
+offset_top = -49.0
+offset_right = 26.0
+offset_bottom = -26.0
+text = "Spawn"

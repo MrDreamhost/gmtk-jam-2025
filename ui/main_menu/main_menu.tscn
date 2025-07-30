@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=3 uid="uid://btghplhgx1jj1"]
+
+[ext_resource type="Script" uid="uid://bffw8fr4hf7ou" path="res://ui/main_menu/main_menu.gd" id="1_mu8pm"]
+[ext_resource type="Texture2D" uid="uid://bbjahiwqx05ci" path="res://assets/sprites/snake spawn looper.png" id="1_uhj5c"]
+
+[node name="MainMenu" type="VBoxContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -333.5
+offset_top = -221.0
+offset_right = 333.5
+offset_bottom = 221.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mu8pm")
+
+[node name="SnakeSpawnLooper" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_uhj5c")
+expand_mode = 5
+stretch_mode = 4
+
+[node name="StartButton" type="Button" parent="."]
+layout_mode = 2
+text = "Start Game"
+
+[node name="OptionsButton" type="Button" parent="."]
+layout_mode = 2
+text = "Options"
+
+[node name="CreditsButton" type="Button" parent="."]
+layout_mode = 2
+text = "Credits"

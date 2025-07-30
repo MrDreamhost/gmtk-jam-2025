@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cu6420ipi24uy"]
+
+[ext_resource type="Script" uid="uid://bjdnjwdrk0vh7" path="res://level/obstacles/death_spike.gd" id="1_p3dmo"]
+[ext_resource type="Texture2D" uid="uid://bjwnao17x8v8x" path="res://assets/sprites/icon.svg" id="2_k7187"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_md73i"]
+size = Vector2(64, 24)
+
+[node name="DeathSpike" type="Area2D"]
+script = ExtResource("1_p3dmo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(0.85, 0.238, 0.17, 1)
+position = Vector2(0, -12)
+scale = Vector2(0.5, 0.1875)
+texture = ExtResource("2_k7187")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -12)
+shape = SubResource("RectangleShape2D_md73i")

@@ -13,7 +13,19 @@ config_version=5
 config/name="GMTK Jam 2025"
 run/main_scene="uid://d2iwwq2sfgujk"
 config/features=PackedStringArray("4.4", "GL Compatibility")
-config/icon="res://Art/icon.svg"
+boot_splash/image="uid://bbjahiwqx05ci"
+config/icon="uid://bjwnao17x8v8x"
+
+[file_customization]
+
+folder_colors={
+"res://assets/": "yellow",
+"res://game/": "pink",
+"res://level/": "orange",
+"res://loop_system/": "green",
+"res://player/": "purple",
+"res://ui/": "teal"
+}
 
 [rendering]
 
