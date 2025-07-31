@@ -1,26 +1,88 @@
-[gd_scene load_steps=4 format=3 uid="uid://b2hnjcnhd8ahv"]
+[gd_scene load_steps=19 format=3 uid="uid://b2hnjcnhd8ahv"]
 
 [ext_resource type="Script" uid="uid://bfc1yidsb74e7" path="res://level/goal_zone.gd" id="1_e63y6"]
-[ext_resource type="Texture2D" uid="uid://bjwnao17x8v8x" path="res://assets/sprites/icon.svg" id="2_jpdl3"]
+[ext_resource type="Texture2D" uid="uid://bdedgwfwf0vcc" path="res://assets/sprites/apple_spinning/0001.png" id="3_vm6xn"]
+[ext_resource type="Texture2D" uid="uid://bxdsxovnurdf7" path="res://assets/sprites/apple_spinning/0002.png" id="4_86dqc"]
+[ext_resource type="Texture2D" uid="uid://w7cehvmqntfd" path="res://assets/sprites/apple_spinning/0003.png" id="5_wlj41"]
+[ext_resource type="Texture2D" uid="uid://bmmp2rujsfelm" path="res://assets/sprites/apple_spinning/0004.png" id="6_tqoie"]
+[ext_resource type="Texture2D" uid="uid://cjy8fbm1oldf3" path="res://assets/sprites/apple_spinning/0005.png" id="7_68sdn"]
+[ext_resource type="Texture2D" uid="uid://c6hyjn8anq0k3" path="res://assets/sprites/apple_spinning/0006.png" id="8_b63l6"]
+[ext_resource type="Texture2D" uid="uid://d0j6v6a75iorb" path="res://assets/sprites/apple_spinning/0007.png" id="9_60hqq"]
+[ext_resource type="Texture2D" uid="uid://1loxavj07g4m" path="res://assets/sprites/apple_spinning/0008.png" id="10_n8kll"]
+[ext_resource type="Texture2D" uid="uid://dt6eqbiy6mmob" path="res://assets/sprites/apple_spinning/0009.png" id="11_jvh5h"]
+[ext_resource type="Texture2D" uid="uid://d0bvdwfr6meu6" path="res://assets/sprites/apple_spinning/0010.png" id="12_xpn5h"]
+[ext_resource type="Texture2D" uid="uid://7d7ci0qkj0jw" path="res://assets/sprites/apple_spinning/0011.png" id="13_gouvg"]
+[ext_resource type="Texture2D" uid="uid://cqwj663yhcnxv" path="res://assets/sprites/apple_spinning/0012.png" id="14_va8q8"]
+[ext_resource type="Texture2D" uid="uid://bgryufpxckfel" path="res://assets/sprites/apple_spinning/0013.png" id="15_pujat"]
+[ext_resource type="Texture2D" uid="uid://dmekklv4twqyk" path="res://assets/sprites/apple_spinning/0014.png" id="16_olw0m"]
+[ext_resource type="Texture2D" uid="uid://dqhruvoaauul7" path="res://assets/sprites/apple_spinning/0015.png" id="17_w6twm"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8hhs4"]
-size = Vector2(86, 80)
+[sub_resource type="SpriteFrames" id="SpriteFrames_rnsxq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_vm6xn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_86dqc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_wlj41")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_tqoie")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_68sdn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_b63l6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_60hqq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_n8kll")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_jvh5h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_xpn5h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_gouvg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_va8q8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_pujat")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_olw0m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_w6twm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 16.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nbkn6"]
+radius = 47.1699
 
 [node name="GoalZone" type="Area2D" groups=["goal_zone"]]
 script = ExtResource("1_e63y6")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.671875, 0.625)
-texture = ExtResource("2_jpdl3")
-
-[node name="Label" type="Label" parent="."]
-offset_left = -17.0
-offset_top = -102.0
-offset_right = 19.0
-offset_bottom = -79.0
-text = "Goal"
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 4)
+sprite_frames = SubResource("SpriteFrames_rnsxq")
+autoplay = "default"
+frame_progress = 0.132202
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_8hhs4")
+shape = SubResource("CircleShape2D_nbkn6")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
