@@ -1,12 +1,12 @@
 class_name Main extends Node2D
 
+@export var inital_level: PackedScene
 
 @onready var player_recorder: ReplayRecorder = $PlayerRecorder
 @onready var loop_timer: Timer = $LoopTimer
 @onready var label: Label = $CanvasLayer/Label
 @onready var player: Player = $Player
 
-var test_level: PackedScene = preload("res://level/test_level/test_level.tscn")
 var current_level: Level
 var spawned_ghosts: Array[PlayerGhost] = []
 var current_loop: int = 1
@@ -15,7 +15,7 @@ var changed_spawn: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	self.load_level(self.test_level.instantiate())
+	self.load_level(self.inital_level.instantiate())
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -80,8 +80,22 @@ func set_label_text() -> void:
 func load_level(level: Level) -> void:
 	self.current_level = level
 	self.add_child(self.current_level)
-	self.respawn_player()
+	self.reset_level()
+	for goal_zone: GoalZone in get_tree().get_nodes_in_group("goal_zone"):
+		if not goal_zone.goal_reached.is_connected(_on_goal_rached):
+			goal_zone.goal_reached.connect(_on_goal_rached)
+
 
 
 func _on_loop_timer_timeout() -> void:
 	self.reset_loop()
+
+
+func _on_goal_rached(next_level_file: String) -> void:
+	var next_level_scene := await LevelTransition.load_with_loading_screen(next_level_file) as PackedScene
+	if current_level:
+		current_level.queue_free()
+	var next_level := next_level_scene.instantiate() as Level
+	load_level(next_level)
+	LevelTransition.animation_player.play("fade_out")
+	await LevelTransition.animation_player.animation_finished

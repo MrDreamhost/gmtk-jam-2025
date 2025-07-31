@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8hhs4"]
 size = Vector2(86, 80)
 
-[node name="GoalZone" type="Area2D"]
+[node name="GoalZone" type="Area2D" groups=["goal_zone"]]
 script = ExtResource("1_e63y6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -24,3 +24,5 @@ text = "Goal"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -41)
 shape = SubResource("RectangleShape2D_8hhs4")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

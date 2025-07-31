@@ -234,7 +234,7 @@ animations = [{
 "speed": 30.0
 }]
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 platform_on_leave = 1
 safe_margin = 0.2
 script = ExtResource("1_rkbax")

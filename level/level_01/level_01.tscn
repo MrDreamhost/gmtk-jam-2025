@@ -1,11 +1,38 @@
-[gd_scene load_steps=2 format=3 uid="uid://d3eu8ibj2ld1b"]
+[gd_scene load_steps=6 format=3 uid="uid://d3eu8ibj2ld1b"]
 
 [ext_resource type="Script" uid="uid://bpokfberniss4" path="res://level/level_01/level_01.gd" id="1_2n58o"]
+[ext_resource type="Texture2D" uid="uid://bjwnao17x8v8x" path="res://assets/sprites/icon.svg" id="2_rdi31"]
+[ext_resource type="PackedScene" uid="uid://bcujsflu4nqbn" path="res://loop_system/spawn_point.tscn" id="3_aem8p"]
+[ext_resource type="PackedScene" uid="uid://b2hnjcnhd8ahv" path="res://level/goal_zone.tscn" id="4_mopx3"]
 
-[node name="Level01" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pw6xp"]
+size = Vector2(1153.5, 90)
+
+[node name="Level01" type="Node2D" node_paths=PackedStringArray("spawn_point")]
 script = ExtResource("1_2n58o")
+spawn_point = NodePath("SpawnPoint")
 
 [node name="Label" type="Label" parent="."]
 offset_right = 40.0
 offset_bottom = 23.0
 text = "Level 01"
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(211, 603)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(366.25, 0)
+shape = SubResource("RectangleShape2D_pw6xp")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2"]
+position = Vector2(365.25, 0)
+scale = Vector2(8.99609, 0.703125)
+texture = ExtResource("2_rdi31")
+
+[node name="SpawnPoint" parent="." instance=ExtResource("3_aem8p")]
+position = Vector2(40, 540)
+
+[node name="GoalZone" parent="." instance=ExtResource("4_mopx3")]
+position = Vector2(1101, 550)
+next_level_file = "uid://dslkeuxkcig4a"

@@ -16,6 +16,10 @@ config/features=PackedStringArray("4.4", "GL Compatibility")
 boot_splash/image="uid://bbjahiwqx05ci"
 config/icon="uid://bjwnao17x8v8x"
 
+[autoload]
+
+LevelTransition="*res://level/level_transition.tscn"
+
 [file_customization]
 
 folder_colors={
@@ -26,6 +30,11 @@ folder_colors={
 "res://player/": "purple",
 "res://ui/": "teal"
 }
+
+[global_group]
+
+player=""
+goal_zone=""
 
 [input]
 
