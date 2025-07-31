@@ -1,10 +1,48 @@
-[gd_scene load_steps=4 format=3 uid="uid://c0dapnlli3qqi"]
+[gd_scene load_steps=7 format=3 uid="uid://c0dapnlli3qqi"]
 
 [ext_resource type="Script" uid="uid://d3p7qm8m2omtf" path="res://player/player.gd" id="1_rkbax"]
-[ext_resource type="Texture2D" uid="uid://bjwnao17x8v8x" path="res://assets/sprites/icon.svg" id="2_g1dw6"]
+[ext_resource type="Texture2D" uid="uid://c0tgexhmopxq8" path="res://assets/sprites/slither/run_sheet.png" id="2_rkbax"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rkbax"]
-size = Vector2(48, 72)
+size = Vector2(103, 65)
+
+[sub_resource type="Animation" id="Animation_g1dw6"]
+resource_name = "run"
+length = 1.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+}
+
+[sub_resource type="Animation" id="Animation_yw30f"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qjkh3"]
+_data = {
+&"RESET": SubResource("Animation_yw30f"),
+&"run": SubResource("Animation_g1dw6")
+}
 
 [node name="Player" type="CharacterBody2D"]
 platform_on_leave = 1
@@ -12,9 +50,10 @@ safe_margin = 0.2
 script = ExtResource("1_rkbax")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -36)
-scale = Vector2(0.375, 0.563)
-texture = ExtResource("2_g1dw6")
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_rkbax")
+offset = Vector2(0, -124)
+hframes = 12
 
 [node name="Label" type="Label" parent="Sprite2D"]
 offset_left = -28.4444
@@ -25,5 +64,10 @@ text = "Player"
 metadata/_edit_use_anchors_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -36)
+position = Vector2(0.5, -32.5)
 shape = SubResource("RectangleShape2D_rkbax")
+
+[node name="PlayerAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_qjkh3")
+}
