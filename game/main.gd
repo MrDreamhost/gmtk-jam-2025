@@ -62,9 +62,13 @@ func reset_level() -> void:
 
 
 func spawn_ghost() -> void:
-	var ghost: PlayerGhost = self.player_recorder.spawn_ghost(self.current_loop)
-	spawned_ghosts.append(ghost)
-	add_child(ghost)
+	if spawned_ghosts.size() >= 1:
+		var ghost: PlayerGhost = spawned_ghosts[0]
+		ghost.replay_data = self.player_recorder.replay_data
+	else:
+		var ghost: PlayerGhost = self.player_recorder.spawn_ghost(self.current_loop)
+		spawned_ghosts.append(ghost)
+		add_child(ghost)
 	print("SPAWNED GHOSTS: %s" % self.spawned_ghosts.size())
 
 
