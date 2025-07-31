@@ -43,6 +43,7 @@ func reset_loop() -> void:
 		self.spawn_ghost()
 		self.current_loop += 1
 		self.changed_spawn = false
+	self.player_recorder.reset_replay_data()
 	self.respawn_player()
 	self.reset_ghosts()
 
