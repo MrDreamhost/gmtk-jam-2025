@@ -19,6 +19,7 @@ func _ready() -> void:
 	on_movement_ended()
 	if connected_button:
 		connected_button.button_changed.connect(on_button_changed)
+		paused = true
 
 
 func on_movement_ended() -> void:
