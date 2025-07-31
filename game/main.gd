@@ -9,6 +9,7 @@ class_name Main extends Node2D
 
 var spawned_ghosts: Array[PlayerGhost] = []
 var current_loop: int = 1
+var changed_spawn: bool = false
 
 
 # Called when the node enters the scene tree for the first time.
@@ -21,6 +22,7 @@ func _process(delta: float) -> void:
 	self.set_label_text()
 
 	if Input.is_action_just_pressed("set_spawn_point"):
+		self.changed_spawn = true
 		self.level.set_spawn_point(self.player.global_position)
 
 	if Input.is_action_just_pressed("reset_level"):
@@ -37,10 +39,12 @@ func respawn_player() -> void:
 
 
 func reset_loop() -> void:
-	self.spawn_ghost()
+	if self.changed_spawn:
+		self.spawn_ghost()
+		self.current_loop += 1
+		self.changed_spawn = false
 	self.respawn_player()
-	self.current_loop += 1
-	#self.reset_ghosts()
+	self.reset_ghosts()
 
 
 func reset_level() -> void:
