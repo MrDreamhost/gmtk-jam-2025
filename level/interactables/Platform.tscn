@@ -9,7 +9,6 @@ size = Vector2(102, 106)
 
 [node name="ResizablePlatform" type="StaticBody2D"]
 script = ExtResource("1_3gtpk")
-tile_texture = ExtResource("2_gc15r")
 
 [node name="Line2D" type="Line2D" parent="."]
 texture_repeat = 2

@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://dslkeuxkcig4a"]
 
 [ext_resource type="Script" uid="uid://cr5paax0qa013" path="res://level/level_02/level_02.gd" id="1_wco2t"]
-[ext_resource type="PackedScene" uid="uid://dwhmt4nsonqkc" path="res://level/interactables/Platform.tscn" id="2_xmyjc"]
+[ext_resource type="PackedScene" uid="uid://coobrpw2ubqjw" path="res://level/interactables/Platform.tscn" id="2_xmyjc"]
 [ext_resource type="PackedScene" uid="uid://cu6420ipi24uy" path="res://level/obstacles/death_spike.tscn" id="3_3muha"]
 [ext_resource type="PackedScene" uid="uid://bcujsflu4nqbn" path="res://loop_system/spawn_point.tscn" id="4_j65wl"]
 [ext_resource type="PackedScene" uid="uid://b2hnjcnhd8ahv" path="res://level/goal_zone.tscn" id="5_emc5r"]
@@ -21,35 +21,33 @@ offset_right = 40.0
 offset_bottom = 23.0
 text = "Level 02"
 
-[node name="Platform1" type="Node2D" parent="."]
+[node name="Walls" type="StaticBody2D" parent="."]
+
+[node name="Wall Left" type="CollisionShape2D" parent="Walls"]
+position = Vector2(-10, 540)
+shape = SubResource("RectangleShape2D_xmyjc")
+
+[node name="Wall Right" type="CollisionShape2D" parent="Walls"]
+position = Vector2(1930, 540)
+shape = SubResource("RectangleShape2D_xmyjc")
+
+[node name="Ceiling" type="CollisionShape2D" parent="Walls"]
+position = Vector2(960, -10)
+shape = SubResource("RectangleShape2D_3muha")
+
+[node name="Floor" type="CollisionShape2D" parent="Walls"]
+position = Vector2(960, 1090)
+shape = SubResource("RectangleShape2D_3muha")
+
+[node name="Platform3" parent="." instance=ExtResource("2_xmyjc")]
 position = Vector2(0, 1080)
-metadata/_edit_group_ = true
+width_in_pixel = 408
+width_in_tile = 4
 
-[node name="Platform1" parent="Platform1" instance=ExtResource("2_xmyjc")]
-
-[node name="Platform2" parent="Platform1" instance=ExtResource("2_xmyjc")]
-position = Vector2(102, 0)
-
-[node name="Platform3" parent="Platform1" instance=ExtResource("2_xmyjc")]
-position = Vector2(204, 0)
-
-[node name="Platform4" parent="Platform1" instance=ExtResource("2_xmyjc")]
-position = Vector2(306, 0)
-
-[node name="Platform2" type="Node2D" parent="."]
+[node name="Platform1" parent="." instance=ExtResource("2_xmyjc")]
 position = Vector2(1122, 771)
-metadata/_edit_group_ = true
-
-[node name="Platform1" parent="Platform2" instance=ExtResource("2_xmyjc")]
-
-[node name="Platform2" parent="Platform2" instance=ExtResource("2_xmyjc")]
-position = Vector2(102, 0)
-
-[node name="Platform3" parent="Platform2" instance=ExtResource("2_xmyjc")]
-position = Vector2(204, 0)
-
-[node name="Platform4" parent="Platform2" instance=ExtResource("2_xmyjc")]
-position = Vector2(306, 0)
+width_in_pixel = 408
+width_in_tile = 4
 
 [node name="DeathSpikesPlatform1" type="Node2D" parent="."]
 position = Vector2(861, 888)
@@ -80,21 +78,3 @@ position = Vector2(0, 977)
 [node name="GoalZone" parent="." instance=ExtResource("5_emc5r")]
 position = Vector2(1428, 565)
 next_level_file = "uid://dprdcmdnfniia"
-
-[node name="Walls" type="StaticBody2D" parent="."]
-
-[node name="Wall Left" type="CollisionShape2D" parent="Walls"]
-position = Vector2(-10, 540)
-shape = SubResource("RectangleShape2D_xmyjc")
-
-[node name="Wall Right" type="CollisionShape2D" parent="Walls"]
-position = Vector2(1930, 540)
-shape = SubResource("RectangleShape2D_xmyjc")
-
-[node name="Ceiling" type="CollisionShape2D" parent="Walls"]
-position = Vector2(960, -10)
-shape = SubResource("RectangleShape2D_3muha")
-
-[node name="Floor" type="CollisionShape2D" parent="Walls"]
-position = Vector2(960, 1090)
-shape = SubResource("RectangleShape2D_3muha")
