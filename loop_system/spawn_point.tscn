@@ -134,15 +134,14 @@ animations = [{
 script = ExtResource("1_oh74y")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -30)
-scale = Vector2(0.5, 0.5)
+position = Vector2(99, -87.5)
 sprite_frames = SubResource("SpriteFrames_5j141")
 autoplay = "default"
 frame_progress = 0.927292
 
 [node name="Label" type="Label" parent="."]
-offset_left = -25.0
-offset_top = -87.0
-offset_right = 27.0
-offset_bottom = -64.0
+offset_left = 75.0
+offset_top = -178.0
+offset_right = 127.0
+offset_bottom = -155.0
 text = "Spawn"

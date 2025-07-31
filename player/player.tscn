@@ -234,6 +234,7 @@ libraries = {
 }
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 1
 position = Vector2(96, -98.5)
 sprite_frames = SubResource("SpriteFrames_8rogd")
 frame_progress = 0.932553
