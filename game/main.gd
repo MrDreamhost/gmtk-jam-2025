@@ -13,21 +13,18 @@ var current_loop: int = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	self.player.global_position = self.level.spawn_point.global_position
+	self.respawn_player()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	self.set_label_text()
-	if Input.is_action_just_pressed("spawn_ghost"):
-		var ghost_number: int  = self.spawned_ghosts.size() + 1
-		var ghost: PlayerGhost = self.player_recorder.spawn_ghost(ghost_number)
-		spawned_ghosts.append(ghost)
-		add_child(ghost)
-		print("SPAWNED GHOSTS: %s" % self.spawned_ghosts.size())
 
-	if Input.is_action_just_pressed("reset_ghosts"):
-		self.reset_ghosts()
+	if Input.is_action_just_pressed("set_spawn_point"):
+		self.level.set_spawn_point(self.player.global_position)
+
+	if Input.is_action_just_pressed("reset_level"):
+		self.reset_level()
 
 
 func reset_ghosts() -> void:
@@ -35,9 +32,39 @@ func reset_ghosts() -> void:
 		spawned_ghost.reset_position()
 
 
+func respawn_player() -> void:
+	self.player.global_position = self.level.spawn_point.global_position
+
+
+func reset_loop() -> void:
+	self.spawn_ghost()
+	self.respawn_player()
+	self.current_loop += 1
+	#self.reset_ghosts()
+
+
+func reset_level() -> void:
+	self.loop_timer.stop()
+	self.player.global_position = self.level.initial_spawn_position
+	self.level.set_spawn_point(self.level.initial_spawn_position)
+	for ghost: PlayerGhost in self.spawned_ghosts:
+		ghost.queue_free()
+	self.spawned_ghosts.clear()
+	self.current_loop = 1
+	self.player_recorder.reset_replay_data()
+	self.loop_timer.start()
+
+
+func spawn_ghost() -> void:
+	var ghost: PlayerGhost = self.player_recorder.spawn_ghost(self.current_loop)
+	spawned_ghosts.append(ghost)
+	add_child(ghost)
+	print("SPAWNED GHOSTS: %s" % self.spawned_ghosts.size())
+
+
 func set_label_text() -> void:
 	self.label.text = "Loop: %d\nTime: %.2f" % [self.current_loop, self.loop_timer.time_left]
 
 
 func _on_loop_timer_timeout() -> void:
-	self.current_loop += 1
+	self.reset_loop()
