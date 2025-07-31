@@ -1,10 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://j204ye1j7wlr"]
+[gd_scene load_steps=9 format=3 uid="uid://j204ye1j7wlr"]
 
 [ext_resource type="Script" uid="uid://5w7l6biespg3" path="res://level/test_level/test_level.gd" id="1_ojvsg"]
 [ext_resource type="Texture2D" uid="uid://bjwnao17x8v8x" path="res://assets/sprites/icon.svg" id="1_twal5"]
 [ext_resource type="PackedScene" uid="uid://bcujsflu4nqbn" path="res://loop_system/spawn_point.tscn" id="2_u1e15"]
+[ext_resource type="PackedScene" uid="uid://cy5gaxsvp2xpd" path="res://level/obstacles/moving_platform.tscn" id="3_ukeax"]
 [ext_resource type="PackedScene" uid="uid://b2hnjcnhd8ahv" path="res://level/goal_zone.tscn" id="4_j6nex"]
 [ext_resource type="PackedScene" uid="uid://cu6420ipi24uy" path="res://level/obstacles/death_spike.tscn" id="5_icfbs"]
+[ext_resource type="PackedScene" uid="uid://dymffw6ntadbo" path="res://level/interactables/pressure_plate.tscn" id="6_a5c1y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5d2q1"]
 size = Vector2(421, 90)
@@ -46,16 +48,11 @@ shape = SubResource("RectangleShape2D_5d2q1")
 scale = Vector2(3.28906, 0.703125)
 texture = ExtResource("1_twal5")
 
-[node name="StaticBody2D5" type="StaticBody2D" parent="."]
-position = Vector2(1053, 603)
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5"]
-shape = SubResource("RectangleShape2D_5d2q1")
-
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D5"]
-scale = Vector2(3.28906, 0.703125)
-texture = ExtResource("1_twal5")
+[node name="MovingPlatform2" parent="." node_paths=PackedStringArray("connected_button") instance=ExtResource("3_ukeax")]
+position = Vector2(1050, 600)
+connected_button = NodePath("../InteractButton")
+target_position = Vector2(850, 600)
+movement_trans = 4
 
 [node name="SpawnPoint" parent="." instance=ExtResource("2_u1e15")]
 position = Vector2(44, 540)
@@ -84,3 +81,6 @@ position = Vector2(770, 585)
 
 [node name="DeathSpike7" parent="." instance=ExtResource("5_icfbs")]
 position = Vector2(832, 585)
+
+[node name="InteractButton" parent="." instance=ExtResource("6_a5c1y")]
+position = Vector2(205, 552)

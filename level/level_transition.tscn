@@ -289,6 +289,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
 
 [node name="Control" type="Control" parent="DisolveRect"]
 custom_minimum_size = Vector2(256, 256)
@@ -306,6 +307,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+metadata/_edit_lock_ = true
 
 [node name="LoadingAnimation" type="AnimatedSprite2D" parent="DisolveRect/Control"]
 position = Vector2(128, 128)
@@ -313,6 +315,7 @@ scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_qxp2d")
 autoplay = "default"
 frame_progress = 0.662425
+metadata/_edit_lock_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
