@@ -97,5 +97,5 @@ func _on_goal_rached(next_level_file: String) -> void:
 		current_level.queue_free()
 	var next_level := next_level_scene.instantiate() as Level
 	load_level(next_level)
-	LevelTransition.animation_player.play("fade_out")
+	LevelTransition.play_fade_out()
 	await LevelTransition.animation_player.animation_finished

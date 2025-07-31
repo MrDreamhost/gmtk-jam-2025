@@ -3,7 +3,7 @@ extends Node2D
 @export var connected_button: PressurePlate
 @export var target_position: Vector2
 @export var move_duration_sec: float = 1.0
-@export var return_delay_sec: float = 3.0
+@export var return_delay_sec: float = 0.0
 
 @export var movement_trans : Tween.TransitionType
 @export var movement_ease : Tween.EaseType
@@ -25,10 +25,8 @@ func _ready() -> void:
 func on_movement_ended() -> void:
 	tween = create_tween()
 	tween.set_process_mode(Tween.TWEEN_PROCESS_PHYSICS)
-	if movement_trans:
-		tween.set_trans(movement_trans)
-	if movement_ease:
-		tween.set_ease(movement_ease)
+	tween.set_trans(movement_trans)
+	tween.set_ease(movement_ease)
 	if returning:
 		tween.tween_property(self, "global_position", original_position, move_duration_sec).from(target_position)
 		tween.tween_callback(on_movement_ended).set_delay(return_delay_sec)
@@ -48,4 +46,3 @@ func set_paused(_paused: bool) -> void:
 		tween.pause()
 	elif not tween.is_running():
 		tween.play()
-	
