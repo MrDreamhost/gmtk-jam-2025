@@ -30,10 +30,10 @@ func on_movement_ended() -> void:
 	if movement_ease:
 		tween.set_ease(movement_ease)
 	if returning:
-		tween.tween_property(self, "global_position", target_position, move_duration_sec).from(original_position)
+		tween.tween_property(self, "global_position", original_position, move_duration_sec).from(target_position)
 		tween.tween_callback(on_movement_ended).set_delay(return_delay_sec)
 	else:
-		tween.tween_property(self, "global_position", original_position, move_duration_sec).from(target_position)
+		tween.tween_property(self, "global_position", target_position, move_duration_sec).from(original_position)
 		tween.tween_callback(on_movement_ended).set_delay(return_delay_sec)
 	returning = !returning
 
