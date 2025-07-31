@@ -62,6 +62,7 @@ position = Vector2(44, 540)
 
 [node name="GoalZone" parent="." instance=ExtResource("4_j6nex")]
 position = Vector2(126, 197)
+next_level_file = "uid://j204ye1j7wlr"
 
 [node name="DeathSpike" parent="." instance=ExtResource("5_icfbs")]
 position = Vector2(455, 585)
