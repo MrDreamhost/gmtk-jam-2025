@@ -1,11 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://d2iwwq2sfgujk"]
+[gd_scene load_steps=5 format=3 uid="uid://d2iwwq2sfgujk"]
 
 [ext_resource type="Script" uid="uid://dflftgnlarl0a" path="res://game/main.gd" id="1_xtpaf"]
-[ext_resource type="Texture2D" uid="uid://bjwnao17x8v8x" path="res://assets/sprites/icon.svg" id="2_emt18"]
+[ext_resource type="PackedScene" uid="uid://j204ye1j7wlr" path="res://level/test_level/test_level.tscn" id="2_xtpaf"]
+[ext_resource type="PackedScene" uid="uid://c0dapnlli3qqi" path="res://player/player.tscn" id="3_emt18"]
+[ext_resource type="Script" uid="uid://4det2vjn1nki" path="res://loop_system/replay_recorder.gd" id="4_vop5m"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_xtpaf")
 
-[node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(133, 125)
-texture = ExtResource("2_emt18")
+[node name="TestLevel" parent="." instance=ExtResource("2_xtpaf")]
+
+[node name="Player" parent="." instance=ExtResource("3_emt18")]
+
+[node name="PlayerRecorder" type="Node2D" parent="." node_paths=PackedStringArray("player")]
+script = ExtResource("4_vop5m")
+player = NodePath("../Player")

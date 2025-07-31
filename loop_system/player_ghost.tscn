@@ -1,6 +1,34 @@
-[gd_scene load_steps=2 format=3 uid="uid://dse438ppxg1ld"]
+[gd_scene load_steps=4 format=3 uid="uid://dse438ppxg1ld"]
 
 [ext_resource type="Script" uid="uid://78kkvrlap4le" path="res://loop_system/player_ghost.gd" id="1_344kn"]
+[ext_resource type="Texture2D" uid="uid://bjwnao17x8v8x" path="res://assets/sprites/icon.svg" id="2_ymobc"]
 
-[node name="PlayerGhost" type="Node2D"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ymobc"]
+radius = 26.0
+height = 80.0
+
+[node name="PlayerGhost" type="CharacterBody2D"]
 script = ExtResource("1_344kn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(0.295867, 0.295866, 0.295866, 1)
+position = Vector2(0, -41)
+scale = Vector2(0.421875, 0.632813)
+texture = ExtResource("2_ymobc")
+
+[node name="Label" type="Label" parent="Sprite2D"]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -103.0
+offset_top = -86.5617
+offset_right = -25.0
+offset_bottom = -63.5617
+grow_horizontal = 2
+grow_vertical = 0
+text = "Ghost 999"
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -40)
+shape = SubResource("CapsuleShape2D_ymobc")

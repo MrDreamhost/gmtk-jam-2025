@@ -21,6 +21,7 @@ offset_top = -83.7531
 offset_right = 20.5556
 offset_bottom = -60.7531
 text = "Player"
+metadata/_edit_use_anchors_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -40)
