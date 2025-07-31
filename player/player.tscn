@@ -3,9 +3,8 @@
 [ext_resource type="Script" uid="uid://d3p7qm8m2omtf" path="res://player/player.gd" id="1_rkbax"]
 [ext_resource type="Texture2D" uid="uid://bjwnao17x8v8x" path="res://assets/sprites/icon.svg" id="2_g1dw6"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yw30f"]
-radius = 26.0
-height = 80.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rkbax"]
+size = Vector2(48, 72)
 
 [node name="Player" type="CharacterBody2D"]
 platform_on_leave = 1
@@ -13,8 +12,8 @@ safe_margin = 0.2
 script = ExtResource("1_rkbax")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -41)
-scale = Vector2(0.421875, 0.632813)
+position = Vector2(0, -36)
+scale = Vector2(0.375, 0.563)
 texture = ExtResource("2_g1dw6")
 
 [node name="Label" type="Label" parent="Sprite2D"]
@@ -26,5 +25,5 @@ text = "Player"
 metadata/_edit_use_anchors_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -40)
-shape = SubResource("CapsuleShape2D_yw30f")
+position = Vector2(0, -36)
+shape = SubResource("RectangleShape2D_rkbax")
