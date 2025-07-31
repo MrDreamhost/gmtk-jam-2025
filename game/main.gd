@@ -38,6 +38,7 @@ func reset_ghosts() -> void:
 func respawn_player() -> void:
 	self.player.global_position = self.current_level.spawn_point.global_position
 	self.player.velocity = Vector2(0,0)
+	self.player.handle_respawn_when_dead()
 
 
 func reset_loop() -> void:

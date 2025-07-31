@@ -1,13 +1,16 @@
-[gd_scene load_steps=7 format=3 uid="uid://dprdcmdnfniia"]
+[gd_scene load_steps=8 format=3 uid="uid://dprdcmdnfniia"]
 
 [ext_resource type="Script" uid="uid://cr5paax0qa013" path="res://level/level_02/level_02.gd" id="1_14ypm"]
-[ext_resource type="Texture2D" uid="uid://bjwnao17x8v8x" path="res://assets/sprites/icon.svg" id="2_lvqq1"]
 [ext_resource type="PackedScene" uid="uid://cu6420ipi24uy" path="res://level/obstacles/death_spike.tscn" id="3_si3cn"]
 [ext_resource type="PackedScene" uid="uid://bcujsflu4nqbn" path="res://loop_system/spawn_point.tscn" id="4_wteuf"]
 [ext_resource type="PackedScene" uid="uid://b2hnjcnhd8ahv" path="res://level/goal_zone.tscn" id="5_dlqic"]
+[ext_resource type="PackedScene" uid="uid://dwhmt4nsonqkc" path="res://level/interactables/Platform.tscn" id="5_lvqq1"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cguju"]
-size = Vector2(362.5, 90)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_si3cn"]
+size = Vector2(20, 1100)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wteuf"]
+size = Vector2(1960, 20)
 
 [node name="Level03" type="Node2D" node_paths=PackedStringArray("spawn_point")]
 script = ExtResource("1_14ypm")
@@ -18,144 +21,157 @@ offset_right = 40.0
 offset_bottom = 23.0
 text = "Level 03"
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="Label"]
-position = Vector2(367, 351)
-rotation = -1.5708
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Label/StaticBody2D2"]
-position = Vector2(-29.25, 0)
-shape = SubResource("RectangleShape2D_cguju")
-
-[node name="Sprite2D" type="Sprite2D" parent="Label/StaticBody2D2"]
-position = Vector2(-30.2499, 0)
-scale = Vector2(2.8164, 0.703125)
-texture = ExtResource("2_lvqq1")
-
-[node name="StaticBody2D8" type="StaticBody2D" parent="Label"]
-position = Vector2(63, 163)
-rotation = -1.5708
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Label/StaticBody2D8"]
-position = Vector2(-29.25, 0)
-shape = SubResource("RectangleShape2D_cguju")
-
-[node name="Sprite2D" type="Sprite2D" parent="Label/StaticBody2D8"]
-position = Vector2(-30.2499, 0)
-scale = Vector2(2.8164, 0.703125)
-texture = ExtResource("2_lvqq1")
-
-[node name="StaticBody2D5" type="StaticBody2D" parent="Label"]
-position = Vector2(609, 25)
-rotation = -1.5708
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Label/StaticBody2D5"]
-position = Vector2(-29.25, 0)
-shape = SubResource("RectangleShape2D_cguju")
-
-[node name="Sprite2D" type="Sprite2D" parent="Label/StaticBody2D5"]
-position = Vector2(-30.2499, 0)
-scale = Vector2(2.8164, 0.703125)
-texture = ExtResource("2_lvqq1")
-
-[node name="StaticBody2D6" type="StaticBody2D" parent="Label"]
-position = Vector2(-46, 443)
-rotation = -1.5708
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Label/StaticBody2D6"]
-position = Vector2(-29.25, 0)
-shape = SubResource("RectangleShape2D_cguju")
-
-[node name="Sprite2D" type="Sprite2D" parent="Label/StaticBody2D6"]
-position = Vector2(-30.2499, 0)
-scale = Vector2(2.8164, 0.703125)
-texture = ExtResource("2_lvqq1")
-
-[node name="StaticBody2D3" type="StaticBody2D" parent="Label"]
-position = Vector2(210, 604)
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Label/StaticBody2D3"]
-position = Vector2(-29.25, 0)
-shape = SubResource("RectangleShape2D_cguju")
-
-[node name="Sprite2D" type="Sprite2D" parent="Label/StaticBody2D3"]
-position = Vector2(-30.2499, 0)
-scale = Vector2(2.8164, 0.703125)
-texture = ExtResource("2_lvqq1")
-
-[node name="StaticBody2D10" type="StaticBody2D" parent="Label"]
-position = Vector2(573, 604)
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Label/StaticBody2D10"]
-position = Vector2(-29.25, 0)
-shape = SubResource("RectangleShape2D_cguju")
-
-[node name="Sprite2D" type="Sprite2D" parent="Label/StaticBody2D10"]
-position = Vector2(-30.2499, 0)
-scale = Vector2(2.8164, 0.703125)
-texture = ExtResource("2_lvqq1")
-
-[node name="StaticBody2D9" type="StaticBody2D" parent="Label"]
-position = Vector2(321, -13)
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Label/StaticBody2D9"]
-position = Vector2(-29.25, 0)
-shape = SubResource("RectangleShape2D_cguju")
-
-[node name="Sprite2D" type="Sprite2D" parent="Label/StaticBody2D9"]
-position = Vector2(-30.2499, 0)
-scale = Vector2(2.8164, 0.703125)
-texture = ExtResource("2_lvqq1")
-
-[node name="StaticBody2D7" type="StaticBody2D" parent="Label"]
-position = Vector2(-43, 419)
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Label/StaticBody2D7"]
-position = Vector2(-29.25, 0)
-shape = SubResource("RectangleShape2D_cguju")
-
-[node name="Sprite2D" type="Sprite2D" parent="Label/StaticBody2D7"]
-position = Vector2(-30.2499, 0)
-scale = Vector2(2.8164, 0.703125)
-texture = ExtResource("2_lvqq1")
-
-[node name="StaticBody2D4" type="StaticBody2D" parent="Label"]
-position = Vector2(622, 580)
-rotation = -1.5708
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Label/StaticBody2D4"]
-position = Vector2(-29.25, 0)
-shape = SubResource("RectangleShape2D_cguju")
-
-[node name="Sprite2D" type="Sprite2D" parent="Label/StaticBody2D4"]
-position = Vector2(-30.2499, 0)
-scale = Vector2(2.8164, 0.703125)
-texture = ExtResource("2_lvqq1")
-
-[node name="DeathSpike" parent="Label" instance=ExtResource("3_si3cn")]
-position = Vector2(593, 425)
-
-[node name="DeathSpike4" parent="Label" instance=ExtResource("3_si3cn")]
-position = Vector2(491, 520)
-
-[node name="DeathSpike5" parent="Label" instance=ExtResource("3_si3cn")]
-position = Vector2(426, 520)
-
-[node name="DeathSpike3" parent="Label" instance=ExtResource("3_si3cn")]
-position = Vector2(575, 460)
-rotation = -1.5708
-
 [node name="SpawnPoint" parent="Label" instance=ExtResource("4_wteuf")]
-position = Vector2(49, 542)
+position = Vector2(0, 977)
 
 [node name="GoalZone" parent="Label" instance=ExtResource("5_dlqic")]
-position = Vector2(685, 421)
+position = Vector2(1836, 668)
 next_level_file = "uid://dprdcmdnfniia"
+
+[node name="DeathSpike" parent="Label" instance=ExtResource("3_si3cn")]
+position = Vector2(1530, 874)
+rotation = -1.5708
+
+[node name="DeathSpike8" parent="Label" instance=ExtResource("3_si3cn")]
+position = Vector2(1530, 771)
+rotation = -1.5708
+
+[node name="DeathSpike2" parent="Label" instance=ExtResource("3_si3cn")]
+position = Vector2(1428, 1080)
+
+[node name="DeathSpike4" parent="Label" instance=ExtResource("3_si3cn")]
+position = Vector2(1326, 1080)
+
+[node name="DeathSpike5" parent="Label" instance=ExtResource("3_si3cn")]
+position = Vector2(1224, 1080)
+
+[node name="DeathSpike6" parent="Label" instance=ExtResource("3_si3cn")]
+position = Vector2(1122, 1080)
+
+[node name="DeathSpike7" parent="Label" instance=ExtResource("3_si3cn")]
+position = Vector2(1020, 1080)
+
+[node name="DeathSpike3" parent="Label" instance=ExtResource("3_si3cn")]
+position = Vector2(1530, 977)
+rotation = -1.5708
+
+[node name="Platform8" parent="." instance=ExtResource("5_lvqq1")]
+position = Vector2(1836, 874)
+
+[node name="Platform9" parent="." instance=ExtResource("5_lvqq1")]
+position = Vector2(1734, 874)
+
+[node name="Platform10" parent="." instance=ExtResource("5_lvqq1")]
+position = Vector2(1632, 874)
+
+[node name="Platform11" parent="." instance=ExtResource("5_lvqq1")]
+position = Vector2(1530, 874)
+
+[node name="Platform start" type="Node2D" parent="."]
+position = Vector2(0, 1080)
+
+[node name="Platform" parent="Platform start" instance=ExtResource("5_lvqq1")]
+
+[node name="Platform2" parent="Platform start" instance=ExtResource("5_lvqq1")]
+position = Vector2(102, 0)
+
+[node name="Platform3" parent="Platform start" instance=ExtResource("5_lvqq1")]
+position = Vector2(204, 0)
+
+[node name="Platform4" parent="Platform start" instance=ExtResource("5_lvqq1")]
+position = Vector2(306, 0)
+
+[node name="Platform5" parent="Platform start" instance=ExtResource("5_lvqq1")]
+position = Vector2(408, 0)
+
+[node name="Platform6" parent="Platform start" instance=ExtResource("5_lvqq1")]
+position = Vector2(510, 0)
+
+[node name="Platform7" parent="Platform start" instance=ExtResource("5_lvqq1")]
+position = Vector2(612, 0)
+
+[node name="Platform12" parent="Platform start" instance=ExtResource("5_lvqq1")]
+position = Vector2(714, 0)
+
+[node name="Platform27" parent="." instance=ExtResource("5_lvqq1")]
+position = Vector2(1428, 462)
+
+[node name="Platform28" parent="." instance=ExtResource("5_lvqq1")]
+position = Vector2(1428, 359)
+
+[node name="Platform29" parent="." instance=ExtResource("5_lvqq1")]
+position = Vector2(1428, 256)
+
+[node name="Platform30" parent="." instance=ExtResource("5_lvqq1")]
+position = Vector2(1428, 153)
+
+[node name="Platform33" parent="." instance=ExtResource("5_lvqq1")]
+position = Vector2(1428, 50)
+
+[node name="Tower" type="Node2D" parent="."]
+position = Vector2(918, 1080)
+
+[node name="Platform13" parent="Tower" instance=ExtResource("5_lvqq1")]
+position = Vector2(-102, 0)
+
+[node name="Platform14" parent="Tower" instance=ExtResource("5_lvqq1")]
+position = Vector2(-102, -103)
+
+[node name="Platform15" parent="Tower" instance=ExtResource("5_lvqq1")]
+position = Vector2(-102, -206)
+
+[node name="Platform16" parent="Tower" instance=ExtResource("5_lvqq1")]
+position = Vector2(-102, -309)
+
+[node name="Platform17" parent="Tower" instance=ExtResource("5_lvqq1")]
+position = Vector2(-102, -412)
+
+[node name="Platform18" parent="Tower" instance=ExtResource("5_lvqq1")]
+position = Vector2(-102, -515)
+
+[node name="Platform19" parent="Tower" instance=ExtResource("5_lvqq1")]
+
+[node name="Platform20" parent="Tower" instance=ExtResource("5_lvqq1")]
+position = Vector2(0, -103)
+
+[node name="Platform21" parent="Tower" instance=ExtResource("5_lvqq1")]
+position = Vector2(0, -206)
+
+[node name="Platform22" parent="Tower" instance=ExtResource("5_lvqq1")]
+position = Vector2(0, -309)
+
+[node name="Platform23" parent="Tower" instance=ExtResource("5_lvqq1")]
+position = Vector2(0, -412)
+
+[node name="Platform24" parent="Tower" instance=ExtResource("5_lvqq1")]
+position = Vector2(0, -515)
+
+[node name="Platform25" parent="Tower" instance=ExtResource("5_lvqq1")]
+position = Vector2(-102, -618)
+
+[node name="Platform26" parent="Tower" instance=ExtResource("5_lvqq1")]
+position = Vector2(-102, -721)
+
+[node name="Platform31" parent="Tower" instance=ExtResource("5_lvqq1")]
+position = Vector2(0, -618)
+
+[node name="Platform32" parent="Tower" instance=ExtResource("5_lvqq1")]
+position = Vector2(0, -721)
+
+[node name="Walls" type="StaticBody2D" parent="."]
+
+[node name="Wall Left" type="CollisionShape2D" parent="Walls"]
+position = Vector2(-10, 540)
+shape = SubResource("RectangleShape2D_si3cn")
+
+[node name="Wall Right" type="CollisionShape2D" parent="Walls"]
+position = Vector2(1930, 540)
+shape = SubResource("RectangleShape2D_si3cn")
+
+[node name="Ceiling" type="CollisionShape2D" parent="Walls"]
+position = Vector2(960, -10)
+shape = SubResource("RectangleShape2D_wteuf")
+
+[node name="Floor" type="CollisionShape2D" parent="Walls"]
+position = Vector2(960, 1090)
+shape = SubResource("RectangleShape2D_wteuf")
