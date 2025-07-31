@@ -1,12 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://d3eu8ibj2ld1b"]
+[gd_scene load_steps=7 format=3 uid="uid://d3eu8ibj2ld1b"]
 
 [ext_resource type="Script" uid="uid://bpokfberniss4" path="res://level/level_01/level_01.gd" id="1_2n58o"]
-[ext_resource type="Texture2D" uid="uid://bjwnao17x8v8x" path="res://assets/sprites/icon.svg" id="2_rdi31"]
 [ext_resource type="PackedScene" uid="uid://bcujsflu4nqbn" path="res://loop_system/spawn_point.tscn" id="3_aem8p"]
 [ext_resource type="PackedScene" uid="uid://b2hnjcnhd8ahv" path="res://level/goal_zone.tscn" id="4_mopx3"]
+[ext_resource type="PackedScene" uid="uid://dwhmt4nsonqkc" path="res://level/interactables/Platform.tscn" id="4_rdi31"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_pw6xp"]
-size = Vector2(1153.5, 90)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tuypi"]
+size = Vector2(20, 700)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rdi31"]
+size = Vector2(1200, 20)
 
 [node name="Level01" type="Node2D" node_paths=PackedStringArray("spawn_point")]
 script = ExtResource("1_2n58o")
@@ -17,22 +20,115 @@ offset_right = 40.0
 offset_bottom = 23.0
 text = "Level 01"
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="."]
-position = Vector2(211, 603)
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
-position = Vector2(366.25, 0)
-shape = SubResource("RectangleShape2D_pw6xp")
-
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2"]
-position = Vector2(365.25, 0)
-scale = Vector2(8.99609, 0.703125)
-texture = ExtResource("2_rdi31")
-
 [node name="SpawnPoint" parent="." instance=ExtResource("3_aem8p")]
 position = Vector2(40, 540)
 
 [node name="GoalZone" parent="." instance=ExtResource("4_mopx3")]
-position = Vector2(1101, 550)
+position = Vector2(38, 338)
 next_level_file = "uid://dslkeuxkcig4a"
+
+[node name="Walls" type="StaticBody2D" parent="."]
+
+[node name="Wall Left" type="CollisionShape2D" parent="Walls"]
+position = Vector2(-10, 325)
+shape = SubResource("RectangleShape2D_tuypi")
+
+[node name="Wall Right" type="CollisionShape2D" parent="Walls"]
+position = Vector2(1162, 325)
+shape = SubResource("RectangleShape2D_tuypi")
+
+[node name="Ceiling" type="CollisionShape2D" parent="Walls"]
+position = Vector2(575, -10)
+shape = SubResource("RectangleShape2D_rdi31")
+
+[node name="Floor" type="CollisionShape2D" parent="Walls"]
+position = Vector2(575, 658)
+shape = SubResource("RectangleShape2D_rdi31")
+
+[node name="Platform Bottom" type="Node2D" parent="."]
+position = Vector2(570, 602)
+
+[node name="Platform" parent="Platform Bottom" instance=ExtResource("4_rdi31")]
+position = Vector2(-532, 0)
+
+[node name="Platform2" parent="Platform Bottom" instance=ExtResource("4_rdi31")]
+position = Vector2(-456, 0)
+
+[node name="Platform3" parent="Platform Bottom" instance=ExtResource("4_rdi31")]
+position = Vector2(-380, 0)
+
+[node name="Platform4" parent="Platform Bottom" instance=ExtResource("4_rdi31")]
+position = Vector2(-304, 0)
+
+[node name="Platform5" parent="Platform Bottom" instance=ExtResource("4_rdi31")]
+position = Vector2(-228, 0)
+
+[node name="Platform6" parent="Platform Bottom" instance=ExtResource("4_rdi31")]
+position = Vector2(-152, 0)
+
+[node name="Platform7" parent="Platform Bottom" instance=ExtResource("4_rdi31")]
+position = Vector2(-76, 0)
+
+[node name="Platform8" parent="Platform Bottom" instance=ExtResource("4_rdi31")]
+
+[node name="Platform9" parent="Platform Bottom" instance=ExtResource("4_rdi31")]
+position = Vector2(76, 0)
+
+[node name="Platform10" parent="Platform Bottom" instance=ExtResource("4_rdi31")]
+position = Vector2(152, 0)
+
+[node name="Platform11" parent="Platform Bottom" instance=ExtResource("4_rdi31")]
+position = Vector2(228, 0)
+
+[node name="Platform12" parent="Platform Bottom" instance=ExtResource("4_rdi31")]
+position = Vector2(304, 0)
+
+[node name="Platform13" parent="Platform Bottom" instance=ExtResource("4_rdi31")]
+position = Vector2(380, 0)
+
+[node name="Platform14" parent="Platform Bottom" instance=ExtResource("4_rdi31")]
+position = Vector2(456, 0)
+
+[node name="Platform15" parent="Platform Bottom" instance=ExtResource("4_rdi31")]
+position = Vector2(532, 0)
+
+[node name="Platform16" parent="Platform Bottom" instance=ExtResource("4_rdi31")]
+position = Vector2(608, 0)
+
+[node name="Platform Bottom2" type="Node2D" parent="."]
+position = Vector2(570, 426)
+
+[node name="Platform" parent="Platform Bottom2" instance=ExtResource("4_rdi31")]
+position = Vector2(-532, 0)
+
+[node name="Platform2" parent="Platform Bottom2" instance=ExtResource("4_rdi31")]
+position = Vector2(-456, 0)
+
+[node name="Platform3" parent="Platform Bottom2" instance=ExtResource("4_rdi31")]
+position = Vector2(-380, 0)
+
+[node name="Platform4" parent="Platform Bottom2" instance=ExtResource("4_rdi31")]
+position = Vector2(-304, 0)
+
+[node name="Platform5" parent="Platform Bottom2" instance=ExtResource("4_rdi31")]
+position = Vector2(-228, 0)
+
+[node name="Platform6" parent="Platform Bottom2" instance=ExtResource("4_rdi31")]
+position = Vector2(-152, 0)
+
+[node name="Platform7" parent="Platform Bottom2" instance=ExtResource("4_rdi31")]
+position = Vector2(-76, 0)
+
+[node name="Platform8" parent="Platform Bottom2" instance=ExtResource("4_rdi31")]
+
+[node name="Platform9" parent="Platform Bottom2" instance=ExtResource("4_rdi31")]
+position = Vector2(76, 0)
+
+[node name="Platform10" parent="Platform Bottom2" instance=ExtResource("4_rdi31")]
+position = Vector2(152, 0)
+
+[node name="Platform11" parent="Platform Bottom2" instance=ExtResource("4_rdi31")]
+position = Vector2(228, 0)
+
+[node name="Platform12" parent="Platform Bottom2" instance=ExtResource("4_rdi31")]
+position = Vector2(304, 0)

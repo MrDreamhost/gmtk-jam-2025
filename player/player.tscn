@@ -52,7 +52,7 @@
 [ext_resource type="Script" uid="uid://dqsoii2pg2nsu" path="res://player/player_state_machine/states/dead.gd" id="49_w7j2h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rkbax"]
-size = Vector2(104, 65)
+size = Vector2(100, 64)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yw30f"]
 size = Vector2(94, 58)
@@ -255,10 +255,11 @@ text = "Player"
 metadata/_edit_use_anchors_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -32.5)
+position = Vector2(2.5, -33)
 shape = SubResource("RectangleShape2D_rkbax")
 
 [node name="HurtBox" type="Area2D" parent="."]
+position = Vector2(3, -1)
 collision_layer = 0
 collision_mask = 128
 script = ExtResource("3_g1dw6")
