@@ -1,0 +1,35 @@
+[gd_scene load_steps=2 format=3 uid="uid://5vtebhia4h4d"]
+
+[ext_resource type="Script" uid="uid://dpxw1ch2vuw3l" path="res://ui/options_menu/bus_volume_control.gd" id="1_lm8a4"]
+
+[node name="BusVolumeControl" type="HBoxContainer"]
+offset_right = 194.0
+offset_bottom = 28.0
+theme_override_constants/separation = 8
+script = ExtResource("1_lm8a4")
+
+[node name="Label" type="Label" parent="."]
+custom_minimum_size = Vector2(110, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Master Volume:"
+
+[node name="VolumeSlider" type="HSlider" parent="."]
+custom_minimum_size = Vector2(78, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+min_value = -60.0
+max_value = 0.0
+step = 0.2
+value = -18.0
+ticks_on_borders = true
+
+[node name="MutedCheckButton" type="CheckBox" parent="."]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[connection signal="value_changed" from="VolumeSlider" to="." method="_on_volume_slider_value_changed"]
+[connection signal="toggled" from="MutedCheckButton" to="." method="_on_muted_check_button_toggled"]

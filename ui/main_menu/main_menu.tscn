@@ -27,14 +27,19 @@ stretch_mode = 4
 layout_mode = 2
 text = "Start Game"
 
-[node name="SettingsButton" type="Button" parent="."]
+[node name="HowToPlayButton" type="Button" parent="."]
 layout_mode = 2
-text = "Settings"
+text = "How to play"
+
+[node name="OptionsButton" type="Button" parent="."]
+layout_mode = 2
+text = "Options"
 
 [node name="CreditsButton" type="Button" parent="."]
 layout_mode = 2
 text = "Credits"
 
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="SettingsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="HowToPlayButton" to="." method="_on_how_to_play_button_pressed"]
+[connection signal="pressed" from="OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="CreditsButton" to="." method="_on_credits_button_pressed"]
