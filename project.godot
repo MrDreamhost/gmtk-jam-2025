@@ -20,6 +20,12 @@ config/icon="uid://bjwnao17x8v8x"
 
 LevelTransition="*res://level/level_transition.tscn"
 
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/stretch/mode="canvas_items"
+
 [file_customization]
 
 folder_colors={
