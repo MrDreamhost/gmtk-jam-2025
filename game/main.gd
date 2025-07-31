@@ -80,7 +80,7 @@ func set_label_text() -> void:
 func load_level(level: Level) -> void:
 	self.current_level = level
 	self.add_child(self.current_level)
-	self.respawn_player()
+	self.reset_level()
 	for goal_zone: GoalZone in get_tree().get_nodes_in_group("goal_zone"):
 		if not goal_zone.goal_reached.is_connected(_on_goal_rached):
 			goal_zone.goal_reached.connect(_on_goal_rached)
