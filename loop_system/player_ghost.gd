@@ -24,3 +24,7 @@ func _physics_process(delta: float) -> void:
 	if self.current_index < self.replay_data.positions.size():
 		self.global_position = self.replay_data.positions[self.current_index]
 		self.current_index += 1
+
+
+func reset_position() -> void:
+	self.current_index = 0
