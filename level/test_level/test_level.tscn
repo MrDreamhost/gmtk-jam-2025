@@ -1,20 +1,37 @@
-[gd_scene load_steps=3 format=3 uid="uid://j204ye1j7wlr"]
+[gd_scene load_steps=5 format=3 uid="uid://j204ye1j7wlr"]
 
+[ext_resource type="Script" uid="uid://5w7l6biespg3" path="res://level/test_level/test_level.gd" id="1_ojvsg"]
 [ext_resource type="Texture2D" uid="uid://bjwnao17x8v8x" path="res://assets/sprites/icon.svg" id="1_twal5"]
+[ext_resource type="PackedScene" uid="uid://bcujsflu4nqbn" path="res://loop_system/spawn_point.tscn" id="2_u1e15"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5d2q1"]
 size = Vector2(421, 90)
 
-[node name="TestLevel" type="Node2D"]
+[node name="TestLevel" type="Node2D" node_paths=PackedStringArray("spawn_point")]
+script = ExtResource("1_ojvsg")
+spawn_point = NodePath("SpawnPoint")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(10, 638)
+position = Vector2(211, 603)
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(200.5, -35)
 shape = SubResource("RectangleShape2D_5d2q1")
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
-position = Vector2(200.5, -35)
 scale = Vector2(3.28906, 0.703125)
 texture = ExtResource("1_twal5")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(941, 603)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+shape = SubResource("RectangleShape2D_5d2q1")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2"]
+scale = Vector2(3.28906, 0.703125)
+texture = ExtResource("1_twal5")
+
+[node name="SpawnPoint" parent="." instance=ExtResource("2_u1e15")]
+position = Vector2(17, 557)
