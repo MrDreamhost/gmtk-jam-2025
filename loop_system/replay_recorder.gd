@@ -9,7 +9,7 @@ var ghost_scene: PackedScene = preload("res://loop_system/player_ghost.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	assert(self.player != null, "Player hasn't been set")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
