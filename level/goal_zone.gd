@@ -1,12 +1,15 @@
 class_name GoalZone
-extends Node2D
+extends Area2D
+
+signal goal_reached(next_level_file: String)
+
+@export_file("*.tscn") var next_level_file
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	assert(self.next_level_file != null, "Unknown next_level_file")
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _on_body_entered(body: Node2D) -> void:
+	if body is Player:
+		goal_reached.emit(next_level_file)

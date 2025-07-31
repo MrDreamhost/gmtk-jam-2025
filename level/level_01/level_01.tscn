@@ -8,8 +8,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pw6xp"]
 size = Vector2(1153.5, 90)
 
-[node name="Level01" type="Node2D"]
+[node name="Level01" type="Node2D" node_paths=PackedStringArray("spawn_point")]
 script = ExtResource("1_2n58o")
+spawn_point = NodePath("SpawnPoint")
 
 [node name="Label" type="Label" parent="."]
 offset_right = 40.0
@@ -34,3 +35,4 @@ position = Vector2(31, 549)
 
 [node name="GoalZone" parent="." instance=ExtResource("4_mopx3")]
 position = Vector2(1101, 550)
+next_level_file = "uid://dslkeuxkcig4a"
