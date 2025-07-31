@@ -71,6 +71,10 @@ reset_level={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_8="HurtBox"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

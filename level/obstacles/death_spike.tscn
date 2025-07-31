@@ -1,9 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://cu6420ipi24uy"]
+[gd_scene load_steps=6 format=3 uid="uid://cu6420ipi24uy"]
 
 [ext_resource type="Script" uid="uid://bjdnjwdrk0vh7" path="res://level/obstacles/death_spike.gd" id="1_p3dmo"]
 [ext_resource type="Texture2D" uid="uid://bjwnao17x8v8x" path="res://assets/sprites/icon.svg" id="2_k7187"]
+[ext_resource type="Script" uid="uid://do6m25n206ajf" path="res://common/hitbox/hitbox.gd" id="3_60w2k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_md73i"]
+size = Vector2(64, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_42aao"]
 size = Vector2(64, 24)
 
 [node name="DeathSpike" type="Area2D"]
@@ -18,3 +22,14 @@ texture = ExtResource("2_k7187")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -12)
 shape = SubResource("RectangleShape2D_md73i")
+
+[node name="HitBox" type="Area2D" parent="."]
+collision_layer = 128
+collision_mask = 0
+script = ExtResource("3_60w2k")
+damage = 9999
+metadata/_custom_type_script = "uid://do6m25n206ajf"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(0, -12)
+shape = SubResource("RectangleShape2D_42aao")

@@ -4,6 +4,12 @@ class_name Player extends CharacterBody2D
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
+@onready var hurt_box: HurtBox = $HurtBox
+
+
+func _ready() -> void:
+	self.hurt_box.hit_received.connect(handle_hit_received)
+
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -23,3 +29,7 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+
+
+func handle_hit_received(damage: int) -> void:
+	print("Got damaged :( for %d DAMAGE" % damage)
