@@ -1,26 +1,57 @@
-[gd_scene load_steps=6 format=3 uid="uid://cu6420ipi24uy"]
+[gd_scene load_steps=12 format=3 uid="uid://cu6420ipi24uy"]
 
 [ext_resource type="Script" uid="uid://bjdnjwdrk0vh7" path="res://level/obstacles/death_spike.gd" id="1_p3dmo"]
-[ext_resource type="Texture2D" uid="uid://bjwnao17x8v8x" path="res://assets/sprites/icon.svg" id="2_k7187"]
+[ext_resource type="Texture2D" uid="uid://d4eh586kj6nue" path="res://assets/sprites/spike_tile/0001.png" id="2_fhkvb"]
 [ext_resource type="Script" uid="uid://do6m25n206ajf" path="res://common/hitbox/hitbox.gd" id="3_60w2k"]
+[ext_resource type="Texture2D" uid="uid://dcgo0juhyff1g" path="res://assets/sprites/spike_tile/0002.png" id="3_ekqb4"]
+[ext_resource type="Texture2D" uid="uid://cqjftvs2pnw7o" path="res://assets/sprites/spike_tile/0003.png" id="4_lix8a"]
+[ext_resource type="Texture2D" uid="uid://clcqfw5cdyrdl" path="res://assets/sprites/spike_tile/0004.png" id="5_tx6j7"]
+[ext_resource type="Texture2D" uid="uid://bn8i4y0imlces" path="res://assets/sprites/spike_tile/0005.png" id="6_egy1w"]
+[ext_resource type="Texture2D" uid="uid://bv2ikbxkpwtew" path="res://assets/sprites/spike_tile/0006.png" id="7_4sock"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ppbkn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_fhkvb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ekqb4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_lix8a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_tx6j7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_egy1w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_4sock")
+}],
+"loop": true,
+"name": &"default",
+"speed": 24.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_md73i"]
-size = Vector2(64, 24)
+size = Vector2(64, 44)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_42aao"]
-size = Vector2(64, 24)
+size = Vector2(64, 60)
 
 [node name="DeathSpike" type="Area2D"]
 script = ExtResource("1_p3dmo")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-self_modulate = Color(0.85, 0.238, 0.17, 1)
-position = Vector2(0, -12)
-scale = Vector2(0.5, 0.1875)
-texture = ExtResource("2_k7187")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(8.52346e-06, -82)
+scale = Vector2(0.640625, 0.640625)
+sprite_frames = SubResource("SpriteFrames_ppbkn")
+frame_progress = 0.24173
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -12)
+position = Vector2(0, -22)
 shape = SubResource("RectangleShape2D_md73i")
 
 [node name="HitBox" type="Area2D" parent="."]
@@ -31,5 +62,6 @@ damage = 9999
 metadata/_custom_type_script = "uid://do6m25n206ajf"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
-position = Vector2(0, -12)
+position = Vector2(0, -30)
 shape = SubResource("RectangleShape2D_42aao")
+debug_color = Color(0.7, 0.0202499, 0, 0.42)

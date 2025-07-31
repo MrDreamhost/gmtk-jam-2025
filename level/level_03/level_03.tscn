@@ -143,14 +143,11 @@ texture = ExtResource("2_lvqq1")
 [node name="DeathSpike" parent="Label" instance=ExtResource("3_si3cn")]
 position = Vector2(593, 425)
 
-[node name="DeathSpike2" parent="Label" instance=ExtResource("3_si3cn")]
-position = Vector2(541, 519)
-
 [node name="DeathSpike4" parent="Label" instance=ExtResource("3_si3cn")]
-position = Vector2(477, 519)
+position = Vector2(491, 520)
 
 [node name="DeathSpike5" parent="Label" instance=ExtResource("3_si3cn")]
-position = Vector2(426, 517)
+position = Vector2(426, 520)
 
 [node name="DeathSpike3" parent="Label" instance=ExtResource("3_si3cn")]
 position = Vector2(575, 460)

@@ -44,10 +44,23 @@ position = Vector2(-30.2499, 0)
 scale = Vector2(2.8164, 0.703125)
 texture = ExtResource("2_xmyjc")
 
-[node name="DeathSpike" parent="." instance=ExtResource("3_3muha")]
-position = Vector2(514, 506)
+[node name="DeathSpikesPlatform1" type="Node2D" parent="."]
+position = Vector2(512, 506)
 rotation = -0.523599
-scale = Vector2(5, 1)
+
+[node name="DeathSpike1" parent="DeathSpikesPlatform1" instance=ExtResource("3_3muha")]
+position = Vector2(-128, 0)
+
+[node name="DeathSpike2" parent="DeathSpikesPlatform1" instance=ExtResource("3_3muha")]
+position = Vector2(-64, 0)
+
+[node name="DeathSpike3" parent="DeathSpikesPlatform1" instance=ExtResource("3_3muha")]
+
+[node name="DeathSpike4" parent="DeathSpikesPlatform1" instance=ExtResource("3_3muha")]
+position = Vector2(64, 0)
+
+[node name="DeathSpike5" parent="DeathSpikesPlatform1" instance=ExtResource("3_3muha")]
+position = Vector2(128, 0)
 
 [node name="SpawnPoint" parent="." instance=ExtResource("4_j65wl")]
 position = Vector2(42, 540)
