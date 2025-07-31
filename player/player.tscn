@@ -8,6 +8,8 @@ radius = 26.0
 height = 80.0
 
 [node name="Player" type="CharacterBody2D"]
+platform_on_leave = 1
+safe_margin = 0.2
 script = ExtResource("1_rkbax")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
