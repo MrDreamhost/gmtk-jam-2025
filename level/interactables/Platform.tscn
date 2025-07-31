@@ -3,15 +3,15 @@
 [ext_resource type="Texture2D" uid="uid://d1c5rlqh5imfx" path="res://assets/sprites/tiles/0002.png" id="1_iii6r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_awmrl"]
-size = Vector2(77, 89)
+size = Vector2(102, 103)
 
 [node name="Platform" type="StaticBody2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 2)
+position = Vector2(51, -51.5)
 shape = SubResource("RectangleShape2D_awmrl")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.75, 0.75)
+texture_filter = 1
 texture = ExtResource("1_iii6r")
-offset = Vector2(0, -65.68)
+offset = Vector2(51, -128)
