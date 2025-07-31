@@ -1,6 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://dslkeuxkcig4a"]
+[gd_scene load_steps=7 format=3 uid="uid://dslkeuxkcig4a"]
 
 [ext_resource type="Script" uid="uid://cr5paax0qa013" path="res://level/level_02/level_02.gd" id="1_wco2t"]
+[ext_resource type="Texture2D" uid="uid://bjwnao17x8v8x" path="res://assets/sprites/icon.svg" id="2_xmyjc"]
+[ext_resource type="PackedScene" uid="uid://cu6420ipi24uy" path="res://level/obstacles/death_spike.tscn" id="3_3muha"]
+[ext_resource type="PackedScene" uid="uid://bcujsflu4nqbn" path="res://loop_system/spawn_point.tscn" id="4_j65wl"]
+[ext_resource type="PackedScene" uid="uid://b2hnjcnhd8ahv" path="res://level/goal_zone.tscn" id="5_emc5r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rndln"]
+size = Vector2(362.5, 90)
 
 [node name="Level02" type="Node2D"]
 script = ExtResource("1_wco2t")
@@ -9,3 +16,40 @@ script = ExtResource("1_wco2t")
 offset_right = 40.0
 offset_bottom = 23.0
 text = "Level 02"
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(211, 603)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(-29.25, 0)
+shape = SubResource("RectangleShape2D_rndln")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2"]
+position = Vector2(-30.2499, 0)
+scale = Vector2(2.8164, 0.703125)
+texture = ExtResource("2_xmyjc")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2(849, 439)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+position = Vector2(-29.25, 0)
+shape = SubResource("RectangleShape2D_rndln")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D3"]
+position = Vector2(-30.2499, 0)
+scale = Vector2(2.8164, 0.703125)
+texture = ExtResource("2_xmyjc")
+
+[node name="DeathSpike" parent="." instance=ExtResource("3_3muha")]
+position = Vector2(514, 506)
+rotation = -0.523599
+scale = Vector2(5, 1)
+
+[node name="SpawnPoint" parent="." instance=ExtResource("4_j65wl")]
+position = Vector2(25, 550)
+
+[node name="GoalZone" parent="." instance=ExtResource("5_emc5r")]
+position = Vector2(954, 389)
