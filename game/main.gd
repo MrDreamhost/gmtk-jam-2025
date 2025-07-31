@@ -82,5 +82,6 @@ func load_level(level: Level) -> void:
 	self.add_child(self.current_level)
 	self.respawn_player()
 
+
 func _on_loop_timer_timeout() -> void:
 	self.reset_loop()

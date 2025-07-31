@@ -6,7 +6,7 @@ const JUMP_VELOCITY = -400.0
 
 @onready var hurt_box: HurtBox = $HurtBox
 @onready var anim_player : AnimationPlayer = $PlayerAnimationPlayer
-@onready var sprite : Sprite2D = $Sprite2D
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 
 func _ready() -> void:
@@ -18,29 +18,9 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
-	# Handle jump.
-	if Input.is_action_just_pressed("player_jump") and is_on_floor():
-		velocity.y += JUMP_VELOCITY
-
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction := Input.get_axis("player_left", "player_right")
-	if direction:
-		velocity.x = direction * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-
-	#Play run animation while running with timescale adjusted for speed
-	if velocity.x != 0:
-		anim_player.play("run")
-		anim_player.speed_scale = get_real_velocity().x/velocity.x
-	if velocity.x < 0:
-		sprite.flip_h = true
-	elif velocity.x > 0:
-		sprite.flip_h = false
-
 	move_and_slide()
 
 
 func handle_hit_received(damage: int) -> void:
 	print("Got damaged :( for %d DAMAGE" % damage)
+	%PlayerStateMachine.current_state.finished.emit(%PlayerStateMachine.states[PlayerStateMachine.DEAD])

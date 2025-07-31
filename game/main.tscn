@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://d2iwwq2sfgujk"]
 
 [ext_resource type="Script" uid="uid://dflftgnlarl0a" path="res://game/main.gd" id="1_xtpaf"]
-[ext_resource type="PackedScene" uid="uid://bjhr81ylwwdq4" path="res://player/player.tscn" id="3_emt18"]
+[ext_resource type="PackedScene" uid="uid://c0dapnlli3qqi" path="res://player/player.tscn" id="3_emt18"]
 [ext_resource type="Script" uid="uid://4det2vjn1nki" path="res://loop_system/replay_recorder.gd" id="4_vop5m"]
 
 [node name="Main" type="Node2D"]
