@@ -138,7 +138,7 @@ position = Vector2(0, -30)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_5j141")
 autoplay = "default"
-frame_progress = 0.65989
+frame_progress = 0.927292
 
 [node name="Label" type="Label" parent="."]
 offset_left = -25.0

@@ -50,7 +50,7 @@ rotation = -0.523599
 scale = Vector2(5, 1)
 
 [node name="SpawnPoint" parent="." instance=ExtResource("4_j65wl")]
-position = Vector2(25, 550)
+position = Vector2(42, 540)
 
 [node name="GoalZone" parent="." instance=ExtResource("5_emc5r")]
 position = Vector2(954, 389)

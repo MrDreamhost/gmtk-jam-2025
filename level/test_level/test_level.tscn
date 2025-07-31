@@ -58,11 +58,10 @@ scale = Vector2(3.28906, 0.703125)
 texture = ExtResource("1_twal5")
 
 [node name="SpawnPoint" parent="." instance=ExtResource("2_u1e15")]
-position = Vector2(17, 557)
+position = Vector2(44, 540)
 
 [node name="GoalZone" parent="." instance=ExtResource("4_j6nex")]
 position = Vector2(126, 197)
-next_level_file = "uid://d3eu8ibj2ld1b"
 
 [node name="DeathSpike" parent="." instance=ExtResource("5_icfbs")]
 position = Vector2(455, 585)

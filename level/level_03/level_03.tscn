@@ -9,8 +9,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cguju"]
 size = Vector2(362.5, 90)
 
-[node name="Level03" type="Node2D"]
+[node name="Level03" type="Node2D" node_paths=PackedStringArray("spawn_point")]
 script = ExtResource("1_14ypm")
+spawn_point = NodePath("Label/SpawnPoint")
 
 [node name="Label" type="Label" parent="."]
 offset_right = 40.0
@@ -18,7 +19,7 @@ offset_bottom = 23.0
 text = "Level 03"
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="Label"]
-position = Vector2(245, 354)
+position = Vector2(367, 351)
 rotation = -1.5708
 metadata/_edit_group_ = true
 
@@ -46,7 +47,7 @@ scale = Vector2(2.8164, 0.703125)
 texture = ExtResource("2_lvqq1")
 
 [node name="StaticBody2D5" type="StaticBody2D" parent="Label"]
-position = Vector2(400, 103)
+position = Vector2(609, 25)
 rotation = -1.5708
 metadata/_edit_group_ = true
 
@@ -74,7 +75,7 @@ scale = Vector2(2.8164, 0.703125)
 texture = ExtResource("2_lvqq1")
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="Label"]
-position = Vector2(213, 606)
+position = Vector2(210, 604)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Label/StaticBody2D3"]
@@ -86,8 +87,21 @@ position = Vector2(-30.2499, 0)
 scale = Vector2(2.8164, 0.703125)
 texture = ExtResource("2_lvqq1")
 
+[node name="StaticBody2D10" type="StaticBody2D" parent="Label"]
+position = Vector2(573, 604)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Label/StaticBody2D10"]
+position = Vector2(-29.25, 0)
+shape = SubResource("RectangleShape2D_cguju")
+
+[node name="Sprite2D" type="Sprite2D" parent="Label/StaticBody2D10"]
+position = Vector2(-30.2499, 0)
+scale = Vector2(2.8164, 0.703125)
+texture = ExtResource("2_lvqq1")
+
 [node name="StaticBody2D9" type="StaticBody2D" parent="Label"]
-position = Vector2(203, 45)
+position = Vector2(321, -13)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Label/StaticBody2D9"]
@@ -113,7 +127,7 @@ scale = Vector2(2.8164, 0.703125)
 texture = ExtResource("2_lvqq1")
 
 [node name="StaticBody2D4" type="StaticBody2D" parent="Label"]
-position = Vector2(411, 577)
+position = Vector2(622, 580)
 rotation = -1.5708
 metadata/_edit_group_ = true
 
@@ -127,17 +141,24 @@ scale = Vector2(2.8164, 0.703125)
 texture = ExtResource("2_lvqq1")
 
 [node name="DeathSpike" parent="Label" instance=ExtResource("3_si3cn")]
-position = Vector2(387, 424)
+position = Vector2(593, 425)
 
 [node name="DeathSpike2" parent="Label" instance=ExtResource("3_si3cn")]
-position = Vector2(325, 512)
+position = Vector2(541, 519)
+
+[node name="DeathSpike4" parent="Label" instance=ExtResource("3_si3cn")]
+position = Vector2(477, 519)
+
+[node name="DeathSpike5" parent="Label" instance=ExtResource("3_si3cn")]
+position = Vector2(426, 517)
 
 [node name="DeathSpike3" parent="Label" instance=ExtResource("3_si3cn")]
-position = Vector2(381, 457)
+position = Vector2(575, 460)
 rotation = -1.5708
 
 [node name="SpawnPoint" parent="Label" instance=ExtResource("4_wteuf")]
-position = Vector2(23, 553)
+position = Vector2(49, 542)
 
 [node name="GoalZone" parent="Label" instance=ExtResource("5_dlqic")]
-position = Vector2(467, 423)
+position = Vector2(685, 421)
+next_level_file = "uid://dprdcmdnfniia"

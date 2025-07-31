@@ -31,7 +31,7 @@ scale = Vector2(8.99609, 0.703125)
 texture = ExtResource("2_rdi31")
 
 [node name="SpawnPoint" parent="." instance=ExtResource("3_aem8p")]
-position = Vector2(31, 549)
+position = Vector2(40, 540)
 
 [node name="GoalZone" parent="." instance=ExtResource("4_mopx3")]
 position = Vector2(1101, 550)
