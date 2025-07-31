@@ -32,27 +32,22 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 24.0
+"speed": 16.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_md73i"]
-size = Vector2(64, 44)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_42aao"]
-size = Vector2(64, 60)
+size = Vector2(102, 90)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_md73i"]
+size = Vector2(102, 83)
 
 [node name="DeathSpike" type="Area2D"]
 script = ExtResource("1_p3dmo")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(8.52346e-06, -82)
-scale = Vector2(0.640625, 0.640625)
+position = Vector2(8.52346e-06, -127)
 sprite_frames = SubResource("SpriteFrames_ppbkn")
-frame_progress = 0.24173
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -22)
-shape = SubResource("RectangleShape2D_md73i")
+autoplay = "default"
 
 [node name="HitBox" type="Area2D" parent="."]
 collision_layer = 128
@@ -62,6 +57,10 @@ damage = 9999
 metadata/_custom_type_script = "uid://do6m25n206ajf"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
-position = Vector2(0, -30)
+position = Vector2(0, -45)
 shape = SubResource("RectangleShape2D_42aao")
 debug_color = Color(0.7, 0.0202499, 0, 0.42)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -41.5)
+shape = SubResource("RectangleShape2D_md73i")
