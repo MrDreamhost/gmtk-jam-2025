@@ -1,19 +1,148 @@
-[gd_scene load_steps=3 format=3 uid="uid://bcujsflu4nqbn"]
+[gd_scene load_steps=33 format=3 uid="uid://bcujsflu4nqbn"]
 
 [ext_resource type="Script" uid="uid://c5237mb4mfdt5" path="res://loop_system/spawn_point.gd" id="1_oh74y"]
-[ext_resource type="Texture2D" uid="uid://bjwnao17x8v8x" path="res://assets/sprites/icon.svg" id="2_1v1da"]
+[ext_resource type="Texture2D" uid="uid://cb38epsmhhqai" path="res://assets/sprites/ouroboros_hologram/0001.png" id="2_c88ov"]
+[ext_resource type="Texture2D" uid="uid://xa5vjbee66sa" path="res://assets/sprites/ouroboros_hologram/0002.png" id="3_g6rqn"]
+[ext_resource type="Texture2D" uid="uid://c316v60bxs4fw" path="res://assets/sprites/ouroboros_hologram/0003.png" id="4_tgkvr"]
+[ext_resource type="Texture2D" uid="uid://cyk2xtqtkyah6" path="res://assets/sprites/ouroboros_hologram/0004.png" id="5_h3kb5"]
+[ext_resource type="Texture2D" uid="uid://dvhn1kd6ll7dk" path="res://assets/sprites/ouroboros_hologram/0005.png" id="6_wfy12"]
+[ext_resource type="Texture2D" uid="uid://dame24m5rdi7b" path="res://assets/sprites/ouroboros_hologram/0006.png" id="7_bj2nw"]
+[ext_resource type="Texture2D" uid="uid://7jcdg3b6nxg4" path="res://assets/sprites/ouroboros_hologram/0007.png" id="8_ltklp"]
+[ext_resource type="Texture2D" uid="uid://b4yhbng178np5" path="res://assets/sprites/ouroboros_hologram/0008.png" id="9_kfedy"]
+[ext_resource type="Texture2D" uid="uid://b3k7lau7majqt" path="res://assets/sprites/ouroboros_hologram/0009.png" id="10_wve7x"]
+[ext_resource type="Texture2D" uid="uid://byom2gnikbun4" path="res://assets/sprites/ouroboros_hologram/0010.png" id="11_vm1ns"]
+[ext_resource type="Texture2D" uid="uid://tg7yjy3a88lo" path="res://assets/sprites/ouroboros_hologram/0011.png" id="12_rereq"]
+[ext_resource type="Texture2D" uid="uid://vw5tks42bjf" path="res://assets/sprites/ouroboros_hologram/0012.png" id="13_ca6w7"]
+[ext_resource type="Texture2D" uid="uid://dcqoqki76ghn5" path="res://assets/sprites/ouroboros_hologram/0013.png" id="14_71n60"]
+[ext_resource type="Texture2D" uid="uid://bnlxlsjrm310m" path="res://assets/sprites/ouroboros_hologram/0014.png" id="15_pra8q"]
+[ext_resource type="Texture2D" uid="uid://w5rt3wchuqc8" path="res://assets/sprites/ouroboros_hologram/0015.png" id="16_45cto"]
+[ext_resource type="Texture2D" uid="uid://cm5ep15s6dnh2" path="res://assets/sprites/ouroboros_hologram/0016.png" id="17_ua5ch"]
+[ext_resource type="Texture2D" uid="uid://dv0cl6rp6ly86" path="res://assets/sprites/ouroboros_hologram/0017.png" id="18_u2vbq"]
+[ext_resource type="Texture2D" uid="uid://c11cpfm1t2rf1" path="res://assets/sprites/ouroboros_hologram/0018.png" id="19_uw126"]
+[ext_resource type="Texture2D" uid="uid://3jdp1r3vlkqh" path="res://assets/sprites/ouroboros_hologram/0019.png" id="20_h7tjf"]
+[ext_resource type="Texture2D" uid="uid://c4nxvcsennpds" path="res://assets/sprites/ouroboros_hologram/0020.png" id="21_bneqo"]
+[ext_resource type="Texture2D" uid="uid://dnbpmin5nyq83" path="res://assets/sprites/ouroboros_hologram/0021.png" id="22_58s3e"]
+[ext_resource type="Texture2D" uid="uid://ds5llkr63ql4j" path="res://assets/sprites/ouroboros_hologram/0022.png" id="23_wg7p1"]
+[ext_resource type="Texture2D" uid="uid://ctn0jklfd864t" path="res://assets/sprites/ouroboros_hologram/0023.png" id="24_dqvsh"]
+[ext_resource type="Texture2D" uid="uid://dcc5vw6lug68c" path="res://assets/sprites/ouroboros_hologram/0024.png" id="25_58o15"]
+[ext_resource type="Texture2D" uid="uid://e7t8et804hyh" path="res://assets/sprites/ouroboros_hologram/0025.png" id="26_djd85"]
+[ext_resource type="Texture2D" uid="uid://cm2wlt4cxaj4m" path="res://assets/sprites/ouroboros_hologram/0026.png" id="27_njvcc"]
+[ext_resource type="Texture2D" uid="uid://dijdtc0jf2lqq" path="res://assets/sprites/ouroboros_hologram/0027.png" id="28_tbiql"]
+[ext_resource type="Texture2D" uid="uid://dv81r2dvqmhc8" path="res://assets/sprites/ouroboros_hologram/0028.png" id="29_tvprl"]
+[ext_resource type="Texture2D" uid="uid://clxclg4prxums" path="res://assets/sprites/ouroboros_hologram/0029.png" id="30_tnaot"]
+[ext_resource type="Texture2D" uid="uid://dvv0xk1y0phg" path="res://assets/sprites/ouroboros_hologram/0030.png" id="31_5yt35"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5j141"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_c88ov")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_g6rqn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_tgkvr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_h3kb5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_wfy12")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_bj2nw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ltklp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_kfedy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_wve7x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_vm1ns")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_rereq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_ca6w7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_71n60")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_pra8q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_45cto")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_ua5ch")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_u2vbq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_uw126")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_h7tjf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_bneqo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_58s3e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_wg7p1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_dqvsh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_58o15")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_djd85")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_njvcc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_tbiql")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_tvprl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_tnaot")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_5yt35")
+}],
+"loop": true,
+"name": &"default",
+"speed": 45.0
+}]
 
 [node name="SpawnPoint" type="Node2D"]
 script = ExtResource("1_oh74y")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(2.38419e-07, -14)
-scale = Vector2(0.257813, 0.21875)
-texture = ExtResource("2_1v1da")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -30)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_5j141")
+autoplay = "default"
+frame_progress = 0.65989
 
 [node name="Label" type="Label" parent="."]
-offset_left = -26.0
-offset_top = -49.0
-offset_right = 26.0
-offset_bottom = -26.0
+offset_left = -25.0
+offset_top = -87.0
+offset_right = 27.0
+offset_bottom = -64.0
 text = "Spawn"
