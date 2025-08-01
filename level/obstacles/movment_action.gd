@@ -17,7 +17,7 @@ var tween : Tween
 func _ready() -> void:
 	original_position = self.global_position
 	on_movement_ended()
-	if connected_button:
+	if connected_button is PressurePlate:
 		connected_button.button_changed.connect(on_button_changed)
 		paused = true
 
