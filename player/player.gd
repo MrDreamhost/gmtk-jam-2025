@@ -1,6 +1,6 @@
 class_name Player extends CharacterBody2D
 
-
+@export var player_config: PlayerConfig = preload("res://player/player_config/player_config.tres")
 const SPEED = 400.0
 const JUMP_VELOCITY = -800.0
 
@@ -10,6 +10,7 @@ const JUMP_VELOCITY = -800.0
 
 
 func _ready() -> void:
+	player_config.reset_state()
 	self.hurt_box.hit_received.connect(handle_hit_received)
 
 
