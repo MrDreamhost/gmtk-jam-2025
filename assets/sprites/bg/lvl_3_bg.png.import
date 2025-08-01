@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwq1dhnmgddud"
-path="res://.godot/imported/status_circle.png-8c4abcddca794193947aab50afe16ca5.ctex"
+uid="uid://dqvy0s3jcj1"
+path="res://.godot/imported/lvl_3_bg.png-df32bc4a0397d69375fd3a9991a9aed5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://level/interactables/status_circle.png"
-dest_files=["res://.godot/imported/status_circle.png-8c4abcddca794193947aab50afe16ca5.ctex"]
+source_file="res://assets/sprites/bg/lvl_3_bg.png"
+dest_files=["res://.godot/imported/lvl_3_bg.png-df32bc4a0397d69375fd3a9991a9aed5.ctex"]
 
 [params]
 
