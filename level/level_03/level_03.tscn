@@ -1,10 +1,19 @@
-[gd_scene load_steps=10 format=3 uid="uid://dprdcmdnfniia"]
+[gd_scene load_steps=19 format=3 uid="uid://dprdcmdnfniia"]
 
 [ext_resource type="Script" uid="uid://cr5paax0qa013" path="res://level/level_02/level_02.gd" id="1_14ypm"]
+[ext_resource type="Texture2D" uid="uid://10eglsgcgtve" path="res://assets/sprites/tiles/0008.png" id="3_5nkfm"]
 [ext_resource type="PackedScene" uid="uid://cu6420ipi24uy" path="res://level/obstacles/death_spike.tscn" id="3_si3cn"]
+[ext_resource type="Texture2D" uid="uid://547sv3d3ar4e" path="res://assets/sprites/tiles_ceiling/0002.png" id="3_wteuf"]
+[ext_resource type="Texture2D" uid="uid://crn1lxbe2sjlk" path="res://assets/sprites/tiles/0009.png" id="4_dyb8b"]
 [ext_resource type="PackedScene" uid="uid://bcujsflu4nqbn" path="res://loop_system/spawn_point.tscn" id="4_wteuf"]
 [ext_resource type="PackedScene" uid="uid://b2hnjcnhd8ahv" path="res://level/goal_zone.tscn" id="5_dlqic"]
 [ext_resource type="PackedScene" uid="uid://coobrpw2ubqjw" path="res://level/interactables/Platform.tscn" id="5_lvqq1"]
+[ext_resource type="Texture2D" uid="uid://dkdtswb17066p" path="res://assets/sprites/tiles/0010b.png" id="6_t2ucb"]
+[ext_resource type="Texture2D" uid="uid://bi8j41w4anm0x" path="res://assets/sprites/bg/lvl_3_bg.png" id="7_cguju"]
+[ext_resource type="Texture2D" uid="uid://ba4o8416eya13" path="res://assets/sprites/tiles/0001.png" id="7_dyb8b"]
+[ext_resource type="Texture2D" uid="uid://dm2xecntp30ti" path="res://assets/sprites/tiles/0004.png" id="7_is05o"]
+[ext_resource type="Texture2D" uid="uid://b1fdgwc4w7vf1" path="res://assets/sprites/tiles/tile_top.png" id="8_ap2b5"]
+[ext_resource type="Texture2D" uid="uid://bwknp1gt3v808" path="res://assets/sprites/tiles/tile_face.png" id="9_obqgw"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lvqq1"]
 normal = Vector2(1, 0)
@@ -44,46 +53,68 @@ shape = SubResource("WorldBoundaryShape2D_wteuf")
 position = Vector2(960, 1080)
 shape = SubResource("WorldBoundaryShape2D_dlqic")
 
-[node name="Platform8" parent="." instance=ExtResource("5_lvqq1")]
-position = Vector2(1836, 876)
-
-[node name="Platform9" parent="." instance=ExtResource("5_lvqq1")]
-position = Vector2(1734, 876)
-
-[node name="Platform10" parent="." instance=ExtResource("5_lvqq1")]
-position = Vector2(1632, 876)
-
 [node name="Platform11" parent="." instance=ExtResource("5_lvqq1")]
-position = Vector2(1530, 876)
+position = Vector2(1530, 825)
+width_in_pixel = 408
+width_in_tile = 4
 
 [node name="Platform" parent="." instance=ExtResource("5_lvqq1")]
 position = Vector2(0, 1080)
-width_in_pixel = 1020
-width_in_tile = 10
+width_in_pixel = 408
+width_in_tile = 4
 
-[node name="Platform27" parent="." instance=ExtResource("5_lvqq1")]
-position = Vector2(1428, 468)
+[node name="Platform4" parent="." instance=ExtResource("5_lvqq1")]
+position = Vector2(510, 1080)
+width_in_pixel = 306
+width_in_tile = 3
+texture = ExtResource("3_5nkfm")
 
-[node name="Platform28" parent="." instance=ExtResource("5_lvqq1")]
-position = Vector2(1428, 366)
+[node name="Platform5" parent="." instance=ExtResource("5_lvqq1")]
+position = Vector2(408, 1080)
+texture = ExtResource("4_dyb8b")
 
-[node name="Platform29" parent="." instance=ExtResource("5_lvqq1")]
-position = Vector2(1428, 264)
+[node name="Platform2" parent="." instance=ExtResource("5_lvqq1")]
+position = Vector2(0, 60)
+width_in_pixel = 510
+width_in_tile = 5
+texture = ExtResource("3_wteuf")
 
-[node name="Platform30" parent="." instance=ExtResource("5_lvqq1")]
-position = Vector2(1428, 162)
+[node name="Platform3" parent="." instance=ExtResource("5_lvqq1")]
+position = Vector2(1530, 60)
+width_in_pixel = 510
+width_in_tile = 5
+texture = ExtResource("3_wteuf")
 
 [node name="Platform33" parent="." instance=ExtResource("5_lvqq1")]
 position = Vector2(1428, 60)
+texture = ExtResource("3_wteuf")
+
+[node name="Platform30" parent="." instance=ExtResource("5_lvqq1")]
+position = Vector2(1428, 162)
+texture = ExtResource("3_wteuf")
+
+[node name="Platform29" parent="." instance=ExtResource("5_lvqq1")]
+position = Vector2(1428, 264)
+texture = ExtResource("3_wteuf")
+
+[node name="Platform28" parent="." instance=ExtResource("5_lvqq1")]
+position = Vector2(1428, 366)
+texture = ExtResource("3_wteuf")
+
+[node name="Platform27" parent="." instance=ExtResource("5_lvqq1")]
+position = Vector2(1428, 468)
+texture = ExtResource("3_wteuf")
 
 [node name="Tower" type="Node2D" parent="."]
 position = Vector2(918, 1080)
 
 [node name="Platform13" parent="Tower" instance=ExtResource("5_lvqq1")]
 position = Vector2(-102, 0)
+texture = ExtResource("6_t2ucb")
 
 [node name="Platform14" parent="Tower" instance=ExtResource("5_lvqq1")]
 position = Vector2(-102, -102)
+texture = ExtResource("7_dyb8b")
 
 [node name="Platform15" parent="Tower" instance=ExtResource("5_lvqq1")]
 position = Vector2(-102, -204)
@@ -110,6 +141,7 @@ position = Vector2(0, -306)
 
 [node name="Platform23" parent="Tower" instance=ExtResource("5_lvqq1")]
 position = Vector2(0, -408)
+texture = ExtResource("7_is05o")
 
 [node name="Platform24" parent="Tower" instance=ExtResource("5_lvqq1")]
 position = Vector2(0, -510)
@@ -156,3 +188,18 @@ position = Vector2(0, 977)
 [node name="GoalZone" parent="." instance=ExtResource("5_dlqic")]
 position = Vector2(1836, 668)
 next_level_file = "uid://cmvll42mba2tv"
+
+[node name="Bg" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(961, 540)
+texture = ExtResource("7_cguju")
+
+[node name="tile_top" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(1480, 697)
+texture = ExtResource("8_ap2b5")
+
+[node name="tile_face" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(1479, 1003)
+texture = ExtResource("9_obqgw")
