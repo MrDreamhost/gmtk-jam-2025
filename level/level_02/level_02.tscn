@@ -69,6 +69,11 @@ width_in_pixel = 1938
 width_in_tile = 19
 texture = ExtResource("3_j65wl")
 
+[node name="Bg" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(961, 540)
+texture = ExtResource("13_yakuy")
+
 [node name="Platform6" parent="." instance=ExtResource("2_xmyjc")]
 position = Vector2(602, 1303)
 rotation = -0.336849
@@ -104,7 +109,7 @@ width_in_tile = 2
 texture = ExtResource("9_mg46l")
 
 [node name="Platform12" parent="." instance=ExtResource("2_xmyjc")]
-position = Vector2(1531, 771)
+position = Vector2(1530, 771)
 width_in_pixel = 204
 width_in_tile = 2
 
@@ -137,8 +142,3 @@ position = Vector2(0, 977)
 [node name="GoalZone" parent="." instance=ExtResource("5_emc5r")]
 position = Vector2(1428, 565)
 next_level_file = "uid://dprdcmdnfniia"
-
-[node name="Bg" type="Sprite2D" parent="."]
-z_index = -2
-position = Vector2(961, 540)
-texture = ExtResource("13_yakuy")

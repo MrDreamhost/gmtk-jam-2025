@@ -227,6 +227,11 @@ shape = SubResource("RectangleShape2D_rdi31")
 position = Vector2(960, 1090)
 shape = SubResource("RectangleShape2D_rdi31")
 
+[node name="Bg" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(961, 540)
+texture = ExtResource("18_aceh0")
+
 [node name="BottomPlatform" parent="." instance=ExtResource("4_rdi31")]
 position = Vector2(0, 1080)
 texture = ExtResource("5_aem8p")
@@ -236,15 +241,15 @@ position = Vector2(918, 1080)
 texture = ExtResource("5_aem8p")
 
 [node name="TopPlatform" parent="." instance=ExtResource("4_rdi31")]
-position = Vector2(0, 771)
+position = Vector2(0, 774)
 texture = ExtResource("6_pw6xp")
 
 [node name="TopPlatform7" parent="." instance=ExtResource("4_rdi31")]
-position = Vector2(816, 771)
+position = Vector2(816, 774)
 texture = ExtResource("6_pw6xp")
 
 [node name="TopPlatform2" parent="." instance=ExtResource("4_rdi31")]
-position = Vector2(102, 771)
+position = Vector2(102, 774)
 texture = ExtResource("5_aem8p")
 
 [node name="TopPlatform16" parent="." instance=ExtResource("4_rdi31")]
@@ -258,11 +263,11 @@ width_in_tile = 2
 texture = ExtResource("5_aem8p")
 
 [node name="TopPlatform6" parent="." instance=ExtResource("4_rdi31")]
-position = Vector2(714, 771)
+position = Vector2(714, 774)
 texture = ExtResource("5_aem8p")
 
 [node name="TopPlatform3" parent="." instance=ExtResource("4_rdi31")]
-position = Vector2(204, 771)
+position = Vector2(204, 774)
 width_in_pixel = 306
 width_in_tile = 3
 
@@ -313,16 +318,21 @@ position = Vector2(408, 119)
 texture = ExtResource("14_7belt")
 
 [node name="TopPlatform8" parent="." instance=ExtResource("4_rdi31")]
-position = Vector2(918, 771)
+position = Vector2(1326, 774)
+width_in_pixel = 306
+width_in_tile = 3
+
+[node name="TopPlatform33" parent="." instance=ExtResource("4_rdi31")]
+position = Vector2(918, 774)
 width_in_pixel = 306
 width_in_tile = 3
 
 [node name="TopPlatform4" parent="." instance=ExtResource("4_rdi31")]
-position = Vector2(510, 771)
+position = Vector2(510, 774)
 texture = ExtResource("5_aem8p")
 
 [node name="TopPlatform5" parent="." instance=ExtResource("4_rdi31")]
-position = Vector2(612, 771)
+position = Vector2(612, 774)
 texture = ExtResource("6_pw6xp")
 
 [node name="TopPlatform21" parent="." instance=ExtResource("4_rdi31")]
@@ -346,7 +356,7 @@ position = Vector2(816, 1080)
 texture = ExtResource("6_pw6xp")
 
 [node name="TopPlatform9" parent="." instance=ExtResource("4_rdi31")]
-position = Vector2(1224, 771)
+position = Vector2(1224, 774)
 texture = ExtResource("6_pw6xp")
 
 [node name="TopPlatform12" parent="." instance=ExtResource("4_rdi31")]
@@ -379,11 +389,6 @@ texture = ExtResource("9_slftr")
 
 [node name="Platform Bottom2" type="Node2D" parent="."]
 position = Vector2(0, 771)
-
-[node name="Bg" type="Sprite2D" parent="."]
-z_index = -2
-position = Vector2(961, 540)
-texture = ExtResource("18_aceh0")
 
 [node name="Vent" type="AnimatedSprite2D" parent="."]
 z_index = -2

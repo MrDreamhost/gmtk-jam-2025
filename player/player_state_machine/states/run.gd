@@ -26,8 +26,7 @@ func update_physics_process(delta: float) -> void:
 			self.player.player_config.run_acceleration * delta
 		)
 		self.player.animated_sprite_2d.flip_h = true if direction < 0 else false
-	else:
-		self.player.velocity.x = move_toward(
+	self.player.velocity.x = move_toward(
 			self.player.velocity.x,
 			0,
 			self.player.player_config.run_deceleration * delta
