@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dslkeuxkcig4a"]
+[gd_scene load_steps=16 format=3 uid="uid://dslkeuxkcig4a"]
 
 [ext_resource type="Script" uid="uid://cr5paax0qa013" path="res://level/level_02/level_02.gd" id="1_wco2t"]
 [ext_resource type="PackedScene" uid="uid://coobrpw2ubqjw" path="res://level/interactables/Platform.tscn" id="2_xmyjc"]
@@ -10,6 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://b2hnjcnhd8ahv" path="res://level/goal_zone.tscn" id="5_emc5r"]
 [ext_resource type="Texture2D" uid="uid://bul2c1fcviow4" path="res://assets/sprites/tiles/0014.png" id="5_vk5g8"]
 [ext_resource type="Texture2D" uid="uid://dnrfm1tcchmq1" path="res://assets/sprites/tiles/0013.png" id="6_7j4iy"]
+[ext_resource type="Texture2D" uid="uid://dm2xecntp30ti" path="res://assets/sprites/tiles/0004.png" id="8_vk5g8"]
+[ext_resource type="Texture2D" uid="uid://ba4o8416eya13" path="res://assets/sprites/tiles/0001.png" id="9_mg46l"]
+[ext_resource type="Texture2D" uid="uid://bwxheg1hvr4d5" path="res://assets/sprites/bg/lvl_2_bg.png" id="13_yakuy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xmyjc"]
 size = Vector2(20, 1100)
@@ -79,15 +82,31 @@ width_in_pixel = 612
 width_in_tile = 6
 
 [node name="Platform4" parent="." instance=ExtResource("2_xmyjc")]
+position = Vector2(630, 1077)
+rotation = -0.336849
+width_in_pixel = 510
+width_in_tile = 5
+
+[node name="Platform11" parent="." instance=ExtResource("2_xmyjc")]
 position = Vector2(534, 1111)
 rotation = -0.336849
-width_in_pixel = 612
-width_in_tile = 6
+texture = ExtResource("8_vk5g8")
 
 [node name="Platform1" parent="." instance=ExtResource("2_xmyjc")]
 position = Vector2(1122, 771)
-width_in_pixel = 408
-width_in_tile = 4
+width_in_pixel = 204
+width_in_tile = 2
+
+[node name="Platform2" parent="." instance=ExtResource("2_xmyjc")]
+position = Vector2(1326, 771)
+width_in_pixel = 204
+width_in_tile = 2
+texture = ExtResource("9_mg46l")
+
+[node name="Platform12" parent="." instance=ExtResource("2_xmyjc")]
+position = Vector2(1531, 771)
+width_in_pixel = 204
+width_in_tile = 2
 
 [node name="DeathSpikesPlatform1" type="Node2D" parent="."]
 position = Vector2(813, 905)
@@ -118,3 +137,8 @@ position = Vector2(0, 977)
 [node name="GoalZone" parent="." instance=ExtResource("5_emc5r")]
 position = Vector2(1428, 565)
 next_level_file = "uid://dprdcmdnfniia"
+
+[node name="Bg" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(961, 540)
+texture = ExtResource("13_yakuy")
