@@ -508,7 +508,7 @@ libraries = {
 z_index = 1
 position = Vector2(96, -98.5)
 sprite_frames = SubResource("SpriteFrames_8rogd")
-animation = &"jump"
+animation = &"idle"
 
 [node name="PlayerStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 unique_name_in_owner = true

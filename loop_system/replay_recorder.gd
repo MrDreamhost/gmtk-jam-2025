@@ -13,13 +13,13 @@ func _ready() -> void:
 	self.reset_replay_data()
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-
 func _physics_process(delta: float) -> void:
-	self.replay_data.positions.append(self.player.global_position)
+	var frame: Dictionary = {
+		"position": self.player.global_position,
+		"animation": self.player.animated_sprite_2d.animation,
+		"animation_flip_h": self.player.animated_sprite_2d.flip_h
+	}
+	self.replay_data.frames.append(frame)
 
 
 func spawn_ghost(number: int) -> PlayerGhost:
