@@ -199,6 +199,7 @@ script = ExtResource("1_2n58o")
 spawn_point = NodePath("SpawnPoint")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+process_mode = 3
 stream = ExtResource("2_dp2e2")
 volume_db = -16.0
 autoplay = true
