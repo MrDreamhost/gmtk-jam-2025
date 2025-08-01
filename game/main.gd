@@ -53,13 +53,13 @@ func reset_loop() -> void:
 
 func reset_level() -> void:
 	self.loop_timer.stop()
-	self.player.global_position = self.current_level.initial_spawn_position
 	self.current_level.set_spawn_point(self.current_level.initial_spawn_position)
 	for ghost: PlayerGhost in self.spawned_ghosts:
 		ghost.queue_free()
 	self.spawned_ghosts.clear()
 	self.current_loop = 1
 	self.player_recorder.reset_replay_data()
+	self.respawn_player()
 	self.loop_timer.start()
 
 

@@ -14,7 +14,7 @@ func update_physics_process(delta: float) -> void:
 		return
 
 	if (
-		Input.is_action_just_pressed("player_left")
-		or Input.is_action_just_pressed("player_right") 
+		Input.is_action_pressed("player_left")
+		or Input.is_action_pressed("player_right")
 	):
 		self.finished.emit(%PlayerStateMachine.states[PlayerStateMachine.RUN])
