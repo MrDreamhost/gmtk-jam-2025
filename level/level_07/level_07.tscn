@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bvmbgv15r7fqt"]
+[gd_scene load_steps=10 format=3 uid="uid://bvmbgv15r7fqt"]
 
 [ext_resource type="Script" uid="uid://cr5paax0qa013" path="res://level/level_02/level_02.gd" id="1_aunql"]
 [ext_resource type="PackedScene" uid="uid://bcujsflu4nqbn" path="res://loop_system/spawn_point.tscn" id="2_apcun"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://cu6420ipi24uy" path="res://level/obstacles/death_spike.tscn" id="5_4ev6a"]
 [ext_resource type="PackedScene" uid="uid://dymffw6ntadbo" path="res://level/interactables/pressure_plate.tscn" id="6_2p385"]
 [ext_resource type="PackedScene" uid="uid://d15yq2lgmdi4p" path="res://level/interactables/door.tscn" id="7_s7wul"]
-[ext_resource type="Script" uid="uid://d3sq7gurjfiqf" path="res://level/obstacles/movment_action.gd" id="8_ovfi7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_si3cn"]
 size = Vector2(20, 1100)
@@ -24,7 +23,7 @@ position = Vector2(0, 774)
 
 [node name="GoalZone" parent="." instance=ExtResource("3_mkrnp")]
 position = Vector2(1326, 264)
-next_level_file = "uid://dprdcmdnfniia"
+next_level_file = "uid://b2fn736u6ukn1"
 
 [node name="Label" type="Label" parent="."]
 offset_right = 40.0
@@ -105,17 +104,11 @@ position = Vector2(1326, 672)
 position = Vector2(1326, 570)
 
 [node name="ResizablePlatform3" parent="." instance=ExtResource("4_3hudp")]
-position = Vector2(918, 468)
-width_in_pixel = 510
-width_in_tile = 5
+position = Vector2(1122, 468)
+width_in_pixel = 306
+width_in_tile = 3
 
-[node name="Door" parent="." node_paths=PackedStringArray("connected_button") instance=ExtResource("7_s7wul")]
-position = Vector2(918, 366)
-script = ExtResource("8_ovfi7")
+[node name="Door2" parent="." node_paths=PackedStringArray("connected_button") instance=ExtResource("7_s7wul")]
+position = Vector2(1122, 366)
 connected_button = NodePath("../PressurePlate")
-target_position = Vector2(918, 60)
-move_duration_sec = 1.0
-return_delay_sec = 5.0
-movement_trans = 0
-movement_ease = 0
-paused = false
+door_closing_speed = 200.0

@@ -1,0 +1,60 @@
+[gd_scene load_steps=8 format=3 uid="uid://b2fn736u6ukn1"]
+
+[ext_resource type="Script" uid="uid://cr5paax0qa013" path="res://level/level_02/level_02.gd" id="1_t3hbx"]
+[ext_resource type="PackedScene" uid="uid://bcujsflu4nqbn" path="res://loop_system/spawn_point.tscn" id="2_im1px"]
+[ext_resource type="PackedScene" uid="uid://b2hnjcnhd8ahv" path="res://level/goal_zone.tscn" id="3_ny4bw"]
+[ext_resource type="PackedScene" uid="uid://coobrpw2ubqjw" path="res://level/interactables/Platform.tscn" id="4_gm3n4"]
+[ext_resource type="PackedScene" uid="uid://cu6420ipi24uy" path="res://level/obstacles/death_spike.tscn" id="5_mpof3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_si3cn"]
+size = Vector2(20, 1100)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wteuf"]
+size = Vector2(1960, 20)
+
+[node name="Level_08" type="Node2D" node_paths=PackedStringArray("spawn_point")]
+script = ExtResource("1_t3hbx")
+spawn_point = NodePath("SpawnPoint")
+
+[node name="SpawnPoint" parent="." instance=ExtResource("2_im1px")]
+position = Vector2(0, 876)
+
+[node name="GoalZone" parent="." instance=ExtResource("3_ny4bw")]
+position = Vector2(1224, 162)
+next_level_file = "uid://dprdcmdnfniia"
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Level 08"
+
+[node name="Walls" type="StaticBody2D" parent="."]
+
+[node name="Wall Left" type="CollisionShape2D" parent="Walls"]
+position = Vector2(-10, 540)
+shape = SubResource("RectangleShape2D_si3cn")
+
+[node name="Wall Right" type="CollisionShape2D" parent="Walls"]
+position = Vector2(1930, 540)
+shape = SubResource("RectangleShape2D_si3cn")
+
+[node name="Ceiling" type="CollisionShape2D" parent="Walls"]
+position = Vector2(960, -10)
+shape = SubResource("RectangleShape2D_wteuf")
+
+[node name="Floor" type="CollisionShape2D" parent="Walls"]
+position = Vector2(960, 1090)
+shape = SubResource("RectangleShape2D_wteuf")
+
+[node name="ResizablePlatform" parent="." instance=ExtResource("4_gm3n4")]
+position = Vector2(0, 978)
+width_in_pixel = 408
+width_in_tile = 4
+
+[node name="Spikes" type="Node2D" parent="."]
+
+[node name="DeathSpike" parent="Spikes" instance=ExtResource("5_mpof3")]
+position = Vector2(408, 1080)
+
+[node name="DeathSpike2" parent="Spikes" instance=ExtResource("5_mpof3")]
+position = Vector2(510, 1080)
