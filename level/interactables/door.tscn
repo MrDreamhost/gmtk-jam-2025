@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://d15yq2lgmdi4p"]
+[gd_scene load_steps=5 format=3 uid="uid://d15yq2lgmdi4p"]
 
 [ext_resource type="Texture2D" uid="uid://pejr0hmf4x05" path="res://assets/sprites/tiles/0003.png" id="1_frksu"]
+[ext_resource type="Texture2D" uid="uid://cge0dkqacdf1f" path="res://assets/sprites/tiles/0002.png" id="2_dqnet"]
 [ext_resource type="Texture2D" uid="uid://dm2xecntp30ti" path="res://assets/sprites/tiles/0004.png" id="2_vuwoa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_awmrl"]
@@ -30,7 +31,7 @@ shape = SubResource("RectangleShape2D_awmrl")
 [node name="Sprite2D" type="Sprite2D" parent="Platform2"]
 texture_filter = 1
 position = Vector2(0, 70)
-texture = ExtResource("2_vuwoa")
+texture = ExtResource("2_dqnet")
 offset = Vector2(51, -128.5)
 
 [node name="Platform3" type="StaticBody2D" parent="."]
@@ -43,5 +44,5 @@ shape = SubResource("RectangleShape2D_awmrl")
 [node name="Sprite2D" type="Sprite2D" parent="Platform3"]
 texture_filter = 1
 position = Vector2(0, 70)
-texture = ExtResource("1_frksu")
+texture = ExtResource("2_vuwoa")
 offset = Vector2(51, -127.5)

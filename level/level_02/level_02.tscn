@@ -1,10 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://dslkeuxkcig4a"]
+[gd_scene load_steps=13 format=3 uid="uid://dslkeuxkcig4a"]
 
 [ext_resource type="Script" uid="uid://cr5paax0qa013" path="res://level/level_02/level_02.gd" id="1_wco2t"]
 [ext_resource type="PackedScene" uid="uid://coobrpw2ubqjw" path="res://level/interactables/Platform.tscn" id="2_xmyjc"]
 [ext_resource type="PackedScene" uid="uid://cu6420ipi24uy" path="res://level/obstacles/death_spike.tscn" id="3_3muha"]
+[ext_resource type="Texture2D" uid="uid://547sv3d3ar4e" path="res://assets/sprites/tiles_ceiling/0002.png" id="3_j65wl"]
+[ext_resource type="Texture2D" uid="uid://c58b0pcjt57jq" path="res://assets/sprites/tiles/0011.png" id="3_rndln"]
+[ext_resource type="Texture2D" uid="uid://ocrhqgii112m" path="res://assets/sprites/tiles/0012.png" id="4_7j4iy"]
 [ext_resource type="PackedScene" uid="uid://bcujsflu4nqbn" path="res://loop_system/spawn_point.tscn" id="4_j65wl"]
 [ext_resource type="PackedScene" uid="uid://b2hnjcnhd8ahv" path="res://level/goal_zone.tscn" id="5_emc5r"]
+[ext_resource type="Texture2D" uid="uid://bul2c1fcviow4" path="res://assets/sprites/tiles/0014.png" id="5_vk5g8"]
+[ext_resource type="Texture2D" uid="uid://dnrfm1tcchmq1" path="res://assets/sprites/tiles/0013.png" id="6_7j4iy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xmyjc"]
 size = Vector2(20, 1100)
@@ -41,8 +46,45 @@ shape = SubResource("RectangleShape2D_3muha")
 
 [node name="Platform3" parent="." instance=ExtResource("2_xmyjc")]
 position = Vector2(0, 1080)
-width_in_pixel = 408
-width_in_tile = 4
+texture = ExtResource("3_rndln")
+
+[node name="Platform8" parent="." instance=ExtResource("2_xmyjc")]
+position = Vector2(102, 1080)
+texture = ExtResource("4_7j4iy")
+
+[node name="Platform9" parent="." instance=ExtResource("2_xmyjc")]
+position = Vector2(204, 1080)
+texture = ExtResource("5_vk5g8")
+
+[node name="Platform10" parent="." instance=ExtResource("2_xmyjc")]
+position = Vector2(306, 1080)
+texture = ExtResource("6_7j4iy")
+
+[node name="Platform7" parent="." instance=ExtResource("2_xmyjc")]
+position = Vector2(0, 119)
+width_in_pixel = 1938
+width_in_tile = 19
+texture = ExtResource("3_j65wl")
+
+[node name="Platform6" parent="." instance=ExtResource("2_xmyjc")]
+position = Vector2(602, 1303)
+rotation = -0.336849
+scale = Vector2(1, 1)
+width_in_pixel = 612
+width_in_tile = 6
+
+[node name="Platform5" parent="." instance=ExtResource("2_xmyjc")]
+position = Vector2(568, 1207)
+rotation = -0.336849
+width_in_pixel = 612
+width_in_tile = 6
+
+[node name="Platform4" parent="." instance=ExtResource("2_xmyjc")]
+position = Vector2(534, 1111)
+rotation = -0.336849
+scale = Vector2(1, 1)
+width_in_pixel = 612
+width_in_tile = 6
 
 [node name="Platform1" parent="." instance=ExtResource("2_xmyjc")]
 position = Vector2(1122, 771)
