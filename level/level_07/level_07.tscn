@@ -1,8 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://bvmbgv15r7fqt"]
+[gd_scene load_steps=11 format=3 uid="uid://bvmbgv15r7fqt"]
 
 [ext_resource type="Script" uid="uid://cr5paax0qa013" path="res://level/level_02/level_02.gd" id="1_aunql"]
 [ext_resource type="PackedScene" uid="uid://bcujsflu4nqbn" path="res://loop_system/spawn_point.tscn" id="2_apcun"]
 [ext_resource type="PackedScene" uid="uid://b2hnjcnhd8ahv" path="res://level/goal_zone.tscn" id="3_mkrnp"]
+[ext_resource type="PackedScene" uid="uid://coobrpw2ubqjw" path="res://level/interactables/Platform.tscn" id="4_3hudp"]
+[ext_resource type="PackedScene" uid="uid://cu6420ipi24uy" path="res://level/obstacles/death_spike.tscn" id="5_4ev6a"]
+[ext_resource type="PackedScene" uid="uid://dymffw6ntadbo" path="res://level/interactables/pressure_plate.tscn" id="6_2p385"]
+[ext_resource type="PackedScene" uid="uid://d15yq2lgmdi4p" path="res://level/interactables/door.tscn" id="7_s7wul"]
+[ext_resource type="Script" uid="uid://d3sq7gurjfiqf" path="res://level/obstacles/movment_action.gd" id="8_ovfi7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_si3cn"]
 size = Vector2(20, 1100)
@@ -10,15 +15,15 @@ size = Vector2(20, 1100)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wteuf"]
 size = Vector2(1960, 20)
 
-[node name="LevelTemp" type="Node2D" node_paths=PackedStringArray("spawn_point")]
+[node name="Level_07" type="Node2D" node_paths=PackedStringArray("spawn_point")]
 script = ExtResource("1_aunql")
 spawn_point = NodePath("SpawnPoint")
 
 [node name="SpawnPoint" parent="." instance=ExtResource("2_apcun")]
-position = Vector2(0, 977)
+position = Vector2(0, 774)
 
 [node name="GoalZone" parent="." instance=ExtResource("3_mkrnp")]
-position = Vector2(1836, 668)
+position = Vector2(1326, 264)
 next_level_file = "uid://dprdcmdnfniia"
 
 [node name="Label" type="Label" parent="."]
@@ -43,3 +48,74 @@ shape = SubResource("RectangleShape2D_wteuf")
 [node name="Floor" type="CollisionShape2D" parent="Walls"]
 position = Vector2(960, 1090)
 shape = SubResource("RectangleShape2D_wteuf")
+
+[node name="ResizablePlatform" parent="." instance=ExtResource("4_3hudp")]
+position = Vector2(0, 876)
+width_in_pixel = 408
+width_in_tile = 4
+
+[node name="ResizablePlatform2" parent="." instance=ExtResource("4_3hudp")]
+position = Vector2(1020, 876)
+width_in_pixel = 408
+width_in_tile = 4
+
+[node name="Spikes" type="Node2D" parent="."]
+position = Vector2(408, 1080)
+
+[node name="DeathSpike" parent="Spikes" instance=ExtResource("5_4ev6a")]
+
+[node name="DeathSpike2" parent="Spikes" instance=ExtResource("5_4ev6a")]
+position = Vector2(102, 0)
+
+[node name="DeathSpike8" parent="Spikes" instance=ExtResource("5_4ev6a")]
+position = Vector2(-102, -204)
+rotation = 1.5708
+
+[node name="DeathSpike11" parent="Spikes" instance=ExtResource("5_4ev6a")]
+position = Vector2(714, -102)
+rotation = 4.71239
+
+[node name="DeathSpike3" parent="Spikes" instance=ExtResource("5_4ev6a")]
+position = Vector2(204, 0)
+
+[node name="DeathSpike4" parent="Spikes" instance=ExtResource("5_4ev6a")]
+position = Vector2(306, 0)
+
+[node name="DeathSpike5" parent="Spikes" instance=ExtResource("5_4ev6a")]
+position = Vector2(408, 0)
+
+[node name="DeathSpike6" parent="Spikes" instance=ExtResource("5_4ev6a")]
+position = Vector2(510, 0)
+
+[node name="PressurePlate" parent="." instance=ExtResource("6_2p385")]
+position = Vector2(1224, 774)
+
+[node name="ResizablePlatform4" parent="." instance=ExtResource("4_3hudp")]
+position = Vector2(0, 162)
+width_in_pixel = 612
+width_in_tile = 6
+
+[node name="ResizablePlatform5" parent="." instance=ExtResource("4_3hudp")]
+position = Vector2(1326, 774)
+
+[node name="ResizablePlatform6" parent="." instance=ExtResource("4_3hudp")]
+position = Vector2(1326, 672)
+
+[node name="ResizablePlatform7" parent="." instance=ExtResource("4_3hudp")]
+position = Vector2(1326, 570)
+
+[node name="ResizablePlatform3" parent="." instance=ExtResource("4_3hudp")]
+position = Vector2(918, 468)
+width_in_pixel = 510
+width_in_tile = 5
+
+[node name="Door" parent="." node_paths=PackedStringArray("connected_button") instance=ExtResource("7_s7wul")]
+position = Vector2(918, 366)
+script = ExtResource("8_ovfi7")
+connected_button = NodePath("../PressurePlate")
+target_position = Vector2(918, 60)
+move_duration_sec = 1.0
+return_delay_sec = 5.0
+movement_trans = 0
+movement_ease = 0
+paused = false

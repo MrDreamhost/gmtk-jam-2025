@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://d15yq2lgmdi4p"]
 
-[ext_resource type="Script" uid="uid://7cvxb7sfdxww" path="res://level/interactables/door.gd" id="1_dqnet"]
+[ext_resource type="Script" path="res://level/interactables/door.gd" id="1_dqnet"]
 [ext_resource type="Texture2D" uid="uid://pejr0hmf4x05" path="res://assets/sprites/tiles/0003.png" id="1_frksu"]
 [ext_resource type="Texture2D" uid="uid://cge0dkqacdf1f" path="res://assets/sprites/tiles/0002.png" id="2_dqnet"]
 [ext_resource type="Texture2D" uid="uid://dm2xecntp30ti" path="res://assets/sprites/tiles/0004.png" id="2_vuwoa"]
