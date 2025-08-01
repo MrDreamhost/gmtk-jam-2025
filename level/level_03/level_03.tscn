@@ -149,14 +149,8 @@ position = Vector2(0, -510)
 [node name="Platform25" parent="Tower" instance=ExtResource("5_lvqq1")]
 position = Vector2(-102, -612)
 
-[node name="Platform26" parent="Tower" instance=ExtResource("5_lvqq1")]
-position = Vector2(-102, -714)
-
 [node name="Platform31" parent="Tower" instance=ExtResource("5_lvqq1")]
 position = Vector2(0, -612)
-
-[node name="Platform32" parent="Tower" instance=ExtResource("5_lvqq1")]
-position = Vector2(0, -714)
 
 [node name="DeathSpike" parent="." instance=ExtResource("3_si3cn")]
 position = Vector2(1530, 927)
@@ -190,6 +184,7 @@ position = Vector2(1836, 668)
 next_level_file = "uid://cmvll42mba2tv"
 
 [node name="Bg" type="Sprite2D" parent="."]
+visible = false
 z_index = -2
 position = Vector2(961, 540)
 texture = ExtResource("7_cguju")
