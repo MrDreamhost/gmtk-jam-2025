@@ -155,7 +155,7 @@ position = Vector2(918, 570)
 
 [node name="GoalZone" parent="." instance=ExtResource("3_cqglv")]
 position = Vector2(1760, 515)
-next_level_file = "uid://dprdcmdnfniia"
+next_level_file = "uid://bipq1jpgurwcy"
 
 [node name="Bg" type="Sprite2D" parent="."]
 z_index = -2

@@ -1,16 +1,26 @@
-[gd_scene load_steps=8 format=3 uid="uid://b2fn736u6ukn1"]
+[gd_scene load_steps=12 format=3 uid="uid://b2fn736u6ukn1"]
 
 [ext_resource type="Script" uid="uid://cr5paax0qa013" path="res://level/level_02/level_02.gd" id="1_t3hbx"]
 [ext_resource type="PackedScene" uid="uid://bcujsflu4nqbn" path="res://loop_system/spawn_point.tscn" id="2_im1px"]
 [ext_resource type="PackedScene" uid="uid://b2hnjcnhd8ahv" path="res://level/goal_zone.tscn" id="3_ny4bw"]
 [ext_resource type="PackedScene" uid="uid://coobrpw2ubqjw" path="res://level/interactables/Platform.tscn" id="4_gm3n4"]
 [ext_resource type="PackedScene" uid="uid://cu6420ipi24uy" path="res://level/obstacles/death_spike.tscn" id="5_mpof3"]
+[ext_resource type="Texture2D" uid="uid://ba4o8416eya13" path="res://assets/sprites/tiles/0001.png" id="6_8yku1"]
+[ext_resource type="PackedScene" uid="uid://cy5gaxsvp2xpd" path="res://level/obstacles/moving_platform.tscn" id="6_mpof3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_si3cn"]
 size = Vector2(20, 1100)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wteuf"]
 size = Vector2(1960, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mpof3"]
+resource_local_to_scene = true
+size = Vector2(510, 106)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8yku1"]
+resource_local_to_scene = true
+size = Vector2(102, 308)
 
 [node name="Level_08" type="Node2D" node_paths=PackedStringArray("spawn_point")]
 script = ExtResource("1_t3hbx")
@@ -20,7 +30,7 @@ spawn_point = NodePath("SpawnPoint")
 position = Vector2(0, 876)
 
 [node name="GoalZone" parent="." instance=ExtResource("3_ny4bw")]
-position = Vector2(1224, 162)
+position = Vector2(1836, 162)
 next_level_file = "uid://dprdcmdnfniia"
 
 [node name="Label" type="Label" parent="."]
@@ -51,6 +61,50 @@ position = Vector2(0, 978)
 width_in_pixel = 408
 width_in_tile = 4
 
+[node name="MovingPlatform2" parent="." instance=ExtResource("6_mpof3")]
+position = Vector2(408, 366)
+target_position = Vector2(908, 366)
+move_duration_sec = 5.0
+movement_trans = 2
+
+[node name="Sprite2D2" type="Sprite2D" parent="MovingPlatform2"]
+position = Vector2(153, -59)
+texture = ExtResource("6_8yku1")
+
+[node name="Sprite2D3" type="Sprite2D" parent="MovingPlatform2"]
+position = Vector2(255, -59)
+texture = ExtResource("6_8yku1")
+
+[node name="Sprite2D4" type="Sprite2D" parent="MovingPlatform2"]
+position = Vector2(357, -59)
+texture = ExtResource("6_8yku1")
+
+[node name="Sprite2D5" type="Sprite2D" parent="MovingPlatform2"]
+position = Vector2(459, -59)
+texture = ExtResource("6_8yku1")
+
+[node name="CollisionShape2D" parent="MovingPlatform2" index="5"]
+position = Vector2(255, -51)
+shape = SubResource("RectangleShape2D_mpof3")
+
+[node name="MovingPlatform3" parent="." instance=ExtResource("6_mpof3")]
+position = Vector2(918, -246)
+target_position = Vector2(918, 60)
+move_duration_sec = 5.0
+movement_trans = 2
+
+[node name="Sprite2D3" type="Sprite2D" parent="MovingPlatform3"]
+position = Vector2(51, 145)
+texture = ExtResource("6_8yku1")
+
+[node name="Sprite2D2" type="Sprite2D" parent="MovingPlatform3"]
+position = Vector2(51, 43)
+texture = ExtResource("6_8yku1")
+
+[node name="CollisionShape2D" parent="MovingPlatform3" index="3"]
+position = Vector2(51, 50)
+shape = SubResource("RectangleShape2D_8yku1")
+
 [node name="Spikes" type="Node2D" parent="."]
 
 [node name="DeathSpike" parent="Spikes" instance=ExtResource("5_mpof3")]
@@ -58,3 +112,133 @@ position = Vector2(408, 1080)
 
 [node name="DeathSpike2" parent="Spikes" instance=ExtResource("5_mpof3")]
 position = Vector2(510, 1080)
+
+[node name="DeathSpike3" parent="Spikes" instance=ExtResource("5_mpof3")]
+position = Vector2(612, 1080)
+
+[node name="DeathSpike4" parent="Spikes" instance=ExtResource("5_mpof3")]
+position = Vector2(714, 1080)
+
+[node name="DeathSpike5" parent="Spikes" instance=ExtResource("5_mpof3")]
+position = Vector2(816, 1080)
+
+[node name="Spikes2" type="Node2D" parent="."]
+position = Vector2(612, 9)
+
+[node name="DeathSpike" parent="Spikes2" instance=ExtResource("5_mpof3")]
+position = Vector2(408, 1080)
+
+[node name="DeathSpike2" parent="Spikes2" instance=ExtResource("5_mpof3")]
+position = Vector2(510, 1080)
+
+[node name="DeathSpike3" parent="Spikes2" instance=ExtResource("5_mpof3")]
+position = Vector2(612, 1080)
+
+[node name="DeathSpike4" parent="Spikes2" instance=ExtResource("5_mpof3")]
+position = Vector2(714, 1080)
+
+[node name="MovingPlatform" parent="." instance=ExtResource("6_mpof3")]
+position = Vector2(408, 978)
+target_position = Vector2(908, 978)
+move_duration_sec = 5.0
+movement_trans = 2
+
+[node name="Sprite2D2" type="Sprite2D" parent="MovingPlatform"]
+position = Vector2(153, -59)
+texture = ExtResource("6_8yku1")
+
+[node name="Sprite2D3" type="Sprite2D" parent="MovingPlatform"]
+position = Vector2(255, -59)
+texture = ExtResource("6_8yku1")
+
+[node name="Sprite2D4" type="Sprite2D" parent="MovingPlatform"]
+position = Vector2(357, -59)
+texture = ExtResource("6_8yku1")
+
+[node name="Sprite2D5" type="Sprite2D" parent="MovingPlatform"]
+position = Vector2(459, -59)
+texture = ExtResource("6_8yku1")
+
+[node name="CollisionShape2D" parent="MovingPlatform" index="5"]
+position = Vector2(255, -51)
+shape = SubResource("RectangleShape2D_mpof3")
+
+[node name="ResizablePlatform2" parent="." instance=ExtResource("4_gm3n4")]
+position = Vector2(0, 366)
+width_in_pixel = 408
+width_in_tile = 4
+
+[node name="ResizablePlatform3" parent="." instance=ExtResource("4_gm3n4")]
+position = Vector2(0, 264)
+width_in_pixel = 408
+width_in_tile = 4
+
+[node name="ResizablePlatform4" parent="." instance=ExtResource("4_gm3n4")]
+position = Vector2(0, 162)
+width_in_pixel = 408
+width_in_tile = 4
+
+[node name="ResizablePlatform5" parent="." instance=ExtResource("4_gm3n4")]
+position = Vector2(0, 60)
+width_in_pixel = 408
+width_in_tile = 4
+
+[node name="ResizablePlatform6" parent="." instance=ExtResource("4_gm3n4")]
+position = Vector2(918, 876)
+
+[node name="ResizablePlatform7" parent="." instance=ExtResource("4_gm3n4")]
+position = Vector2(918, 774)
+
+[node name="ResizablePlatform8" parent="." instance=ExtResource("4_gm3n4")]
+position = Vector2(918, 672)
+
+[node name="ResizablePlatform9" parent="." instance=ExtResource("4_gm3n4")]
+position = Vector2(918, 1080)
+
+[node name="ResizablePlatform10" parent="." instance=ExtResource("4_gm3n4")]
+position = Vector2(918, 570)
+
+[node name="ResizablePlatform11" parent="." instance=ExtResource("4_gm3n4")]
+position = Vector2(918, 468)
+
+[node name="ResizablePlatform12" parent="." instance=ExtResource("4_gm3n4")]
+position = Vector2(1428, 1080)
+width_in_pixel = 510
+width_in_tile = 5
+
+[node name="ResizablePlatform13" parent="." instance=ExtResource("4_gm3n4")]
+position = Vector2(1428, 978)
+width_in_pixel = 510
+width_in_tile = 5
+
+[node name="ResizablePlatform14" parent="." instance=ExtResource("4_gm3n4")]
+position = Vector2(1428, 672)
+width_in_pixel = 204
+width_in_tile = 2
+
+[node name="ResizablePlatform15" parent="." instance=ExtResource("4_gm3n4")]
+position = Vector2(1734, 366)
+width_in_pixel = 204
+width_in_tile = 2
+
+[node name="ResizablePlatform16" parent="." instance=ExtResource("4_gm3n4")]
+position = Vector2(1428, 570)
+
+[node name="ResizablePlatform17" parent="." instance=ExtResource("4_gm3n4")]
+position = Vector2(1428, 468)
+
+[node name="ResizablePlatform18" parent="." instance=ExtResource("4_gm3n4")]
+position = Vector2(1428, 366)
+
+[node name="ResizablePlatform19" parent="." instance=ExtResource("4_gm3n4")]
+position = Vector2(1428, 264)
+
+[node name="ResizablePlatform20" parent="." instance=ExtResource("4_gm3n4")]
+position = Vector2(1428, 162)
+
+[node name="ResizablePlatform21" parent="." instance=ExtResource("4_gm3n4")]
+position = Vector2(1428, 60)
+
+[editable path="MovingPlatform2"]
+[editable path="MovingPlatform3"]
+[editable path="MovingPlatform"]
