@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://bcujsflu4nqbn"]
+[gd_scene load_steps=35 format=3 uid="uid://bcujsflu4nqbn"]
 
 [ext_resource type="Script" uid="uid://c5237mb4mfdt5" path="res://loop_system/spawn_point.gd" id="1_oh74y"]
 [ext_resource type="Texture2D" uid="uid://cb38epsmhhqai" path="res://assets/sprites/ouroboros_hologram/0001.png" id="2_c88ov"]
@@ -31,6 +31,19 @@
 [ext_resource type="Texture2D" uid="uid://dv81r2dvqmhc8" path="res://assets/sprites/ouroboros_hologram/0028.png" id="29_tvprl"]
 [ext_resource type="Texture2D" uid="uid://clxclg4prxums" path="res://assets/sprites/ouroboros_hologram/0029.png" id="30_tnaot"]
 [ext_resource type="Texture2D" uid="uid://dvv0xk1y0phg" path="res://assets/sprites/ouroboros_hologram/0030.png" id="31_5yt35"]
+
+[sub_resource type="Gradient" id="Gradient_v0nfp"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.319444, 0.356481, 0.583333, 0.615741)
+colors = PackedColorArray(0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_g6rqn"]
+gradient = SubResource("Gradient_v0nfp")
+width = 96
+height = 96
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+metadata/_snap_enabled = true
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_5j141"]
 animations = [{
@@ -131,17 +144,28 @@ animations = [{
 }]
 
 [node name="SpawnPoint" type="Node2D"]
+process_mode = 3
 script = ExtResource("1_oh74y")
 
+[node name="Control" type="CenterContainer" parent="."]
+offset_left = 52.0
+offset_top = -136.0
+offset_right = 148.0
+offset_bottom = -40.0
+metadata/_edit_lock_ = true
+
+[node name="TimerProgressBar" type="TextureProgressBar" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+value = 0.4
+fill_mode = 4
+texture_progress = SubResource("GradientTexture2D_g6rqn")
+
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(99, -87.5)
+position = Vector2(100, -88)
 sprite_frames = SubResource("SpriteFrames_5j141")
 autoplay = "default"
-frame_progress = 0.927292
-
-[node name="Label" type="Label" parent="."]
-offset_left = 75.0
-offset_top = -178.0
-offset_right = 127.0
-offset_bottom = -155.0
-text = "Spawn"
+frame_progress = 0.895212
+metadata/_edit_lock_ = true

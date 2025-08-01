@@ -1,12 +1,17 @@
 class_name SpawnPoint
 extends Node2D
 
+@export var loop_timer: Timer
+@onready var timer_progress_bar: TextureProgressBar = %TimerProgressBar
+var reversed := false
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	timer_progress_bar.value = 0.0
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _process(delta: float) -> void: 
+	if reversed:
+		timer_progress_bar.value -= delta * timer_progress_bar.max_value * 2.0
+		reversed = timer_progress_bar.value > 0.0
+	elif loop_timer != null and loop_timer.time_left > 0.0:
+		timer_progress_bar.value = 1.0 - (loop_timer.time_left / loop_timer.wait_time)

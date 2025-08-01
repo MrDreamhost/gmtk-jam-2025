@@ -1,11 +1,16 @@
 class_name Main extends Node2D
 
 @export var inital_level: PackedScene
+@export var shockwave_offset := Vector2.ZERO
 
 @onready var player_recorder: ReplayRecorder = $PlayerRecorder
 @onready var loop_timer: Timer = $LoopTimer
 @onready var label: Label = $CanvasLayer/Label
 @onready var player: Player = $Player
+
+@onready var player_dummy: Node2D = $PlayerDummy
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var shockwave_mat: ShaderMaterial = $CanvasLayer/ShockwaveOverlay.material
 
 var current_level: Level
 var spawned_ghosts: Array[PlayerGhost] = []
@@ -49,6 +54,8 @@ func reset_loop() -> void:
 	self.player_recorder.reset_replay_data()
 	self.respawn_player()
 	self.reset_ghosts()
+	self.loop_timer.start()
+	get_tree().paused = false
 
 
 func reset_level() -> void:
@@ -81,6 +88,8 @@ func set_label_text() -> void:
 func load_level(level: Level) -> void:
 	self.current_level = level
 	self.add_child(self.current_level)
+	var current_spawn := self.current_level.spawn_point
+	current_spawn.loop_timer = loop_timer
 	self.reset_level()
 	for goal_zone: GoalZone in get_tree().get_nodes_in_group("goal_zone"):
 		if not goal_zone.goal_reached.is_connected(_on_goal_rached):
@@ -89,7 +98,22 @@ func load_level(level: Level) -> void:
 
 
 func _on_loop_timer_timeout() -> void:
-	self.reset_loop()
+	trigger_shockwave()
+	get_tree().paused = true
+	var loop_ended_animation := animation_player.get_animation("loop_ended")
+	var current_spawn: SpawnPoint = self.current_level.spawn_point
+	player_dummy.global_position = player.global_position
+	for child in player_dummy.get_children():
+		player_dummy.remove_child(child)
+		child.queue_free()
+	player_dummy.add_child(player.animated_sprite_2d.duplicate())
+	loop_ended_animation.track_set_key_value(3, 0, player.global_position)
+	loop_ended_animation.track_set_key_value(3, 1, current_spawn.global_position)
+	animation_player.play("loop_ended")
+
+
+func turn_clock_back() -> void:
+	current_level.spawn_point.reversed = true
 
 
 func _on_goal_rached(next_level_file: String) -> void:
@@ -100,3 +124,18 @@ func _on_goal_rached(next_level_file: String) -> void:
 	load_level(next_level)
 	LevelTransition.play_fade_out()
 	await LevelTransition.animation_player.animation_finished
+
+
+
+func trigger_shockwave():
+	var spawn: SpawnPoint = current_level.spawn_point
+	var viewport := spawn.get_viewport()
+	var viewport_size = viewport.get_visible_rect().size
+	var spawn_center := spawn.global_position
+	spawn_center += shockwave_offset
+	var uv_pos = spawn_center / Vector2(viewport_size)
+	shockwave_mat.set_shader_parameter("center", uv_pos)
+
+
+func _on_h_slider_value_changed(value: float) -> void:
+	shockwave_mat.set_shader_parameter("radius", value)
