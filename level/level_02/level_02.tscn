@@ -69,7 +69,6 @@ texture = ExtResource("3_j65wl")
 [node name="Platform6" parent="." instance=ExtResource("2_xmyjc")]
 position = Vector2(602, 1303)
 rotation = -0.336849
-scale = Vector2(1, 1)
 width_in_pixel = 612
 width_in_tile = 6
 
@@ -82,7 +81,6 @@ width_in_tile = 6
 [node name="Platform4" parent="." instance=ExtResource("2_xmyjc")]
 position = Vector2(534, 1111)
 rotation = -0.336849
-scale = Vector2(1, 1)
 width_in_pixel = 612
 width_in_tile = 6
 
@@ -92,7 +90,7 @@ width_in_pixel = 408
 width_in_tile = 4
 
 [node name="DeathSpikesPlatform1" type="Node2D" parent="."]
-position = Vector2(861, 888)
+position = Vector2(813, 905)
 rotation = -0.3368
 metadata/_edit_group_ = true
 

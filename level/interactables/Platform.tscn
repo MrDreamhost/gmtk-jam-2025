@@ -13,12 +13,12 @@ texture = ExtResource("2_awmrl")
 
 [node name="Line2D" type="Line2D" parent="."]
 texture_repeat = 2
-position = Vector2(0, -60)
+position = Vector2(0, -59)
 points = PackedVector2Array(0, 0, 102, 0)
 width = 118.0
 texture = ExtResource("2_awmrl")
 texture_mode = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(51, -54)
+position = Vector2(51, -53)
 shape = SubResource("RectangleShape2D_awmrl")

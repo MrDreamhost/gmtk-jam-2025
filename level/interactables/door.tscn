@@ -9,7 +9,7 @@ size = Vector2(102, 103)
 
 [node name="Door" type="Node2D"]
 
-[node name="Platform" type="StaticBody2D" parent="."]
+[node name="Platform" type="AnimatableBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
 position = Vector2(51, -51.5)
@@ -21,7 +21,7 @@ position = Vector2(0, 69)
 texture = ExtResource("1_frksu")
 offset = Vector2(51, -128.5)
 
-[node name="Platform2" type="StaticBody2D" parent="."]
+[node name="Platform2" type="AnimatableBody2D" parent="."]
 position = Vector2(0, -103)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform2"]
@@ -34,7 +34,7 @@ position = Vector2(0, 70)
 texture = ExtResource("2_dqnet")
 offset = Vector2(51, -128.5)
 
-[node name="Platform3" type="StaticBody2D" parent="."]
+[node name="Platform3" type="AnimatableBody2D" parent="."]
 position = Vector2(0, -206)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform3"]
