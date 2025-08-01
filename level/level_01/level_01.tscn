@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bcujsflu4nqbn" path="res://loop_system/spawn_point.tscn" id="3_aem8p"]
 [ext_resource type="PackedScene" uid="uid://b2hnjcnhd8ahv" path="res://level/goal_zone.tscn" id="4_mopx3"]
 [ext_resource type="PackedScene" uid="uid://coobrpw2ubqjw" path="res://level/interactables/Platform.tscn" id="4_rdi31"]
-[ext_resource type="Texture2D" uid="uid://cge0dkqacdf1f" path="res://assets/sprites/tiles/0002.png" id="5_aem8p"]
+[ext_resource type="Texture2D" uid="uid://ocrhqgii112m" path="res://assets/sprites/tiles/0012.png" id="5_aem8p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tuypi"]
 size = Vector2(20, 1100)
@@ -50,13 +50,23 @@ shape = SubResource("RectangleShape2D_rdi31")
 position = Vector2(0, 1080)
 width_in_pixel = 1938
 width_in_tile = 19
-texture = ExtResource("5_aem8p")
 
 [node name="TopPlatform" parent="." instance=ExtResource("4_rdi31")]
 position = Vector2(0, 771)
-width_in_pixel = 1428
-width_in_tile = 14
+
+[node name="TopPlatform2" parent="." instance=ExtResource("4_rdi31")]
+position = Vector2(102, 771)
 texture = ExtResource("5_aem8p")
+
+[node name="TopPlatform3" parent="." instance=ExtResource("4_rdi31")]
+position = Vector2(204, 771)
+width_in_pixel = 306
+width_in_tile = 3
+
+[node name="TopPlatform4" parent="." instance=ExtResource("4_rdi31")]
+position = Vector2(510, 770)
+width_in_pixel = 306
+width_in_tile = 3
 
 [node name="Platform Bottom2" type="Node2D" parent="."]
 position = Vector2(0, 771)
