@@ -1,9 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://d2iwwq2sfgujk"]
+[gd_scene load_steps=11 format=3 uid="uid://d2iwwq2sfgujk"]
 
 [ext_resource type="Script" uid="uid://dflftgnlarl0a" path="res://game/main.gd" id="1_xtpaf"]
 [ext_resource type="PackedScene" uid="uid://d3eu8ibj2ld1b" path="res://level/level_01/level_01.tscn" id="2_vop5m"]
 [ext_resource type="PackedScene" uid="uid://c0dapnlli3qqi" path="res://player/player.tscn" id="3_emt18"]
-[ext_resource type="PackedScene" uid="uid://lwljdejfudkj" path="res://player/victory_player.tscn" id="4_dgpao"]
 [ext_resource type="Script" uid="uid://4det2vjn1nki" path="res://loop_system/replay_recorder.gd" id="4_vop5m"]
 [ext_resource type="Shader" uid="uid://bvy37qyslgaew" path="res://assets/shaders/shockwave.gdshader" id="6_dgpao"]
 
@@ -141,9 +140,6 @@ shockwave_offset = Vector2(102, -240)
 
 [node name="Player" parent="." instance=ExtResource("3_emt18")]
 position = Vector2(12, 13)
-
-[node name="VictoryPlayer" parent="." instance=ExtResource("4_dgpao")]
-visible = false
 
 [node name="PlayerDummy" type="Node2D" parent="."]
 visible = false
