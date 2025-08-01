@@ -8,6 +8,11 @@ signal goal_reached(next_level_file: String)
 
 func _ready() -> void:
 	assert(self.next_level_file != null, "Unknown next_level_file")
+	self.monitoring = false
+	# BUG wait 2 physics_frame before activating this goal_zone
+	await get_tree().physics_frame
+	await get_tree().physics_frame
+	self.monitoring = true
 
 
 func _on_body_entered(body: Node2D) -> void:
