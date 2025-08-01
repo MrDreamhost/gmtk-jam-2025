@@ -8,11 +8,13 @@ const TILE_TEXTURE_SIZE := Vector2i(102, 118)
 
 @onready var line_2d: Line2D = $Line2D
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
-@export var texture: Texture2D: set = set_texture
+
+@export var texture: Texture2D
 
 
 func _ready() -> void:
 	resize_platform()
+	set_texture(texture)
 
 
 func resize_platform() -> void:
@@ -37,5 +39,5 @@ func set_width_in_pixel(_width_in_pixel: int) -> void:
 	resize_platform()
 
 func set_texture(value: Texture2D) -> void:
-	texture = value
-	$Line2D.texture = value
+	#texture = value
+	line_2d.texture = value
