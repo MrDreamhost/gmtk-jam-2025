@@ -123,10 +123,10 @@ position = Vector2(816, 668)
 rotation = -1.5708
 
 [node name="Door" parent="." node_paths=PackedStringArray("connected_button") instance=ExtResource("7_3t25d")]
-position = Vector2(1428, 565)
+position = Vector2(1428, 562.5)
 script = ExtResource("8_e3o78")
 connected_button = NodePath("../PressurePlate")
 target_position = Vector2(1428, 359)
 
 [node name="PressurePlate" parent="." instance=ExtResource("9_l2tt0")]
-position = Vector2(918, 565)
+position = Vector2(918, 564)

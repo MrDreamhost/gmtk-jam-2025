@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://coobrpw2ubqjw"]
 
 [ext_resource type="Script" uid="uid://d2rbbug84lbps" path="res://level/interactables/Platform.gd" id="1_3gtpk"]
-[ext_resource type="Texture2D" uid="uid://baronx0wcaupq" path="res://assets/sprites/tiles/0002_trimed.png" id="2_gc15r"]
+[ext_resource type="Texture2D" uid="uid://cge0dkqacdf1f" path="res://assets/sprites/tiles/0002.png" id="2_awmrl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_awmrl"]
 resource_local_to_scene = true
@@ -15,7 +15,7 @@ texture_repeat = 2
 position = Vector2(0, -60)
 points = PackedVector2Array(0, 0, 102, 0)
 width = 118.0
-texture = ExtResource("2_gc15r")
+texture = ExtResource("2_awmrl")
 texture_mode = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

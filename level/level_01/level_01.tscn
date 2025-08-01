@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://d3eu8ibj2ld1b"]
+[gd_scene load_steps=8 format=3 uid="uid://d3eu8ibj2ld1b"]
 
 [ext_resource type="Script" uid="uid://bpokfberniss4" path="res://level/level_01/level_01.gd" id="1_2n58o"]
 [ext_resource type="PackedScene" uid="uid://bcujsflu4nqbn" path="res://loop_system/spawn_point.tscn" id="3_aem8p"]
 [ext_resource type="PackedScene" uid="uid://b2hnjcnhd8ahv" path="res://level/goal_zone.tscn" id="4_mopx3"]
 [ext_resource type="PackedScene" uid="uid://coobrpw2ubqjw" path="res://level/interactables/Platform.tscn" id="4_rdi31"]
+[ext_resource type="Texture2D" uid="uid://cge0dkqacdf1f" path="res://assets/sprites/tiles/0002.png" id="5_aem8p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tuypi"]
 size = Vector2(20, 1100)
@@ -49,11 +50,13 @@ shape = SubResource("RectangleShape2D_rdi31")
 position = Vector2(0, 1080)
 width_in_pixel = 1938
 width_in_tile = 19
+texture = ExtResource("5_aem8p")
 
 [node name="TopPlatform" parent="." instance=ExtResource("4_rdi31")]
 position = Vector2(0, 771)
 width_in_pixel = 1428
 width_in_tile = 14
+texture = ExtResource("5_aem8p")
 
 [node name="Platform Bottom2" type="Node2D" parent="."]
 position = Vector2(0, 771)
