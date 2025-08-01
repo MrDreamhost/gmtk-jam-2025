@@ -11,6 +11,7 @@ class_name Main extends Node2D
 @onready var player_dummy: Node2D = $PlayerDummy
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var shockwave_mat: ShaderMaterial = $CanvasLayer/ShockwaveOverlay.material
+@onready var victory_player: Node2D = $VictoryPlayer
 
 var current_level: Level
 var spawned_ghosts: Array[PlayerGhost] = []
@@ -117,7 +118,22 @@ func turn_clock_back() -> void:
 
 
 func _on_goal_rached(next_level_file: String) -> void:
+	remove_child(player)
+	var goal_zone: GoalZone = get_tree().get_first_node_in_group("goal_zone")
+	goal_zone.visible = false
+	loop_timer.stop()
+	
+	victory_player.global_position = player.global_position
+	victory_player.visible = true
+	var animation_player: AnimationPlayer = victory_player.get_node("AnimationPlayer")
+	var animation := animation_player.get_animation("victory_eat")
+	animation.track_set_key_value(0, 0, victory_player.to_local(goal_zone.global_position))
+	animation_player.play("victory_eat")
+	await animation_player.animation_finished
+	$VictoryPlayer.visible = false
+	
 	var next_level_scene := await LevelTransition.load_with_loading_screen(next_level_file) as PackedScene
+	add_child(player)
 	if current_level:
 		current_level.queue_free()
 	var next_level := next_level_scene.instantiate() as Level
