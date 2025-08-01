@@ -10,14 +10,12 @@ var gravity_down: float
 
 func _ready() -> void:
 	self.player = self.owner
-	# Calculate jump base equation: h = (1/2) * g * (t/2)^2
 	self.calculate_jump()
 
 
 func update_physics_process(delta: float) -> void:
 	if self.player.velocity.y < 0:
 		self.player.velocity.y += self.gravity_up * delta
-		print(self.player.global_position.y)
 	else:
 		self.player.velocity.y += self.gravity_down * delta
 		
@@ -49,7 +47,6 @@ func enter(data := {}) -> void:
 	super()
 	self.calculate_jump()
 	self.player.animated_sprite_2d.play("jump")
-	print(self.player.global_position.y)
 	self.player.velocity.y = -self.jump_velocity
 
 
@@ -66,6 +63,7 @@ func is_horizontal_input_pressed() -> bool:
 
 
 func calculate_jump() -> void:
+	# Calculate jump base equation: h = (1/2) * g * (t/2)^2
 	self.time_to_apex = self.player.player_config.jump_duration / 2
 	self.gravity_up = (
 		(2 * self.player.player_config.jump_max_height) / (pow(time_to_apex, 2))
