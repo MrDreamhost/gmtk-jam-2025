@@ -58,75 +58,75 @@ width_in_pixel = 816
 width_in_tile = 8
 
 [node name="Platform19" parent="." instance=ExtResource("5_b1mf7")]
-position = Vector2(1020, 668)
+position = Vector2(1020, 672)
 width_in_pixel = 816
 width_in_tile = 8
 
 [node name="Platform2" parent="." instance=ExtResource("5_b1mf7")]
-position = Vector2(816, 977)
+position = Vector2(816, 978)
 
 [node name="Platform3" parent="." instance=ExtResource("5_b1mf7")]
-position = Vector2(816, 874)
+position = Vector2(816, 876)
 
 [node name="Platform4" parent="." instance=ExtResource("5_b1mf7")]
-position = Vector2(816, 771)
+position = Vector2(816, 774)
 
 [node name="Platform11" parent="." instance=ExtResource("5_b1mf7")]
-position = Vector2(1836, 668)
+position = Vector2(1836, 672)
 
 [node name="Platform12" parent="." instance=ExtResource("5_b1mf7")]
-position = Vector2(1836, 565)
+position = Vector2(1836, 570)
 
 [node name="Platform13" parent="." instance=ExtResource("5_b1mf7")]
-position = Vector2(1836, 462)
+position = Vector2(1836, 468)
 
 [node name="Platform14" parent="." instance=ExtResource("5_b1mf7")]
-position = Vector2(1836, 359)
+position = Vector2(1836, 366)
 
 [node name="Platform15" parent="." instance=ExtResource("5_b1mf7")]
-position = Vector2(1734, 359)
+position = Vector2(1734, 366)
 
 [node name="Platform16" parent="." instance=ExtResource("5_b1mf7")]
-position = Vector2(1632, 359)
+position = Vector2(1632, 366)
 
 [node name="Platform17" parent="." instance=ExtResource("5_b1mf7")]
-position = Vector2(1530, 359)
+position = Vector2(1530, 366)
 
 [node name="Platform5" parent="." instance=ExtResource("5_b1mf7")]
-position = Vector2(816, 668)
+position = Vector2(816, 672)
 
 [node name="Platform6" parent="." instance=ExtResource("5_b1mf7")]
 position = Vector2(918, 1080)
 
 [node name="Platform7" parent="." instance=ExtResource("5_b1mf7")]
-position = Vector2(918, 977)
+position = Vector2(918, 978)
 
 [node name="Platform8" parent="." instance=ExtResource("5_b1mf7")]
-position = Vector2(918, 874)
+position = Vector2(918, 876)
 
 [node name="Platform9" parent="." instance=ExtResource("5_b1mf7")]
-position = Vector2(918, 771)
+position = Vector2(918, 774)
 
 [node name="Platform10" parent="." instance=ExtResource("5_b1mf7")]
-position = Vector2(918, 668)
+position = Vector2(918, 672)
 
 [node name="DeathSpike" parent="." instance=ExtResource("6_juuh0")]
-position = Vector2(816, 874)
+position = Vector2(816, 876)
 rotation = -1.5708
 
 [node name="DeathSpike2" parent="." instance=ExtResource("6_juuh0")]
-position = Vector2(816, 771)
+position = Vector2(816, 774)
 rotation = -1.5708
 
 [node name="DeathSpike3" parent="." instance=ExtResource("6_juuh0")]
-position = Vector2(816, 668)
+position = Vector2(816, 672)
 rotation = -1.5708
 
 [node name="Door" parent="." node_paths=PackedStringArray("connected_button") instance=ExtResource("7_3t25d")]
-position = Vector2(1428, 562.5)
+position = Vector2(1428, 570)
 script = ExtResource("8_e3o78")
 connected_button = NodePath("../PressurePlate")
-target_position = Vector2(1428, 359)
+target_position = Vector2(1428, 366)
 
 [node name="PressurePlate" parent="." instance=ExtResource("9_l2tt0")]
-position = Vector2(918, 564)
+position = Vector2(918, 570)

@@ -1,0 +1,64 @@
+[gd_scene load_steps=8 format=3 uid="uid://bipq1jpgurwcy"]
+
+[ext_resource type="Script" uid="uid://cr5paax0qa013" path="res://level/level_02/level_02.gd" id="1_1kcua"]
+[ext_resource type="PackedScene" uid="uid://bcujsflu4nqbn" path="res://loop_system/spawn_point.tscn" id="2_d0s7e"]
+[ext_resource type="PackedScene" uid="uid://b2hnjcnhd8ahv" path="res://level/goal_zone.tscn" id="3_yye5g"]
+[ext_resource type="PackedScene" uid="uid://coobrpw2ubqjw" path="res://level/interactables/Platform.tscn" id="4_t0w6d"]
+[ext_resource type="PackedScene" uid="uid://dymffw6ntadbo" path="res://level/interactables/pressure_plate.tscn" id="5_ajpck"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_si3cn"]
+size = Vector2(20, 1100)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wteuf"]
+size = Vector2(1960, 20)
+
+[node name="Level_05" type="Node2D" node_paths=PackedStringArray("spawn_point")]
+script = ExtResource("1_1kcua")
+spawn_point = NodePath("SpawnPoint")
+
+[node name="SpawnPoint" parent="." instance=ExtResource("2_d0s7e")]
+position = Vector2(0, 977)
+
+[node name="GoalZone" parent="." instance=ExtResource("3_yye5g")]
+position = Vector2(1836, 668)
+next_level_file = "uid://dprdcmdnfniia"
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Level 04"
+
+[node name="Walls" type="StaticBody2D" parent="."]
+
+[node name="Wall Left" type="CollisionShape2D" parent="Walls"]
+position = Vector2(-10, 540)
+shape = SubResource("RectangleShape2D_si3cn")
+
+[node name="Wall Right" type="CollisionShape2D" parent="Walls"]
+position = Vector2(1930, 540)
+shape = SubResource("RectangleShape2D_si3cn")
+
+[node name="Ceiling" type="CollisionShape2D" parent="Walls"]
+position = Vector2(960, -10)
+shape = SubResource("RectangleShape2D_wteuf")
+
+[node name="Floor" type="CollisionShape2D" parent="Walls"]
+position = Vector2(960, 1090)
+shape = SubResource("RectangleShape2D_wteuf")
+
+[node name="ResizablePlatform" parent="." instance=ExtResource("4_t0w6d")]
+position = Vector2(0, 1080)
+width_in_pixel = 408
+width_in_tile = 4
+
+[node name="PressurePlate" parent="." instance=ExtResource("5_ajpck")]
+position = Vector2(204, 977)
+
+[node name="ResizablePlatform3" parent="." instance=ExtResource("4_t0w6d")]
+position = Vector2(408, 1080)
+
+[node name="ResizablePlatform2" parent="." instance=ExtResource("4_t0w6d")]
+position = Vector2(408, 977)
+
+[node name="ResizablePlatform4" parent="." instance=ExtResource("4_t0w6d")]
+position = Vector2(408, 874)

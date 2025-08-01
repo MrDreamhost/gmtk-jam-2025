@@ -1,17 +1,19 @@
 [gd_scene load_steps=4 format=3 uid="uid://cy5gaxsvp2xpd"]
 
 [ext_resource type="Script" uid="uid://d3sq7gurjfiqf" path="res://level/obstacles/movment_action.gd" id="1_irk4e"]
-[ext_resource type="Texture2D" uid="uid://bjwnao17x8v8x" path="res://assets/sprites/icon.svg" id="1_jue66"]
+[ext_resource type="Texture2D" uid="uid://ba4o8416eya13" path="res://assets/sprites/tiles/0001.png" id="2_irk4e"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_irk4e"]
-size = Vector2(421, 90)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tvjty"]
+resource_local_to_scene = true
+size = Vector2(102, 106)
 
 [node name="MovingPlatform" type="AnimatableBody2D"]
 script = ExtResource("1_irk4e")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_irk4e")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(51, -54)
+shape = SubResource("RectangleShape2D_tvjty")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(3.28906, 0.703125)
-texture = ExtResource("1_jue66")
+position = Vector2(51, -60)
+texture = ExtResource("2_irk4e")
