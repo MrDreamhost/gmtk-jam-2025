@@ -1,8 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://x70xddgwfyww"]
+[gd_scene load_steps=13 format=3 uid="uid://x70xddgwfyww"]
 
 [ext_resource type="Script" uid="uid://cr5paax0qa013" path="res://level/level_02/level_02.gd" id="1_tid4i"]
 [ext_resource type="PackedScene" uid="uid://bcujsflu4nqbn" path="res://loop_system/spawn_point.tscn" id="2_0ya8r"]
 [ext_resource type="PackedScene" uid="uid://b2hnjcnhd8ahv" path="res://level/goal_zone.tscn" id="3_v84nx"]
+[ext_resource type="PackedScene" uid="uid://coobrpw2ubqjw" path="res://level/interactables/Platform.tscn" id="4_8jfgd"]
+[ext_resource type="PackedScene" uid="uid://cu6420ipi24uy" path="res://level/obstacles/death_spike.tscn" id="5_1af40"]
+[ext_resource type="PackedScene" uid="uid://cy5gaxsvp2xpd" path="res://level/obstacles/moving_platform.tscn" id="6_5nyk4"]
+[ext_resource type="PackedScene" uid="uid://d15yq2lgmdi4p" path="res://level/interactables/door.tscn" id="7_1af40"]
+[ext_resource type="Texture2D" uid="uid://ba4o8416eya13" path="res://assets/sprites/tiles/0001.png" id="7_kitai"]
+[ext_resource type="PackedScene" uid="uid://dymffw6ntadbo" path="res://level/interactables/pressure_plate.tscn" id="8_5nyk4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_si3cn"]
 size = Vector2(20, 1100)
@@ -10,21 +16,25 @@ size = Vector2(20, 1100)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wteuf"]
 size = Vector2(1960, 20)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3dpeq"]
+resource_local_to_scene = true
+size = Vector2(102, 308)
+
 [node name="LevelTemp" type="Node2D" node_paths=PackedStringArray("spawn_point")]
 script = ExtResource("1_tid4i")
 spawn_point = NodePath("SpawnPoint")
 
 [node name="SpawnPoint" parent="." instance=ExtResource("2_0ya8r")]
-position = Vector2(0, 977)
+position = Vector2(0, 978)
 
 [node name="GoalZone" parent="." instance=ExtResource("3_v84nx")]
-position = Vector2(1836, 668)
+position = Vector2(102, 468)
 next_level_file = "uid://d3eu8ibj2ld1b"
 
 [node name="Label" type="Label" parent="."]
 offset_right = 40.0
 offset_bottom = 23.0
-text = "Level 04"
+text = "Level 10"
 
 [node name="Walls" type="StaticBody2D" parent="."]
 
@@ -43,3 +53,205 @@ shape = SubResource("RectangleShape2D_wteuf")
 [node name="Floor" type="CollisionShape2D" parent="Walls"]
 position = Vector2(960, 1090)
 shape = SubResource("RectangleShape2D_wteuf")
+
+[node name="ResizablePlatform" parent="." instance=ExtResource("4_8jfgd")]
+position = Vector2(0, 366)
+width_in_pixel = 204
+width_in_tile = 2
+
+[node name="ResizablePlatform2" parent="." instance=ExtResource("4_8jfgd")]
+position = Vector2(0, 672)
+width_in_pixel = 510
+width_in_tile = 5
+
+[node name="ResizablePlatform3" parent="." instance=ExtResource("4_8jfgd")]
+position = Vector2(0, 774)
+width_in_pixel = 408
+width_in_tile = 4
+
+[node name="ResizablePlatform4" parent="." instance=ExtResource("4_8jfgd")]
+position = Vector2(0, 1080)
+width_in_pixel = 510
+width_in_tile = 5
+
+[node name="SpikeStrip" type="Node2D" parent="."]
+position = Vector2(510, 519)
+
+[node name="DeathSpike" parent="SpikeStrip" instance=ExtResource("5_1af40")]
+
+[node name="DeathSpike2" parent="SpikeStrip" instance=ExtResource("5_1af40")]
+position = Vector2(102, 0)
+rotation = 3.14159
+
+[node name="DeathSpike3" parent="SpikeStrip" instance=ExtResource("5_1af40")]
+position = Vector2(102, 0)
+
+[node name="DeathSpike4" parent="SpikeStrip" instance=ExtResource("5_1af40")]
+position = Vector2(204, 0)
+rotation = 3.14159
+
+[node name="DeathSpike5" parent="SpikeStrip" instance=ExtResource("5_1af40")]
+position = Vector2(204, 0)
+
+[node name="DeathSpike6" parent="SpikeStrip" instance=ExtResource("5_1af40")]
+position = Vector2(306, 0)
+rotation = 3.14159
+
+[node name="DeathSpike7" parent="SpikeStrip" instance=ExtResource("5_1af40")]
+position = Vector2(306, 0)
+
+[node name="DeathSpike8" parent="SpikeStrip" instance=ExtResource("5_1af40")]
+position = Vector2(408, 0)
+rotation = 3.14159
+
+[node name="DeathSpike9" parent="SpikeStrip" instance=ExtResource("5_1af40")]
+position = Vector2(408, 0)
+
+[node name="DeathSpike10" parent="SpikeStrip" instance=ExtResource("5_1af40")]
+position = Vector2(510, 0)
+rotation = 3.14159
+
+[node name="DeathSpike11" parent="SpikeStrip" instance=ExtResource("5_1af40")]
+position = Vector2(510, 0)
+
+[node name="DeathSpike12" parent="SpikeStrip" instance=ExtResource("5_1af40")]
+position = Vector2(612, 0)
+rotation = 3.14159
+
+[node name="DeathSpike13" parent="SpikeStrip" instance=ExtResource("5_1af40")]
+position = Vector2(612, 0)
+
+[node name="DeathSpike14" parent="SpikeStrip" instance=ExtResource("5_1af40")]
+position = Vector2(714, 0)
+rotation = 3.14159
+
+[node name="DeathSpike15" parent="SpikeStrip" instance=ExtResource("5_1af40")]
+position = Vector2(714, 0)
+
+[node name="DeathSpike16" parent="SpikeStrip" instance=ExtResource("5_1af40")]
+position = Vector2(816, 0)
+rotation = 3.14159
+
+[node name="DeathSpike17" parent="SpikeStrip" instance=ExtResource("5_1af40")]
+position = Vector2(816, 0)
+
+[node name="DeathSpike18" parent="SpikeStrip" instance=ExtResource("5_1af40")]
+position = Vector2(918, 0)
+rotation = 3.14159
+
+[node name="DeathSpike19" parent="SpikeStrip" instance=ExtResource("5_1af40")]
+position = Vector2(918, 0)
+
+[node name="DeathSpike20" parent="SpikeStrip" instance=ExtResource("5_1af40")]
+position = Vector2(1020, 0)
+rotation = 3.14159
+
+[node name="DeathSpike21" parent="SpikeStrip" instance=ExtResource("5_1af40")]
+position = Vector2(1020, 0)
+
+[node name="DeathSpike22" parent="SpikeStrip" instance=ExtResource("5_1af40")]
+position = Vector2(1122, 0)
+rotation = 3.14159
+
+[node name="ResizablePlatform6" parent="." instance=ExtResource("4_8jfgd")]
+position = Vector2(1326, 417)
+
+[node name="ResizablePlatform7" parent="." instance=ExtResource("4_8jfgd")]
+position = Vector2(918, 417)
+
+[node name="MovingPlatform3" parent="ResizablePlatform7" instance=ExtResource("6_5nyk4")]
+position = Vector2(612, -306)
+target_position = Vector2(102, -306)
+move_duration_sec = 5.0
+movement_trans = 2
+
+[node name="CollisionShape2D" parent="ResizablePlatform7/MovingPlatform3" index="1"]
+position = Vector2(51, 50)
+shape = SubResource("RectangleShape2D_3dpeq")
+
+[node name="Sprite2D3" type="Sprite2D" parent="ResizablePlatform7/MovingPlatform3"]
+position = Vector2(51, 145)
+texture = ExtResource("7_kitai")
+
+[node name="Sprite2D2" type="Sprite2D" parent="ResizablePlatform7/MovingPlatform3"]
+position = Vector2(51, 43)
+texture = ExtResource("7_kitai")
+
+[node name="DeathSpike" parent="ResizablePlatform7/MovingPlatform3" instance=ExtResource("5_1af40")]
+position = Vector2(102, -102)
+rotation = -4.71238
+
+[node name="DeathSpike4" parent="ResizablePlatform7/MovingPlatform3" instance=ExtResource("5_1af40")]
+position = Vector2(102, 0)
+rotation = -4.71238
+
+[node name="DeathSpike5" parent="ResizablePlatform7/MovingPlatform3" instance=ExtResource("5_1af40")]
+position = Vector2(102, 102)
+rotation = -4.71238
+
+[node name="DeathSpike" parent="ResizablePlatform7" instance=ExtResource("5_1af40")]
+position = Vector2(-612, -153)
+rotation = -3.14159
+
+[node name="DeathSpike2" parent="ResizablePlatform7" instance=ExtResource("5_1af40")]
+position = Vector2(-510, -255)
+rotation = -3.14159
+
+[node name="DeathSpike3" parent="ResizablePlatform7" instance=ExtResource("5_1af40")]
+position = Vector2(-408, -357)
+rotation = -3.14159
+
+[node name="DeathSpike4" parent="ResizablePlatform7" instance=ExtResource("5_1af40")]
+position = Vector2(-306, -459)
+rotation = -3.14159
+
+[node name="MovingPlatform" parent="." instance=ExtResource("6_5nyk4")]
+position = Vector2(1734, 1080)
+target_position = Vector2(1734, 672)
+move_duration_sec = 2.25
+return_delay_sec = 0.25
+movement_trans = 1
+movement_ease = 2
+
+[node name="DeathSpike" parent="." instance=ExtResource("5_1af40")]
+position = Vector2(510, 1080)
+
+[node name="DeathSpike2" parent="." instance=ExtResource("5_1af40")]
+position = Vector2(612, 1080)
+
+[node name="DeathSpike3" parent="." instance=ExtResource("5_1af40")]
+position = Vector2(714, 1080)
+
+[node name="DeathSpike5" parent="." instance=ExtResource("5_1af40")]
+position = Vector2(918, 1080)
+
+[node name="DeathSpike6" parent="." instance=ExtResource("5_1af40")]
+position = Vector2(1020, 1080)
+
+[node name="DeathSpike7" parent="." instance=ExtResource("5_1af40")]
+position = Vector2(1122, 1080)
+
+[node name="DeathSpike8" parent="." instance=ExtResource("5_1af40")]
+position = Vector2(1224, 1080)
+
+[node name="DeathSpike9" parent="." instance=ExtResource("5_1af40")]
+position = Vector2(1326, 1080)
+
+[node name="DeathSpike11" parent="." instance=ExtResource("5_1af40")]
+position = Vector2(1530, 1080)
+
+[node name="DeathSpike12" parent="." instance=ExtResource("5_1af40")]
+position = Vector2(1632, 1080)
+
+[node name="ResizablePlatform5" parent="." instance=ExtResource("4_8jfgd")]
+position = Vector2(816, 1080)
+
+[node name="Door" parent="." node_paths=PackedStringArray("connected_button") instance=ExtResource("7_1af40")]
+position = Vector2(1428, 978)
+connected_button = NodePath("../PressurePlate")
+open_height = -306.0
+
+[node name="PressurePlate" parent="." instance=ExtResource("8_5nyk4")]
+position = Vector2(816, 978)
+
+[editable path="ResizablePlatform7/MovingPlatform3"]
