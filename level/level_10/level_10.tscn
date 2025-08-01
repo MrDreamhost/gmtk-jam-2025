@@ -19,7 +19,7 @@ position = Vector2(0, 977)
 
 [node name="GoalZone" parent="." instance=ExtResource("3_v84nx")]
 position = Vector2(1836, 668)
-next_level_file = "uid://dprdcmdnfniia"
+next_level_file = "uid://d3eu8ibj2ld1b"
 
 [node name="Label" type="Label" parent="."]
 offset_right = 40.0

@@ -31,7 +31,7 @@ position = Vector2(0, 876)
 
 [node name="GoalZone" parent="." instance=ExtResource("3_ny4bw")]
 position = Vector2(1836, 162)
-next_level_file = "uid://dprdcmdnfniia"
+next_level_file = "uid://bbqmxv37fcr81"
 
 [node name="Label" type="Label" parent="."]
 offset_right = 40.0
@@ -67,6 +67,10 @@ target_position = Vector2(908, 366)
 move_duration_sec = 5.0
 movement_trans = 2
 
+[node name="CollisionShape2D" parent="MovingPlatform2" index="1"]
+position = Vector2(255, -51)
+shape = SubResource("RectangleShape2D_mpof3")
+
 [node name="Sprite2D2" type="Sprite2D" parent="MovingPlatform2"]
 position = Vector2(153, -59)
 texture = ExtResource("6_8yku1")
@@ -83,15 +87,15 @@ texture = ExtResource("6_8yku1")
 position = Vector2(459, -59)
 texture = ExtResource("6_8yku1")
 
-[node name="CollisionShape2D" parent="MovingPlatform2" index="5"]
-position = Vector2(255, -51)
-shape = SubResource("RectangleShape2D_mpof3")
-
 [node name="MovingPlatform3" parent="." instance=ExtResource("6_mpof3")]
 position = Vector2(918, -246)
 target_position = Vector2(918, 60)
 move_duration_sec = 5.0
 movement_trans = 2
+
+[node name="CollisionShape2D" parent="MovingPlatform3" index="1"]
+position = Vector2(51, 50)
+shape = SubResource("RectangleShape2D_8yku1")
 
 [node name="Sprite2D3" type="Sprite2D" parent="MovingPlatform3"]
 position = Vector2(51, 145)
@@ -100,10 +104,6 @@ texture = ExtResource("6_8yku1")
 [node name="Sprite2D2" type="Sprite2D" parent="MovingPlatform3"]
 position = Vector2(51, 43)
 texture = ExtResource("6_8yku1")
-
-[node name="CollisionShape2D" parent="MovingPlatform3" index="3"]
-position = Vector2(51, 50)
-shape = SubResource("RectangleShape2D_8yku1")
 
 [node name="Spikes" type="Node2D" parent="."]
 
@@ -143,6 +143,10 @@ target_position = Vector2(908, 978)
 move_duration_sec = 5.0
 movement_trans = 2
 
+[node name="CollisionShape2D" parent="MovingPlatform" index="1"]
+position = Vector2(255, -51)
+shape = SubResource("RectangleShape2D_mpof3")
+
 [node name="Sprite2D2" type="Sprite2D" parent="MovingPlatform"]
 position = Vector2(153, -59)
 texture = ExtResource("6_8yku1")
@@ -158,10 +162,6 @@ texture = ExtResource("6_8yku1")
 [node name="Sprite2D5" type="Sprite2D" parent="MovingPlatform"]
 position = Vector2(459, -59)
 texture = ExtResource("6_8yku1")
-
-[node name="CollisionShape2D" parent="MovingPlatform" index="5"]
-position = Vector2(255, -51)
-shape = SubResource("RectangleShape2D_mpof3")
 
 [node name="ResizablePlatform2" parent="." instance=ExtResource("4_gm3n4")]
 position = Vector2(0, 366)
