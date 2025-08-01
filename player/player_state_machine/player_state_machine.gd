@@ -16,4 +16,5 @@ func _ready() -> void:
 		self.jump,
 		self.dead,
 	]
+	self.initial_state = self.idle
 	super()

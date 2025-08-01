@@ -9,13 +9,14 @@ var states: Array[State]
 
 
 func _ready() -> void:
+	await self.owner.ready
 	assert(not self.states.is_empty(), "%s: No states specified" % self.name)
 	assert(self.initial_state != null, "%s: No initial state specified" % self.name)
 	for state: State in self.states:
 		state.finished.connect(self.switch_state)
 
 	self.current_state = self.initial_state
-	self.current_state.enter({})
+	self.current_state.enter()
 
 
 func _process(delta: float) -> void:

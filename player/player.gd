@@ -19,10 +19,12 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 
 	move_and_slide()
- 
+
+
 func handle_respawn_when_dead() -> void:
 	if %PlayerStateMachine.states[PlayerStateMachine.DEAD]:
 		%PlayerStateMachine.current_state.finished.emit(%PlayerStateMachine.states[PlayerStateMachine.IDLE])
+
 
 func handle_hit_received(damage: int) -> void:
 	print("Got damaged :( for %d DAMAGE" % damage)
