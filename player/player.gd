@@ -5,7 +5,6 @@ const SPEED = 400.0
 const JUMP_VELOCITY = -800.0
 
 @onready var hurt_box: HurtBox = $HurtBox
-@onready var anim_player : AnimationPlayer = $PlayerAnimationPlayer
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 

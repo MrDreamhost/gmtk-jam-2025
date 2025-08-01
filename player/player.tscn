@@ -1,4 +1,4 @@
-[gd_scene load_steps=120 format=3 uid="uid://c0dapnlli3qqi"]
+[gd_scene load_steps=117 format=3 uid="uid://c0dapnlli3qqi"]
 
 [ext_resource type="Script" uid="uid://d3p7qm8m2omtf" path="res://player/player.gd" id="1_rkbax"]
 [ext_resource type="Texture2D" uid="uid://yj6y4rf4yexa" path="res://assets/sprites/slither/0001.png" id="2_kb6p2"]
@@ -115,24 +115,10 @@
 [ext_resource type="Texture2D" uid="uid://te4nrh8eldfr" path="res://assets/sprites/slither_to_idle/0030.png" id="108_m2h1m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rkbax"]
-size = Vector2(198, 125)
+size = Vector2(79, 125.75)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yw30f"]
-size = Vector2(180, 110)
-
-[sub_resource type="Animation" id="Animation_yw30f"]
-length = 0.001
-
-[sub_resource type="Animation" id="Animation_g1dw6"]
-resource_name = "run"
-length = 1.2
-loop_mode = 1
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_qjkh3"]
-_data = {
-&"RESET": SubResource("Animation_yw30f"),
-&"run": SubResource("Animation_g1dw6")
-}
+size = Vector2(65, 110)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8rogd"]
 animations = [{
@@ -486,7 +472,7 @@ safe_margin = 0.2
 script = ExtResource("1_rkbax")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(99, -62.5)
+position = Vector2(112, -62.875)
 shape = SubResource("RectangleShape2D_rkbax")
 
 [node name="HurtBox" type="Area2D" parent="."]
@@ -497,19 +483,14 @@ script = ExtResource("3_g1dw6")
 metadata/_custom_type_script = "uid://nuq6dpf75flc"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(13, -0.5)
 shape = SubResource("RectangleShape2D_yw30f")
-
-[node name="PlayerAnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_qjkh3")
-}
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 z_index = 1
-position = Vector2(96, -98.5)
+position = Vector2(96, -98)
 sprite_frames = SubResource("SpriteFrames_8rogd")
 animation = &"idle"
-frame_progress = 0.186709
 
 [node name="PlayerStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 unique_name_in_owner = true

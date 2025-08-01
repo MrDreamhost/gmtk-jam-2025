@@ -48,12 +48,13 @@ func enter(data := {}) -> void:
 	self.calculate_jump()
 	self.player.animated_sprite_2d.play("jump")
 	self.player.velocity.y = -self.jump_velocity
+	self.player.animated_sprite_2d.position = Vector2(112, -112)
 
 
 func exit() -> void:
 	super()
 	self.player.animated_sprite_2d.stop()
-
+	self.player.animated_sprite_2d.position = Vector2(96, -98)
 
 func is_horizontal_input_pressed() -> bool:
 	return (

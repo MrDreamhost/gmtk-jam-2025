@@ -27,12 +27,12 @@ position = Vector2(0, 977)
 
 [node name="GoalZone" parent="." instance=ExtResource("3_yye5g")]
 position = Vector2(1836, 668)
-next_level_file = "uid://dprdcmdnfniia"
+next_level_file = "uid://dwh7chwhvvwlt"
 
 [node name="Label" type="Label" parent="."]
 offset_right = 40.0
 offset_bottom = 23.0
-text = "Level 04"
+text = "Level 05"
 
 [node name="Walls" type="StaticBody2D" parent="."]
 
