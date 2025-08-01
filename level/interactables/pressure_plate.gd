@@ -7,7 +7,7 @@ signal button_changed(pressed_down: bool)
 @export var auto_reset_delay_sec := 0.0
 
 @onready var reset_delay_timer: Timer = $ResetDelayTimer
-@onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 var button_pressed := false : set = set_button_pressed
 
@@ -39,6 +39,6 @@ func set_button_pressed(_button_pressed: bool) -> void:
 		button_pressed = _button_pressed
 		button_changed.emit(button_pressed)
 		if button_pressed:
-			sprite_2d.self_modulate = Color.GREEN
+			animated_sprite_2d.play("default")
 		else:
-			sprite_2d.self_modulate = Color.RED
+			animated_sprite_2d.play_backwards("default")
