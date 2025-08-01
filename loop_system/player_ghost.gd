@@ -1,5 +1,4 @@
-class_name PlayerGhost extends CharacterBody2D
-
+class_name PlayerGhost extends AnimatableBody2D
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
