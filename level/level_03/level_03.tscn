@@ -184,7 +184,6 @@ position = Vector2(1836, 668)
 next_level_file = "uid://cmvll42mba2tv"
 
 [node name="Bg" type="Sprite2D" parent="."]
-visible = false
 z_index = -2
 position = Vector2(961, 540)
 texture = ExtResource("7_cguju")
