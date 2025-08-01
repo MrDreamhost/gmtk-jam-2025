@@ -10,10 +10,10 @@ size = Vector2(102, 106)
 [node name="MovingPlatform" type="AnimatableBody2D"]
 script = ExtResource("1_irk4e")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(51, -53)
-shape = SubResource("RectangleShape2D_tvjty")
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(51, -59)
 texture = ExtResource("2_irk4e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(51, -53)
+shape = SubResource("RectangleShape2D_tvjty")
