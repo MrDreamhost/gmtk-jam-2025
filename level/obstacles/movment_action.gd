@@ -44,5 +44,5 @@ func set_paused(_paused: bool) -> void:
 	paused = _paused
 	if paused:
 		tween.pause()
-	elif not tween.is_running():
+	elif tween and not tween.is_running():
 		tween.play()

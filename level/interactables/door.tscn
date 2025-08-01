@@ -1,48 +1,63 @@
-[gd_scene load_steps=5 format=3 uid="uid://d15yq2lgmdi4p"]
+[gd_scene load_steps=8 format=3 uid="uid://d15yq2lgmdi4p"]
 
+[ext_resource type="Script" uid="uid://7cvxb7sfdxww" path="res://level/interactables/door.gd" id="1_dqnet"]
 [ext_resource type="Texture2D" uid="uid://pejr0hmf4x05" path="res://assets/sprites/tiles/0003.png" id="1_frksu"]
 [ext_resource type="Texture2D" uid="uid://cge0dkqacdf1f" path="res://assets/sprites/tiles/0002.png" id="2_dqnet"]
 [ext_resource type="Texture2D" uid="uid://dm2xecntp30ti" path="res://assets/sprites/tiles/0004.png" id="2_vuwoa"]
+[ext_resource type="Texture2D" uid="uid://dwq1dhnmgddud" path="res://level/interactables/status_circle.png" id="5_y5y8p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_awmrl"]
-size = Vector2(102, 103)
+size = Vector2(102, 313)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vppug"]
+height = 102.0
 
 [node name="Door" type="Node2D"]
+script = ExtResource("1_dqnet")
 
-[node name="Platform" type="AnimatableBody2D" parent="."]
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
-position = Vector2(51, -51.5)
-shape = SubResource("RectangleShape2D_awmrl")
-
-[node name="Sprite2D" type="Sprite2D" parent="Platform"]
+[node name="Sprite2D1" type="Sprite2D" parent="AnimatableBody2D"]
 texture_filter = 1
 position = Vector2(0, 69)
 texture = ExtResource("1_frksu")
 offset = Vector2(51, -128.5)
 
-[node name="Platform2" type="AnimatableBody2D" parent="."]
-position = Vector2(0, -103)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform2"]
-position = Vector2(51, -51.5)
-shape = SubResource("RectangleShape2D_awmrl")
-
-[node name="Sprite2D" type="Sprite2D" parent="Platform2"]
+[node name="Sprite2D2" type="Sprite2D" parent="AnimatableBody2D"]
 texture_filter = 1
-position = Vector2(0, 70)
+position = Vector2(0, -33)
 texture = ExtResource("2_dqnet")
 offset = Vector2(51, -128.5)
 
-[node name="Platform3" type="AnimatableBody2D" parent="."]
-position = Vector2(0, -206)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform3"]
-position = Vector2(51, -51.5)
-shape = SubResource("RectangleShape2D_awmrl")
-
-[node name="Sprite2D" type="Sprite2D" parent="Platform3"]
-texture_filter = 1
-position = Vector2(0, 70)
+[node name="Sprite2D3" type="Sprite2D" parent="AnimatableBody2D"]
+position = Vector2(0, -136)
 texture = ExtResource("2_vuwoa")
 offset = Vector2(51, -127.5)
+
+[node name="StatusCircle" type="Sprite2D" parent="AnimatableBody2D"]
+self_modulate = Color(1, 0, 0, 1)
+position = Vector2(83, -291)
+texture = ExtResource("5_y5y8p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
+position = Vector2(51, -156.5)
+shape = SubResource("RectangleShape2D_awmrl")
+
+[node name="SquashArea2D" type="Area2D" parent="AnimatableBody2D"]
+
+[node name="TopSquashArea" type="CollisionShape2D" parent="AnimatableBody2D/SquashArea2D"]
+position = Vector2(51, 0.5)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_vppug")
+debug_color = Color(0.7, 0, 0.0222735, 0.42)
+
+[node name="BottomSquashArea" type="CollisionShape2D" parent="AnimatableBody2D/SquashArea2D"]
+position = Vector2(51, -312.5)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_vppug")
+debug_color = Color(0.7, 0, 0.0222735, 0.42)
+
+[node name="OpenCollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(51, -360.5)
+shape = SubResource("RectangleShape2D_awmrl")
+disabled = true
