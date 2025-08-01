@@ -1,11 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://dprdcmdnfniia"]
+[gd_scene load_steps=8 format=3 uid="uid://dprdcmdnfniia"]
 
 [ext_resource type="Script" uid="uid://cr5paax0qa013" path="res://level/level_02/level_02.gd" id="1_14ypm"]
 [ext_resource type="PackedScene" uid="uid://cu6420ipi24uy" path="res://level/obstacles/death_spike.tscn" id="3_si3cn"]
 [ext_resource type="PackedScene" uid="uid://bcujsflu4nqbn" path="res://loop_system/spawn_point.tscn" id="4_wteuf"]
 [ext_resource type="PackedScene" uid="uid://b2hnjcnhd8ahv" path="res://level/goal_zone.tscn" id="5_dlqic"]
 [ext_resource type="PackedScene" uid="uid://coobrpw2ubqjw" path="res://level/interactables/Platform.tscn" id="5_lvqq1"]
-[ext_resource type="Texture2D" uid="uid://cge0dkqacdf1f" path="res://assets/sprites/tiles/0002.png" id="6_si3cn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_si3cn"]
 size = Vector2(20, 1100)
@@ -58,139 +57,106 @@ rotation = -1.5708
 
 [node name="Platform8" parent="." instance=ExtResource("5_lvqq1")]
 position = Vector2(1836, 874)
-texture = ExtResource("6_si3cn")
 
 [node name="Platform9" parent="." instance=ExtResource("5_lvqq1")]
 position = Vector2(1734, 874)
-texture = ExtResource("6_si3cn")
 
 [node name="Platform10" parent="." instance=ExtResource("5_lvqq1")]
 position = Vector2(1632, 874)
-texture = ExtResource("6_si3cn")
 
 [node name="Platform11" parent="." instance=ExtResource("5_lvqq1")]
 position = Vector2(1530, 874)
-texture = ExtResource("6_si3cn")
 
 [node name="Platform start" type="Node2D" parent="."]
 position = Vector2(0, 1080)
 
 [node name="Platform" parent="Platform start" instance=ExtResource("5_lvqq1")]
-texture = ExtResource("6_si3cn")
 
 [node name="Platform2" parent="Platform start" instance=ExtResource("5_lvqq1")]
 position = Vector2(102, 0)
-texture = ExtResource("6_si3cn")
 
 [node name="Platform3" parent="Platform start" instance=ExtResource("5_lvqq1")]
 position = Vector2(204, 0)
-texture = ExtResource("6_si3cn")
 
 [node name="Platform4" parent="Platform start" instance=ExtResource("5_lvqq1")]
 position = Vector2(306, 0)
-texture = ExtResource("6_si3cn")
 
 [node name="Platform5" parent="Platform start" instance=ExtResource("5_lvqq1")]
 position = Vector2(408, 0)
-texture = ExtResource("6_si3cn")
 
 [node name="Platform6" parent="Platform start" instance=ExtResource("5_lvqq1")]
 position = Vector2(510, 0)
-texture = ExtResource("6_si3cn")
 
 [node name="Platform7" parent="Platform start" instance=ExtResource("5_lvqq1")]
 position = Vector2(612, 0)
-texture = ExtResource("6_si3cn")
 
 [node name="Platform12" parent="Platform start" instance=ExtResource("5_lvqq1")]
 position = Vector2(714, 0)
-texture = ExtResource("6_si3cn")
 
 [node name="Platform27" parent="." instance=ExtResource("5_lvqq1")]
 position = Vector2(1428, 462)
-texture = ExtResource("6_si3cn")
 
 [node name="Platform28" parent="." instance=ExtResource("5_lvqq1")]
 position = Vector2(1428, 359)
-texture = ExtResource("6_si3cn")
 
 [node name="Platform29" parent="." instance=ExtResource("5_lvqq1")]
 position = Vector2(1428, 256)
-texture = ExtResource("6_si3cn")
 
 [node name="Platform30" parent="." instance=ExtResource("5_lvqq1")]
 position = Vector2(1428, 153)
-texture = ExtResource("6_si3cn")
 
 [node name="Platform33" parent="." instance=ExtResource("5_lvqq1")]
 position = Vector2(1428, 50)
-texture = ExtResource("6_si3cn")
 
 [node name="Tower" type="Node2D" parent="."]
 position = Vector2(918, 1080)
 
 [node name="Platform13" parent="Tower" instance=ExtResource("5_lvqq1")]
 position = Vector2(-102, 0)
-texture = ExtResource("6_si3cn")
 
 [node name="Platform14" parent="Tower" instance=ExtResource("5_lvqq1")]
 position = Vector2(-102, -103)
-texture = ExtResource("6_si3cn")
 
 [node name="Platform15" parent="Tower" instance=ExtResource("5_lvqq1")]
 position = Vector2(-102, -206)
-texture = ExtResource("6_si3cn")
 
 [node name="Platform16" parent="Tower" instance=ExtResource("5_lvqq1")]
 position = Vector2(-102, -309)
-texture = ExtResource("6_si3cn")
 
 [node name="Platform17" parent="Tower" instance=ExtResource("5_lvqq1")]
 position = Vector2(-102, -412)
-texture = ExtResource("6_si3cn")
 
 [node name="Platform18" parent="Tower" instance=ExtResource("5_lvqq1")]
 position = Vector2(-102, -515)
-texture = ExtResource("6_si3cn")
 
 [node name="Platform19" parent="Tower" instance=ExtResource("5_lvqq1")]
-texture = ExtResource("6_si3cn")
 
 [node name="Platform20" parent="Tower" instance=ExtResource("5_lvqq1")]
 position = Vector2(0, -103)
-texture = ExtResource("6_si3cn")
 
 [node name="Platform21" parent="Tower" instance=ExtResource("5_lvqq1")]
 position = Vector2(0, -206)
-texture = ExtResource("6_si3cn")
 
 [node name="Platform22" parent="Tower" instance=ExtResource("5_lvqq1")]
 position = Vector2(0, -309)
-texture = ExtResource("6_si3cn")
 
 [node name="Platform23" parent="Tower" instance=ExtResource("5_lvqq1")]
 position = Vector2(0, -412)
-texture = ExtResource("6_si3cn")
 
 [node name="Platform24" parent="Tower" instance=ExtResource("5_lvqq1")]
 position = Vector2(0, -515)
-texture = ExtResource("6_si3cn")
 
 [node name="Platform25" parent="Tower" instance=ExtResource("5_lvqq1")]
 position = Vector2(-102, -618)
-texture = ExtResource("6_si3cn")
 
 [node name="Platform26" parent="Tower" instance=ExtResource("5_lvqq1")]
 position = Vector2(-102, -721)
-texture = ExtResource("6_si3cn")
 
 [node name="Platform31" parent="Tower" instance=ExtResource("5_lvqq1")]
 position = Vector2(0, -618)
-texture = ExtResource("6_si3cn")
 
 [node name="Platform32" parent="Tower" instance=ExtResource("5_lvqq1")]
 position = Vector2(0, -721)
-texture = ExtResource("6_si3cn")
 
 [node name="Walls" type="StaticBody2D" parent="."]
 

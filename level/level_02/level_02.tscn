@@ -1,9 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://dslkeuxkcig4a"]
+[gd_scene load_steps=8 format=3 uid="uid://dslkeuxkcig4a"]
 
 [ext_resource type="Script" uid="uid://cr5paax0qa013" path="res://level/level_02/level_02.gd" id="1_wco2t"]
 [ext_resource type="PackedScene" uid="uid://coobrpw2ubqjw" path="res://level/interactables/Platform.tscn" id="2_xmyjc"]
 [ext_resource type="PackedScene" uid="uid://cu6420ipi24uy" path="res://level/obstacles/death_spike.tscn" id="3_3muha"]
-[ext_resource type="Texture2D" uid="uid://cge0dkqacdf1f" path="res://assets/sprites/tiles/0002.png" id="3_j65wl"]
 [ext_resource type="PackedScene" uid="uid://bcujsflu4nqbn" path="res://loop_system/spawn_point.tscn" id="4_j65wl"]
 [ext_resource type="PackedScene" uid="uid://b2hnjcnhd8ahv" path="res://level/goal_zone.tscn" id="5_emc5r"]
 
@@ -44,13 +43,11 @@ shape = SubResource("RectangleShape2D_3muha")
 position = Vector2(0, 1080)
 width_in_pixel = 408
 width_in_tile = 4
-texture = ExtResource("3_j65wl")
 
 [node name="Platform1" parent="." instance=ExtResource("2_xmyjc")]
 position = Vector2(1122, 771)
 width_in_pixel = 408
 width_in_tile = 4
-texture = ExtResource("3_j65wl")
 
 [node name="DeathSpikesPlatform1" type="Node2D" parent="."]
 position = Vector2(861, 888)
