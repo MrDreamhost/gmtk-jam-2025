@@ -1,4 +1,4 @@
-[gd_scene load_steps=112 format=3 uid="uid://dse438ppxg1ld"]
+[gd_scene load_steps=121 format=3 uid="uid://dse438ppxg1ld"]
 
 [ext_resource type="Script" uid="uid://78kkvrlap4le" path="res://loop_system/player_ghost.gd" id="1_344kn"]
 [ext_resource type="Texture2D" uid="uid://8l3nr8by4kgq" path="res://assets/sprites/idle/0001.png" id="2_0idqm"]
@@ -107,6 +107,15 @@
 [ext_resource type="Texture2D" uid="uid://beuqcjo23xphn" path="res://assets/sprites/slither_to_idle/0028.png" id="105_bechc"]
 [ext_resource type="Texture2D" uid="uid://drihd3js2tsqd" path="res://assets/sprites/slither_to_idle/0029.png" id="106_h227l"]
 [ext_resource type="Texture2D" uid="uid://te4nrh8eldfr" path="res://assets/sprites/slither_to_idle/0030.png" id="107_wnsk0"]
+[ext_resource type="Texture2D" uid="uid://cvxnrib6e0p12" path="res://assets/sprites/turn_ground/0001.png" id="108_faxks"]
+[ext_resource type="Texture2D" uid="uid://d1815t8b88e0j" path="res://assets/sprites/turn_ground/0002.png" id="109_vcb53"]
+[ext_resource type="Texture2D" uid="uid://cmhsag4cfqbvv" path="res://assets/sprites/turn_ground/0003.png" id="110_aolab"]
+[ext_resource type="Texture2D" uid="uid://dujf642bn7rea" path="res://assets/sprites/turn_ground/0004.png" id="111_xl5mu"]
+[ext_resource type="Texture2D" uid="uid://b2b52lkkv4y63" path="res://assets/sprites/turn_ground/0005.png" id="112_xrptq"]
+[ext_resource type="Texture2D" uid="uid://d1b1pl57hrq75" path="res://assets/sprites/turn_ground/0006.png" id="113_hpwnb"]
+[ext_resource type="Texture2D" uid="uid://btfmltv2hp5jy" path="res://assets/sprites/turn_ground/0007.png" id="114_pcdal"]
+[ext_resource type="Texture2D" uid="uid://7m00nrc67nj2" path="res://assets/sprites/turn_ground/0008.png" id="115_m0aed"]
+[ext_resource type="Texture2D" uid="uid://g3bo4ytdmxto" path="res://assets/sprites/turn_ground/0009.png" id="116_bsqbr"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_r6be4"]
 animations = [{
@@ -452,6 +461,38 @@ animations = [{
 "loop": false,
 "name": &"run_to_idle",
 "speed": 30.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("108_faxks")
+}, {
+"duration": 1.0,
+"texture": ExtResource("109_vcb53")
+}, {
+"duration": 1.0,
+"texture": ExtResource("110_aolab")
+}, {
+"duration": 1.0,
+"texture": ExtResource("111_xl5mu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("112_xrptq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("113_hpwnb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("114_pcdal")
+}, {
+"duration": 1.0,
+"texture": ExtResource("115_m0aed")
+}, {
+"duration": 1.0,
+"texture": ExtResource("116_bsqbr")
+}],
+"loop": true,
+"name": &"turn_ground",
+"speed": 30.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c80fc"]
@@ -472,7 +513,7 @@ self_modulate = Color(0.497474, 0.497474, 0.497474, 1)
 z_index = 1
 position = Vector2(96, -98.5)
 sprite_frames = SubResource("SpriteFrames_r6be4")
-animation = &"run_to_idle"
+animation = &"turn_ground"
 
 [node name="HeadCollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(99, -115)
