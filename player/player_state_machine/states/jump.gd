@@ -15,15 +15,12 @@ func _ready() -> void:
 
 func update_physics_process(delta: float) -> void:
 	if self.player.velocity.y < 0:
-		if not self.short_hop and not Input.is_action_pressed("player_jump"):
+		if not Input.is_action_pressed("player_jump"):
 			self.player.velocity.y += self.gravity_up * self.player.player_config.jump_cutoff * delta
-			print(self.player.player_config.jump_cutoff)
 		else:
 			self.player.velocity.y += self.gravity_up * delta
 	else:
 		self.player.velocity.y += self.gravity_down * delta
-
-
 
 	if self.player.is_on_floor():
 		if not self.is_horizontal_input_pressed():
@@ -52,10 +49,8 @@ func update_physics_process(delta: float) -> void:
 func enter(data := {}) -> void:
 	super()
 	self.player.animated_sprite_2d.play("jump")
-	var jump_factor = data.get("jump_factor")
-	self.short_hop = true if jump_factor != 1.0 else false
 	self.calculate_jump()
-	self.player.velocity.y = -self.jump_velocity * sqrt(jump_factor)
+	self.player.velocity.y = -self.jump_velocity
 	self.player.animated_sprite_2d.position = Vector2(112, -112)
 
 
