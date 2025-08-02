@@ -49,18 +49,6 @@ func respawn_player() -> void:
 
 
 func reset_loop() -> void:
-	get_tree().paused = true
-	var loop_ended_animation := animation_player.get_animation("loop_ended")
-	var current_spawn: SpawnPoint = self.current_level.spawn_point
-	player_dummy.global_position = player.global_position
-	for child in player_dummy.get_children():
-		child.queue_free()
-	player_dummy.add_child(player.animated_sprite_2d.duplicate())
-	loop_ended_animation.track_set_key_value(3, 0, player.global_position)
-	loop_ended_animation.track_set_key_value(3, 1, current_spawn.global_position)
-	set_shockwave_center_to_spawn_point()
-	animation_player.play("loop_ended")
-	
 	if self.changed_spawn:
 		self.spawn_ghost()
 		self.current_loop += 1
@@ -110,9 +98,18 @@ func load_level(level: Level) -> void:
 			goal_zone.goal_reached.connect(_on_goal_reached)
 
 
-
 func _on_loop_timer_timeout() -> void:
-	reset_loop()
+	get_tree().paused = true
+	var loop_ended_animation := animation_player.get_animation("loop_ended")
+	var current_spawn: SpawnPoint = self.current_level.spawn_point
+	player_dummy.global_position = player.global_position
+	for child in player_dummy.get_children():
+		child.queue_free()
+	player_dummy.add_child(player.animated_sprite_2d.duplicate())
+	loop_ended_animation.track_set_key_value(3, 0, player.global_position)
+	loop_ended_animation.track_set_key_value(3, 1, current_spawn.global_position)
+	set_shockwave_center_to_spawn_point()
+	animation_player.play("loop_ended")
 
 
 func set_shockwave_center_to_spawn_point() -> void:

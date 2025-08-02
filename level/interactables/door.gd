@@ -18,7 +18,7 @@ var fire_event := false
 
 func _ready() -> void:
 	set_open_height(open_height)
-	if connected_button is PressurePlate:
+	if connected_button is PressurePlate and connected_button.has_signal("button_changed"):
 		connected_button.button_changed.connect(on_button_changed)
 	else:
 		push_warning("door without connected button")

@@ -27,7 +27,7 @@ func resize_platform() -> void:
 
 
 func get_width_in_tiles() -> int:
-	return width_in_pixel / TILE_TEXTURE_SIZE.x
+	return floori(float(width_in_pixel) / TILE_TEXTURE_SIZE.x)
 
 
 func set_width_in_tiles(tile_count: int) -> void:
