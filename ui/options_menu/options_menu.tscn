@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://c5dup0yppydhr"]
+[gd_scene load_steps=5 format=3 uid="uid://c5dup0yppydhr"]
 
 [ext_resource type="Script" uid="uid://deacq2sppfw43" path="res://ui/options_menu/options_menu.gd" id="1_cobfr"]
 [ext_resource type="PackedScene" uid="uid://5vtebhia4h4d" path="res://ui/options_menu/bus_volume_control.tscn" id="2_8h7tm"]
+[ext_resource type="AudioStream" uid="uid://copb30blg65ol" path="res://assets/audio/sfx/hover.ogg" id="3_utl02"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_8h7tm"]
 font_size = 32
@@ -59,6 +60,11 @@ bus = 1
 [node name="SfxBusVolumeControl" parent="TabContainer/Audio/VBoxContainer" instance=ExtResource("2_8h7tm")]
 layout_mode = 2
 bus = 2
+test_audio = ExtResource("3_utl02")
+
+[node name="VoiceBusVolumeControl2" parent="TabContainer/Audio/VBoxContainer" instance=ExtResource("2_8h7tm")]
+layout_mode = 2
+bus = 3
 
 [node name="BackToMenuButton" type="Button" parent="TabContainer/Audio/VBoxContainer"]
 layout_mode = 2

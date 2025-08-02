@@ -1,11 +1,12 @@
-[gd_resource type="AudioStreamInteractive" load_steps=4 format=3 uid="uid://dwdrsf5ohfxnj"]
+[gd_resource type="AudioStreamInteractive" load_steps=5 format=3 uid="uid://dwdrsf5ohfxnj"]
 
 [ext_resource type="AudioStream" uid="uid://2ijkm2ka8e10" path="res://assets/audio/menu_music.mp3" id="1_plimw"]
 [ext_resource type="AudioStream" uid="uid://ty26q53nbbwi" path="res://assets/audio/Level01_music.mp3" id="2_w706o"]
 [ext_resource type="AudioStream" uid="uid://q4afhl4ejs66" path="res://assets/audio/Level02_music.mp3" id="3_w706o"]
+[ext_resource type="AudioStream" uid="uid://djrodho3p1kjw" path="res://assets/audio/level_complete.mp3" id="4_tif3l"]
 
 [resource]
-clip_count = 11
+clip_count = 12
 clip_0/name = &"root_music"
 clip_0/stream = ExtResource("1_plimw")
 clip_0/auto_advance = 0
@@ -39,6 +40,9 @@ clip_9/auto_advance = 0
 clip_10/name = &"Level10_music"
 clip_10/stream = ExtResource("3_w706o")
 clip_10/auto_advance = 0
+clip_11/name = &"victory_music"
+clip_11/stream = ExtResource("4_tif3l")
+clip_11/auto_advance = 0
 _transitions = {
 Vector2i(-1, -1): {
 "fade_beats": 0.2,

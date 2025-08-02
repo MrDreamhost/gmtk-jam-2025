@@ -1,5 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://btghplhgx1jj1"]
+[gd_scene load_steps=11 format=3 uid="uid://btghplhgx1jj1"]
 
+[ext_resource type="Theme" uid="uid://b0eq1tsqhebcn" path="res://ui/ui_theme.tres" id="1_4e78x"]
 [ext_resource type="Script" uid="uid://bffw8fr4hf7ou" path="res://ui/main_menu/main_menu.gd" id="1_mu8pm"]
 [ext_resource type="Texture2D" uid="uid://bbjahiwqx05ci" path="res://assets/sprites/snake spawn looper.png" id="1_uhj5c"]
 [ext_resource type="PackedScene" uid="uid://bdbp2qfs4v7kn" path="res://ui/button.tscn" id="3_3c04x"]
@@ -18,6 +19,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
+theme = ExtResource("1_4e78x")
 script = ExtResource("1_mu8pm")
 
 [node name="SnakeSpawnLooper" type="TextureRect" parent="."]

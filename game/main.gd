@@ -144,6 +144,8 @@ func turn_clock_back() -> void:
 
 
 func _on_goal_reached(_next_level_file: String) -> void:
+	GlobalAudioManager.start_level_music("victory")
+	GlobalAudioManager.play_vo(current_level.name)
 	next_level_file = _next_level_file
 	call_deferred("play_victory_eat_apple_animation")
 	loop_timer.stop()

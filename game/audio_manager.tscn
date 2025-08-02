@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://crd1wag7wts80"]
+[gd_scene load_steps=4 format=3 uid="uid://crd1wag7wts80"]
 
-[ext_resource type="Script" uid="uid://dfhsstjlp6k4j" path="res://game/music_manager.gd" id="1_uimn3"]
+[ext_resource type="Script" uid="uid://dfhsstjlp6k4j" path="res://game/audio_manager.gd" id="1_uimn3"]
 [ext_resource type="AudioStream" uid="uid://dwdrsf5ohfxnj" path="res://Audio/Streams/MainMusic.tres" id="2_pst5y"]
+[ext_resource type="AudioStream" uid="uid://bs33eu75rta7c" path="res://Audio/Streams/VOLines.tres" id="3_pst5y"]
 
 [node name="AudioManager" type="Node"]
 process_mode = 3
@@ -11,3 +12,7 @@ script = ExtResource("1_uimn3")
 stream = ExtResource("2_pst5y")
 volume_db = -15.0
 bus = &"Music"
+
+[node name="VoiceLinePlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_pst5y")
+bus = &"Voice"

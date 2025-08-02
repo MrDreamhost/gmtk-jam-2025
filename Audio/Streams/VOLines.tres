@@ -1,0 +1,53 @@
+[gd_resource type="AudioStreamInteractive" load_steps=11 format=3 uid="uid://bs33eu75rta7c"]
+
+[ext_resource type="AudioStream" uid="uid://bqqks5sww0csn" path="res://assets/audio/voicelines/pride.ogg" id="1_p0hwn"]
+[ext_resource type="AudioStream" uid="uid://dwn5oxyl5db3x" path="res://assets/audio/voicelines/history.ogg" id="2_2oimu"]
+[ext_resource type="AudioStream" uid="uid://bpwu7rrgmitw5" path="res://assets/audio/voicelines/timbers.ogg" id="3_riqx5"]
+[ext_resource type="AudioStream" uid="uid://hpfwfttlsxj1" path="res://assets/audio/voicelines/civil_serpent.ogg" id="4_vstpe"]
+[ext_resource type="AudioStream" uid="uid://b6ha41sidglvn" path="res://assets/audio/voicelines/asprin.ogg" id="5_u3d7f"]
+[ext_resource type="AudioStream" uid="uid://cadp4lmyx8sqa" path="res://assets/audio/voicelines/venomous.ogg" id="6_xpgmd"]
+[ext_resource type="AudioStream" uid="uid://cpw13j4hq4efj" path="res://assets/audio/voicelines/apocalypse.ogg" id="7_tqrw8"]
+[ext_resource type="AudioStream" uid="uid://d4ep0txwyofup" path="res://assets/audio/voicelines/time_travel.ogg" id="8_yswq8"]
+[ext_resource type="AudioStream" uid="uid://oth65g2rgqjo" path="res://assets/audio/voicelines/snaketastic.ogg" id="9_q0b8h"]
+[ext_resource type="AudioStream" uid="uid://b4uhqs1w3n8x3" path="res://assets/audio/voicelines/hard.ogg" id="10_bwsao"]
+
+[resource]
+clip_count = 10
+clip_0/name = &"Level01"
+clip_0/stream = ExtResource("1_p0hwn")
+clip_0/auto_advance = 0
+clip_1/name = &"Level02"
+clip_1/stream = ExtResource("2_2oimu")
+clip_1/auto_advance = 0
+clip_2/name = &"Level03"
+clip_2/stream = ExtResource("3_riqx5")
+clip_2/auto_advance = 0
+clip_3/name = &"Level04"
+clip_3/stream = ExtResource("4_vstpe")
+clip_3/auto_advance = 0
+clip_4/name = &"Level05"
+clip_4/stream = ExtResource("5_u3d7f")
+clip_4/auto_advance = 0
+clip_5/name = &"Level06"
+clip_5/stream = ExtResource("6_xpgmd")
+clip_5/auto_advance = 0
+clip_6/name = &"Level07"
+clip_6/stream = ExtResource("7_tqrw8")
+clip_6/auto_advance = 0
+clip_7/name = &"Level08"
+clip_7/stream = ExtResource("8_yswq8")
+clip_7/auto_advance = 0
+clip_8/name = &"Level09"
+clip_8/stream = ExtResource("9_q0b8h")
+clip_8/auto_advance = 0
+clip_9/name = &"Level10"
+clip_9/stream = ExtResource("10_bwsao")
+clip_9/auto_advance = 0
+_transitions = {
+Vector2i(-1, -1): {
+"fade_beats": 0.2,
+"fade_mode": 3,
+"from_time": 0,
+"to_time": 1
+}
+}

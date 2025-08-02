@@ -33,3 +33,8 @@ func _on_volume_slider_value_changed(value: float):
 	AudioServer.set_bus_mute(bus, muted)
 	if(not $AudioStreamPlayer.playing):
 		$AudioStreamPlayer.play()
+
+
+func _on_volume_slider_drag_ended(value_changed: bool) -> void:
+	if bus == Bus.VOICE:
+		GlobalAudioManager.play_vo("any")

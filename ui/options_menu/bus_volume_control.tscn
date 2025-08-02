@@ -29,6 +29,8 @@ layout_mode = 2
 size_flags_vertical = 4
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = -10.0
 
+[connection signal="drag_ended" from="VolumeSlider" to="." method="_on_volume_slider_drag_ended"]
 [connection signal="value_changed" from="VolumeSlider" to="." method="_on_volume_slider_value_changed"]
 [connection signal="toggled" from="MutedCheckButton" to="." method="_on_muted_check_button_toggled"]
