@@ -1,4 +1,4 @@
-[gd_scene load_steps=93 format=3 uid="uid://dslkeuxkcig4a"]
+[gd_scene load_steps=95 format=3 uid="uid://dslkeuxkcig4a"]
 
 [ext_resource type="Script" uid="uid://cr5paax0qa013" path="res://level/level_02/level_02.gd" id="1_wco2t"]
 [ext_resource type="PackedScene" uid="uid://coobrpw2ubqjw" path="res://level/interactables/Platform.tscn" id="2_xmyjc"]
@@ -83,11 +83,16 @@
 [ext_resource type="Texture2D" uid="uid://dd6i18ktu778e" path="res://assets/sprites/jump/0029.png" id="82_bchd4"]
 [ext_resource type="Texture2D" uid="uid://crl5msh4y8xtn" path="res://assets/sprites/jump/0030.png" id="83_ro78f"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xmyjc"]
-size = Vector2(20, 1100)
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_dpsvr"]
+normal = Vector2(1, 0)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3muha"]
-size = Vector2(1960, 20)
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_6lr50"]
+normal = Vector2(-1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_w0v74"]
+normal = Vector2(0, 1)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vw6us"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vvlvx"]
 animations = [{
@@ -140,7 +145,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/AnimatedSprite2D:position")
+tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -155,7 +160,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/AnimatedSprite2D:position")
+tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -352,41 +357,12 @@ animations = [{
 "speed": 30.0
 }]
 
-[sub_resource type="Animation" id="Animation_ruasm"]
-resource_name = "Idle"
-length = 3.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D2:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1.65),
-"transitions": PackedFloat32Array(1e-05, 1e-05, 1e-05),
-"update": 1,
-"values": [&"idle", &"jump", &"idle"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D2:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5, 1.13333, 1.65, 3),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(954, 370), Vector2(954, 370), Vector2(954, 220), Vector2(954, 295), Vector2(1122, 295)]
-}
-
 [sub_resource type="Animation" id="Animation_bdiko"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D2:animation")
+tracks/0/path = NodePath(".:animation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -398,7 +374,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D2:position")
+tracks/1/path = NodePath(".:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -406,6 +382,35 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(922, 370)]
+}
+
+[sub_resource type="Animation" id="Animation_ruasm"]
+resource_name = "Idle"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1.65),
+"transitions": PackedFloat32Array(1e-05, 1e-05, 1e-05),
+"update": 1,
+"values": [&"idle", &"jump", &"idle"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1.13333, 1.65, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(954, 370), Vector2(954, 370), Vector2(954, 220), Vector2(954, 295), Vector2(1122, 295)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mbjcn"]
@@ -423,111 +428,114 @@ offset_right = 40.0
 offset_bottom = 23.0
 text = "Level 02"
 
-[node name="Walls" type="StaticBody2D" parent="."]
+[node name="BackgroundImage" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(960, 540)
+texture = ExtResource("13_yakuy")
+metadata/_edit_lock_ = true
 
-[node name="Wall Left" type="CollisionShape2D" parent="Walls"]
-position = Vector2(-10, 540)
-shape = SubResource("RectangleShape2D_xmyjc")
+[node name="WorldBoundaries" type="StaticBody2D" parent="."]
 
-[node name="Wall Right" type="CollisionShape2D" parent="Walls"]
-position = Vector2(1930, 540)
-shape = SubResource("RectangleShape2D_xmyjc")
+[node name="Wall Left" type="CollisionShape2D" parent="WorldBoundaries"]
+position = Vector2(0, 540)
+shape = SubResource("WorldBoundaryShape2D_dpsvr")
 
-[node name="Ceiling" type="CollisionShape2D" parent="Walls"]
-position = Vector2(960, -10)
-shape = SubResource("RectangleShape2D_3muha")
+[node name="Wall Right" type="CollisionShape2D" parent="WorldBoundaries"]
+position = Vector2(1920, 540)
+shape = SubResource("WorldBoundaryShape2D_6lr50")
 
-[node name="Floor" type="CollisionShape2D" parent="Walls"]
-position = Vector2(960, 1090)
-shape = SubResource("RectangleShape2D_3muha")
+[node name="Ceiling" type="CollisionShape2D" parent="WorldBoundaries"]
+position = Vector2(960, 0)
+shape = SubResource("WorldBoundaryShape2D_w0v74")
 
-[node name="Platform3" parent="." instance=ExtResource("2_xmyjc")]
+[node name="Floor" type="CollisionShape2D" parent="WorldBoundaries"]
+position = Vector2(960, 1080)
+shape = SubResource("WorldBoundaryShape2D_vw6us")
+
+[node name="Platforms" type="Node2D" parent="."]
+
+[node name="Platform3" parent="Platforms" instance=ExtResource("2_xmyjc")]
 position = Vector2(0, 1080)
 texture = ExtResource("3_rndln")
 
-[node name="Platform8" parent="." instance=ExtResource("2_xmyjc")]
+[node name="Platform8" parent="Platforms" instance=ExtResource("2_xmyjc")]
 position = Vector2(102, 1080)
 texture = ExtResource("4_7j4iy")
 
-[node name="Platform9" parent="." instance=ExtResource("2_xmyjc")]
+[node name="Platform9" parent="Platforms" instance=ExtResource("2_xmyjc")]
 position = Vector2(204, 1080)
 texture = ExtResource("5_vk5g8")
 
-[node name="Platform10" parent="." instance=ExtResource("2_xmyjc")]
+[node name="Platform10" parent="Platforms" instance=ExtResource("2_xmyjc")]
 position = Vector2(306, 1080)
 texture = ExtResource("6_7j4iy")
 
-[node name="Platform7" parent="." instance=ExtResource("2_xmyjc")]
+[node name="Platform7" parent="Platforms" instance=ExtResource("2_xmyjc")]
 position = Vector2(0, 119)
 width_in_pixel = 1938
 width_in_tile = 19
 texture = ExtResource("3_j65wl")
 
-[node name="Bg" type="Sprite2D" parent="."]
-z_index = -2
-position = Vector2(961, 540)
-texture = ExtResource("13_yakuy")
-
-[node name="Platform6" parent="." instance=ExtResource("2_xmyjc")]
+[node name="Platform6" parent="Platforms" instance=ExtResource("2_xmyjc")]
 position = Vector2(602, 1303)
 rotation = -0.336849
 width_in_pixel = 612
 width_in_tile = 6
 
-[node name="Platform5" parent="." instance=ExtResource("2_xmyjc")]
+[node name="Platform5" parent="Platforms" instance=ExtResource("2_xmyjc")]
 position = Vector2(568, 1207)
 rotation = -0.336849
 width_in_pixel = 612
 width_in_tile = 6
 
-[node name="Platform4" parent="." instance=ExtResource("2_xmyjc")]
+[node name="Platform4" parent="Platforms" instance=ExtResource("2_xmyjc")]
 position = Vector2(630, 1077)
 rotation = -0.336849
 width_in_pixel = 510
 width_in_tile = 5
 
-[node name="Platform11" parent="." instance=ExtResource("2_xmyjc")]
+[node name="Platform11" parent="Platforms" instance=ExtResource("2_xmyjc")]
 position = Vector2(534, 1111)
 rotation = -0.336849
 texture = ExtResource("8_vk5g8")
 
-[node name="Platform1" parent="." instance=ExtResource("2_xmyjc")]
+[node name="Platform1" parent="Platforms" instance=ExtResource("2_xmyjc")]
 position = Vector2(1122, 771)
 width_in_pixel = 204
 width_in_tile = 2
 
-[node name="Platform2" parent="." instance=ExtResource("2_xmyjc")]
+[node name="Platform2" parent="Platforms" instance=ExtResource("2_xmyjc")]
 position = Vector2(1326, 771)
 width_in_pixel = 204
 width_in_tile = 2
 texture = ExtResource("9_mg46l")
 
-[node name="Platform12" parent="." instance=ExtResource("2_xmyjc")]
+[node name="Platform12" parent="Platforms" instance=ExtResource("2_xmyjc")]
 position = Vector2(1530, 771)
 width_in_pixel = 204
 width_in_tile = 2
 
-[node name="DeathSpikesPlatform1" type="Node2D" parent="."]
+[node name="DeathSpikes" type="Node2D" parent="."]
 position = Vector2(813, 905)
 rotation = -0.3368
 metadata/_edit_group_ = true
 
-[node name="DeathSpike1" parent="DeathSpikesPlatform1" instance=ExtResource("3_3muha")]
+[node name="DeathSpike1" parent="DeathSpikes" instance=ExtResource("3_3muha")]
 position = Vector2(-128, 0)
 
-[node name="DeathSpike4" parent="DeathSpikesPlatform1" instance=ExtResource("3_3muha")]
+[node name="DeathSpike4" parent="DeathSpikes" instance=ExtResource("3_3muha")]
 position = Vector2(-229.839, 0.0927887)
 
-[node name="DeathSpike5" parent="DeathSpikesPlatform1" instance=ExtResource("3_3muha")]
+[node name="DeathSpike5" parent="DeathSpikes" instance=ExtResource("3_3muha")]
 position = Vector2(-331.549, 0.260055)
 
-[node name="DeathSpike2" parent="DeathSpikesPlatform1" instance=ExtResource("3_3muha")]
+[node name="DeathSpike2" parent="DeathSpikes" instance=ExtResource("3_3muha")]
 position = Vector2(-26, 0)
 
-[node name="DeathSpike3" parent="DeathSpikesPlatform1" instance=ExtResource("3_3muha")]
+[node name="DeathSpike3" parent="DeathSpikes" instance=ExtResource("3_3muha")]
 position = Vector2(76, 0)
 
-[node name="DeathSpike6" parent="DeathSpikesPlatform1" instance=ExtResource("3_3muha")]
+[node name="DeathSpike6" parent="DeathSpikes" instance=ExtResource("3_3muha")]
 position = Vector2(178.059, -0.166399)
 
 [node name="SpawnPoint" parent="." instance=ExtResource("4_j65wl")]
@@ -545,47 +553,36 @@ position = Vector2(59, 944)
 z_index = -1
 position = Vector2(1584, 635)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
-visible = false
-offset_left = 510.0
-offset_top = 264.0
-offset_right = 1326.0
-offset_bottom = 570.0
-text = "Welcome to the Facility!
-
-Your time machine has been malfuctioning for some time now. It seems to automatically take you back every 5 seconds. Luckily you can still move and select the location to rewind to."
-
-[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
+[node name="PanelContainer" type="PanelContainer" parent="."]
 offset_left = 630.0
 offset_top = 153.0
 offset_right = 1226.0
 offset_bottom = 462.0
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer"]
+[node name="Node2D" type="Node2D" parent="PanelContainer"]
+position = Vector2(-630, -153)
+
+[node name="GhostAnimatedSprite2D" type="AnimatedSprite2D" parent="PanelContainer/Node2D"]
 self_modulate = Color(0.497474, 0.497474, 0.497474, 1)
 position = Vector2(722, 370)
 scale = Vector2(0.6, 0.6)
 sprite_frames = SubResource("SpriteFrames_vvlvx")
 autoplay = "default"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/AnimatedSprite2D"]
-root_node = NodePath("../../..")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PanelContainer/Node2D/GhostAnimatedSprite2D"]
 libraries = {
 &"": SubResource("AnimationLibrary_w0v74")
 }
 autoplay = "Loop"
 
-[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="CanvasLayer"]
+[node name="PlayerAnimatedSprite2D" type="AnimatedSprite2D" parent="PanelContainer/Node2D"]
 position = Vector2(922, 370)
 scale = Vector2(0.6, 0.6)
 sprite_frames = SubResource("SpriteFrames_avyih")
 animation = &"jump"
 autoplay = "idle"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/AnimatedSprite2D2"]
-root_node = NodePath("../..")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PanelContainer/Node2D/PlayerAnimatedSprite2D"]
 libraries = {
 &"": SubResource("AnimationLibrary_mbjcn")
 }
