@@ -1,3 +1,25 @@
-[gd_resource type="AudioStreamInteractive" format=3 uid="uid://blehh13kfdfgk"]
+[gd_resource type="AudioStreamInteractive" load_steps=4 format=3 uid="uid://shmyk7ay85yl"]
+
+[ext_resource type="AudioStream" uid="uid://bdpbojo7pdm58" path="res://assets/audio/sfx/jump.ogg" id="1_fcxvp"]
+[ext_resource type="AudioStream" uid="uid://pcs0sliiy1n3" path="res://assets/audio/sfx/shock.ogg" id="2_xy1ll"]
+[ext_resource type="AudioStream" uid="uid://ljy4df4c5evc" path="res://assets/audio/sfx/impact.ogg" id="3_5udbb"]
 
 [resource]
+clip_count = 3
+clip_0/name = &"jump"
+clip_0/stream = ExtResource("1_fcxvp")
+clip_0/auto_advance = 0
+clip_1/name = &"dead"
+clip_1/stream = ExtResource("2_xy1ll")
+clip_1/auto_advance = 0
+clip_2/name = &"land"
+clip_2/stream = ExtResource("3_5udbb")
+clip_2/auto_advance = 0
+_transitions = {
+Vector2i(-1, -1): {
+"fade_beats": 0.0,
+"fade_mode": 0,
+"from_time": 0,
+"to_time": 1
+}
+}

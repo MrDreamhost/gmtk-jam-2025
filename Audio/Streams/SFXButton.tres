@@ -1,0 +1,21 @@
+[gd_resource type="AudioStreamInteractive" load_steps=3 format=3 uid="uid://blehh13kfdfgk"]
+
+[ext_resource type="AudioStream" uid="uid://hs255dg5v74t" path="res://assets/audio/sfx/button_press_in.ogg" id="1_5r5dx"]
+[ext_resource type="AudioStream" uid="uid://b4b8a50xf0h6n" path="res://assets/audio/sfx/button_press_out.ogg" id="2_l0j6d"]
+
+[resource]
+clip_count = 2
+clip_0/name = &"press_in"
+clip_0/stream = ExtResource("1_5r5dx")
+clip_0/auto_advance = 0
+clip_1/name = &"press_out"
+clip_1/stream = ExtResource("2_l0j6d")
+clip_1/auto_advance = 0
+_transitions = {
+Vector2i(-1, -1): {
+"fade_beats": 0.0,
+"fade_mode": 0,
+"from_time": 0,
+"to_time": 1
+}
+}

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dymffw6ntadbo"]
+[gd_scene load_steps=11 format=3 uid="uid://dymffw6ntadbo"]
 
 [ext_resource type="Script" uid="uid://xxn0xhde0xtl" path="res://level/interactables/pressure_plate.gd" id="1_5bdot"]
 [ext_resource type="Texture2D" uid="uid://3brpm6mlgk6v" path="res://assets/sprites/button/0001.png" id="2_dhuea"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cx2rsen5x1s4c" path="res://assets/sprites/button/0004.png" id="5_gdpg4"]
 [ext_resource type="Texture2D" uid="uid://cphi5omqokhb2" path="res://assets/sprites/button/0005.png" id="6_2hmuf"]
 [ext_resource type="Texture2D" uid="uid://dn3sf0oisxutv" path="res://assets/sprites/button/0006.png" id="7_pdyky"]
+[ext_resource type="AudioStream" uid="uid://blehh13kfdfgk" path="res://Audio/Streams/SFXButton.tres" id="8_vn2xf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vj3bl"]
 size = Vector2(66, 25)
@@ -62,6 +63,11 @@ one_shot = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(51, -24)
 sprite_frames = SubResource("SpriteFrames_qmruu")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_vn2xf")
+max_distance = 1200.0
+bus = &"SFX"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
