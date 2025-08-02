@@ -171,7 +171,6 @@ door_opening_speed = 300.0
 door_closing_speed = 50.0
 
 [node name="Bg" type="Sprite2D" parent="."]
-visible = false
 z_index = -2
 position = Vector2(959, 540)
 texture = ExtResource("8_e2a5p")
