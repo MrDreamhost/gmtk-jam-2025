@@ -9,10 +9,10 @@ const VICTORY_PLAYER = preload("res://player/victory_player.tscn")
 @onready var loop_timer: Timer = $LoopTimer
 @onready var label: Label = $CanvasLayer/Label
 @onready var player: Player = $Player
-
 @onready var player_dummy: Node2D = $PlayerDummy
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var shockwave_mat: ShaderMaterial = $CanvasLayer/ShockwaveOverlay.material
+@onready var animated_timer: AnimatedSprite2D = $CanvasLayer/AnimatedTimer
 
 var current_level: Level
 var spawned_ghosts: Array[PlayerGhost] = []
@@ -88,6 +88,7 @@ func set_label_text() -> void:
 
 
 func load_level(level: Level) -> void:
+	self.animated_timer.visible = true
 	self.current_level = level
 	self.add_child(self.current_level)
 	var current_spawn := self.current_level.spawn_point
@@ -128,7 +129,10 @@ func turn_clock_back() -> void:
 
 func _on_goal_reached(next_level_file: String) -> void:
 	loop_timer.stop()
+	self.animated_timer.stop()
+	self.animated_timer.visible = false
 	play_victory_eat_apple_animation.call_deferred(next_level_file)
+
 
 func play_victory_eat_apple_animation(next_level_file: String) -> void:
 	var goal_zone: GoalZone = get_tree().get_first_node_in_group("goal_zone")
@@ -155,7 +159,14 @@ func play_victory_eat_apple_animation(next_level_file: String) -> void:
 
 func reset_timer_and_music() -> void:
 	self.loop_timer.start()
+	self.animated_timer.play("timer")
 	GlobalAudioManager.start_level_music(current_level.name)
+
 
 func reset_timer_no_music() -> void:
 	self.loop_timer.start()
+	self.animated_timer.play("timer")
+
+
+func start_timer_reset_animation() -> void:
+	self.animated_timer.play("timer_reset")
