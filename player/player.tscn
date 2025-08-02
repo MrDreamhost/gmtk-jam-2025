@@ -760,3 +760,6 @@ metadata/_custom_type_script = "uid://bx3htol1unu61"
 [node name="Dead" type="Node" parent="PlayerStateMachine"]
 script = ExtResource("49_w7j2h")
 metadata/_custom_type_script = "uid://dqsoii2pg2nsu"
+
+[node name="AudioListener2D" type="AudioListener2D" parent="."]
+current = true

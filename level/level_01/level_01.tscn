@@ -1,7 +1,6 @@
-[gd_scene load_steps=65 format=3 uid="uid://d3eu8ibj2ld1b"]
+[gd_scene load_steps=64 format=3 uid="uid://d3eu8ibj2ld1b"]
 
 [ext_resource type="Script" uid="uid://bpokfberniss4" path="res://level/level_01/level_01.gd" id="1_2n58o"]
-[ext_resource type="AudioStream" uid="uid://c38fk06ckmfrn" path="res://assets/audio/Track1.1-60.wav" id="2_dp2e2"]
 [ext_resource type="PackedScene" uid="uid://bcujsflu4nqbn" path="res://loop_system/spawn_point.tscn" id="3_aem8p"]
 [ext_resource type="PackedScene" uid="uid://b2hnjcnhd8ahv" path="res://level/goal_zone.tscn" id="4_mopx3"]
 [ext_resource type="PackedScene" uid="uid://coobrpw2ubqjw" path="res://level/interactables/Platform.tscn" id="4_rdi31"]
@@ -199,12 +198,6 @@ animations = [{
 [node name="Level01" type="Node2D" node_paths=PackedStringArray("spawn_point")]
 script = ExtResource("1_2n58o")
 spawn_point = NodePath("SpawnPoint")
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-process_mode = 3
-stream = ExtResource("2_dp2e2")
-volume_db = -16.0
-autoplay = true
 
 [node name="Label" type="Label" parent="."]
 offset_right = 40.0
@@ -430,5 +423,3 @@ texture = ExtResource("61_1no8u")
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 position = Vector2(1478, 128)
 texture = ExtResource("61_1no8u")
-
-[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]

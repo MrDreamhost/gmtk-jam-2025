@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://d2iwwq2sfgujk"]
+[gd_scene load_steps=12 format=3 uid="uid://d2iwwq2sfgujk"]
 
 [ext_resource type="Script" uid="uid://dflftgnlarl0a" path="res://game/main.gd" id="1_xtpaf"]
 [ext_resource type="PackedScene" uid="uid://d3eu8ibj2ld1b" path="res://level/level_01/level_01.tscn" id="2_vop5m"]
 [ext_resource type="PackedScene" uid="uid://c0dapnlli3qqi" path="res://player/player.tscn" id="3_emt18"]
 [ext_resource type="Script" uid="uid://4det2vjn1nki" path="res://loop_system/replay_recorder.gd" id="4_vop5m"]
 [ext_resource type="Shader" uid="uid://bvy37qyslgaew" path="res://assets/shaders/shockwave.gdshader" id="6_dgpao"]
+[ext_resource type="AudioStream" uid="uid://c38fk06ckmfrn" path="res://assets/audio/Track1.1-60.wav" id="6_wjctj"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wjctj"]
 shader = ExtResource("6_dgpao")
@@ -143,7 +144,6 @@ position = Vector2(12, 13)
 
 [node name="PlayerDummy" type="Node2D" parent="."]
 visible = false
-position = Vector2(12, 21)
 
 [node name="PlayerRecorder" type="Node2D" parent="." node_paths=PackedStringArray("player")]
 script = ExtResource("4_vop5m")
@@ -183,5 +183,8 @@ callback_mode_process = 0
 libraries = {
 &"": SubResource("AnimationLibrary_5un7r")
 }
+
+[node name="MainMusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_wjctj")
 
 [connection signal="timeout" from="LoopTimer" to="." method="_on_loop_timer_timeout"]
