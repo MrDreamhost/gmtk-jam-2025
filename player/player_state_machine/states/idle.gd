@@ -9,7 +9,6 @@ var short_hop: float
 
 func _ready() -> void:
 	self.player = self.owner
-	self.short_hop = self.player.player_config.short_hop_factor
 
 
 func update_process(delta: float) -> void:
