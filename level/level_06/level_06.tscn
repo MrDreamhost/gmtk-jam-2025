@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dwh7chwhvvwlt"]
+[gd_scene load_steps=12 format=3 uid="uid://dwh7chwhvvwlt"]
 
 [ext_resource type="Script" uid="uid://cr5paax0qa013" path="res://level/level_02/level_02.gd" id="1_74o37"]
 [ext_resource type="PackedScene" uid="uid://bcujsflu4nqbn" path="res://loop_system/spawn_point.tscn" id="2_ijggo"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dymffw6ntadbo" path="res://level/interactables/pressure_plate.tscn" id="5_n2pwk"]
 [ext_resource type="PackedScene" uid="uid://d15yq2lgmdi4p" path="res://level/interactables/door.tscn" id="6_n2pwk"]
 [ext_resource type="Texture2D" uid="uid://r73vaost6qcx" path="res://assets/sprites/bg/lvl_6_bg.webp" id="8_e2a5p"]
+[ext_resource type="Texture2D" uid="uid://dj5rkfkdh4tyg" path="res://assets/sprites/props/vending machine.png" id="9_gbrfs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_si3cn"]
 size = Vector2(20, 1100)
@@ -174,3 +175,7 @@ visible = false
 z_index = -2
 position = Vector2(959, 540)
 texture = ExtResource("8_e2a5p")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(663, 945)
+texture = ExtResource("9_gbrfs")
