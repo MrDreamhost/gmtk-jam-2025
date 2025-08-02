@@ -1,4 +1,4 @@
-[gd_scene load_steps=171 format=3 uid="uid://d2iwwq2sfgujk"]
+[gd_scene load_steps=173 format=3 uid="uid://d2iwwq2sfgujk"]
 
 [ext_resource type="Script" uid="uid://dflftgnlarl0a" path="res://game/main.gd" id="1_xtpaf"]
 [ext_resource type="PackedScene" uid="uid://d3eu8ibj2ld1b" path="res://level/level_01/level_01.tscn" id="2_vop5m"]
@@ -165,6 +165,7 @@
 [ext_resource type="Texture2D" uid="uid://cqo651xtyu1ma" path="res://assets/sprites/timer_reset/0158.png" id="163_564ll"]
 [ext_resource type="Texture2D" uid="uid://2ot10jo2b3nq" path="res://assets/sprites/timer_reset/0159.png" id="164_g20cv"]
 [ext_resource type="Texture2D" uid="uid://c63pw2p63n2jp" path="res://assets/sprites/timer_reset/0160.png" id="165_rhhtj"]
+[ext_resource type="Shader" uid="uid://cbtgoxf3ecchm" path="res://assets/shaders/CRT.gdshader" id="166_vgkw0"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_e21ge"]
 animations = [{
@@ -668,6 +669,12 @@ shader_parameter/aberration = 0.425
 shader_parameter/width = 0.021
 shader_parameter/feather = 0.111
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mriow"]
+shader = ExtResource("166_vgkw0")
+shader_parameter/screen_resolution = Vector2(480, 270)
+shader_parameter/scanline_intensity = 0.05
+shader_parameter/color_bleed_weight = 0.2
+
 [sub_resource type="Animation" id="Animation_dp3pf"]
 length = 0.001
 tracks/0/type = "value"
@@ -828,6 +835,16 @@ Time: %.2f"
 
 [node name="ShockwaveOverlay" type="ColorRect" parent="CanvasLayer"]
 material = SubResource("ShaderMaterial_wjctj")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.662928, 0.165793, 0.165793, 1)
+
+[node name="CRT" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_mriow")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
