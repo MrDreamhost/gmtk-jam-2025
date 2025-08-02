@@ -21,6 +21,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 4
 max_value = 1.0
 step = 0.01
+value = 1.0
 ticks_on_borders = true
 
 [node name="MutedCheckButton" type="CheckBox" parent="."]

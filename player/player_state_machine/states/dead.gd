@@ -10,3 +10,7 @@ func _ready() -> void:
 
 func update_physics_process(_delta: float) -> void:
 	self.player.velocity = Vector2.ZERO
+
+func enter(_data := {}) -> void:
+	super()
+	self.player.play_sound("dead")

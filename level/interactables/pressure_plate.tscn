@@ -66,6 +66,7 @@ sprite_frames = SubResource("SpriteFrames_qmruu")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_vn2xf")
+volume_db = -10.0
 max_distance = 1200.0
 bus = &"SFX"
 

@@ -5,6 +5,7 @@ class_name Player extends CharacterBody2D
 
 @onready var hurt_box: HurtBox = $HurtBox
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var sfx_player: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 var coyote_timer: float = 0.0
 
@@ -37,3 +38,9 @@ func update_coyote_timer(delta: float):
 		self.coyote_timer = self.player_config.coyote_time
 	else:
 		self.coyote_timer -= delta
+
+
+func play_sound(sound_name: String) -> void:
+	if !self.sfx_player.playing:
+		self.sfx_player.play()
+	self.sfx_player["parameters/switch_to_clip"] = sound_name
