@@ -36,5 +36,4 @@ func update_coyote_timer(delta: float):
 	if self.is_on_floor():
 		self.coyote_timer = self.player_config.coyote_time
 	else:
-		print(coyote_timer)
 		self.coyote_timer -= delta
