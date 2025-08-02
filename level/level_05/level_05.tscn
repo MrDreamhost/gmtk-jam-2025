@@ -21,7 +21,7 @@ size = Vector2(1960, 20)
 resource_local_to_scene = true
 size = Vector2(102, 320)
 
-[node name="Level_05" type="Node2D" node_paths=PackedStringArray("spawn_point")]
+[node name="Level05" type="Node2D" node_paths=PackedStringArray("spawn_point")]
 script = ExtResource("1_1kcua")
 spawn_point = NodePath("SpawnPoint")
 

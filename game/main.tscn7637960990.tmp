@@ -186,7 +186,6 @@ libraries = {
 }
 
 [node name="AudioManager" type="Node" parent="."]
-process_mode = 3
 script = ExtResource("6_xkbyp")
 
 [node name="MainMusicPlayer" type="AudioStreamPlayer" parent="AudioManager"]

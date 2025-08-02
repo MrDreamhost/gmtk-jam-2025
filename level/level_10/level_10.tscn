@@ -20,7 +20,7 @@ size = Vector2(1960, 20)
 resource_local_to_scene = true
 size = Vector2(102, 308)
 
-[node name="LevelTemp" type="Node2D" node_paths=PackedStringArray("spawn_point")]
+[node name="Level10" type="Node2D" node_paths=PackedStringArray("spawn_point")]
 script = ExtResource("1_tid4i")
 spawn_point = NodePath("SpawnPoint")
 

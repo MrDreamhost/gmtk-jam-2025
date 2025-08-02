@@ -18,7 +18,7 @@ size = Vector2(20, 1100)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wteuf"]
 size = Vector2(1960, 20)
 
-[node name="Level_07" type="Node2D" node_paths=PackedStringArray("spawn_point")]
+[node name="Level07" type="Node2D" node_paths=PackedStringArray("spawn_point")]
 script = ExtResource("1_aunql")
 spawn_point = NodePath("SpawnPoint")
 

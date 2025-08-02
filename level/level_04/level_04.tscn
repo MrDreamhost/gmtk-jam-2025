@@ -23,7 +23,7 @@ normal = Vector2(0, 1)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_juuh0"]
 
-[node name="Level_04" type="Node2D" node_paths=PackedStringArray("spawn_point")]
+[node name="Level04" type="Node2D" node_paths=PackedStringArray("spawn_point")]
 script = ExtResource("1_78fuf")
 spawn_point = NodePath("SpawnPoint")
 

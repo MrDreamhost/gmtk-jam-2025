@@ -9,6 +9,7 @@ const VICTORY_PLAYER = preload("res://player/victory_player.tscn")
 @onready var loop_timer: Timer = $LoopTimer
 @onready var label: Label = $CanvasLayer/Label
 @onready var player: Player = $Player
+@onready var audio_manager: AudioManager = $AudioManager
 
 @onready var player_dummy: Node2D = $PlayerDummy
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -56,7 +57,7 @@ func reset_loop() -> void:
 	self.player_recorder.reset_replay_data()
 	self.respawn_player()
 	self.reset_ghosts()
-	self.loop_timer.start()
+	reset_timer_no_music()
 	get_tree().paused = false
 
 
@@ -69,7 +70,7 @@ func reset_level() -> void:
 	self.current_loop = 1
 	self.player_recorder.reset_replay_data()
 	self.respawn_player()
-	self.loop_timer.start()
+	reset_timer_and_music()
 
 
 func spawn_ghost() -> void:
@@ -157,3 +158,10 @@ func trigger_shockwave():
 
 func _on_h_slider_value_changed(value: float) -> void:
 	shockwave_mat.set_shader_parameter("radius", value)
+
+func reset_timer_and_music() -> void:
+	self.loop_timer.start()
+	self.audio_manager.start_level_music(current_level)
+
+func reset_timer_no_music() -> void:
+	self.loop_timer.start()
