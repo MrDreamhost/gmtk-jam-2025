@@ -11,8 +11,43 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_brexn")
 
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_left = 357.0
+offset_top = 213.0
+offset_right = 1428.0
+offset_bottom = 978.0
+
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-text = "Credits Menu"
+offset_left = 765.0
+offset_top = 264.0
+offset_right = 1020.0
+offset_bottom = 315.0
+text = "Credits"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BackToMenuButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 714.0
+offset_top = 876.0
+offset_right = 1071.0
+offset_bottom = 936.0
+text = "Back To Menu"
+
+[node name="TextBox" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 459.0
+offset_top = 366.0
+offset_right = 1326.0
+offset_bottom = 825.0
+text = "Art & SFX				- 
+Design					- 
+Music						- Farley Valens
+Programming		- 
+
+With Assets by:
+"
+
+[connection signal="pressed" from="BackToMenuButton" to="." method="_on_back_to_menu_button_pressed"]

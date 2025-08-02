@@ -5,7 +5,7 @@
 
 [resource]
 clip_count = 11
-clip_0/name = &"Menu_music"
+clip_0/name = &"root_music"
 clip_0/stream = ExtResource("1_plimw")
 clip_0/auto_advance = 0
 clip_1/name = &"Level01_music"

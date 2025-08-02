@@ -19,9 +19,8 @@ custom_minimum_size = Vector2(78, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
-min_value = -60.0
-max_value = 0.0
-step = 0.2
+max_value = 1.0
+step = 0.01
 ticks_on_borders = true
 
 [node name="MutedCheckButton" type="CheckBox" parent="."]
