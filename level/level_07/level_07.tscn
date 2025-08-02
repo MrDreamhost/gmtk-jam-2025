@@ -62,9 +62,9 @@ position = Vector2(306, 876)
 texture = ExtResource("5_s7wul")
 
 [node name="ResizablePlatform2" parent="." instance=ExtResource("4_3hudp")]
-position = Vector2(1020, 876)
-width_in_pixel = 408
-width_in_tile = 4
+position = Vector2(918, 876)
+width_in_pixel = 510
+width_in_tile = 5
 
 [node name="Spikes" type="Node2D" parent="."]
 position = Vector2(408, 1080)
@@ -79,7 +79,7 @@ position = Vector2(-102, -204)
 rotation = 1.5708
 
 [node name="DeathSpike11" parent="Spikes" instance=ExtResource("5_4ev6a")]
-position = Vector2(714, -102)
+position = Vector2(612, -102)
 rotation = 4.71239
 
 [node name="DeathSpike3" parent="Spikes" instance=ExtResource("5_4ev6a")]
@@ -91,14 +91,11 @@ position = Vector2(306, 0)
 [node name="DeathSpike5" parent="Spikes" instance=ExtResource("5_4ev6a")]
 position = Vector2(408, 0)
 
-[node name="DeathSpike6" parent="Spikes" instance=ExtResource("5_4ev6a")]
-position = Vector2(510, 0)
-
 [node name="PressurePlate" parent="." instance=ExtResource("6_2p385")]
-position = Vector2(1224, 774)
+position = Vector2(1020, 774)
 
 [node name="ResizablePlatform4" parent="." instance=ExtResource("4_3hudp")]
-position = Vector2(0, 60)
+position = Vector2(-306, 60)
 width_in_pixel = 612
 width_in_tile = 6
 texture = ExtResource("8_ovfi7")
@@ -130,7 +127,17 @@ door_closing_speed = 200.0
 
 [node name="tile_face" type="Sprite2D" parent="."]
 z_index = -1
+position = Vector2(969, 952)
+texture = ExtResource("10_7xfsl")
+
+[node name="tile_face3" type="Sprite2D" parent="."]
+z_index = -1
 position = Vector2(1071, 952)
+texture = ExtResource("10_7xfsl")
+
+[node name="tile_face4" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(1071, 850)
 texture = ExtResource("10_7xfsl")
 
 [node name="tile_face2" type="Sprite2D" parent="."]

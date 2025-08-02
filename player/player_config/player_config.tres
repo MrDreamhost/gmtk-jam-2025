@@ -4,11 +4,11 @@
 
 [resource]
 script = ExtResource("1_xi21h")
-run_acceleration = 4000.0
+run_acceleration = 2000.0
 run_deceleration = 2000.0
 run_max_speed = 550.0
 jump_max_height = 325.0
 jump_duration = 1.25
-fall_gravity_multiplier = 1.0
+fall_gravity_multiplier = 2.0
 air_acceleration = 2000.0
 metadata/_custom_type_script = "uid://brqw4to14t0pt"
