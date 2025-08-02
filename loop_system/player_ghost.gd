@@ -23,6 +23,10 @@ func _physics_process(_delta: float) -> void:
 		if self.animated_sprite_2d.animation != frame.get("animation"):
 			self.animated_sprite_2d.play(frame.get("animation"))
 		self.animated_sprite_2d.flip_h = frame.get("animation_flip_h")
+		if self.animated_sprite_2d.animation == "jump":
+			self.animated_sprite_2d.position = Vector2(112, -112)
+		else:
+			self.animated_sprite_2d.position = Vector2(96, -98)
 		self.current_index += 1
 
 
