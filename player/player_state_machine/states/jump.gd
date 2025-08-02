@@ -51,10 +51,10 @@ func update_physics_process(delta: float) -> void:
 
 func enter(data := {}) -> void:
 	super()
+	self.player.animated_sprite_2d.play("jump")
 	var jump_factor = data.get("jump_factor")
 	self.short_hop = true if jump_factor != 1.0 else false
 	self.calculate_jump()
-	self.player.animated_sprite_2d.play("jump")
 	self.player.velocity.y = -self.jump_velocity * sqrt(jump_factor)
 	self.player.animated_sprite_2d.position = Vector2(112, -112)
 
