@@ -8,12 +8,6 @@ func _ready() -> void:
 	self.player = self.owner
 
 
-func update_process(delta: float) -> void:
-	#if not self.player.animated_sprite_2d.is_playing():
-		#self.player.animated_sprite_2d.play("run")
-	pass
-
-
 func update_physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("player_jump") and self.player.is_on_floor():
 		self.finished.emit(%PlayerStateMachine.states[PlayerStateMachine.JUMP])
