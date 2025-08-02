@@ -256,6 +256,8 @@ position = Vector2(1836, 1080)
 position = Vector2(1224, 978)
 connected_button = NodePath("../PressurePlate")
 open_height = -306.0
+door_opening_speed = 500.0
+door_closing_speed = 500.0
 
 [node name="PressurePlate" parent="." instance=ExtResource("8_5nyk4")]
 position = Vector2(816, 978)
