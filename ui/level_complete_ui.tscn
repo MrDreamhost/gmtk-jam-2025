@@ -1,0 +1,156 @@
+[gd_scene load_steps=8 format=3 uid="uid://cicrk0ag8ysnl"]
+
+[ext_resource type="FontFile" uid="uid://bia1teoay5dai" path="res://assets/fonts/fusion-pixel-12px-proportional-sc-latin-400-normal.woff2" id="1_grxgt"]
+[ext_resource type="Texture2D" uid="uid://bwknp1gt3v808" path="res://assets/sprites/tiles/tile_face.png" id="1_udxi4"]
+[ext_resource type="Script" uid="uid://c8udi47mk61iq" path="res://ui/level_complete_ui.gd" id="2_m3tff"]
+[ext_resource type="FontFile" uid="uid://dnnbp76wclplr" path="res://assets/fonts/fusion-pixel-10px-proportional-sc-latin-400-normal.woff2" id="2_vkikq"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m3tff"]
+texture = ExtResource("1_udxi4")
+texture_margin_left = 12.0
+texture_margin_top = 12.0
+texture_margin_right = 12.0
+texture_margin_bottom = 17.0
+region_rect = Rect2(77, 154, 102, 102)
+
+[sub_resource type="LabelSettings" id="LabelSettings_oqr4f"]
+font = ExtResource("2_vkikq")
+font_size = 70
+outline_size = 20
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 20
+shadow_color = Color(0, 0, 0, 0.6)
+shadow_offset = Vector2(5, 5)
+
+[sub_resource type="LabelSettings" id="LabelSettings_udxi4"]
+font = ExtResource("1_grxgt")
+font_size = 36
+outline_size = 12
+outline_color = Color(0, 0, 0, 1)
+
+[node name="LevelCompletePanel" type="PanelContainer"]
+offset_right = 606.0
+offset_bottom = 795.0
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxTexture_m3tff")
+script = ExtResource("2_m3tff")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 42
+
+[node name="LevelCompleteLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Level complete!"
+label_settings = SubResource("LabelSettings_oqr4f")
+horizontal_alignment = 3
+
+[node name="UnderLine" type="ColorRect" parent="MarginContainer/VBoxContainer/LevelCompleteLabel"]
+custom_minimum_size = Vector2(0, 4)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 32
+theme_override_constants/v_separation = 32
+columns = 2
+
+[node name="TimeLabel" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "⏱️ Time: "
+label_settings = SubResource("LabelSettings_udxi4")
+
+[node name="TimeValue" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "01:24.76"
+label_settings = SubResource("LabelSettings_udxi4")
+horizontal_alignment = 2
+
+[node name="FastesTimeLabel" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "⚡ Fastes Run: "
+label_settings = SubResource("LabelSettings_udxi4")
+
+[node name="FastesTimeValue" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "00:22.89"
+label_settings = SubResource("LabelSettings_udxi4")
+horizontal_alignment = 2
+
+[node name="LoopsLabel" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "♻️ Loops:  "
+label_settings = SubResource("LabelSettings_udxi4")
+
+[node name="LoopsValue" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "12"
+label_settings = SubResource("LabelSettings_udxi4")
+horizontal_alignment = 2
+
+[node name="ResetsLabel" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "🔄 Resets: "
+label_settings = SubResource("LabelSettings_udxi4")
+
+[node name="ResetsValue" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "4"
+label_settings = SubResource("LabelSettings_udxi4")
+horizontal_alignment = 2
+
+[node name="DevRecordLabel" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "🏆 Dev Record: "
+label_settings = SubResource("LabelSettings_udxi4")
+
+[node name="DevRecordValue" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "00:21.47"
+label_settings = SubResource("LabelSettings_udxi4")
+horizontal_alignment = 2
+
+[node name="UnderLine" type="ColorRect" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 4)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 42
+
+[node name="RetryButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_grxgt")
+theme_override_font_sizes/font_size = 36
+text = "Retry"
+
+[node name="NextLevelButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_grxgt")
+theme_override_font_sizes/font_size = 36
+text = "Next Level"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/RetryButton" to="." method="_on_retry_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/NextLevelButton" to="." method="_on_next_level_button_pressed"]

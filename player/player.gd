@@ -1,5 +1,6 @@
 class_name Player extends CharacterBody2D
 
+signal died()
 
 @export var player_config: PlayerConfig = preload("res://player/player_config/player_config.tres")
 
@@ -19,7 +20,6 @@ func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor() and %PlayerStateMachine.current_state != %PlayerStateMachine.states[%PlayerStateMachine.JUMP]:
 		velocity += Vector2.DOWN * %PlayerStateMachine/Jump.gravity_down * delta
-
 	move_and_slide()
 
 

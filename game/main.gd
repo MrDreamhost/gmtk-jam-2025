@@ -7,28 +7,33 @@ const VICTORY_PLAYER = preload("res://player/victory_player.tscn")
 
 @onready var player_recorder: ReplayRecorder = $PlayerRecorder
 @onready var loop_timer: Timer = $LoopTimer
+@onready var play_timer: Timer = $PlayTimer
 @onready var label: Label = $CanvasLayer/Label
 @onready var player: Player = $Player
 @onready var player_dummy: Node2D = $PlayerDummy
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var shockwave_mat: ShaderMaterial = $CanvasLayer/ShockwaveOverlay.material
 @onready var animated_timer: AnimatedSprite2D = $CanvasLayer/AnimatedTimer
+@onready var level_complete_panel: LevelCompletePanel = $CanvasLayer/LevelCompletePanel
+@onready var level_record_repository: LevelRecordRepository = $LevelRecordRepository
 
 var current_level: Level
+var next_level_file: String
 var spawned_ghosts: Array[PlayerGhost] = []
-var current_loop: int = 1
 var changed_spawn: bool = false
+var level_record := LevelRecordRepository.LevelRecord.new()
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	self.load_level(self.inital_level.instantiate())
+	self.level_complete_panel.visible = false
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	self.set_label_text()
-
+	
 	if Input.is_action_just_pressed("set_spawn_point"):
 		self.changed_spawn = true
 		self.current_level.spawn_point.sprite_2d.stop()
@@ -55,7 +60,7 @@ func respawn_player() -> void:
 func reset_loop() -> void:
 	if self.changed_spawn:
 		self.spawn_ghost()
-		self.current_loop += 1
+		self.level_record.loop_count += 1
 		self.changed_spawn = false
 	self.player_recorder.reset_replay_data()
 	self.respawn_player()
@@ -70,7 +75,10 @@ func reset_level() -> void:
 	for ghost: PlayerGhost in self.spawned_ghosts:
 		ghost.queue_free()
 	self.spawned_ghosts.clear()
-	self.current_loop = 1
+	self.level_record.loop_count = 1
+	self.level_record.total_reset_count += 1
+	level_record.total_time += play_timer.wait_time - play_timer.time_left
+	self.play_timer.start()
 	self.player_recorder.reset_replay_data()
 	self.respawn_player()
 	reset_timer_and_music()
@@ -81,23 +89,27 @@ func spawn_ghost() -> void:
 		var ghost: PlayerGhost = spawned_ghosts[0]
 		ghost.replay_data = self.player_recorder.replay_data
 	else:
-		var ghost: PlayerGhost = self.player_recorder.spawn_ghost(self.current_loop)
+		var loop_idx := self.level_record.loop_count
+		var ghost: PlayerGhost = self.player_recorder.spawn_ghost(loop_idx)
 		spawned_ghosts.append(ghost)
 		add_child(ghost)
 	print("SPAWNED GHOSTS: %s" % self.spawned_ghosts.size())
 
 
 func set_label_text() -> void:
-	self.label.text = "Loop: %d\nTime: %.2f" % [self.current_loop, self.loop_timer.time_left]
+	self.label.text = "Loop: %d\nTime: %.2f" % [self.level_record.loop_count, self.loop_timer.time_left]
 
 
 func load_level(level: Level) -> void:
-	self.animated_timer.visible = true
 	self.current_level = level
+	self.animated_timer.visible = true
 	self.add_child(self.current_level)
 	var current_spawn := self.current_level.spawn_point
 	current_spawn.loop_timer = loop_timer
 	self.reset_level()
+	
+	self.level_record = LevelRecordRepository.LevelRecord.new()
+	self.level_record.level_file = level.scene_file_path
 	for goal_zone: GoalZone in get_tree().get_nodes_in_group("goal_zone"):
 		if not goal_zone.goal_reached.is_connected(_on_goal_reached):
 			goal_zone.goal_reached.connect(_on_goal_reached)
@@ -131,14 +143,41 @@ func turn_clock_back() -> void:
 	current_level.spawn_point.reversed = true
 
 
-func _on_goal_reached(next_level_file: String) -> void:
+func _on_goal_reached(_next_level_file: String) -> void:
+	next_level_file = _next_level_file
+	call_deferred("play_victory_eat_apple_animation")
 	loop_timer.stop()
 	self.animated_timer.stop()
 	self.animated_timer.visible = false
-	play_victory_eat_apple_animation.call_deferred(next_level_file)
+	
+	level_record.time = play_timer.wait_time - play_timer.time_left
+	level_record.total_time += level_record.time
+	play_timer.stop()
+	var best_level_record := level_record_repository.add_record_and_return_total(level_record)
+	
+	var data := LevelCompletePanel.Data.new()
+	data.time = level_record.time
+	data.loop_count = level_record.loop_count
+	data.fastes_time = best_level_record.time
+	data.death_count = best_level_record.total_death_count
+	data.reset_count = best_level_record.total_reset_count
+	var dev_record: LevelRecordRepository.LevelRecord = level_record_repository.dev_records.get(level_record.level_file)
+	if dev_record != null:
+		data.dev_record_time = dev_record.time
+	else:
+		data.dev_record_time = 4_000.0
+	
+	level_complete_panel.set_data(data)
+	level_complete_panel.visible = true
+	var tween := level_complete_panel.create_tween()
+	var inside_position := Vector2(1300.0, 112.0)
+	var outside_position := inside_position + Vector2.RIGHT * (1930.0 - inside_position.x)
+	tween.tween_property(level_complete_panel, "position", inside_position, 0.5)\
+			.from(outside_position) \
+			.set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_CUBIC)
 
 
-func play_victory_eat_apple_animation(next_level_file: String) -> void:
+func play_victory_eat_apple_animation() -> void:
 	var goal_zone: GoalZone = get_tree().get_first_node_in_group("goal_zone")
 	goal_zone.queue_free()
 	remove_child(player)
@@ -148,13 +187,13 @@ func play_victory_eat_apple_animation(next_level_file: String) -> void:
 	var victory_animation_player: AnimationPlayer = victory_player.get_node("AnimationPlayer")
 	var animation := victory_animation_player.get_animation("victory_eat")
 	animation.track_set_key_value(0, 0, victory_player.to_local(goal_zone.global_position))
-	add_child(victory_player)
+	current_level.add_child(victory_player)
 	victory_player.apply_central_impulse(player.velocity)
-	await victory_animation_player.animation_finished
-	
-	var next_level_scene := await LevelTransition.load_with_loading_screen(next_level_file) as PackedScene
+
+
+func transition_to_next_level(level_file: String) -> void:
+	var next_level_scene := await LevelTransition.load_with_loading_screen(level_file) as PackedScene
 	add_child(player)
-	victory_player.queue_free()
 	current_level.queue_free()
 	var next_level := next_level_scene.instantiate() as Level
 	load_level(next_level)
@@ -174,3 +213,16 @@ func reset_timer_no_music() -> void:
 
 func start_timer_reset_animation() -> void:
 	self.animated_timer.play("timer_reset")
+
+
+func _on_level_complete_panel_next_level() -> void:
+	level_complete_panel.visible = false
+	transition_to_next_level(next_level_file)
+
+func _on_level_complete_panel_retry_level() -> void:
+	level_complete_panel.visible = false
+	transition_to_next_level(current_level.scene_file_path)
+
+
+func _on_player_died() -> void:
+	level_record.total_death_count += 1
