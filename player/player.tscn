@@ -1,4 +1,4 @@
-[gd_scene load_steps=176 format=3 uid="uid://c0dapnlli3qqi"]
+[gd_scene load_steps=177 format=3 uid="uid://c0dapnlli3qqi"]
 
 [ext_resource type="Script" uid="uid://d3p7qm8m2omtf" path="res://player/player.gd" id="1_rkbax"]
 [ext_resource type="Texture2D" uid="uid://yj6y4rf4yexa" path="res://assets/sprites/slither/0001.png" id="2_kb6p2"]
@@ -171,13 +171,18 @@
 [ext_resource type="Texture2D" uid="uid://btfmltv2hp5jy" path="res://assets/sprites/turn_ground/0007.png" id="164_u3imt"]
 [ext_resource type="Texture2D" uid="uid://7m00nrc67nj2" path="res://assets/sprites/turn_ground/0008.png" id="165_cu17e"]
 [ext_resource type="Texture2D" uid="uid://g3bo4ytdmxto" path="res://assets/sprites/turn_ground/0009.png" id="166_qtnoe"]
-[ext_resource type="AudioStream" path="res://Audio/Streams/SFXPlayer.tres" id="172_ciuuh"]
+[ext_resource type="AudioStream" uid="uid://shmyk7ay85yl" path="res://Audio/Streams/SFXPlayer.tres" id="172_ciuuh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rkbax"]
-size = Vector2(79, 125.75)
+size = Vector2(49, 125)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yw30f"]
-size = Vector2(65, 110)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ciuuh"]
+radius = 15.0
+height = 125.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0y8qi"]
+radius = 35.0
+height = 118.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8rogd"]
 animations = [{
@@ -720,8 +725,16 @@ safe_margin = 0.2
 script = ExtResource("1_rkbax")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(112, -62.875)
+position = Vector2(112, -62.5)
 shape = SubResource("RectangleShape2D_rkbax")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(87.5, -62.5)
+shape = SubResource("CapsuleShape2D_ciuuh")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+position = Vector2(136.5, -62.5)
+shape = SubResource("CapsuleShape2D_ciuuh")
 
 [node name="HurtBox" type="Area2D" parent="."]
 position = Vector2(99, -62.5)
@@ -732,13 +745,13 @@ metadata/_custom_type_script = "uid://nuq6dpf75flc"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 position = Vector2(13, -0.5)
-shape = SubResource("RectangleShape2D_yw30f")
+shape = SubResource("CapsuleShape2D_0y8qi")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 z_index = 1
 position = Vector2(96, -98)
 sprite_frames = SubResource("SpriteFrames_8rogd")
-animation = &"turn_ground"
+animation = &"idle"
 
 [node name="PlayerStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 unique_name_in_owner = true
