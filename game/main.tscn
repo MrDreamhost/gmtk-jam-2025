@@ -1,4 +1,4 @@
-[gd_scene load_steps=174 format=3 uid="uid://d2iwwq2sfgujk"]
+[gd_scene load_steps=175 format=3 uid="uid://d2iwwq2sfgujk"]
 
 [ext_resource type="Script" uid="uid://dflftgnlarl0a" path="res://game/main.gd" id="1_xtpaf"]
 [ext_resource type="PackedScene" uid="uid://d3eu8ibj2ld1b" path="res://level/level_01/level_01.tscn" id="2_vop5m"]
@@ -168,13 +168,14 @@
 [ext_resource type="Texture2D" uid="uid://c63pw2p63n2jp" path="res://assets/sprites/timer_reset/0160.png" id="165_rhhtj"]
 [ext_resource type="Shader" path="res://assets/shaders/CRT.gdshader" id="166_vgkw0"]
 [ext_resource type="PackedScene" uid="uid://cicrk0ag8ysnl" path="res://ui/level_complete_ui.tscn" id="166_vgkw0"]
+[ext_resource type="Shader" uid="uid://cbtgoxf3ecchm" path="res://assets/shaders/CRT.gdshader" id="167_fhlij"]
 
 [sub_resource type="Animation" id="Animation_dp3pf"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/ShockwaveOverlay:material:shader_parameter/radius")
+tracks/0/path = NodePath("CanvasLayer/BackBufferCopy/ShockwaveOverlay:material:shader_parameter/radius")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -916,21 +917,34 @@ script = ExtResource("1_xtpaf")
 inital_level = ExtResource("2_vop5m")
 shockwave_offset = Vector2(102, -240)
 
-[node name="Player" parent="." instance=ExtResource("3_emt18")]
-position = Vector2(12, 13)
+[node name="LevelRecordRepository" type="Node" parent="."]
+script = ExtResource("3_mriow")
 
-[node name="PlayerDummy" type="Node2D" parent="."]
-visible = false
-position = Vector2(3.05791, 5.35135)
-
-[node name="PlayerRecorder" type="Node2D" parent="." node_paths=PackedStringArray("player")]
-script = ExtResource("4_vop5m")
-player = NodePath("../Player")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+process_mode = 3
+callback_mode_process = 0
+libraries = {
+&"": SubResource("AnimationLibrary_5un7r")
+}
 
 [node name="LoopTimer" type="Timer" parent="."]
 wait_time = 5.0
 one_shot = true
 autostart = true
+
+[node name="PlayTimer" type="Timer" parent="."]
+wait_time = 4096.0
+one_shot = true
+
+[node name="Player" parent="." instance=ExtResource("3_emt18")]
+position = Vector2(12, 13)
+
+[node name="PlayerDummy" type="Node2D" parent="."]
+visible = false
+
+[node name="PlayerRecorder" type="Node2D" parent="." node_paths=PackedStringArray("player")]
+script = ExtResource("4_vop5m")
+player = NodePath("../Player")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
