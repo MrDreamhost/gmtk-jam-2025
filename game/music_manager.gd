@@ -2,11 +2,6 @@ class_name AudioManager extends Node
 
 @onready var music_player : AudioStreamPlayer = $MainMusicPlayer
 
-var main_volume: int
-var music_volume: int
-var sfx_volume: int
-var voice_volume: int
-
 func _ready() -> void:
 	start_level_music(get_tree().root.name)
 

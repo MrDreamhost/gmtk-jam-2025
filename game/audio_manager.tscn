@@ -9,4 +9,5 @@ script = ExtResource("1_uimn3")
 
 [node name="MainMusicPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_pst5y")
+volume_db = -15.0
 bus = &"Music"
