@@ -34,6 +34,7 @@ func _process(_delta: float) -> void:
 		self.current_level.spawn_point.sprite_2d.stop()
 		self.current_level.spawn_point.sprite_2d.play("spawner_placement")
 		self.current_level.set_spawn_point(self.player.global_position)
+		self.player.play_sound("place")
 
 	if Input.is_action_just_pressed("reset_level"):
 		self.reset_level()
