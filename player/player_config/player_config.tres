@@ -12,4 +12,5 @@ jump_duration = 1.25
 fall_gravity_multiplier = 1.5
 air_acceleration = 2000.0
 jump_cutoff = 2.5
+coyote_time = 0.2
 metadata/_custom_type_script = "uid://brqw4to14t0pt"

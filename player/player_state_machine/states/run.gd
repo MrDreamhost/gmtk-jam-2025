@@ -9,7 +9,9 @@ func _ready() -> void:
 
 
 func update_physics_process(delta: float) -> void:
-	if Input.is_action_just_pressed("player_jump") and self.player.is_on_floor():
+	self.player.update_coyote_timer(delta)
+	
+	if Input.is_action_just_pressed("player_jump") and self.player.coyote_timer >= 0:
 		self.finished.emit(%PlayerStateMachine.states[PlayerStateMachine.JUMP])
 		return
 

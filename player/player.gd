@@ -6,6 +6,8 @@ class_name Player extends CharacterBody2D
 @onready var hurt_box: HurtBox = $HurtBox
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
+var coyote_timer: float = 0.0
+
 
 func _ready() -> void:
 	player_config.reset_state()
@@ -28,3 +30,11 @@ func handle_respawn_when_dead() -> void:
 func handle_hit_received(damage: int) -> void:
 	print("Got damaged :( for %d DAMAGE" % damage)
 	%PlayerStateMachine.current_state.finished.emit(%PlayerStateMachine.states[PlayerStateMachine.DEAD])
+
+
+func update_coyote_timer(delta: float):
+	if self.is_on_floor():
+		self.coyote_timer = self.player_config.coyote_time
+	else:
+		print(coyote_timer)
+		self.coyote_timer -= delta

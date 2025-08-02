@@ -18,3 +18,5 @@ class_name PlayerConfig extends Resource
 #@export_range(0.01, 1.0, 0.01) var short_hop_window: float = 0.01
 ## Multiplier while releasing jump key during ascent
 @export_range(1.0, 10.0, 0.1) var jump_cutoff: float = 1.0
+## Allow jump for short time after falling off a ledge
+@export_range(0.0, 1.0, 0.01) var coyote_time: float

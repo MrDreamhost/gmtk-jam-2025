@@ -6,7 +6,6 @@ var jump_velocity: float
 var time_to_apex: float
 var gravity_up: float
 var gravity_down: float
-var short_hop: bool
 
 
 func _ready() -> void:

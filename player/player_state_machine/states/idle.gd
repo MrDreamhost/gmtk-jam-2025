@@ -8,9 +8,13 @@ func _ready() -> void:
 	self.player = self.owner
 
 
-func update_process(_delta: float) -> void:
+func update_process(delta: float) -> void:
 	if not self.player.animated_sprite_2d.is_playing():
 		self.player.animated_sprite_2d.play("idle")
+
+	if Input.is_action_just_pressed("player_jump") and self.player.coyote_timer >= 0:
+		self.finished.emit(%PlayerStateMachine.states[PlayerStateMachine.JUMP])
+		return
 
 	if Input.is_action_just_pressed("player_jump") and self.player.is_on_floor():
 		self.finished.emit(%PlayerStateMachine.states[PlayerStateMachine.JUMP])
@@ -21,6 +25,10 @@ func update_process(_delta: float) -> void:
 		self.player.animated_sprite_2d.flip_h = true if direction < 0 else false
 		self.player.animated_sprite_2d.play("idle_to_run")
 		self.finished.emit(%PlayerStateMachine.states[PlayerStateMachine.RUN])
+
+
+func update_physics_process(delta) -> void:
+	self.player.update_coyote_timer(delta)
 
 
 func enter(_data := {}) -> void:
