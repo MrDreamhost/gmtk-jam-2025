@@ -11,4 +11,6 @@ jump_max_height = 325.0
 jump_duration = 1.25
 fall_gravity_multiplier = 2.0
 air_acceleration = 2000.0
+short_hop_factor = 0.1
+short_hop_window = 0.2
 metadata/_custom_type_script = "uid://brqw4to14t0pt"

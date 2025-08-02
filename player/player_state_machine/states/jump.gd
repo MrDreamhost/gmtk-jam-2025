@@ -6,19 +6,23 @@ var jump_velocity: float
 var time_to_apex: float
 var gravity_up: float
 var gravity_down: float
-
+var short_hop: bool
 
 func _ready() -> void:
 	self.player = self.owner
-	self.calculate_jump()
 
 
 func update_physics_process(delta: float) -> void:
+	if Input.is_action_just_released("player_jump") and not self.short_hop:
+		self.player.velocity.y = 0
+
 	if self.player.velocity.y < 0:
 		self.player.velocity.y += self.gravity_up * delta
 	else:
 		self.player.velocity.y += self.gravity_down * delta
-		
+
+
+
 	if self.player.is_on_floor():
 		if not self.is_horizontal_input_pressed():
 			self.player.velocity.x = 0
@@ -43,11 +47,13 @@ func update_physics_process(delta: float) -> void:
 		)
 
 
-func enter(_data := {}) -> void:
+func enter(data := {}) -> void:
 	super()
+	var jump_factor = data.get("jump_factor")
+	self.short_hop = true if jump_factor != 1.0 else false
 	self.calculate_jump()
 	self.player.animated_sprite_2d.play("jump")
-	self.player.velocity.y = -self.jump_velocity
+	self.player.velocity.y = -self.jump_velocity * sqrt(jump_factor)
 	self.player.animated_sprite_2d.position = Vector2(112, -112)
 
 
@@ -55,6 +61,7 @@ func exit() -> void:
 	super()
 	self.player.animated_sprite_2d.stop()
 	self.player.animated_sprite_2d.position = Vector2(96, -98)
+
 
 func is_horizontal_input_pressed() -> bool:
 	return (
