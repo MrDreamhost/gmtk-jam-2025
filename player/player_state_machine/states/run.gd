@@ -26,7 +26,8 @@ func update_physics_process(delta: float) -> void:
 			self.player.player_config.run_acceleration * delta
 		)
 		self.player.animated_sprite_2d.flip_h = true if direction < 0 else false
-	self.player.velocity.x = move_toward(
+	else:
+		self.player.velocity.x = move_toward(
 			self.player.velocity.x,
 			0,
 			self.player.player_config.run_deceleration * delta
@@ -43,3 +44,7 @@ func update_physics_process(delta: float) -> void:
 
 func enter(data := {}) -> void:
 	super()
+
+
+func is_turning(direction: float) -> bool:
+	return true if signf(self.player.velocity.x * direction) > 0 else false
