@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://bpokfberniss4" path="res://level/level_01/level_01.gd" id="1_2n58o"]
 [ext_resource type="PackedScene" uid="uid://bcujsflu4nqbn" path="res://loop_system/spawn_point.tscn" id="3_aem8p"]
+[ext_resource type="Texture2D" uid="uid://ccmse5vb0sqj6" path="res://assets/sprites/UI/keyboard_a_2.png" id="3_pf6py"]
+[ext_resource type="Texture2D" uid="uid://ytwxfs1inqly" path="res://assets/sprites/UI/keyboard_d_2.png" id="4_asni2"]
 [ext_resource type="PackedScene" uid="uid://b2hnjcnhd8ahv" path="res://level/goal_zone.tscn" id="4_mopx3"]
 [ext_resource type="PackedScene" uid="uid://coobrpw2ubqjw" path="res://level/interactables/Platform.tscn" id="4_rdi31"]
 [ext_resource type="Texture2D" uid="uid://ocrhqgii112m" path="res://assets/sprites/tiles/0012.png" id="5_aem8p"]
@@ -60,8 +62,6 @@
 [ext_resource type="Texture2D" uid="uid://c147xdosb3mrl" path="res://assets/sprites/animated_vent/0040.png" id="58_03hgm"]
 [ext_resource type="PackedScene" uid="uid://djuuv8qj84685" path="res://level/interactables/prop_door.tscn" id="60_88i2r"]
 [ext_resource type="Texture2D" uid="uid://8cte4n854qin" path="res://assets/sprites/props/ceiling_light.png" id="61_1no8u"]
-[ext_resource type="Texture2D" uid="uid://dl1hqdfoeu5bm" path="res://assets/sprites/UI/keyboard_a.png" id="61_pf6py"]
-[ext_resource type="Texture2D" uid="uid://327mdj5wqsbg" path="res://assets/sprites/UI/keyboard_d.png" id="62_asni2"]
 [ext_resource type="Texture2D" uid="uid://yj6y4rf4yexa" path="res://assets/sprites/slither/0001.png" id="63_5o8k2"]
 [ext_resource type="Texture2D" uid="uid://bxsa7ei2b7lwd" path="res://assets/sprites/slither/0002.png" id="64_ep7wn"]
 [ext_resource type="Texture2D" uid="uid://brk2gs6ssvigx" path="res://assets/sprites/slither/0003.png" id="65_j2dyb"]
@@ -77,6 +77,8 @@
 [ext_resource type="Texture2D" uid="uid://ti6vjh7ugbun" path="res://assets/sprites/jump/0001.png" id="75_mam78"]
 [ext_resource type="Texture2D" uid="uid://f4vxklp74xmb" path="res://assets/sprites/jump/0002.png" id="76_i08ff"]
 [ext_resource type="Texture2D" uid="uid://h6fblavfmwim" path="res://assets/sprites/jump/0003.png" id="77_fahpb"]
+[ext_resource type="Texture2D" uid="uid://duvwlpouu7vmp" path="res://assets/sprites/UI/keyboard_shift_2.png" id="77_pf6py"]
+[ext_resource type="Texture2D" uid="uid://bggp83mffc3ro" path="res://assets/sprites/UI/keyboard_space_2.png" id="78_asni2"]
 [ext_resource type="Texture2D" uid="uid://mbmgobcuqj3a" path="res://assets/sprites/jump/0004.png" id="78_enu2i"]
 [ext_resource type="Texture2D" uid="uid://5pmv8gdvdba7" path="res://assets/sprites/jump/0005.png" id="79_hpbwl"]
 [ext_resource type="Texture2D" uid="uid://bnxebhvyof265" path="res://assets/sprites/jump/0006.png" id="80_h21ro"]
@@ -134,8 +136,6 @@
 [ext_resource type="Texture2D" uid="uid://cknq8wtwdq25c" path="res://assets/sprites/spawner_loop/0078.png" id="132_y6hm6"]
 [ext_resource type="Texture2D" uid="uid://ds8r0qvk4lypr" path="res://assets/sprites/spawner_loop/0079.png" id="133_3vemk"]
 [ext_resource type="Texture2D" uid="uid://b1vv1a0bcg7qh" path="res://assets/sprites/spawner_loop/0080.png" id="134_vdrqn"]
-[ext_resource type="Texture2D" uid="uid://c8veo6qhir5ds" path="res://assets/sprites/UI/keyboard_shift.png" id="135_2nkyi"]
-[ext_resource type="Texture2D" uid="uid://bc3vl4c3dc72x" path="res://assets/sprites/UI/keyboard_space.png" id="136_wnx23"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_m8o30"]
 animations = [{
@@ -543,21 +543,21 @@ offset_right = 1226.0
 offset_bottom = 503.0
 
 [node name="KeyboardA" type="Sprite2D" parent="ControlHelpPanelContainer"]
-position = Vector2(34, 33)
-texture = ExtResource("61_pf6py")
+position = Vector2(52, 52)
+texture = ExtResource("3_pf6py")
 
 [node name="KeyboardD" type="Sprite2D" parent="ControlHelpPanelContainer"]
-position = Vector2(88, 33)
-texture = ExtResource("62_asni2")
+position = Vector2(132, 52)
+texture = ExtResource("4_asni2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ControlHelpPanelContainer"]
-position = Vector2(66, 106)
+position = Vector2(92, 127)
 scale = Vector2(0.6, 0.6)
 sprite_frames = SubResource("SpriteFrames_m8o30")
 autoplay = "default"
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="ControlHelpPanelContainer"]
-position = Vector2(282, 106)
+position = Vector2(292, 127)
 scale = Vector2(0.6, 0.6)
 sprite_frames = SubResource("SpriteFrames_yyh2k")
 autoplay = "default"
@@ -565,19 +565,19 @@ frame = 17
 frame_progress = 0.493448
 
 [node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="ControlHelpPanelContainer"]
-position = Vector2(506, 106)
+position = Vector2(492, 127)
 scale = Vector2(0.6, 0.6)
 sprite_frames = SubResource("SpriteFrames_acbts")
 autoplay = "default"
 frame_progress = 0.517994
 
 [node name="KeyboardShift" type="Sprite2D" parent="ControlHelpPanelContainer"]
-position = Vector2(508, 29)
-texture = ExtResource("135_2nkyi")
+position = Vector2(492, 52)
+texture = ExtResource("77_pf6py")
 
 [node name="KeyboardSpace" type="Sprite2D" parent="ControlHelpPanelContainer"]
-position = Vector2(288, 36)
-texture = ExtResource("136_wnx23")
+position = Vector2(292, 52)
+texture = ExtResource("78_asni2")
 
 [node name="WorldBoundaries" type="StaticBody2D" parent="."]
 

@@ -1,43 +1,65 @@
-[gd_scene load_steps=3 format=3 uid="uid://btghplhgx1jj1"]
+[gd_scene load_steps=10 format=3 uid="uid://btghplhgx1jj1"]
 
 [ext_resource type="Script" uid="uid://bffw8fr4hf7ou" path="res://ui/main_menu/main_menu.gd" id="1_mu8pm"]
 [ext_resource type="Texture2D" uid="uid://bbjahiwqx05ci" path="res://assets/sprites/snake spawn looper.png" id="1_uhj5c"]
+[ext_resource type="PackedScene" uid="uid://bdbp2qfs4v7kn" path="res://ui/button.tscn" id="3_3c04x"]
+[ext_resource type="Texture2D" uid="uid://bktpkl5qxrs3k" path="res://assets/sprites/UI/options.png" id="4_3c04x"]
+[ext_resource type="Texture2D" uid="uid://5x1qf4j8fgm7" path="res://assets/sprites/UI/options_hover.png" id="5_joh67"]
+[ext_resource type="Texture2D" uid="uid://c82bxer8y2ukb" path="res://assets/sprites/UI/credits.png" id="6_w2r0d"]
+[ext_resource type="Texture2D" uid="uid://cc5jge52nxmsk" path="res://assets/sprites/UI/credits_hover.png" id="7_4e78x"]
+[ext_resource type="Texture2D" uid="uid://b6qic5hude7l0" path="res://assets/sprites/UI/quit.png" id="8_s4pem"]
+[ext_resource type="Texture2D" uid="uid://drf1ue4jyqutt" path="res://assets/sprites/UI/quit_hover.png" id="9_xio0d"]
 
-[node name="MainMenu" type="VBoxContainer"]
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_mu8pm")
+
+[node name="SnakeSpawnLooper" type="TextureRect" parent="."]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -333.5
-offset_top = -221.0
+offset_top = -441.0
 offset_right = 333.5
-offset_bottom = 221.0
+offset_bottom = -103.523
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_mu8pm")
-
-[node name="SnakeSpawnLooper" type="TextureRect" parent="."]
-layout_mode = 2
 texture = ExtResource("1_uhj5c")
 expand_mode = 5
 stretch_mode = 4
 
-[node name="StartButton" type="Button" parent="."]
-layout_mode = 2
-text = "Start Game"
+[node name="StartButton" parent="." instance=ExtResource("3_3c04x")]
+layout_mode = 1
 
-[node name="OptionsButton" type="Button" parent="."]
-layout_mode = 2
-text = "Options"
+[node name="OptionsButton" parent="." instance=ExtResource("3_3c04x")]
+layout_mode = 1
+offset_top = 62.0
+offset_bottom = 178.0
+texture_regular = ExtResource("4_3c04x")
+texture_hover = ExtResource("5_joh67")
 
-[node name="CreditsButton" type="Button" parent="."]
-layout_mode = 2
-text = "Credits"
+[node name="CreditsButton" parent="." instance=ExtResource("3_3c04x")]
+layout_mode = 1
+offset_top = 182.0
+offset_bottom = 298.0
+texture_regular = ExtResource("6_w2r0d")
+texture_hover = ExtResource("7_4e78x")
 
-[node name="QuitButton" type="Button" parent="."]
-layout_mode = 2
-text = "Quit"
+[node name="QuitButton" parent="." instance=ExtResource("3_3c04x")]
+layout_mode = 1
+offset_top = 302.0
+offset_bottom = 418.0
+texture_regular = ExtResource("8_s4pem")
+texture_hover = ExtResource("9_xio0d")
 
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="OptionsButton" to="." method="_on_options_button_pressed"]
