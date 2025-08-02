@@ -13,8 +13,9 @@ config_version=5
 config/name="GMTK Jam 2025"
 run/main_scene="uid://btghplhgx1jj1"
 config/features=PackedStringArray("4.4", "GL Compatibility")
-boot_splash/image="uid://bbjahiwqx05ci"
-config/icon="uid://bjwnao17x8v8x"
+boot_splash/image="uid://bf7nsra32kmw3"
+config/icon="uid://dmc8ux3hpe4n7"
+config/windows_native_icon="res://assets/sprites/promo/icon.ico"
 
 [audio]
 
