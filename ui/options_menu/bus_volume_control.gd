@@ -4,8 +4,6 @@ extends Container
 
 @export var bus: Bus = Bus.MASTER
 @export var test_audio: AudioStream
-#@export var min_volume_db: int = 0
-#@export var max_volume_db: int = 1
 
 @onready var volume_slider = $VolumeSlider as HSlider
 
@@ -21,8 +19,6 @@ func _ready():
 	$AudioStreamPlayer.stream = test_audio
 	$AudioStreamPlayer.bus = AudioServer.get_bus_name(bus)
 	
-	#volume_slider.min_value = min_volume_db
-	#volume_slider.max_value = max_volume_db
 	volume_slider.value = db_to_linear(AudioServer.get_bus_volume_db(bus))
 
 
