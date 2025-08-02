@@ -19,10 +19,13 @@ func load_player_records() -> void:
 
 
 func add_record_and_return_total(record: LevelRecord) -> LevelRecord:
+	if OS.has_environment("USERNAME"):
+		record.username = OS.get_environment("USERNAME").substr(0, 2)
 	var saved_record: LevelRecord = player_records.get(record.level_file) as LevelRecord
 	if saved_record == null:
 		saved_record = LevelRecord.new()
 		saved_record.level_file = record.level_file
+		saved_record.username = record.username
 		player_records.set(record.level_file, saved_record)
 	
 	if record.time < saved_record.time:
@@ -33,7 +36,14 @@ func add_record_and_return_total(record: LevelRecord) -> LevelRecord:
 	saved_record.total_loop_count += record.total_loop_count
 	saved_record.total_death_count += record.total_death_count
 	saved_record.total_reset_count += record.total_reset_count
+	
 	save_records(PLAYER_RECORD_FILE, player_records)
+	if OS.is_debug_build():
+		var dev_record: LevelRecord = dev_records.get(record.level_file) as LevelRecord
+		if record.time < dev_record.time:
+			dev_records.set(saved_record.level_file, record)
+			print("new dev_record!")
+			save_records("res://game/dev_level_records.json", dev_records)
 	return saved_record
 
 
@@ -70,6 +80,7 @@ func save_records(path: String, records: Dictionary[String, LevelRecord]) -> boo
 class LevelRecord extends Resource:
 	
 	@export_file("*.tscn") var level_file
+	@export var username := "Player"
 	@export var time := 4_000.0
 	@export var loop_count := 0
 	
@@ -88,6 +99,7 @@ class LevelRecord extends Resource:
 			"total_loop_count": total_loop_count,
 			"total_death_count": total_death_count,
 			"total_reset_count": total_reset_count,
+			"username": username,
 		}
 		return JSON.stringify(dic)
 	
@@ -102,4 +114,5 @@ class LevelRecord extends Resource:
 		total_loop_count = dic.get("total_loop_count", 0)
 		total_death_count = dic.get("total_death_count", 0)
 		total_reset_count = dic.get("total_reset_count", 0)
+		username = dic.get("username", "Player")
 		return true
