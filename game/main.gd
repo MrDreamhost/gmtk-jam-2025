@@ -49,6 +49,18 @@ func respawn_player() -> void:
 
 
 func reset_loop() -> void:
+	get_tree().paused = true
+	var loop_ended_animation := animation_player.get_animation("loop_ended")
+	var current_spawn: SpawnPoint = self.current_level.spawn_point
+	player_dummy.global_position = player.global_position
+	for child in player_dummy.get_children():
+		child.queue_free()
+	player_dummy.add_child(player.animated_sprite_2d.duplicate())
+	loop_ended_animation.track_set_key_value(3, 0, player.global_position)
+	loop_ended_animation.track_set_key_value(3, 1, current_spawn.global_position)
+	set_shockwave_center_to_spawn_point()
+	animation_player.play("loop_ended")
+	
 	if self.changed_spawn:
 		self.spawn_ghost()
 		self.current_loop += 1
@@ -94,58 +106,16 @@ func load_level(level: Level) -> void:
 	current_spawn.loop_timer = loop_timer
 	self.reset_level()
 	for goal_zone: GoalZone in get_tree().get_nodes_in_group("goal_zone"):
-		if not goal_zone.goal_reached.is_connected(_on_goal_rached):
-			goal_zone.goal_reached.connect(_on_goal_rached)
+		if not goal_zone.goal_reached.is_connected(_on_goal_reached):
+			goal_zone.goal_reached.connect(_on_goal_reached)
 
 
 
 func _on_loop_timer_timeout() -> void:
-	trigger_shockwave()
-	get_tree().paused = true
-	var loop_ended_animation := animation_player.get_animation("loop_ended")
-	var current_spawn: SpawnPoint = self.current_level.spawn_point
-	player_dummy.global_position = player.global_position
-	for child in player_dummy.get_children():
-		player_dummy.remove_child(child)
-		child.queue_free()
-	player_dummy.add_child(player.animated_sprite_2d.duplicate())
-	loop_ended_animation.track_set_key_value(3, 0, player.global_position)
-	loop_ended_animation.track_set_key_value(3, 1, current_spawn.global_position)
-	animation_player.play("loop_ended")
+	reset_loop()
 
 
-func turn_clock_back() -> void:
-	current_level.spawn_point.reversed = true
-
-
-func _on_goal_rached(next_level_file: String) -> void:
-	var player_velocity := player.velocity
-	remove_child(player)
-	var goal_zone: GoalZone = get_tree().get_first_node_in_group("goal_zone")
-	goal_zone.visible = false
-	loop_timer.stop()
-	
-	var victory_player: RigidBody2D = VICTORY_PLAYER.instantiate()
-	victory_player.global_position = player.global_position
-	var victory_animation_player: AnimationPlayer = victory_player.get_node("AnimationPlayer")
-	var animation := victory_animation_player.get_animation("victory_eat")
-	animation.track_set_key_value(0, 0, victory_player.to_local(goal_zone.global_position))
-	add_child(victory_player)
-	victory_player.apply_central_impulse(player_velocity)
-	await victory_animation_player.animation_finished
-	
-	var next_level_scene := await LevelTransition.load_with_loading_screen(next_level_file) as PackedScene
-	add_child(player)
-	if current_level:
-		current_level.queue_free()
-	var next_level := next_level_scene.instantiate() as Level
-	load_level(next_level)
-	LevelTransition.play_fade_out()
-	await LevelTransition.animation_player.animation_finished
-
-
-
-func trigger_shockwave():
+func set_shockwave_center_to_spawn_point() -> void:
 	var spawn: SpawnPoint = current_level.spawn_point
 	var viewport := spawn.get_viewport()
 	var viewport_size = viewport.get_visible_rect().size
@@ -155,8 +125,36 @@ func trigger_shockwave():
 	shockwave_mat.set_shader_parameter("center", uv_pos)
 
 
-func _on_h_slider_value_changed(value: float) -> void:
-	shockwave_mat.set_shader_parameter("radius", value)
+func turn_clock_back() -> void:
+	current_level.spawn_point.reversed = true
+
+
+func _on_goal_reached(next_level_file: String) -> void:
+	loop_timer.stop()
+	play_victory_eat_apple_animation.call_deferred(next_level_file)
+
+func play_victory_eat_apple_animation(next_level_file: String) -> void:
+	var goal_zone: GoalZone = get_tree().get_first_node_in_group("goal_zone")
+	goal_zone.queue_free()
+	remove_child(player)
+	
+	var victory_player: RigidBody2D = VICTORY_PLAYER.instantiate()
+	victory_player.global_position = player.global_position
+	var victory_animation_player: AnimationPlayer = victory_player.get_node("AnimationPlayer")
+	var animation := victory_animation_player.get_animation("victory_eat")
+	animation.track_set_key_value(0, 0, victory_player.to_local(goal_zone.global_position))
+	add_child(victory_player)
+	victory_player.apply_central_impulse(player.velocity)
+	await victory_animation_player.animation_finished
+	
+	var next_level_scene := await LevelTransition.load_with_loading_screen(next_level_file) as PackedScene
+	add_child(player)
+	victory_player.queue_free()
+	current_level.queue_free()
+	var next_level := next_level_scene.instantiate() as Level
+	load_level(next_level)
+	LevelTransition.play_fade_out()
+
 
 func reset_timer_and_music() -> void:
 	self.loop_timer.start()
