@@ -7,9 +7,11 @@ var music_volume: int
 var sfx_volume: int
 var voice_volume: int
 
-func start_level_music(level: Level) -> void:
+func _ready() -> void:
+	start_level_music(get_tree().root.name)
+
+func start_level_music(level_name: String) -> void:
 	if !music_player.playing:
 		music_player.play()
-	var level_string = level.name
-	var level_music = str(level_string + "_music")
+	var level_music = str(level_name + "_music")
 	self.music_player["parameters/switch_to_clip"] = level_music

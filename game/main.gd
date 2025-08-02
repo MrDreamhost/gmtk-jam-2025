@@ -9,7 +9,6 @@ const VICTORY_PLAYER = preload("res://player/victory_player.tscn")
 @onready var loop_timer: Timer = $LoopTimer
 @onready var label: Label = $CanvasLayer/Label
 @onready var player: Player = $Player
-@onready var audio_manager: AudioManager = $AudioManager
 
 @onready var player_dummy: Node2D = $PlayerDummy
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -161,7 +160,7 @@ func _on_h_slider_value_changed(value: float) -> void:
 
 func reset_timer_and_music() -> void:
 	self.loop_timer.start()
-	self.audio_manager.start_level_music(current_level)
+	GlobalAudioManager.start_level_music(current_level.name)
 
 func reset_timer_no_music() -> void:
 	self.loop_timer.start()

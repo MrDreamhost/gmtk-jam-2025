@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="GMTK Jam 2025"
-run/main_scene="uid://d2iwwq2sfgujk"
+run/main_scene="uid://btghplhgx1jj1"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 boot_splash/image="uid://bbjahiwqx05ci"
 config/icon="uid://bjwnao17x8v8x"
@@ -23,6 +23,7 @@ buses/default_bus_layout="res://Audio/Bus Layouts/default_bus_layout.tres"
 [autoload]
 
 LevelTransition="*res://level/level_transition.tscn"
+GlobalAudioManager="*res://game/audio_manager.tscn"
 
 [display]
 

@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/Level_01_music.mp3-4bb1eb268e2bbe4dfa34530b3d
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0
