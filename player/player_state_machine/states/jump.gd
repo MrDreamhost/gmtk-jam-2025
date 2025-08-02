@@ -8,16 +8,18 @@ var gravity_up: float
 var gravity_down: float
 var short_hop: bool
 
+
 func _ready() -> void:
 	self.player = self.owner
 
 
 func update_physics_process(delta: float) -> void:
-	if not self.short_hop and self.player.velocity.y < 0 and Input.is_action_just_released("player_jump"):
-		self.player.velocity.y = 0
-
 	if self.player.velocity.y < 0:
-		self.player.velocity.y += self.gravity_up * delta
+		if not self.short_hop and not Input.is_action_pressed("player_jump"):
+			self.player.velocity.y += self.gravity_up * self.player.player_config.jump_cutoff * delta
+			print(self.player.player_config.jump_cutoff)
+		else:
+			self.player.velocity.y += self.gravity_up * delta
 	else:
 		self.player.velocity.y += self.gravity_down * delta
 
