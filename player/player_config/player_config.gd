@@ -12,10 +12,6 @@ class_name PlayerConfig extends Resource
 ## Fall gravity in relation to upwards gravity 2.0 would be fall speed is twice as fast as time to reach max jump height
 @export_range(0.1, 10.0, 0.1) var fall_gravity_multiplier: float = 0.1
 @export var air_acceleration: float
-## Factor of max jump height 1.0 would be max jump height 0.1 would be 10% of max jump
-#@export_range(0.1, 1.0, 0.01) var short_hop_factor: float = 0.1
-## Time in seconds before big jump starts
-#@export_range(0.01, 1.0, 0.01) var short_hop_window: float = 0.01
 ## Multiplier while releasing jump key during ascent
 @export_range(1.0, 10.0, 0.1) var jump_cutoff: float = 1.0
 ## Allow jump for short time after falling off a ledge
