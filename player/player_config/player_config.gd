@@ -15,4 +15,4 @@ class_name PlayerConfig extends Resource
 ## Factor of max jump height 1.0 would be max jump height 0.1 would be 10% of max jump
 @export_range(0.1, 1.0, 0.01) var short_hop_factor: float
 ## Time in seconds before big jump starts
-@export var short_hop_window: float
+@export_range(0.01, 1.0, 0.01) var short_hop_window: float
