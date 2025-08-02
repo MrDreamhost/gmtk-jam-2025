@@ -165,7 +165,7 @@
 [ext_resource type="Texture2D" uid="uid://cqo651xtyu1ma" path="res://assets/sprites/timer_reset/0158.png" id="163_564ll"]
 [ext_resource type="Texture2D" uid="uid://2ot10jo2b3nq" path="res://assets/sprites/timer_reset/0159.png" id="164_g20cv"]
 [ext_resource type="Texture2D" uid="uid://c63pw2p63n2jp" path="res://assets/sprites/timer_reset/0160.png" id="165_rhhtj"]
-[ext_resource type="Shader" uid="uid://cbtgoxf3ecchm" path="res://assets/shaders/CRT.gdshader" id="166_vgkw0"]
+[ext_resource type="Shader" path="res://assets/shaders/CRT.gdshader" id="166_vgkw0"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_e21ge"]
 animations = [{
@@ -844,6 +844,7 @@ mouse_filter = 2
 color = Color(0.662928, 0.165793, 0.165793, 1)
 
 [node name="CRT" type="ColorRect" parent="CanvasLayer"]
+visible = false
 material = SubResource("ShaderMaterial_mriow")
 anchors_preset = 15
 anchor_right = 1.0
