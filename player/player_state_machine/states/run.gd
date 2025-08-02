@@ -15,7 +15,9 @@ func update_physics_process(delta: float) -> void:
 
 	var direction := Input.get_axis("player_left", "player_right")
 	if direction:
+		var acceleration = self.player.player_config.run_acceleration
 		if is_turning(direction):
+			acceleration += self.player.player_config.run_deceleration
 			if self.player.animated_sprite_2d.animation != "turn_ground":
 				self.player.animated_sprite_2d.play("turn_ground")
 
@@ -26,7 +28,7 @@ func update_physics_process(delta: float) -> void:
 		self.player.velocity.x = move_toward(
 			self.player.velocity.x,
 			direction * self.player.player_config.run_max_speed,
-			self.player.player_config.run_acceleration * delta
+			acceleration * delta
 		)
 		return
 	else:
