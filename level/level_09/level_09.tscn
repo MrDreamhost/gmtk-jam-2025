@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bbqmxv37fcr81"]
+[gd_scene load_steps=21 format=3 uid="uid://bbqmxv37fcr81"]
 
 [ext_resource type="Script" uid="uid://cr5paax0qa013" path="res://level/level_02/level_02.gd" id="1_h834y"]
 [ext_resource type="PackedScene" uid="uid://bcujsflu4nqbn" path="res://loop_system/spawn_point.tscn" id="2_n6xrl"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://crn1lxbe2sjlk" path="res://assets/sprites/tiles/0009.png" id="11_msk8v"]
 [ext_resource type="Texture2D" uid="uid://b8yjwololvfno" path="res://assets/sprites/bg/lvl_9_bg.webp" id="11_otmvu"]
 [ext_resource type="Texture2D" uid="uid://10eglsgcgtve" path="res://assets/sprites/tiles/0008.png" id="12_dlqak"]
+[ext_resource type="FontFile" uid="uid://c8lo3n7ebaxy8" path="res://assets/fonts/Bitrimus.ttf" id="16_70aot"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_otmvu"]
 resource_local_to_scene = true
@@ -169,11 +170,6 @@ rotation = -3.14159
 position = Vector2(1836, 162)
 next_level_file = "uid://x70xddgwfyww"
 
-[node name="Label" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
-text = "Level 04"
-
 [node name="Walls" type="StaticBody2D" parent="."]
 
 [node name="Wall Left" type="CollisionShape2D" parent="Walls"]
@@ -280,6 +276,13 @@ position = Vector2(1377, 774)
 z_index = -3
 position = Vector2(959, 540)
 texture = ExtResource("11_otmvu")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 308.0
+offset_bottom = 102.0
+theme_override_fonts/font = ExtResource("16_70aot")
+theme_override_font_sizes/font_size = 100
+text = "Await"
 
 [editable path="MovingPlatform3"]
 [editable path="MovingPlatform2"]

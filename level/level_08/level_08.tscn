@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://b2fn736u6ukn1"]
+[gd_scene load_steps=18 format=3 uid="uid://b2fn736u6ukn1"]
 
 [ext_resource type="Script" uid="uid://cr5paax0qa013" path="res://level/level_02/level_02.gd" id="1_t3hbx"]
 [ext_resource type="PackedScene" uid="uid://bcujsflu4nqbn" path="res://loop_system/spawn_point.tscn" id="2_im1px"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://dt1eapo3ixlk6" path="res://assets/sprites/bg/lvl_8_bg.webp" id="10_uwkdt"]
 [ext_resource type="Texture2D" uid="uid://cmfk0bbq1p37d" path="res://assets/sprites/props/computer.png" id="11_5mkn2"]
 [ext_resource type="Texture2D" uid="uid://8cte4n854qin" path="res://assets/sprites/props/ceiling_light.png" id="12_1p0if"]
+[ext_resource type="FontFile" uid="uid://c8lo3n7ebaxy8" path="res://assets/fonts/Bitrimus.ttf" id="13_1p0if"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_si3cn"]
 size = Vector2(20, 1100)
@@ -37,11 +38,6 @@ position = Vector2(0, 876)
 [node name="GoalZone" parent="." instance=ExtResource("3_ny4bw")]
 position = Vector2(1836, 162)
 next_level_file = "uid://bbqmxv37fcr81"
-
-[node name="Label" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
-text = "Level 08"
 
 [node name="Walls" type="StaticBody2D" parent="."]
 
@@ -276,6 +272,13 @@ texture = ExtResource("12_1p0if")
 [node name="Sprite2D5" type="Sprite2D" parent="."]
 position = Vector2(255, 375)
 texture = ExtResource("12_1p0if")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 308.0
+offset_bottom = 102.0
+theme_override_fonts/font = ExtResource("13_1p0if")
+theme_override_font_sizes/font_size = 100
+text = " We Float"
 
 [editable path="MovingPlatform"]
 [editable path="MovingPlatform2"]

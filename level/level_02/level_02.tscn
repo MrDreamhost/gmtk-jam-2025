@@ -1,4 +1,4 @@
-[gd_scene load_steps=95 format=3 uid="uid://dslkeuxkcig4a"]
+[gd_scene load_steps=96 format=3 uid="uid://dslkeuxkcig4a"]
 
 [ext_resource type="Script" uid="uid://cr5paax0qa013" path="res://level/level_02/level_02.gd" id="1_wco2t"]
 [ext_resource type="PackedScene" uid="uid://coobrpw2ubqjw" path="res://level/interactables/Platform.tscn" id="2_xmyjc"]
@@ -81,6 +81,7 @@
 [ext_resource type="Texture2D" uid="uid://b88to06kfieec" path="res://assets/sprites/jump/0027.png" id="80_3k1tu"]
 [ext_resource type="Texture2D" uid="uid://c3nytndhqe3i4" path="res://assets/sprites/jump/0028.png" id="81_6d3jl"]
 [ext_resource type="Texture2D" uid="uid://dd6i18ktu778e" path="res://assets/sprites/jump/0029.png" id="82_bchd4"]
+[ext_resource type="FontFile" uid="uid://c8lo3n7ebaxy8" path="res://assets/fonts/Bitrimus.ttf" id="83_6lr50"]
 [ext_resource type="Texture2D" uid="uid://crl5msh4y8xtn" path="res://assets/sprites/jump/0030.png" id="83_ro78f"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_dpsvr"]
@@ -423,11 +424,6 @@ _data = {
 script = ExtResource("1_wco2t")
 spawn_point = NodePath("SpawnPoint")
 
-[node name="Label" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
-text = "Level 02"
-
 [node name="BackgroundImage" type="Sprite2D" parent="."]
 z_index = -2
 position = Vector2(960, 540)
@@ -587,3 +583,10 @@ libraries = {
 &"": SubResource("AnimationLibrary_mbjcn")
 }
 autoplay = "Tutorial"
+
+[node name="Label" type="Label" parent="."]
+offset_right = 308.0
+offset_bottom = 102.0
+theme_override_fonts/font = ExtResource("83_6lr50")
+theme_override_font_sizes/font_size = 100
+text = " A Hop and A Skip"

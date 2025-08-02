@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://x70xddgwfyww"]
+[gd_scene load_steps=15 format=3 uid="uid://x70xddgwfyww"]
 
 [ext_resource type="Script" uid="uid://cr5paax0qa013" path="res://level/level_02/level_02.gd" id="1_tid4i"]
 [ext_resource type="PackedScene" uid="uid://bcujsflu4nqbn" path="res://loop_system/spawn_point.tscn" id="2_0ya8r"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://ba4o8416eya13" path="res://assets/sprites/tiles/0001.png" id="7_kitai"]
 [ext_resource type="PackedScene" uid="uid://dymffw6ntadbo" path="res://level/interactables/pressure_plate.tscn" id="8_5nyk4"]
 [ext_resource type="Texture2D" uid="uid://dfy6bfk2p1yhx" path="res://assets/sprites/bg/lvl_10_bg.webp" id="10_3dpeq"]
+[ext_resource type="FontFile" uid="uid://c8lo3n7ebaxy8" path="res://assets/fonts/Bitrimus.ttf" id="11_jgreq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_si3cn"]
 size = Vector2(20, 1100)
@@ -31,11 +32,6 @@ position = Vector2(0, 978)
 [node name="GoalZone" parent="." instance=ExtResource("3_v84nx")]
 position = Vector2(102, 468)
 next_level_file = "uid://d3eu8ibj2ld1b"
-
-[node name="Label" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
-text = "Level 10"
 
 [node name="Walls" type="StaticBody2D" parent="."]
 
@@ -282,5 +278,12 @@ position = Vector2(816, 978)
 z_index = -3
 position = Vector2(959, 540)
 texture = ExtResource("10_3dpeq")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 308.0
+offset_bottom = 102.0
+theme_override_fonts/font = ExtResource("11_jgreq")
+theme_override_font_sizes/font_size = 100
+text = " We End"
 
 [editable path="MovingPlatform3"]

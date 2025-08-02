@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dprdcmdnfniia"]
+[gd_scene load_steps=21 format=3 uid="uid://dprdcmdnfniia"]
 
 [ext_resource type="Script" uid="uid://cr5paax0qa013" path="res://level/level_02/level_02.gd" id="1_14ypm"]
 [ext_resource type="Texture2D" uid="uid://10eglsgcgtve" path="res://assets/sprites/tiles/0008.png" id="3_5nkfm"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://b1fdgwc4w7vf1" path="res://assets/sprites/tiles/tile_top.png" id="8_ap2b5"]
 [ext_resource type="Texture2D" uid="uid://bwknp1gt3v808" path="res://assets/sprites/tiles/tile_face.png" id="9_obqgw"]
 [ext_resource type="PackedScene" uid="uid://djuuv8qj84685" path="res://level/interactables/prop_door.tscn" id="15_t2ucb"]
+[ext_resource type="FontFile" uid="uid://c8lo3n7ebaxy8" path="res://assets/fonts/Bitrimus.ttf" id="16_is05o"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lvqq1"]
 normal = Vector2(1, 0)
@@ -30,11 +31,6 @@ normal = Vector2(0, 1)
 [node name="Level03" type="Node2D" node_paths=PackedStringArray("spawn_point")]
 script = ExtResource("1_14ypm")
 spawn_point = NodePath("SpawnPoint")
-
-[node name="Label" type="Label" parent="."]
-offset_right = 63.0
-offset_bottom = 23.0
-text = "Level 03"
 
 [node name="WorldBoundaries2" type="StaticBody2D" parent="."]
 
@@ -202,3 +198,10 @@ texture = ExtResource("9_obqgw")
 [node name="PropDoor" parent="." instance=ExtResource("15_t2ucb")]
 z_index = -1
 position = Vector2(73, 944)
+
+[node name="Label" type="Label" parent="."]
+offset_right = 308.0
+offset_bottom = 102.0
+theme_override_fonts/font = ExtResource("16_is05o")
+theme_override_font_sizes/font_size = 100
+text = " Wallclimber"

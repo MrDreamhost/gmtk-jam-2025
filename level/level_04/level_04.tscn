@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cmvll42mba2tv"]
+[gd_scene load_steps=17 format=3 uid="uid://cmvll42mba2tv"]
 
 [ext_resource type="Script" uid="uid://cr5paax0qa013" path="res://level/level_02/level_02.gd" id="1_78fuf"]
 [ext_resource type="PackedScene" uid="uid://bcujsflu4nqbn" path="res://loop_system/spawn_point.tscn" id="2_s5vh1"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dymffw6ntadbo" path="res://level/interactables/pressure_plate.tscn" id="9_l2tt0"]
 [ext_resource type="Texture2D" uid="uid://dyu6gs2opnsii" path="res://assets/sprites/bg/lvl_4_bg.webp" id="10_juuh0"]
 [ext_resource type="Texture2D" uid="uid://cmfk0bbq1p37d" path="res://assets/sprites/props/computer.png" id="11_3t25d"]
+[ext_resource type="FontFile" uid="uid://c8lo3n7ebaxy8" path="res://assets/fonts/Bitrimus.ttf" id="12_e3o78"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_usqxq"]
 normal = Vector2(1, 0)
@@ -26,11 +27,6 @@ normal = Vector2(0, 1)
 [node name="Level04" type="Node2D" node_paths=PackedStringArray("spawn_point")]
 script = ExtResource("1_78fuf")
 spawn_point = NodePath("SpawnPoint")
-
-[node name="Label" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
-text = "Level 04"
 
 [node name="WorldBoundaries2" type="StaticBody2D" parent="."]
 
@@ -160,3 +156,10 @@ texture = ExtResource("10_juuh0")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(1225, 533)
 texture = ExtResource("11_3t25d")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 308.0
+offset_bottom = 102.0
+theme_override_fonts/font = ExtResource("12_e3o78")
+theme_override_font_sizes/font_size = 100
+text = " Poltergeist"

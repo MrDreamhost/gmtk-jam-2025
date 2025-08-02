@@ -1,4 +1,4 @@
-[gd_scene load_steps=145 format=3 uid="uid://d3eu8ibj2ld1b"]
+[gd_scene load_steps=146 format=3 uid="uid://d3eu8ibj2ld1b"]
 
 [ext_resource type="Script" uid="uid://bpokfberniss4" path="res://level/level_01/level_01.gd" id="1_2n58o"]
 [ext_resource type="PackedScene" uid="uid://bcujsflu4nqbn" path="res://loop_system/spawn_point.tscn" id="3_aem8p"]
@@ -136,6 +136,7 @@
 [ext_resource type="Texture2D" uid="uid://cknq8wtwdq25c" path="res://assets/sprites/spawner_loop/0078.png" id="132_y6hm6"]
 [ext_resource type="Texture2D" uid="uid://ds8r0qvk4lypr" path="res://assets/sprites/spawner_loop/0079.png" id="133_3vemk"]
 [ext_resource type="Texture2D" uid="uid://b1vv1a0bcg7qh" path="res://assets/sprites/spawner_loop/0080.png" id="134_vdrqn"]
+[ext_resource type="FontFile" uid="uid://c8lo3n7ebaxy8" path="res://assets/fonts/Bitrimus.ttf" id="137_asni2"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_m8o30"]
 animations = [{
@@ -526,16 +527,6 @@ position = Vector2(960, 540)
 texture = ExtResource("18_aceh0")
 metadata/_edit_lock_ = true
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-visible = false
-offset_left = 510.0
-offset_top = 264.0
-offset_right = 1326.0
-offset_bottom = 570.0
-text = "Welcome to the Facility!
-
-Your time machine has been malfuctioning for some time now. It seems to automatically take you back every 5 seconds. Luckily you can still move and select the location to rewind to."
-
 [node name="ControlHelpPanelContainer" type="PanelContainer" parent="."]
 offset_left = 630.0
 offset_top = 305.0
@@ -795,3 +786,10 @@ texture = ExtResource("61_1no8u")
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 position = Vector2(1478, 128)
 texture = ExtResource("61_1no8u")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 308.0
+offset_bottom = 102.0
+theme_override_fonts/font = ExtResource("137_asni2")
+theme_override_font_sizes/font_size = 100
+text = " As We Began"

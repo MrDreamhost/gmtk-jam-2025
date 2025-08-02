@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bvmbgv15r7fqt"]
+[gd_scene load_steps=15 format=3 uid="uid://bvmbgv15r7fqt"]
 
 [ext_resource type="Script" uid="uid://cr5paax0qa013" path="res://level/level_02/level_02.gd" id="1_aunql"]
 [ext_resource type="PackedScene" uid="uid://bcujsflu4nqbn" path="res://loop_system/spawn_point.tscn" id="2_apcun"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://547sv3d3ar4e" path="res://assets/sprites/tiles_ceiling/0002.png" id="8_ovfi7"]
 [ext_resource type="Texture2D" uid="uid://bwknp1gt3v808" path="res://assets/sprites/tiles/tile_face.png" id="10_7xfsl"]
 [ext_resource type="Texture2D" uid="uid://b2pm01k6xcbwk" path="res://assets/sprites/bg/lvl_7_bg.webp" id="11_421w1"]
+[ext_resource type="FontFile" uid="uid://c8lo3n7ebaxy8" path="res://assets/fonts/Bitrimus.ttf" id="12_421w1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_si3cn"]
 size = Vector2(20, 1100)
@@ -28,11 +29,6 @@ position = Vector2(0, 774)
 [node name="GoalZone" parent="." instance=ExtResource("3_mkrnp")]
 position = Vector2(1326, 264)
 next_level_file = "uid://b2fn736u6ukn1"
-
-[node name="Label" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
-text = "Level 07"
 
 [node name="Walls" type="StaticBody2D" parent="."]
 
@@ -149,3 +145,10 @@ texture = ExtResource("10_7xfsl")
 z_index = -3
 position = Vector2(959, 540)
 texture = ExtResource("11_421w1")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 308.0
+offset_bottom = 102.0
+theme_override_fonts/font = ExtResource("12_421w1")
+theme_override_font_sizes/font_size = 100
+text = "Split Second"
