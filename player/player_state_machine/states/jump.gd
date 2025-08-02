@@ -17,7 +17,6 @@ func update_physics_process(delta: float) -> void:
 	if self.player.velocity.y < 0:
 		if not self.short_hop and not Input.is_action_pressed("player_jump"):
 			self.player.velocity.y += self.gravity_up * self.player.player_config.jump_cutoff * delta
-			print(self.player.player_config.jump_cutoff)
 		else:
 			self.player.velocity.y += self.gravity_up * delta
 	else:
