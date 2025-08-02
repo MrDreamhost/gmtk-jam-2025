@@ -13,7 +13,7 @@ func _ready() -> void:
 
 
 func update_physics_process(delta: float) -> void:
-	if Input.is_action_just_released("player_jump") and not self.short_hop:
+	if not self.short_hop and self.player.velocity.y < 0 and Input.is_action_just_released("player_jump"):
 		self.player.velocity.y = 0
 
 	if self.player.velocity.y < 0:
