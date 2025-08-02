@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://x70xddgwfyww"]
+[gd_scene load_steps=14 format=3 uid="uid://x70xddgwfyww"]
 
 [ext_resource type="Script" uid="uid://cr5paax0qa013" path="res://level/level_02/level_02.gd" id="1_tid4i"]
 [ext_resource type="PackedScene" uid="uid://bcujsflu4nqbn" path="res://loop_system/spawn_point.tscn" id="2_0ya8r"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://d15yq2lgmdi4p" path="res://level/interactables/door.tscn" id="7_1af40"]
 [ext_resource type="Texture2D" uid="uid://ba4o8416eya13" path="res://assets/sprites/tiles/0001.png" id="7_kitai"]
 [ext_resource type="PackedScene" uid="uid://dymffw6ntadbo" path="res://level/interactables/pressure_plate.tscn" id="8_5nyk4"]
+[ext_resource type="Texture2D" uid="uid://dfy6bfk2p1yhx" path="res://assets/sprites/bg/lvl_10_bg.webp" id="10_3dpeq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_si3cn"]
 size = Vector2(20, 1100)
@@ -59,15 +60,30 @@ position = Vector2(0, 366)
 width_in_pixel = 204
 width_in_tile = 2
 
-[node name="ResizablePlatform2" parent="." instance=ExtResource("4_8jfgd")]
-position = Vector2(0, 672)
-width_in_pixel = 510
-width_in_tile = 5
+[node name="ResizablePlatform10" parent="." instance=ExtResource("4_8jfgd")]
+position = Vector2(102, 264)
+width_in_pixel = 204
+width_in_tile = 2
+
+[node name="ResizablePlatform11" parent="." instance=ExtResource("4_8jfgd")]
+position = Vector2(204, 162)
+width_in_pixel = 204
+width_in_tile = 2
+
+[node name="ResizablePlatform12" parent="." instance=ExtResource("4_8jfgd")]
+position = Vector2(306, 60)
+width_in_pixel = 204
+width_in_tile = 2
 
 [node name="ResizablePlatform3" parent="." instance=ExtResource("4_8jfgd")]
 position = Vector2(0, 774)
 width_in_pixel = 408
 width_in_tile = 4
+
+[node name="ResizablePlatform2" parent="." instance=ExtResource("4_8jfgd")]
+position = Vector2(0, 672)
+width_in_pixel = 510
+width_in_tile = 5
 
 [node name="ResizablePlatform4" parent="." instance=ExtResource("4_8jfgd")]
 position = Vector2(0, 1080)
@@ -261,5 +277,10 @@ door_closing_speed = 500.0
 
 [node name="PressurePlate" parent="." instance=ExtResource("8_5nyk4")]
 position = Vector2(816, 978)
+
+[node name="Bg" type="Sprite2D" parent="."]
+z_index = -3
+position = Vector2(959, 540)
+texture = ExtResource("10_3dpeq")
 
 [editable path="MovingPlatform3"]
