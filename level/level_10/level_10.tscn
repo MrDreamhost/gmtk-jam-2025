@@ -156,38 +156,38 @@ rotation = 3.14159
 [node name="ResizablePlatform6" parent="." instance=ExtResource("4_8jfgd")]
 position = Vector2(1326, 417)
 
-[node name="ResizablePlatform7" parent="." instance=ExtResource("4_8jfgd")]
-position = Vector2(918, 417)
-
-[node name="MovingPlatform3" parent="ResizablePlatform7" instance=ExtResource("6_5nyk4")]
-position = Vector2(612, -306)
-target_position = Vector2(102, -306)
+[node name="MovingPlatform3" parent="." instance=ExtResource("6_5nyk4")]
+position = Vector2(1020, 111)
+target_position = Vector2(1530, 111)
 move_duration_sec = 5.0
 movement_trans = 2
 
-[node name="CollisionShape2D" parent="ResizablePlatform7/MovingPlatform3" index="1"]
+[node name="CollisionShape2D" parent="MovingPlatform3" index="1"]
 position = Vector2(51, 50)
 shape = SubResource("RectangleShape2D_3dpeq")
 
-[node name="Sprite2D3" type="Sprite2D" parent="ResizablePlatform7/MovingPlatform3"]
+[node name="Sprite2D3" type="Sprite2D" parent="MovingPlatform3"]
 position = Vector2(51, 145)
 texture = ExtResource("7_kitai")
 
-[node name="Sprite2D2" type="Sprite2D" parent="ResizablePlatform7/MovingPlatform3"]
+[node name="Sprite2D2" type="Sprite2D" parent="MovingPlatform3"]
 position = Vector2(51, 43)
 texture = ExtResource("7_kitai")
 
-[node name="DeathSpike" parent="ResizablePlatform7/MovingPlatform3" instance=ExtResource("5_1af40")]
+[node name="DeathSpike" parent="MovingPlatform3" instance=ExtResource("5_1af40")]
 position = Vector2(102, -102)
 rotation = -4.71238
 
-[node name="DeathSpike4" parent="ResizablePlatform7/MovingPlatform3" instance=ExtResource("5_1af40")]
+[node name="DeathSpike4" parent="MovingPlatform3" instance=ExtResource("5_1af40")]
 position = Vector2(102, 0)
 rotation = -4.71238
 
-[node name="DeathSpike5" parent="ResizablePlatform7/MovingPlatform3" instance=ExtResource("5_1af40")]
+[node name="DeathSpike5" parent="MovingPlatform3" instance=ExtResource("5_1af40")]
 position = Vector2(102, 102)
 rotation = -4.71238
+
+[node name="ResizablePlatform7" parent="." instance=ExtResource("4_8jfgd")]
+position = Vector2(918, 417)
 
 [node name="DeathSpike" parent="ResizablePlatform7" instance=ExtResource("5_1af40")]
 position = Vector2(-612, -153)
@@ -238,20 +238,26 @@ position = Vector2(1224, 1080)
 position = Vector2(1326, 1080)
 
 [node name="DeathSpike11" parent="." instance=ExtResource("5_1af40")]
-position = Vector2(1530, 1080)
+position = Vector2(1428, 1080)
 
 [node name="DeathSpike12" parent="." instance=ExtResource("5_1af40")]
-position = Vector2(1632, 1080)
+position = Vector2(1530, 1080)
 
 [node name="ResizablePlatform5" parent="." instance=ExtResource("4_8jfgd")]
 position = Vector2(816, 1080)
 
+[node name="ResizablePlatform8" parent="." instance=ExtResource("4_8jfgd")]
+position = Vector2(1632, 1080)
+
+[node name="ResizablePlatform9" parent="." instance=ExtResource("4_8jfgd")]
+position = Vector2(1836, 1080)
+
 [node name="Door" parent="." node_paths=PackedStringArray("connected_button") instance=ExtResource("7_1af40")]
-position = Vector2(1428, 978)
+position = Vector2(1224, 978)
 connected_button = NodePath("../PressurePlate")
 open_height = -306.0
 
 [node name="PressurePlate" parent="." instance=ExtResource("8_5nyk4")]
 position = Vector2(816, 978)
 
-[editable path="ResizablePlatform7/MovingPlatform3"]
+[editable path="MovingPlatform3"]
