@@ -43,7 +43,7 @@ func update_physics_process(delta: float) -> void:
 		)
 
 
-func enter(data := {}) -> void:
+func enter(_data := {}) -> void:
 	super()
 	self.calculate_jump()
 	self.player.animated_sprite_2d.play("jump")

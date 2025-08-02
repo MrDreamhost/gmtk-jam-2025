@@ -13,9 +13,9 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 
-func set_spawn_point(position: Vector2) -> void:
-	self.spawn_point.global_position = position
+func set_spawn_point(spawn_position: Vector2) -> void:
+	self.spawn_point.global_position = spawn_position

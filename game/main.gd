@@ -26,7 +26,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	self.set_label_text()
 
 	if Input.is_action_just_pressed("set_spawn_point"):
@@ -127,12 +127,12 @@ func _on_goal_rached(next_level_file: String) -> void:
 	
 	var victory_player: RigidBody2D = VICTORY_PLAYER.instantiate()
 	victory_player.global_position = player.global_position
-	var animation_player: AnimationPlayer = victory_player.get_node("AnimationPlayer")
-	var animation := animation_player.get_animation("victory_eat")
+	var victory_animation_player: AnimationPlayer = victory_player.get_node("AnimationPlayer")
+	var animation := victory_animation_player.get_animation("victory_eat")
 	animation.track_set_key_value(0, 0, victory_player.to_local(goal_zone.global_position))
 	add_child(victory_player)
 	victory_player.apply_central_impulse(player_velocity)
-	await animation_player.animation_finished
+	await victory_animation_player.animation_finished
 	
 	var next_level_scene := await LevelTransition.load_with_loading_screen(next_level_file) as PackedScene
 	add_child(player)

@@ -13,7 +13,7 @@ func update_physics_process(_delta: float) -> void:
 	pass
 
 
-func enter(data := {}) -> void:
+func enter(_data := {}) -> void:
 	print("%s entering state: %s" % [self.owner.name, self.get_script().get_global_name()])
 
 

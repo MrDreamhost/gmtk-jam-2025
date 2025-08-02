@@ -8,7 +8,7 @@ func _ready() -> void:
 	self.player = self.owner
 
 
-func update_process(delta: float) -> void:
+func update_process(_delta: float) -> void:
 	if not self.player.animated_sprite_2d.is_playing():
 		self.player.animated_sprite_2d.play("idle")
 
@@ -23,5 +23,5 @@ func update_process(delta: float) -> void:
 		self.finished.emit(%PlayerStateMachine.states[PlayerStateMachine.RUN])
 
 
-func enter(data := {}) -> void:
+func enter(_data := {}) -> void:
 	super()

@@ -13,7 +13,7 @@ func _ready() -> void:
 	self.reset_replay_data()
 
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	var frame: Dictionary = {
 		"position": self.player.global_position,
 		"animation": self.player.animated_sprite_2d.animation,

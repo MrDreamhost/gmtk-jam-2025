@@ -16,7 +16,7 @@ func _ready() -> void:
 	#self.label.text = "Ghost %s" % self.ghost_number
 
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if self.current_index < self.replay_data.frames.size():
 		var frame = self.replay_data.frames[current_index]
 		self.global_position = frame.get("position")

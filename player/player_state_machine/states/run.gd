@@ -47,7 +47,7 @@ func update_physics_process(delta: float) -> void:
 		return
 
 
-func enter(data := {}) -> void:
+func enter(_data := {}) -> void:
 	super()
 
 
