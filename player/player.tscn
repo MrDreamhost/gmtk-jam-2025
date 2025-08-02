@@ -1,4 +1,4 @@
-[gd_scene load_steps=166 format=3 uid="uid://c0dapnlli3qqi"]
+[gd_scene load_steps=175 format=3 uid="uid://c0dapnlli3qqi"]
 
 [ext_resource type="Script" uid="uid://d3p7qm8m2omtf" path="res://player/player.gd" id="1_rkbax"]
 [ext_resource type="Texture2D" uid="uid://yj6y4rf4yexa" path="res://assets/sprites/slither/0001.png" id="2_kb6p2"]
@@ -162,6 +162,15 @@
 [ext_resource type="Texture2D" uid="uid://beuqcjo23xphn" path="res://assets/sprites/slither_to_idle/0028.png" id="106_sxh3c"]
 [ext_resource type="Texture2D" uid="uid://drihd3js2tsqd" path="res://assets/sprites/slither_to_idle/0029.png" id="107_h44h0"]
 [ext_resource type="Texture2D" uid="uid://te4nrh8eldfr" path="res://assets/sprites/slither_to_idle/0030.png" id="108_m2h1m"]
+[ext_resource type="Texture2D" uid="uid://cvxnrib6e0p12" path="res://assets/sprites/turn_ground/0001.png" id="158_poeh4"]
+[ext_resource type="Texture2D" uid="uid://d1815t8b88e0j" path="res://assets/sprites/turn_ground/0002.png" id="159_ciuuh"]
+[ext_resource type="Texture2D" uid="uid://cmhsag4cfqbvv" path="res://assets/sprites/turn_ground/0003.png" id="160_0y8qi"]
+[ext_resource type="Texture2D" uid="uid://dujf642bn7rea" path="res://assets/sprites/turn_ground/0004.png" id="161_4e4er"]
+[ext_resource type="Texture2D" uid="uid://b2b52lkkv4y63" path="res://assets/sprites/turn_ground/0005.png" id="162_7pq27"]
+[ext_resource type="Texture2D" uid="uid://d1b1pl57hrq75" path="res://assets/sprites/turn_ground/0006.png" id="163_8kadx"]
+[ext_resource type="Texture2D" uid="uid://btfmltv2hp5jy" path="res://assets/sprites/turn_ground/0007.png" id="164_u3imt"]
+[ext_resource type="Texture2D" uid="uid://7m00nrc67nj2" path="res://assets/sprites/turn_ground/0008.png" id="165_cu17e"]
+[ext_resource type="Texture2D" uid="uid://g3bo4ytdmxto" path="res://assets/sprites/turn_ground/0009.png" id="166_qtnoe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rkbax"]
 size = Vector2(79, 125.75)
@@ -670,6 +679,38 @@ animations = [{
 "loop": false,
 "name": &"run_to_idle",
 "speed": 30.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("158_poeh4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("159_ciuuh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("160_0y8qi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("161_4e4er")
+}, {
+"duration": 1.0,
+"texture": ExtResource("162_7pq27")
+}, {
+"duration": 1.0,
+"texture": ExtResource("163_8kadx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("164_u3imt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("165_cu17e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("166_qtnoe")
+}],
+"loop": false,
+"name": &"turn_ground",
+"speed": 30.0
 }]
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
@@ -696,7 +737,9 @@ shape = SubResource("RectangleShape2D_yw30f")
 z_index = 1
 position = Vector2(96, -98)
 sprite_frames = SubResource("SpriteFrames_8rogd")
-animation = &"run"
+animation = &"turn_ground"
+frame = 8
+frame_progress = 1.0
 
 [node name="PlayerStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 unique_name_in_owner = true

@@ -16,10 +16,9 @@ func update_process(delta: float) -> void:
 		self.finished.emit(%PlayerStateMachine.states[PlayerStateMachine.JUMP])
 		return
 
-	if (
-		Input.is_action_pressed("player_left")
-		or Input.is_action_pressed("player_right")
-	):
+	var direction := Input.get_axis("player_left", "player_right")
+	if direction:
+		self.player.animated_sprite_2d.flip_h = true if direction < 0 else false
 		self.player.animated_sprite_2d.play("idle_to_run")
 		self.finished.emit(%PlayerStateMachine.states[PlayerStateMachine.RUN])
 
