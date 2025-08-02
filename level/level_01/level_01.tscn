@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://d3eu8ibj2ld1b"]
+[gd_scene load_steps=64 format=3 uid="uid://d3eu8ibj2ld1b"]
 
 [ext_resource type="Script" uid="uid://bpokfberniss4" path="res://level/level_01/level_01.gd" id="1_2n58o"]
 [ext_resource type="AudioStream" uid="uid://c38fk06ckmfrn" path="res://assets/audio/Track1.1-60.wav" id="2_dp2e2"]
@@ -59,6 +59,7 @@
 [ext_resource type="Texture2D" uid="uid://cafqf18fefnjs" path="res://assets/sprites/animated_vent/0038.png" id="56_2p6q5"]
 [ext_resource type="Texture2D" uid="uid://cmp487ipqeksj" path="res://assets/sprites/animated_vent/0039.png" id="57_2law6"]
 [ext_resource type="Texture2D" uid="uid://c147xdosb3mrl" path="res://assets/sprites/animated_vent/0040.png" id="58_03hgm"]
+[ext_resource type="PackedScene" uid="uid://djuuv8qj84685" path="res://level/interactables/prop_door.tscn" id="60_88i2r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tuypi"]
 size = Vector2(20, 1100)
@@ -417,5 +418,8 @@ position = Vector2(1071, 271)
 sprite_frames = SubResource("SpriteFrames_kyai0")
 autoplay = "default"
 frame_progress = 0.989863
+
+[node name="PropDoor" parent="." instance=ExtResource("60_88i2r")]
+position = Vector2(83, 638)
 
 [connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]

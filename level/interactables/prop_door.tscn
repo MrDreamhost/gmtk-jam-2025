@@ -1,0 +1,73 @@
+[gd_scene load_steps=17 format=3 uid="uid://djuuv8qj84685"]
+
+[ext_resource type="Texture2D" uid="uid://dnqv3fb8dt18r" path="res://assets/sprites/door/0001.png" id="1_y1nkx"]
+[ext_resource type="Texture2D" uid="uid://bgs6s2lonbw1r" path="res://assets/sprites/door/0002.png" id="2_xlrc8"]
+[ext_resource type="Texture2D" uid="uid://dt0texofdwiw0" path="res://assets/sprites/door/0003.png" id="3_qme3w"]
+[ext_resource type="Texture2D" uid="uid://7d4rcgnwena1" path="res://assets/sprites/door/0004.png" id="4_q5cg3"]
+[ext_resource type="Texture2D" uid="uid://80jhqw48hyin" path="res://assets/sprites/door/0005.png" id="5_a1gc8"]
+[ext_resource type="Texture2D" uid="uid://cj5xjrb6h23yg" path="res://assets/sprites/door/0006.png" id="6_peect"]
+[ext_resource type="Texture2D" uid="uid://dnuteettgslmp" path="res://assets/sprites/door/0007.png" id="7_yx60f"]
+[ext_resource type="Texture2D" uid="uid://rbupwhktqtb1" path="res://assets/sprites/door/0008.png" id="8_njepd"]
+[ext_resource type="Texture2D" uid="uid://bpvtv5lyqutck" path="res://assets/sprites/door/0009.png" id="9_h0i3e"]
+[ext_resource type="Texture2D" uid="uid://l56dkege4kso" path="res://assets/sprites/door/0010.png" id="10_0hhsq"]
+[ext_resource type="Texture2D" uid="uid://bufs2qv4bl6a6" path="res://assets/sprites/door/0011.png" id="11_2doa5"]
+[ext_resource type="Texture2D" uid="uid://dxqkhodfuhuls" path="res://assets/sprites/door/0012.png" id="12_75wlw"]
+[ext_resource type="Texture2D" uid="uid://52jqsuw5v140" path="res://assets/sprites/door/0013.png" id="13_umcwj"]
+[ext_resource type="Texture2D" uid="uid://cgfnkfoddfvw0" path="res://assets/sprites/door/0014.png" id="14_kd2fi"]
+[ext_resource type="Texture2D" uid="uid://brnf0uhmgx3o5" path="res://assets/sprites/door/0015.png" id="15_11g7n"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_orf8b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_y1nkx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_xlrc8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_qme3w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_q5cg3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_a1gc8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_peect")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_yx60f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_njepd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_h0i3e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_0hhsq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_2doa5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_75wlw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_umcwj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_kd2fi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_11g7n")
+}],
+"loop": false,
+"name": &"default",
+"speed": 30.0
+}]
+
+[node name="PropDoor" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_orf8b")

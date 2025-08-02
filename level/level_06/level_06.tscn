@@ -61,8 +61,8 @@ width_in_tile = 4
 
 [node name="ResizablePlatform18" parent="." instance=ExtResource("4_lug6y")]
 position = Vector2(1326, 774)
-width_in_pixel = 510
-width_in_tile = 5
+width_in_pixel = 612
+width_in_tile = 6
 
 [node name="ResizablePlatform3" parent="." instance=ExtResource("4_lug6y")]
 position = Vector2(408, 1080)
@@ -99,12 +99,6 @@ position = Vector2(1122, 1080)
 
 [node name="ResizablePlatform9" parent="." instance=ExtResource("4_lug6y")]
 position = Vector2(1122, 978)
-
-[node name="ResizablePlatform20" parent="." instance=ExtResource("4_lug6y")]
-position = Vector2(1734, 672)
-
-[node name="ResizablePlatform21" parent="." instance=ExtResource("4_lug6y")]
-position = Vector2(1734, 570)
 
 [node name="ResizablePlatform10" parent="." instance=ExtResource("4_lug6y")]
 position = Vector2(1122, 876)
@@ -165,8 +159,8 @@ door_closing_speed = 50.0
 
 [node name="ResizablePlatform19" parent="." instance=ExtResource("4_lug6y")]
 position = Vector2(1224, 468)
-width_in_pixel = 612
-width_in_tile = 6
+width_in_pixel = 714
+width_in_tile = 7
 
 [node name="Door" parent="." node_paths=PackedStringArray("connected_button") instance=ExtResource("6_n2pwk")]
 position = Vector2(1224, 672)
@@ -176,6 +170,7 @@ door_opening_speed = 300.0
 door_closing_speed = 50.0
 
 [node name="Bg" type="Sprite2D" parent="."]
+visible = false
 z_index = -2
 position = Vector2(959, 540)
 texture = ExtResource("8_e2a5p")

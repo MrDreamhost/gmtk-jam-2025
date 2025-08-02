@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dslkeuxkcig4a"]
+[gd_scene load_steps=17 format=3 uid="uid://dslkeuxkcig4a"]
 
 [ext_resource type="Script" uid="uid://cr5paax0qa013" path="res://level/level_02/level_02.gd" id="1_wco2t"]
 [ext_resource type="PackedScene" uid="uid://coobrpw2ubqjw" path="res://level/interactables/Platform.tscn" id="2_xmyjc"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://dm2xecntp30ti" path="res://assets/sprites/tiles/0004.png" id="8_vk5g8"]
 [ext_resource type="Texture2D" uid="uid://ba4o8416eya13" path="res://assets/sprites/tiles/0001.png" id="9_mg46l"]
 [ext_resource type="Texture2D" uid="uid://bwxheg1hvr4d5" path="res://assets/sprites/bg/lvl_2_bg.png" id="13_yakuy"]
+[ext_resource type="PackedScene" uid="uid://djuuv8qj84685" path="res://level/interactables/prop_door.tscn" id="14_yakuy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xmyjc"]
 size = Vector2(20, 1100)
@@ -142,3 +143,11 @@ position = Vector2(0, 977)
 [node name="GoalZone" parent="." instance=ExtResource("5_emc5r")]
 position = Vector2(1428, 565)
 next_level_file = "uid://dprdcmdnfniia"
+
+[node name="PropDoor" parent="." instance=ExtResource("14_yakuy")]
+z_index = -1
+position = Vector2(59, 944)
+
+[node name="PropDoor2" parent="." instance=ExtResource("14_yakuy")]
+z_index = -1
+position = Vector2(1584, 635)
