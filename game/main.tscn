@@ -166,7 +166,6 @@
 [ext_resource type="Texture2D" uid="uid://cqo651xtyu1ma" path="res://assets/sprites/timer_reset/0158.png" id="163_564ll"]
 [ext_resource type="Texture2D" uid="uid://2ot10jo2b3nq" path="res://assets/sprites/timer_reset/0159.png" id="164_g20cv"]
 [ext_resource type="Texture2D" uid="uid://c63pw2p63n2jp" path="res://assets/sprites/timer_reset/0160.png" id="165_rhhtj"]
-[ext_resource type="Shader" path="res://assets/shaders/CRT.gdshader" id="166_vgkw0"]
 [ext_resource type="PackedScene" uid="uid://cicrk0ag8ysnl" path="res://ui/level_complete_ui.tscn" id="166_vgkw0"]
 [ext_resource type="Shader" uid="uid://cbtgoxf3ecchm" path="res://assets/shaders/CRT.gdshader" id="167_fhlij"]
 
@@ -175,7 +174,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/BackBufferCopy/ShockwaveOverlay:material:shader_parameter/radius")
+tracks/0/path = NodePath("%ShockwaveOverlay:material:shader_parameter/radius")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -215,7 +214,7 @@ length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/ShockwaveOverlay:material:shader_parameter/radius")
+tracks/0/path = NodePath("%ShockwaveOverlay:material:shader_parameter/radius")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -790,127 +789,10 @@ shader_parameter/width = 0.021
 shader_parameter/feather = 0.111
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mriow"]
-shader = ExtResource("166_vgkw0")
+shader = ExtResource("167_fhlij")
 shader_parameter/screen_resolution = Vector2(480, 270)
-shader_parameter/scanline_intensity = 0.05
-shader_parameter/color_bleed_weight = 0.2
-
-[sub_resource type="Animation" id="Animation_dp3pf"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/ShockwaveOverlay:material:shader_parameter/radius")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Player:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("PlayerDummy:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
-[sub_resource type="Animation" id="Animation_vop5m"]
-resource_name = "loop_ended"
-length = 2.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/ShockwaveOverlay:material:shader_parameter/radius")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0.0, 1.0, 0.0]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.333333, 0.433333, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"values": [{
-"args": [],
-"method": &"start_timer_reset_animation"
-}, {
-"args": [],
-"method": &"turn_clock_back"
-}, {
-"args": [],
-"method": &"reset_loop"
-}]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Player:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("PlayerDummy:position")
-tracks/3/interp = 2
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(12, 21)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("PlayerDummy:visible")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_5un7r"]
-_data = {
-&"RESET": SubResource("Animation_dp3pf"),
-&"loop_ended": SubResource("Animation_vop5m")
-}
+shader_parameter/scanline_intensity = 0.3
+shader_parameter/color_bleed_weight = 0.35
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_xtpaf")
@@ -966,7 +848,11 @@ grow_horizontal = 2
 text = "Loop: %d
 Time: %.2f"
 
-[node name="ShockwaveOverlay" type="ColorRect" parent="CanvasLayer"]
+[node name="BackBufferCopy" type="BackBufferCopy" parent="CanvasLayer"]
+rect = Rect2(0, 0, 1920, 1080)
+
+[node name="ShockwaveOverlay" type="ColorRect" parent="CanvasLayer/BackBufferCopy"]
+unique_name_in_owner = true
 material = SubResource("ShaderMaterial_wjctj")
 anchors_preset = 15
 anchor_right = 1.0
@@ -976,8 +862,10 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0.662928, 0.165793, 0.165793, 1)
 
-[node name="CRT" type="ColorRect" parent="CanvasLayer"]
-visible = false
+[node name="BackBufferCopy2" type="BackBufferCopy" parent="CanvasLayer"]
+rect = Rect2(0, 0, 1920, 1080)
+
+[node name="CRT" type="ColorRect" parent="CanvasLayer/BackBufferCopy2"]
 material = SubResource("ShaderMaterial_mriow")
 anchors_preset = 15
 anchor_right = 1.0
