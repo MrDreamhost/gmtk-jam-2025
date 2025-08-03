@@ -1,6 +1,7 @@
-[gd_scene load_steps=146 format=3 uid="uid://d3eu8ibj2ld1b"]
+[gd_scene load_steps=147 format=3 uid="uid://d3eu8ibj2ld1b"]
 
 [ext_resource type="Script" uid="uid://bpokfberniss4" path="res://level/level_01/level_01.gd" id="1_2n58o"]
+[ext_resource type="Theme" uid="uid://b0eq1tsqhebcn" path="res://ui/ui_theme.tres" id="3_5o8k2"]
 [ext_resource type="PackedScene" uid="uid://bcujsflu4nqbn" path="res://loop_system/spawn_point.tscn" id="3_aem8p"]
 [ext_resource type="Texture2D" uid="uid://ccmse5vb0sqj6" path="res://assets/sprites/UI/keyboard_a_2.png" id="3_pf6py"]
 [ext_resource type="Texture2D" uid="uid://ytwxfs1inqly" path="res://assets/sprites/UI/keyboard_d_2.png" id="4_asni2"]
@@ -530,8 +531,9 @@ metadata/_edit_lock_ = true
 [node name="ControlHelpPanelContainer" type="PanelContainer" parent="."]
 offset_left = 630.0
 offset_top = 305.0
-offset_right = 1226.0
-offset_bottom = 503.0
+offset_right = 1196.0
+offset_bottom = 561.0
+theme = ExtResource("3_5o8k2")
 
 [node name="KeyboardA" type="Sprite2D" parent="ControlHelpPanelContainer"]
 position = Vector2(52, 52)
@@ -542,13 +544,13 @@ position = Vector2(132, 52)
 texture = ExtResource("4_asni2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ControlHelpPanelContainer"]
-position = Vector2(92, 127)
+position = Vector2(92, 160)
 scale = Vector2(0.6, 0.6)
 sprite_frames = SubResource("SpriteFrames_m8o30")
 autoplay = "default"
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="ControlHelpPanelContainer"]
-position = Vector2(292, 127)
+position = Vector2(292, 160)
 scale = Vector2(0.6, 0.6)
 sprite_frames = SubResource("SpriteFrames_yyh2k")
 autoplay = "default"
@@ -556,7 +558,7 @@ frame = 17
 frame_progress = 0.493448
 
 [node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="ControlHelpPanelContainer"]
-position = Vector2(492, 127)
+position = Vector2(492, 160)
 scale = Vector2(0.6, 0.6)
 sprite_frames = SubResource("SpriteFrames_acbts")
 autoplay = "default"

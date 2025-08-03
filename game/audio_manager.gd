@@ -3,6 +3,10 @@ class_name AudioManager extends Node
 @onready var music_player : AudioStreamPlayer = $MainMusicPlayer
 @onready var voice_player : AudioStreamPlayer = $VoiceLinePlayer
 
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("ui_cancel"):
+		LevelTransition.change_scene_to("res://ui/main_menu/main_menu.tscn")
+
 func _ready() -> void:
 	start_level_music(get_tree().root.name)
 

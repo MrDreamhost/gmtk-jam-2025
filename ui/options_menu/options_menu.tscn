@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://c5dup0yppydhr"]
+[gd_scene load_steps=8 format=3 uid="uid://c5dup0yppydhr"]
 
 [ext_resource type="Script" uid="uid://deacq2sppfw43" path="res://ui/options_menu/options_menu.gd" id="1_cobfr"]
 [ext_resource type="Theme" uid="uid://b0eq1tsqhebcn" path="res://ui/ui_theme.tres" id="1_kx268"]
 [ext_resource type="PackedScene" uid="uid://5vtebhia4h4d" path="res://ui/options_menu/bus_volume_control.tscn" id="2_8h7tm"]
+[ext_resource type="Texture2D" uid="uid://cfy67ff0ah58a" path="res://assets/sprites/promo/banner.png" id="3_1ubxx"]
 [ext_resource type="AudioStream" uid="uid://copb30blg65ol" path="res://assets/audio/sfx/hover.ogg" id="3_utl02"]
 [ext_resource type="Texture2D" uid="uid://bktpkl5qxrs3k" path="res://assets/sprites/UI/options.png" id="3_wakw5"]
 [ext_resource type="PackedScene" uid="uid://bdbp2qfs4v7kn" path="res://ui/button.tscn" id="5_tjtux"]
@@ -17,6 +18,11 @@ grow_vertical = 2
 theme = ExtResource("1_kx268")
 script = ExtResource("1_cobfr")
 
+[node name="BG" type="Sprite2D" parent="."]
+position = Vector2(1150, 540)
+scale = Vector2(2.4, 2.4)
+texture = ExtResource("3_1ubxx")
+
 [node name="TabContainer" type="PanelContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
@@ -24,9 +30,8 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -400.0
 offset_top = -350.0
-offset_right = 400.0
+offset_right = 800.0
 offset_bottom = 350.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -37,18 +42,18 @@ texture = ExtResource("3_wakw5")
 
 [node name="Button" parent="." instance=ExtResource("5_tjtux")]
 layout_mode = 1
-offset_left = -287.0
+offset_left = 113.0
 offset_top = 217.0
-offset_right = 289.0
+offset_right = 689.0
 offset_bottom = 333.0
 texture_regular = null
 texture_hover = null
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
-offset_left = 610.0
+offset_left = 1010.0
 offset_top = 390.0
-offset_right = 1310.0
+offset_right = 1710.0
 offset_bottom = 704.0
 theme_override_constants/separation = 50
 
