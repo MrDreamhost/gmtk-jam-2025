@@ -8,7 +8,8 @@ signal button_changed(pressed_down: bool)
 
 @onready var reset_delay_timer: Timer = $ResetDelayTimer
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
-@onready var sfx_player: AudioStreamPlayer2D = $AudioStreamPlayer2D
+@onready var press_in_audio_stream_player: AudioStreamPlayer = $PressInAudioStreamPlayer
+@onready var press_out_audio_stream_player: AudioStreamPlayer = $PressOutAudioStreamPlayer
 
 var button_pressed := false : set = set_button_pressed
 
@@ -36,20 +37,16 @@ func can_press_button(body: Node2D) -> bool:
 
 
 func set_button_pressed(_button_pressed: bool) -> void:
-	if button_pressed != _button_pressed:
-		button_pressed = _button_pressed
+	var changed := button_pressed != _button_pressed
+	button_pressed = _button_pressed
+	if changed and is_node_ready() and is_inside_tree():
 		button_changed.emit(button_pressed)
 		if button_pressed:
 			animated_sprite_2d.play("default")
-			play_sound("press_in")
+			press_in_audio_stream_player.play()
 		else:
 			animated_sprite_2d.play_backwards("default")
-			play_sound("press_out")
-
-func play_sound(sound_name: String) -> void:
-	if !self.sfx_player.playing:
-		self.sfx_player.play()
-	self.sfx_player["parameters/switch_to_clip"] = sound_name
+			press_out_audio_stream_player.play()
 
 
 func reset() -> void:
