@@ -17,6 +17,7 @@ var fire_event := false
 
 
 func _ready() -> void:
+	self.initial_position = self.animatable_body_2d.global_position
 	set_open_height(open_height)
 	if connected_button is PressurePlate and connected_button.has_signal("button_changed"):
 		connected_button.button_changed.connect(on_button_changed)
@@ -57,3 +58,9 @@ func set_open_height(_open_height: float) -> void:
 	open_position = Vector2.UP * open_height
 	$OpenCollisionShape2D.position = $AnimatableBody2D/CollisionShape2D.position
 	$OpenCollisionShape2D.position += open_position
+
+
+func reset() -> void:
+	self.animatable_body_2d.position = Vector2.ZERO
+	self.opening = false
+	self.status_circle.self_modulate = Color.RED

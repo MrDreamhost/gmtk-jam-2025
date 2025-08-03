@@ -12,7 +12,7 @@ size = Vector2(102, 313)
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vppug"]
 height = 102.0
 
-[node name="Door" type="Node2D"]
+[node name="Door" type="Node2D" groups=["resettable"]]
 script = ExtResource("1_dqnet")
 
 [node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
