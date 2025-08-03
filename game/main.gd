@@ -33,7 +33,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	self.set_label_text()
-	
+
 	if Input.is_action_just_pressed("set_spawn_point"):
 		self.changed_spawn = true
 		self.current_level.spawn_point.sprite_2d.stop()
@@ -52,7 +52,8 @@ func reset_ghosts() -> void:
 
 func respawn_player() -> void:
 	self.player.global_position = self.current_level.spawn_point.global_position
-	self.player.velocity = Vector2(0,0)
+	self.player.velocity = Vector2.ZERO
+	self.player.animated_sprite_2d.play("idle")
 	self.player.coyote_timer = 0.0
 	self.player.handle_respawn_when_dead()
 
@@ -220,6 +221,7 @@ func start_timer_reset_animation() -> void:
 func _on_level_complete_panel_next_level() -> void:
 	level_complete_panel.visible = false
 	transition_to_next_level(next_level_file)
+
 
 func _on_level_complete_panel_retry_level() -> void:
 	level_complete_panel.visible = false

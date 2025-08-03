@@ -1,5 +1,5 @@
-{"level_file":"res://level/level_01/level_01.tscn","loop_count":2,"time":6.14837766674236,"total_death_count":0,"total_loop_count":0,"total_reset_count":10,"total_time":16099.4070543344,"username":"Ch"}
-{"level_file":"res://level/level_02/level_02.tscn","loop_count":2,"time":7.51636599999392,"total_death_count":26,"total_loop_count":0,"total_reset_count":12,"total_time":8095.22751866742,"username":"Ch"}
+{"level_file":"res://level/level_01/level_01.tscn","loop_count":1,"time":6.0164260001593,"total_death_count":0,"total_loop_count":0,"total_reset_count":0,"total_time":6.0164260001593,"username":"Ya"}
+{"level_file":"res://level/level_02/level_02.tscn","loop_count":2,"time":7.19971200019063,"total_death_count":0,"total_loop_count":0,"total_reset_count":14,"total_time":160.056039670903,"username":"Ya"}
 {"level_file":"res://level/level_03/level_03.tscn","loop_count":4,"time":19.1159019999845,"total_death_count":22,"total_loop_count":0,"total_reset_count":8,"total_time":159.339394334921,"username":"Ch"}
 {"level_file":"res://level/level_04/level_04.tscn","loop_count":3,"time":14.3994239999884,"total_death_count":0,"total_loop_count":0,"total_reset_count":2,"total_time":33.3145450000447,"username":"Ch"}
 {"level_file":"res://level/level_05/level_05.tscn","loop_count":3,"time":13.3166666668362,"total_death_count":0,"total_loop_count":0,"total_reset_count":4,"total_time":37.1166666671393,"username":"Ch"}

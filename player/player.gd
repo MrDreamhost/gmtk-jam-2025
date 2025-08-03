@@ -18,7 +18,13 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
-	if not is_on_floor() and %PlayerStateMachine.current_state != %PlayerStateMachine.states[%PlayerStateMachine.JUMP]:
+	if (
+		not is_on_floor() 
+		and (
+			%PlayerStateMachine.current_state != %PlayerStateMachine.states[%PlayerStateMachine.JUMP]
+			and %PlayerStateMachine.current_state != %PlayerStateMachine.states[%PlayerStateMachine.DEAD]
+			)
+	):
 		velocity += Vector2.DOWN * %PlayerStateMachine/Jump.gravity_down * delta
 	move_and_slide()
 
