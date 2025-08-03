@@ -1,0 +1,22 @@
+[gd_resource type="StyleBoxFlat" format=3 uid="uid://bbqa624crg37m"]
+
+[resource]
+bg_color = Color(0.531788, 0.443403, 0.424197, 0.384314)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.215686, 0.172549, 0.160784, 1)
+border_blend = true
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 1
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+shadow_color = Color(0.329158, 0.329158, 0.329158, 0.6)
+anti_aliasing = false
+anti_aliasing_size = 0.01

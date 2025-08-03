@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://ccp26w53fo5x3"]
+[gd_scene load_steps=6 format=3 uid="uid://ccp26w53fo5x3"]
 
 [ext_resource type="Script" uid="uid://dko2yos7a75e1" path="res://ui/credits_menu/credits_menu.gd" id="1_brexn"]
+[ext_resource type="Theme" uid="uid://b0eq1tsqhebcn" path="res://ui/ui_theme.tres" id="1_eg47x"]
+[ext_resource type="FontFile" uid="uid://dnnbp76wclplr" path="res://assets/fonts/fusion-pixel-10px-proportional-sc-latin-400-normal.woff2" id="3_trgga"]
+[ext_resource type="Texture2D" uid="uid://c82bxer8y2ukb" path="res://assets/sprites/UI/credits.png" id="4_u672m"]
+[ext_resource type="PackedScene" uid="uid://bdbp2qfs4v7kn" path="res://ui/button.tscn" id="5_u672m"]
 
 [node name="CreditsMenu" type="Control"]
 layout_mode = 3
@@ -9,45 +13,57 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_eg47x")
 script = ExtResource("1_brexn")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 0
-offset_left = 357.0
-offset_top = 213.0
-offset_right = 1428.0
-offset_bottom = 978.0
-
-[node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_left = 765.0
-offset_top = 264.0
-offset_right = 1020.0
-offset_bottom = 315.0
-text = "Credits"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="BackToMenuButton" type="Button" parent="."]
-layout_mode = 0
-offset_left = 714.0
-offset_top = 876.0
-offset_right = 1071.0
-offset_bottom = 936.0
-text = "Back To Menu"
+offset_left = 360.0
+offset_top = 140.0
+offset_right = 1560.0
+offset_bottom = 940.0
 
 [node name="TextBox" type="RichTextLabel" parent="."]
 layout_mode = 0
-offset_left = 459.0
-offset_top = 366.0
-offset_right = 1326.0
-offset_bottom = 825.0
-text = "Art & SFX				- 
-Design					- 
-Music						- Farley Valens
-Programming		- 
+offset_left = 460.0
+offset_top = 300.0
+offset_right = 1460.0
+offset_bottom = 780.0
+theme_override_fonts/normal_font = ExtResource("3_trgga")
+theme_override_font_sizes/normal_font_size = 20
+text = "Art & SFX				-	Sheepy
+Design					-	Ashe \"Dreamhost\"
+Music					-	Farley Valens
+Programming				- 	ChrisGW, 
 
 With Assets by:
-"
+sfx:
+\"Electrical Shock (Zap).wav\" by BigKahuna360
+\"Boing.flac\" by Hajisounds
+\"PlasticImpactB5.wav\" by jomse
+\"SCI-FI_DOOR_2\" by alexo400
+\"Toy Electronic Typewriter Return Lever\" by sprinkleCipher
+\"up5.wav\" by bumpelsnake
+\"Error Bleep 3\" by original_sound
 
-[connection signal="pressed" from="BackToMenuButton" to="." method="_on_back_to_menu_button_pressed"]
+models:
+\"Vending Machine Coca Cola\" by Shivansh Singh
+\"Trophy\" by Urielgc
+\"Sphygmomanometer Low Poly\" by TheGiwi
+\"Ventilation Duct\" by Gunnar Correa
+\"Snake head\" by absol
+
+Full credits and links can be found in credits.txt"
+
+[node name="Credits" type="Sprite2D" parent="."]
+position = Vector2(960, 220)
+texture = ExtResource("4_u672m")
+
+[node name="Button" parent="." instance=ExtResource("5_u672m")]
+layout_mode = 1
+offset_top = 260.0
+offset_bottom = 376.0
+texture_regular = null
+texture_hover = null
+
+[connection signal="pressed" from="Button" to="." method="_on_back_to_menu_button_pressed"]

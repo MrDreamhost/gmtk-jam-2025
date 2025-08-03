@@ -1,11 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://c5dup0yppydhr"]
+[gd_scene load_steps=7 format=3 uid="uid://c5dup0yppydhr"]
 
 [ext_resource type="Script" uid="uid://deacq2sppfw43" path="res://ui/options_menu/options_menu.gd" id="1_cobfr"]
+[ext_resource type="Theme" uid="uid://b0eq1tsqhebcn" path="res://ui/ui_theme.tres" id="1_kx268"]
 [ext_resource type="PackedScene" uid="uid://5vtebhia4h4d" path="res://ui/options_menu/bus_volume_control.tscn" id="2_8h7tm"]
 [ext_resource type="AudioStream" uid="uid://copb30blg65ol" path="res://assets/audio/sfx/hover.ogg" id="3_utl02"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_8h7tm"]
-font_size = 32
+[ext_resource type="Texture2D" uid="uid://bktpkl5qxrs3k" path="res://assets/sprites/UI/options.png" id="3_wakw5"]
+[ext_resource type="PackedScene" uid="uid://bdbp2qfs4v7kn" path="res://ui/button.tscn" id="5_tjtux"]
 
 [node name="OptionsMenu" type="Control"]
 layout_mode = 3
@@ -14,78 +14,70 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_kx268")
 script = ExtResource("1_cobfr")
 
-[node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-text = "Settings Menu"
-label_settings = SubResource("LabelSettings_8h7tm")
-
-[node name="TabContainer" type="TabContainer" parent="."]
+[node name="TabContainer" type="PanelContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -294.0
-offset_top = -226.5
-offset_right = 294.0
-offset_bottom = 226.5
+offset_left = -400.0
+offset_top = -350.0
+offset_right = 400.0
+offset_bottom = 350.0
 grow_horizontal = 2
 grow_vertical = 2
-current_tab = 0
 
-[node name="Audio" type="MarginContainer" parent="TabContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 32
-theme_override_constants/margin_top = 32
-theme_override_constants/margin_right = 32
-theme_override_constants/margin_bottom = 32
-metadata/_tab_index = 0
+[node name="Options" type="Sprite2D" parent="TabContainer"]
+position = Vector2(400, 70)
+texture = ExtResource("3_wakw5")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Audio"]
-layout_mode = 2
-theme_override_constants/separation = 60
+[node name="Button" parent="." instance=ExtResource("5_tjtux")]
+layout_mode = 1
+offset_left = -287.0
+offset_top = 217.0
+offset_right = 289.0
+offset_bottom = 333.0
+texture_regular = null
+texture_hover = null
 
-[node name="MasterBusVolumeControl" parent="TabContainer/Audio/VBoxContainer" instance=ExtResource("2_8h7tm")]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
+offset_left = 610.0
+offset_top = 390.0
+offset_right = 1310.0
+offset_bottom = 704.0
+theme_override_constants/separation = 50
 
-[node name="MusicBusVolumeControl" parent="TabContainer/Audio/VBoxContainer" instance=ExtResource("2_8h7tm")]
+[node name="MasterBusVolumeControl" parent="VBoxContainer" instance=ExtResource("2_8h7tm")]
 layout_mode = 2
+split_offset = 250
+dragging_enabled = false
+drag_area_highlight_in_editor = true
+
+[node name="MusicBusVolumeControl" parent="VBoxContainer" instance=ExtResource("2_8h7tm")]
+layout_mode = 2
+split_offset = 250
+dragging_enabled = false
+drag_area_highlight_in_editor = true
 bus = 1
 
-[node name="SfxBusVolumeControl" parent="TabContainer/Audio/VBoxContainer" instance=ExtResource("2_8h7tm")]
+[node name="SfxBusVolumeControl" parent="VBoxContainer" instance=ExtResource("2_8h7tm")]
 layout_mode = 2
+split_offset = 250
+dragging_enabled = false
+drag_area_highlight_in_editor = true
 bus = 2
 test_audio = ExtResource("3_utl02")
 
-[node name="VoiceBusVolumeControl2" parent="TabContainer/Audio/VBoxContainer" instance=ExtResource("2_8h7tm")]
+[node name="VoiceBusVolumeControl2" parent="VBoxContainer" instance=ExtResource("2_8h7tm")]
 layout_mode = 2
+split_offset = 250
+dragging_enabled = false
+drag_area_highlight_in_editor = true
 bus = 3
 
-[node name="BackToMenuButton" type="Button" parent="TabContainer/Audio/VBoxContainer"]
-layout_mode = 2
-text = "Back To Menu"
-
-[node name="Control" type="MarginContainer" parent="TabContainer"]
-visible = false
-layout_mode = 2
-theme_override_constants/margin_left = 32
-theme_override_constants/margin_top = 32
-theme_override_constants/margin_right = 32
-theme_override_constants/margin_bottom = 32
-metadata/_tab_index = 1
-
-[node name="Label" type="Label" parent="TabContainer/Control"]
-layout_mode = 2
-text = "Control"
-
-[node name="BackToMenuButton" type="Button" parent="TabContainer/Control"]
-layout_mode = 2
-text = "Back To Menu"
-
-[connection signal="pressed" from="TabContainer/Audio/VBoxContainer/BackToMenuButton" to="." method="_on_back_to_menu_button_pressed"]
-[connection signal="pressed" from="TabContainer/Control/BackToMenuButton" to="." method="_on_back_to_menu_button_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_back_to_menu_button_pressed"]
