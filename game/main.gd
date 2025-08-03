@@ -149,8 +149,6 @@ func turn_clock_back() -> void:
 
 
 func _on_goal_reached(_next_level_file: String) -> void:
-	GlobalAudioManager.start_level_music("victory")
-	GlobalAudioManager.play_vo(current_level.name)
 	next_level_file = _next_level_file
 	call_deferred("play_victory_eat_apple_animation")
 	loop_timer.stop()
@@ -180,6 +178,10 @@ func _on_goal_reached(_next_level_file: String) -> void:
 
 
 func play_victory_eat_apple_animation() -> void:
+	GlobalAudioManager.start_level_music("victory")
+	create_tween().tween_callback(func():
+		GlobalAudioManager.play_vo(current_level.name)).set_delay(1.5)
+	
 	var goal_zone: GoalZone = get_tree().get_first_node_in_group("goal_zone")
 	goal_zone.queue_free()
 	remove_child(player)
@@ -191,6 +193,13 @@ func play_victory_eat_apple_animation() -> void:
 	animation.track_set_key_value(0, 0, victory_player.to_local(goal_zone.global_position))
 	current_level.add_child(victory_player)
 	victory_player.apply_central_impulse(player.velocity)
+	var animated_player_sprite: AnimatedSprite2D = victory_player.get_node("AnimatedSprite2D")
+	GlobalAudioManager.voice_finished.connect( \
+			on_voic_finished.bind(animated_player_sprite), CONNECT_ONE_SHOT)
+
+
+func on_voic_finished(animated_player_sprite: AnimatedSprite2D):
+	animated_player_sprite.play("eat_loop")
 
 
 func transition_to_next_level(level_file: String) -> void:
