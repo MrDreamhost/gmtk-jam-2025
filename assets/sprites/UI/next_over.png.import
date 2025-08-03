@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dv7dj1at8drhu"
-path="res://.godot/imported/tiled_window_middle_right.png-ebf830910d4449339ccbeff8175be0b3.ctex"
+uid="uid://crq2dcns5hrev"
+path="res://.godot/imported/next_over.png-08d695aeec074b7c688059128a87d4ba.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/UI/tiled_window/tiled_window_middle_right.png"
-dest_files=["res://.godot/imported/tiled_window_middle_right.png-ebf830910d4449339ccbeff8175be0b3.ctex"]
+source_file="res://assets/sprites/UI/next_over.png"
+dest_files=["res://.godot/imported/next_over.png-08d695aeec074b7c688059128a87d4ba.ctex"]
 
 [params]
 
