@@ -1,6 +1,6 @@
 Art - Sheepy ([Itch](https://sheepyissleepy.itch.io/))
-Design - Ashe "Dreamhost" - ([Itch](https://dreamhost.itch.io/), [BlueSky](https://bsky.app/profile/dreamhostgames.bsky.social))
-Music  - Farley Valens
+Design - Ashe "Dreamhost" ([Itch](https://dreamhost.itch.io/), [BlueSky](https://bsky.app/profile/dreamhostgames.bsky.social))
+Music  - Farley Valens ([YouTube](hhttps://www.youtube.com/@farleyvalens1171),[Soundcloud](https://soundcloud.com/farleyvalens))
 Programming  - ChrisGW ([Itch](https://chris-gw.itch.io/)), Daniel "Yametsu" ([GitHub](https://github.com/0xYametsu),[Itch](https://yametsu.itch.io/))
 
 Code is publicly available and released under an MIT license:
