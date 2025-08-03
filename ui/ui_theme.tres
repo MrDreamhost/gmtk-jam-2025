@@ -1,10 +1,34 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://b0eq1tsqhebcn"]
+[gd_resource type="Theme" load_steps=10 format=3 uid="uid://b0eq1tsqhebcn"]
 
 [ext_resource type="StyleBox" uid="uid://bsennm01v4jtp" path="res://ui/style_boxes/empty.tres" id="1_udl1o"]
+[ext_resource type="StyleBox" uid="uid://necisk0tyen1" path="res://ui/style_boxes/panel.tres" id="2_4mq11"]
+[ext_resource type="Texture2D" uid="uid://b6e6ot3sbwdhv" path="res://assets/sprites/UI/Scroll/grabber.png" id="2_bp0j3"]
+[ext_resource type="Texture2D" uid="uid://c6v4v3ch5gasx" path="res://assets/sprites/UI/Scroll/grabber_highlight.png" id="3_cnyj1"]
+[ext_resource type="Texture2D" uid="uid://ujpjy6hmqqk1" path="res://assets/sprites/UI/Scroll/tick.png" id="4_cnyj1"]
+[ext_resource type="StyleBox" uid="uid://byp1hdm7nmoxp" path="res://ui/style_boxes/grabber_area.tres" id="5_kbk24"]
+[ext_resource type="StyleBox" uid="uid://cjd7wcvlxjt1c" path="res://ui/style_boxes/grabber_area_focused.tres" id="6_mbvn8"]
+[ext_resource type="StyleBox" uid="uid://bbqa624crg37m" path="res://ui/style_boxes/slider.tres" id="7_o52aa"]
+[ext_resource type="FontFile" uid="uid://c8lo3n7ebaxy8" path="res://assets/fonts/Bitrimus.ttf" id="8_t73vd"]
 
 [resource]
+Button/font_sizes/font_size = 50
+Button/fonts/font = ExtResource("8_t73vd")
 Button/styles/disabled = ExtResource("1_udl1o")
 Button/styles/focus = ExtResource("1_udl1o")
 Button/styles/hover = ExtResource("1_udl1o")
 Button/styles/normal = ExtResource("1_udl1o")
 Button/styles/pressed = ExtResource("1_udl1o")
+HSlider/icons/grabber = ExtResource("2_bp0j3")
+HSlider/icons/grabber_highlight = ExtResource("3_cnyj1")
+HSlider/icons/tick = ExtResource("4_cnyj1")
+HSlider/styles/grabber_area = ExtResource("5_kbk24")
+HSlider/styles/grabber_area_highlight = ExtResource("6_mbvn8")
+HSlider/styles/slider = ExtResource("7_o52aa")
+Label/font_sizes/font_size = 50
+Label/fonts/font = ExtResource("8_t73vd")
+PanelContainer/styles/panel = ExtResource("2_4mq11")
+VScrollBar/styles/grabber = ExtResource("5_kbk24")
+VScrollBar/styles/grabber_highlight = ExtResource("6_mbvn8")
+VScrollBar/styles/grabber_pressed = ExtResource("5_kbk24")
+VScrollBar/styles/scroll = ExtResource("7_o52aa")
+VScrollBar/styles/scroll_focus = ExtResource("7_o52aa")

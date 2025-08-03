@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://qfjhluhfj1ha" path="res://assets/sprites/UI/start_game.png" id="2_gcioa"]
 [ext_resource type="Texture2D" uid="uid://dfa6jax1pb4ie" path="res://assets/sprites/UI/start_game_hover.png" id="3_uan0n"]
 [ext_resource type="AudioStream" uid="uid://copb30blg65ol" path="res://assets/audio/sfx/hover.ogg" id="4_gcioa"]
-[ext_resource type="AudioStream" uid="uid://c15rr1he7jety" path="res://assets/audio/sfx/select.ogg" id="5_uan0n"]
+[ext_resource type="AudioStream" uid="uid://c25mg1nmg47lq" path="res://assets/audio/sfx/select_press.ogg" id="5_uan0n"]
 
 [node name="Button" type="Button" node_paths=PackedStringArray("sprite")]
 anchors_preset = 8
@@ -18,7 +18,9 @@ offset_right = 288.0
 offset_bottom = 58.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Start Game"
+theme_override_colors/font_hover_color = Color(0.813258, 0.813258, 0.813258, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Back To Menu"
 script = ExtResource("1_fxfmk")
 sprite = NodePath("Sprite2D")
 texture_regular = ExtResource("2_gcioa")
