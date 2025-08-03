@@ -153,7 +153,7 @@ func turn_clock_back() -> void:
 
 func _on_goal_reached(_next_level_file: String) -> void:
 	next_level_file = _next_level_file
-	play_victory_eat_apple_animation()
+	#play_victory_eat_apple_animation()
 	loop_timer.stop()
 	self.animated_timer.stop()
 	self.animated_timer.visible = false
