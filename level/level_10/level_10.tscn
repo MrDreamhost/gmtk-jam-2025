@@ -90,9 +90,10 @@ width_in_tile = 5
 position = Vector2(510, 519)
 
 [node name="DeathSpike" parent="SpikeStrip" instance=ExtResource("5_1af40")]
+position = Vector2(0, 51)
 
 [node name="DeathSpike2" parent="SpikeStrip" instance=ExtResource("5_1af40")]
-position = Vector2(102, 0)
+position = Vector2(102, 51)
 rotation = 3.14159
 
 [node name="DeathSpike3" parent="SpikeStrip" instance=ExtResource("5_1af40")]
