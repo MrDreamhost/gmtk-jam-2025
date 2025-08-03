@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="GMTK Jam 2025"
+config/name="SerpenTime"
 run/main_scene="uid://btghplhgx1jj1"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 boot_splash/bg_color=Color(0, 0, 0, 1)
