@@ -224,22 +224,10 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("AppleAnimatedSprite2D:visible")
+tracks/4/path = NodePath("Camera2D:zoom")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Camera2D:zoom")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -300,38 +288,26 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("AppleAnimatedSprite2D:visible")
+tracks/4/path = NodePath("Camera2D:zoom")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Camera2D:zoom")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
 "times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(1, 1), Vector2(2, 2)]
 }
-tracks/6/type = "method"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("AnimatedSprite2D")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AnimatedSprite2D")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
 "times": PackedFloat32Array(1),
 "transitions": PackedFloat32Array(1),
 "values": [{
-"args": [&"idle", 1.0, false],
+"args": [&"eat_loop", 1.0, false],
 "method": &"play"
 }]
 }
@@ -480,6 +456,92 @@ animations = [{
 "loop": false,
 "name": &"eat_apple",
 "speed": 30.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("19_ukndx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_c7vum")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_75x8g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_put3x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_qc1pu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_pk8ha")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_m0j8l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_wp3lh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_4n1ax")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_c8cdw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_6w8y0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_ywtgr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_jyayo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_wjp02")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_6uami")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_xepcq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_j8wyq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_viy5l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_omi5k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_fcgyu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_y35hu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_wymmj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_oi3wf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_ey2n8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_dgy3x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_7tgl5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_7tgl5")
+}],
+"loop": true,
+"name": &"eat_loop",
+"speed": 24.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -919,7 +981,6 @@ animation = &"eat_apple"
 frame = 43
 
 [node name="AppleAnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-visible = false
 z_index = 1
 position = Vector2(217, -58)
 sprite_frames = SubResource("SpriteFrames_ninv4")
