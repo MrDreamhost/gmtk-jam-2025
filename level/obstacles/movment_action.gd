@@ -18,7 +18,7 @@ func _ready() -> void:
 	add_to_group("resettable")
 	initial_position = self.global_position
 	on_movement_ended()
-	if connected_button is PressurePlate:
+	if not connected_button == null and connected_button is PressurePlate:
 		connected_button.button_changed.connect(on_button_changed)
 		paused = true
 

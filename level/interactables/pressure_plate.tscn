@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dymffw6ntadbo"]
+[gd_scene load_steps=12 format=3 uid="uid://dymffw6ntadbo"]
 
 [ext_resource type="Script" uid="uid://xxn0xhde0xtl" path="res://level/interactables/pressure_plate.gd" id="1_5bdot"]
 [ext_resource type="Texture2D" uid="uid://3brpm6mlgk6v" path="res://assets/sprites/button/0001.png" id="2_dhuea"]
@@ -7,7 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://cx2rsen5x1s4c" path="res://assets/sprites/button/0004.png" id="5_gdpg4"]
 [ext_resource type="Texture2D" uid="uid://cphi5omqokhb2" path="res://assets/sprites/button/0005.png" id="6_2hmuf"]
 [ext_resource type="Texture2D" uid="uid://dn3sf0oisxutv" path="res://assets/sprites/button/0006.png" id="7_pdyky"]
-[ext_resource type="AudioStream" path="res://Audio/Streams/SFXButton.tres" id="8_vn2xf"]
+[ext_resource type="AudioStream" uid="uid://hs255dg5v74t" path="res://assets/audio/sfx/button_press_in.ogg" id="8_0pxpj"]
+[ext_resource type="AudioStream" uid="uid://b4b8a50xf0h6n" path="res://assets/audio/sfx/button_press_out.ogg" id="9_gdpg4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vj3bl"]
 size = Vector2(66, 25)
@@ -59,10 +60,14 @@ sprite_frames = SubResource("SpriteFrames_qmruu")
 frame = 5
 frame_progress = 1.0
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("8_vn2xf")
+[node name="PressInAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_0pxpj")
 volume_db = -10.0
-max_distance = 1200.0
+bus = &"SFX"
+
+[node name="PressOutAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_gdpg4")
+volume_db = -10.0
 bus = &"SFX"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
