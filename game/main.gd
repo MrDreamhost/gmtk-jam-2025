@@ -72,6 +72,7 @@ func reset_loop() -> void:
 
 func reset_level() -> void:
 	self.loop_timer.stop()
+	self.animated_timer.stop()
 	self.current_level.set_spawn_point(self.current_level.initial_spawn_position)
 	for ghost: PlayerGhost in self.spawned_ghosts:
 		ghost.queue_free()
