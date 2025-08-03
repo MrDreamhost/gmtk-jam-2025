@@ -10,7 +10,7 @@ func _ready() -> void:
 	start_level_music(get_tree().root.name)
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("ui_cancel"):
 		var current_scene := get_tree().current_scene
 		if current_scene.scene_file_path != "res://ui/main_menu/main_menu.tscn":
