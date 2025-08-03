@@ -167,7 +167,7 @@
 [ext_resource type="Texture2D" uid="uid://2ot10jo2b3nq" path="res://assets/sprites/timer_reset/0159.png" id="164_g20cv"]
 [ext_resource type="Texture2D" uid="uid://c63pw2p63n2jp" path="res://assets/sprites/timer_reset/0160.png" id="165_rhhtj"]
 [ext_resource type="PackedScene" uid="uid://cicrk0ag8ysnl" path="res://ui/level_complete_ui.tscn" id="166_vgkw0"]
-[ext_resource type="Shader" path="res://assets/shaders/CRT.gdshader" id="167_fhlij"]
+[ext_resource type="Shader" uid="uid://cbtgoxf3ecchm" path="res://assets/shaders/CRT.gdshader" id="167_fhlij"]
 
 [sub_resource type="Animation" id="Animation_dp3pf"]
 length = 0.001
