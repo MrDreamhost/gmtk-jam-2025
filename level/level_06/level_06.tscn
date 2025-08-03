@@ -172,6 +172,7 @@ position = Vector2(959, 540)
 texture = ExtResource("8_e2a5p")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -2
 position = Vector2(663, 945)
 texture = ExtResource("9_gbrfs")
 

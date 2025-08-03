@@ -787,6 +787,7 @@ z_index = -1
 position = Vector2(1584, 635)
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
+z_index = -2
 offset_left = 125.0
 offset_top = 327.0
 offset_right = 721.0
@@ -830,6 +831,7 @@ theme_override_font_sizes/font_size = 100
 text = " A Hop and A Skip"
 
 [node name="PanelContainer2" type="PanelContainer" parent="."]
+z_index = -2
 offset_left = 1113.0
 offset_top = 160.0
 offset_right = 1413.0

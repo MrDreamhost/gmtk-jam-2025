@@ -86,7 +86,7 @@ tracks/1/keys = {
 }
 tracks/2/type = "value"
 tracks/2/imported = false
-tracks/2/enabled = false
+tracks/2/enabled = true
 tracks/2/path = NodePath("Camera2D:zoom")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
@@ -180,8 +180,10 @@ animations = [{
 size = Vector2(79, 125.75)
 
 [node name="VictoryPlayer" type="RigidBody2D"]
+process_mode = 3
+collision_layer = 0
 lock_rotation = true
-constant_force = Vector2(0, 980)
+linear_damp = 2.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

@@ -65,11 +65,9 @@ func get_slide_path_x() -> Vector2:
 
 func _on_next_level_button_pressed() -> void:
 	next_level.emit()
-	play_slide_out_animation()
 
 func _on_retry_button_pressed() -> void:
 	retry_level.emit()
-	play_slide_out_animation()
 
 
 static func format_as_time(total_seconds: float) -> String:

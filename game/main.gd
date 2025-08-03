@@ -22,6 +22,7 @@ var spawned_ghosts: Array[PlayerGhost] = []
 var changed_spawn: bool = false
 var level_record := LevelRecordRepository.LevelRecord.new()
 var animated_timer_tween: Tween
+var is_transitioning := false
 
 
 # Called when the node enters the scene tree for the first time.
@@ -125,7 +126,6 @@ func load_level(level: Level) -> void:
 func _on_loop_timer_timeout() -> void:
 	# BUG get_tree().paused = true doesnt work on web export, frezzes game
 	#get_tree().paused = true
-
 	set_shockwave_center_to_spawn_point()
 	var current_spawn: SpawnPoint = self.current_level.spawn_point
 
@@ -156,7 +156,6 @@ func _on_loop_timer_timeout() -> void:
 	tween.tween_callback(func (): Engine.time_scale = 1.0).set_delay(1.0)
 
 	Engine.time_scale = 0.0
-
 
 
 func set_shockwave_radius(radius: float) -> void:
@@ -207,19 +206,18 @@ func _on_goal_reached(_next_level_file: String) -> void:
 	GlobalAudioManager.play_vo(current_level.name)
 
 	var goal_zone: GoalZone = get_tree().get_first_node_in_group("goal_zone")
-	goal_zone.visible = false
-	player.visible = false
-	add_victory_player.call_deferred(player.global_position, player.velocity, goal_zone.global_position)
+	goal_zone.queue_free()
+	add_victory_player.call_deferred(player.global_position, goal_zone.global_position)
 
 
-func add_victory_player(player_position, player_velocity, goal_position) -> void:
+func add_victory_player(player_position: Vector2, goal_position: Vector2) -> void:
 	var victory_player: RigidBody2D = VICTORY_PLAYER.instantiate()
 	victory_player.global_position = player_position
 	var victory_animation_player: AnimationPlayer = victory_player.get_node("AnimationPlayer")
 	var animation := victory_animation_player.get_animation("victory_eat")
 	animation.track_set_key_value(0, 0, victory_player.to_local(goal_position))
 	current_level.add_child(victory_player)
-	victory_player.apply_central_impulse(player_velocity)
+	player.visible = false
 
 
 func on_voic_finished(animated_player_sprite: AnimatedSprite2D):
@@ -233,6 +231,7 @@ func transition_to_next_level(level_file: String) -> void:
 	current_level.queue_free()
 	var next_level := next_level_scene.instantiate() as Level
 	load_level.call_deferred(next_level)
+	is_transitioning = false
 	LevelTransition.play_fade_out()
 
 
@@ -252,11 +251,17 @@ func start_timer_reset_animation() -> void:
 
 
 func _on_level_complete_panel_next_level() -> void:
-	transition_to_next_level(next_level_file)
+	if not is_transitioning:
+		is_transitioning = true
+		level_complete_panel.play_slide_out_animation()
+		transition_to_next_level(next_level_file)
 
 
 func _on_level_complete_panel_retry_level() -> void:
-	transition_to_next_level(current_level.scene_file_path)
+	if not is_transitioning:
+		is_transitioning = true
+		level_complete_panel.play_slide_out_animation()
+		transition_to_next_level(current_level.scene_file_path)
 
 
 func _on_player_died() -> void:
