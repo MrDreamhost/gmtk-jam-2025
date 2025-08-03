@@ -83,7 +83,7 @@ horizontal_alignment = 2
 
 [node name="FastesTimeLabel" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
-text = "⚡ Fastes Run: "
+text = "⚡ Fastest Run: "
 label_settings = SubResource("LabelSettings_udxi4")
 
 [node name="FastesTimeValue" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
