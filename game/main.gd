@@ -123,8 +123,7 @@ func load_level(level: Level) -> void:
 
 
 func _on_loop_timer_timeout() -> void:
-	# BUG get_tree().paused = true doesnt work on web export, frezzes game
-	#get_tree().paused = true
+	get_tree().paused = true
 	var loop_ended_animation := animation_player.get_animation("loop_ended")
 	var current_spawn: SpawnPoint = self.current_level.spawn_point
 	player_dummy.global_position = player.global_position
