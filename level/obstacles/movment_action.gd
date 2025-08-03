@@ -15,6 +15,7 @@ var tween : Tween
 
 
 func _ready() -> void:
+	add_to_group("resettable")
 	initial_position = self.global_position
 	on_movement_ended()
 	if connected_button is PressurePlate:

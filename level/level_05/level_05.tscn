@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bipq1jpgurwcy"]
+[gd_scene load_steps=17 format=3 uid="uid://bipq1jpgurwcy"]
 
 [ext_resource type="Script" uid="uid://cr5paax0qa013" path="res://level/level_02/level_02.gd" id="1_1kcua"]
 [ext_resource type="PackedScene" uid="uid://bcujsflu4nqbn" path="res://loop_system/spawn_point.tscn" id="2_d0s7e"]
@@ -12,11 +12,16 @@
 [ext_resource type="Texture2D" uid="uid://doobxvnwcwlb7" path="res://assets/sprites/bg/lvl_5_bg.webp" id="9_l1vx2"]
 [ext_resource type="FontFile" uid="uid://c8lo3n7ebaxy8" path="res://assets/fonts/Bitrimus.ttf" id="11_07jgo"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_si3cn"]
-size = Vector2(20, 1100)
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_07jgo"]
+normal = Vector2(1, 0)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wteuf"]
-size = Vector2(1960, 20)
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_6esk1"]
+normal = Vector2(-1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_5mh2f"]
+normal = Vector2(0, 1)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_6uggk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l1vx2"]
 resource_local_to_scene = true
@@ -26,6 +31,12 @@ size = Vector2(102, 320)
 script = ExtResource("1_1kcua")
 spawn_point = NodePath("SpawnPoint")
 
+[node name="Bg" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(960, 540)
+texture = ExtResource("9_l1vx2")
+metadata/_edit_lock_ = true
+
 [node name="SpawnPoint" parent="." instance=ExtResource("2_d0s7e")]
 position = Vector2(0, 977)
 
@@ -33,23 +44,24 @@ position = Vector2(0, 977)
 position = Vector2(1836, 668)
 next_level_file = "uid://dwh7chwhvvwlt"
 
-[node name="Walls" type="StaticBody2D" parent="."]
+[node name="WorldBoundaries" type="StaticBody2D" parent="."]
+metadata/_edit_lock_ = true
 
-[node name="Wall Left" type="CollisionShape2D" parent="Walls"]
-position = Vector2(-10, 540)
-shape = SubResource("RectangleShape2D_si3cn")
+[node name="Wall Left" type="CollisionShape2D" parent="WorldBoundaries"]
+position = Vector2(0, 540)
+shape = SubResource("WorldBoundaryShape2D_07jgo")
 
-[node name="Wall Right" type="CollisionShape2D" parent="Walls"]
-position = Vector2(1930, 540)
-shape = SubResource("RectangleShape2D_si3cn")
+[node name="Wall Right" type="CollisionShape2D" parent="WorldBoundaries"]
+position = Vector2(1920, 540)
+shape = SubResource("WorldBoundaryShape2D_6esk1")
 
-[node name="Ceiling" type="CollisionShape2D" parent="Walls"]
-position = Vector2(960, -10)
-shape = SubResource("RectangleShape2D_wteuf")
+[node name="Ceiling" type="CollisionShape2D" parent="WorldBoundaries"]
+position = Vector2(960, 0)
+shape = SubResource("WorldBoundaryShape2D_5mh2f")
 
-[node name="Floor" type="CollisionShape2D" parent="Walls"]
-position = Vector2(960, 1090)
-shape = SubResource("RectangleShape2D_wteuf")
+[node name="Floor" type="CollisionShape2D" parent="WorldBoundaries"]
+position = Vector2(960, 1080)
+shape = SubResource("WorldBoundaryShape2D_6uggk")
 
 [node name="ResizablePlatform" parent="." instance=ExtResource("4_t0w6d")]
 position = Vector2(0, 1080)
@@ -226,11 +238,6 @@ rotation = -1.5708
 
 [node name="DeathSpike4" parent="MovingPlatform2" instance=ExtResource("7_lcqhc")]
 position = Vector2(0, -306)
-
-[node name="Bg" type="Sprite2D" parent="."]
-z_index = -2
-position = Vector2(961, 540)
-texture = ExtResource("9_l1vx2")
 
 [node name="Label" type="Label" parent="."]
 offset_right = 308.0
