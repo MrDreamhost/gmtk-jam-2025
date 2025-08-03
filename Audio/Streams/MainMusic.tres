@@ -1,47 +1,48 @@
-[gd_resource type="AudioStreamInteractive" load_steps=5 format=3 uid="uid://dwdrsf5ohfxnj"]
+[gd_resource type="AudioStreamInteractive" load_steps=6 format=3 uid="uid://dwdrsf5ohfxnj"]
 
-[ext_resource type="AudioStream" uid="uid://2ijkm2ka8e10" path="res://assets/audio/menu_music.mp3" id="1_plimw"]
-[ext_resource type="AudioStream" uid="uid://ty26q53nbbwi" path="res://assets/audio/Level01_music.mp3" id="2_w706o"]
-[ext_resource type="AudioStream" uid="uid://q4afhl4ejs66" path="res://assets/audio/Level02_music.mp3" id="3_w706o"]
-[ext_resource type="AudioStream" uid="uid://djrodho3p1kjw" path="res://assets/audio/level_complete.mp3" id="4_tif3l"]
+[ext_resource type="AudioStream" uid="uid://bealr1pm80i6h" path="res://assets/audio/menu_music_vintage.mp3" id="1_1aa3d"]
+[ext_resource type="AudioStream" uid="uid://cwl5ieibf770w" path="res://assets/audio/level01_music_vintage.mp3" id="2_bofp2"]
+[ext_resource type="AudioStream" uid="uid://dqeawpn2grl05" path="res://assets/audio/level03_music_vintage.mp3" id="3_0gljw"]
+[ext_resource type="AudioStream" uid="uid://du57yqi4vjjwj" path="res://assets/audio/level_complete_vintage.mp3" id="4_wlmwc"]
+[ext_resource type="AudioStream" uid="uid://bmoditf7tdayj" path="res://assets/audio/level02_music_vintage.mp3" id="5_avd7s"]
 
 [resource]
 clip_count = 12
 clip_0/name = &"root_music"
-clip_0/stream = ExtResource("1_plimw")
+clip_0/stream = ExtResource("1_1aa3d")
 clip_0/auto_advance = 0
 clip_1/name = &"Level01_music"
-clip_1/stream = ExtResource("2_w706o")
+clip_1/stream = ExtResource("2_bofp2")
 clip_1/auto_advance = 0
 clip_2/name = &"Level02_music"
-clip_2/stream = ExtResource("2_w706o")
+clip_2/stream = ExtResource("2_bofp2")
 clip_2/auto_advance = 0
 clip_3/name = &"Level03_music"
-clip_3/stream = ExtResource("2_w706o")
+clip_3/stream = ExtResource("2_bofp2")
 clip_3/auto_advance = 0
 clip_4/name = &"Level04_music"
-clip_4/stream = ExtResource("2_w706o")
+clip_4/stream = ExtResource("2_bofp2")
 clip_4/auto_advance = 0
 clip_5/name = &"Level05_music"
-clip_5/stream = ExtResource("2_w706o")
+clip_5/stream = ExtResource("2_bofp2")
 clip_5/auto_advance = 0
 clip_6/name = &"Level06_music"
-clip_6/stream = ExtResource("3_w706o")
+clip_6/stream = ExtResource("5_avd7s")
 clip_6/auto_advance = 0
 clip_7/name = &"Level07_music"
-clip_7/stream = ExtResource("3_w706o")
+clip_7/stream = ExtResource("5_avd7s")
 clip_7/auto_advance = 0
 clip_8/name = &"Level08_music"
-clip_8/stream = ExtResource("3_w706o")
+clip_8/stream = ExtResource("5_avd7s")
 clip_8/auto_advance = 0
 clip_9/name = &"Level09_music"
-clip_9/stream = ExtResource("3_w706o")
+clip_9/stream = ExtResource("5_avd7s")
 clip_9/auto_advance = 0
 clip_10/name = &"Level10_music"
-clip_10/stream = ExtResource("3_w706o")
+clip_10/stream = ExtResource("3_0gljw")
 clip_10/auto_advance = 0
 clip_11/name = &"victory_music"
-clip_11/stream = ExtResource("4_tif3l")
+clip_11/stream = ExtResource("4_wlmwc")
 clip_11/auto_advance = 0
 _transitions = {
 Vector2i(-1, -1): {
