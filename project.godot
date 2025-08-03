@@ -14,7 +14,7 @@ config/name="SerpenTime"
 run/main_scene="uid://cn68mku3q7ybn"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 boot_splash/bg_color=Color(0, 0, 0, 1)
-boot_splash/image="uid://cfy67ff0ah58a"
+boot_splash/image="uid://bq1tigc1j4ein"
 config/icon="uid://dmc8ux3hpe4n7"
 config/windows_native_icon="res://assets/sprites/promo/icon.ico"
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ub516etohybl"
-path="res://.godot/imported/banner_960.png-a7fc0794f0ebbdfc6fafe721937e6ecc.ctex"
+uid="uid://bq1tigc1j4ein"
+path="res://.godot/imported/banner_with_title.png-aa2b6b9139c01a76048d553d82556fcb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/promo/banner_960.png"
-dest_files=["res://.godot/imported/banner_960.png-a7fc0794f0ebbdfc6fafe721937e6ecc.ctex"]
+source_file="res://assets/sprites/promo/banner_with_title.png"
+dest_files=["res://.godot/imported/banner_with_title.png-aa2b6b9139c01a76048d553d82556fcb.ctex"]
 
 [params]
 
