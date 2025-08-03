@@ -1,47 +1,45 @@
-[gd_scene load_steps=8 format=3 uid="uid://cicrk0ag8ysnl"]
+[gd_scene load_steps=14 format=3 uid="uid://cicrk0ag8ysnl"]
 
-[ext_resource type="FontFile" uid="uid://bia1teoay5dai" path="res://assets/fonts/fusion-pixel-12px-proportional-sc-latin-400-normal.woff2" id="1_grxgt"]
-[ext_resource type="Texture2D" uid="uid://bwknp1gt3v808" path="res://assets/sprites/tiles/tile_face.png" id="1_udxi4"]
+[ext_resource type="Theme" uid="uid://b0eq1tsqhebcn" path="res://ui/ui_theme.tres" id="1_vkikq"]
 [ext_resource type="Script" uid="uid://c8udi47mk61iq" path="res://ui/level_complete_ui.gd" id="2_m3tff"]
-[ext_resource type="FontFile" uid="uid://dnnbp76wclplr" path="res://assets/fonts/fusion-pixel-10px-proportional-sc-latin-400-normal.woff2" id="2_vkikq"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m3tff"]
-texture = ExtResource("1_udxi4")
-texture_margin_left = 12.0
-texture_margin_top = 12.0
-texture_margin_right = 12.0
-texture_margin_bottom = 17.0
-region_rect = Rect2(77, 154, 102, 102)
+[ext_resource type="Texture2D" uid="uid://bj442yt1i6vap" path="res://assets/sprites/UI/icons/0001.png" id="3_e8w6x"]
+[ext_resource type="Texture2D" uid="uid://b2u3onr0ar53h" path="res://assets/sprites/UI/icons/0002.png" id="4_2fkw6"]
+[ext_resource type="Texture2D" uid="uid://ey02dxydnnvi" path="res://assets/sprites/UI/icons/0005.png" id="5_tuchs"]
+[ext_resource type="Texture2D" uid="uid://cy0j44hfcvxvc" path="res://assets/sprites/UI/icons/0003.png" id="6_5ux5u"]
+[ext_resource type="Texture2D" uid="uid://7sno3tes8su8" path="res://assets/sprites/UI/icons/0004.png" id="7_df24b"]
+[ext_resource type="Texture2D" uid="uid://c6ype3f6j10ol" path="res://assets/sprites/UI/retry.png" id="8_ix8oe"]
+[ext_resource type="Texture2D" uid="uid://n6npyn5er4m8" path="res://assets/sprites/UI/retry_hover.png" id="9_64j5t"]
+[ext_resource type="Texture2D" uid="uid://d3sj6dtt6yxi6" path="res://assets/sprites/UI/next.png" id="10_h1xfr"]
+[ext_resource type="Texture2D" uid="uid://crq2dcns5hrev" path="res://assets/sprites/UI/next_over.png" id="11_coac1"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_oqr4f"]
-font = ExtResource("2_vkikq")
-font_size = 70
-outline_size = 20
+font_size = 90
 outline_color = Color(0, 0, 0, 1)
 shadow_size = 20
 shadow_color = Color(0, 0, 0, 0.6)
 shadow_offset = Vector2(5, 5)
 
 [sub_resource type="LabelSettings" id="LabelSettings_udxi4"]
-font = ExtResource("1_grxgt")
-font_size = 36
-outline_size = 12
+font_size = 50
 outline_color = Color(0, 0, 0, 1)
+shadow_size = 8
+shadow_color = Color(0, 0, 0, 0.47451)
+shadow_offset = Vector2(2, 2)
 
 [node name="LevelCompletePanel" type="PanelContainer"]
-offset_right = 606.0
-offset_bottom = 795.0
+offset_right = 624.0
+offset_bottom = 794.0
 mouse_filter = 1
-theme_override_styles/panel = SubResource("StyleBoxTexture_m3tff")
+theme = ExtResource("1_vkikq")
 script = ExtResource("2_m3tff")
 screen_border_margin = 20.0
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
-theme_override_constants/margin_left = 32
-theme_override_constants/margin_top = 32
-theme_override_constants/margin_right = 32
-theme_override_constants/margin_bottom = 32
+theme_override_constants/margin_left = -64
+theme_override_constants/margin_top = -80
+theme_override_constants/margin_right = -64
+theme_override_constants/margin_bottom = -64
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
@@ -60,6 +58,8 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 12.0
+offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 2
@@ -68,11 +68,16 @@ mouse_filter = 2
 layout_mode = 2
 theme_override_constants/h_separation = 32
 theme_override_constants/v_separation = 32
-columns = 2
+columns = 3
+
+[node name="TimeIcon" type="TextureRect" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+texture = ExtResource("3_e8w6x")
+stretch_mode = 5
 
 [node name="TimeLabel" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
-text = "⏱️ Time: "
+text = "Time: "
 label_settings = SubResource("LabelSettings_udxi4")
 
 [node name="TimeValue" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
@@ -82,9 +87,14 @@ text = "01:24.767"
 label_settings = SubResource("LabelSettings_udxi4")
 horizontal_alignment = 2
 
+[node name="FastesTimeIcon" type="TextureRect" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+texture = ExtResource("4_2fkw6")
+stretch_mode = 5
+
 [node name="FastesTimeLabel" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
-text = "⚡ Fastest Run: "
+text = " Fastest Run: "
 label_settings = SubResource("LabelSettings_udxi4")
 
 [node name="FastesTimeValue" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
@@ -94,9 +104,31 @@ text = "00:22.894"
 label_settings = SubResource("LabelSettings_udxi4")
 horizontal_alignment = 2
 
+[node name="DevRecordIcon" type="TextureRect" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+texture = ExtResource("5_tuchs")
+stretch_mode = 5
+
+[node name="DevRecordLabel" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Dev Record: "
+label_settings = SubResource("LabelSettings_udxi4")
+
+[node name="DevRecordValue" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "00:21.470"
+label_settings = SubResource("LabelSettings_udxi4")
+horizontal_alignment = 2
+
+[node name="LoopsIcon" type="TextureRect" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+texture = ExtResource("6_5ux5u")
+stretch_mode = 5
+
 [node name="LoopsLabel" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
-text = "♻️ Loops:  "
+text = "Loops:  "
 label_settings = SubResource("LabelSettings_udxi4")
 
 [node name="LoopsValue" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
@@ -106,9 +138,14 @@ text = "12"
 label_settings = SubResource("LabelSettings_udxi4")
 horizontal_alignment = 2
 
+[node name="ResetsIcon" type="TextureRect" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+texture = ExtResource("7_df24b")
+stretch_mode = 5
+
 [node name="ResetsLabel" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
-text = "🔄 Resets: "
+text = "Resets: "
 label_settings = SubResource("LabelSettings_udxi4")
 
 [node name="ResetsValue" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
@@ -118,40 +155,23 @@ text = "4"
 label_settings = SubResource("LabelSettings_udxi4")
 horizontal_alignment = 2
 
-[node name="DevRecordLabel" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
-layout_mode = 2
-text = "🏆 Dev Record: "
-label_settings = SubResource("LabelSettings_udxi4")
-
-[node name="DevRecordValue" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "00:21.47"
-label_settings = SubResource("LabelSettings_udxi4")
-horizontal_alignment = 2
-
-[node name="UnderLine" type="ColorRect" parent="MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 4)
-layout_mode = 2
-mouse_filter = 2
-
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 42
 
-[node name="RetryButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="RetryButton" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 3
-theme_override_fonts/font = ExtResource("1_grxgt")
-theme_override_font_sizes/font_size = 36
-text = "Retry"
+texture_normal = ExtResource("8_ix8oe")
+texture_hover = ExtResource("9_64j5t")
 
-[node name="NextLevelButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_fonts/font = ExtResource("1_grxgt")
-theme_override_font_sizes/font_size = 36
-text = "Next Level"
+
+[node name="NextLevelButton" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("10_h1xfr")
+texture_hover = ExtResource("11_coac1")
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/RetryButton" to="." method="_on_retry_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/NextLevelButton" to="." method="_on_next_level_button_pressed"]
