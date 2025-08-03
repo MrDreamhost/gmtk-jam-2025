@@ -1,18 +1,1 @@
-All GDscript in this project are released under the included MIT licence. Some visual and audio assets have been based off of assets that have not been released under such a license. Please see the list below for those credits:
-
-sfx:
-Electrical Shock (Zap).wav by BigKahuna360 -- https://freesound.org/s/160421/ -- License: Creative Commons 0
-Boing.flac by Hajisounds -- https://freesound.org/s/614749/ -- License: Creative Commons 0
-PlasticImpactB5.wav by jomse -- https://freesound.org/s/525105/ -- License: Creative Commons 0
-SCI-FI_DOOR_2 by alexo400 -- https://freesound.org/s/543654/ -- License: Creative Commons 0 
-Toy Electronic Typewriter Return Lever by sprinkleCipher -- https://freesound.org/s/752753/ -- License: Creative Commons 0
-
-
-models:
-"Vending Machine Coca Cola" (https://skfb.ly/o9DsS) by Shivansh Singh is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
-up5.wav by bumpelsnake -- https://freesound.org/s/456576/ -- License: Attribution 4.0
-Error Bleep 3 by original_sound -- https://freesound.org/s/372198/ -- License: Attribution 3.0\
-"Trophy" (https://skfb.ly/oRMnI) by Urielgc is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
-"Sphygmomanometer Low Poly" (https://skfb.ly/6YAJS) by TheGiwi is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
-"Ventilation Duct" (https://skfb.ly/6tLzN) by Gunnar Correa is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
-"Snake head" (https://skfb.ly/oPsKn) by absol is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+This game was created for the GMTK Jam 2025. A playable build can be found here: https://dreamhost.itch.io/serpentime
