@@ -16,6 +16,7 @@ config/features=PackedStringArray("4.4", "GL Compatibility")
 boot_splash/image="uid://cfy67ff0ah58a"
 config/icon="uid://dmc8ux3hpe4n7"
 config/windows_native_icon="res://assets/sprites/promo/icon.ico"
+boot_splash/minimum_display_time=3000
 
 [audio]
 
@@ -48,6 +49,7 @@ folder_colors={
 
 player=""
 goal_zone=""
+resettable="Objets which move and should be reset during level reset"
 
 [input]
 
