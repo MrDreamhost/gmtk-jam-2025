@@ -9,13 +9,13 @@ extends Node2D
 @export var movement_ease : Tween.EaseType
 @export var paused := false : set = set_paused
 
-var original_position: Vector2
+var initial_position: Vector2
 var returning := false
 var tween : Tween
 
 
 func _ready() -> void:
-	original_position = self.global_position
+	initial_position = self.global_position
 	on_movement_ended()
 	if connected_button is PressurePlate:
 		connected_button.button_changed.connect(on_button_changed)
@@ -28,10 +28,10 @@ func on_movement_ended() -> void:
 	tween.set_trans(movement_trans)
 	tween.set_ease(movement_ease)
 	if returning:
-		tween.tween_property(self, "global_position", original_position, move_duration_sec).from(target_position)
+		tween.tween_property(self, "global_position", initial_position, move_duration_sec).from(target_position)
 		tween.tween_callback(on_movement_ended).set_delay(return_delay_sec)
 	else:
-		tween.tween_property(self, "global_position", target_position, move_duration_sec).from(original_position)
+		tween.tween_property(self, "global_position", target_position, move_duration_sec).from(initial_position)
 		tween.tween_callback(on_movement_ended).set_delay(return_delay_sec)
 	returning = !returning
 
@@ -46,3 +46,11 @@ func set_paused(_paused: bool) -> void:
 		tween.pause()
 	elif tween and not tween.is_running():
 		tween.play()
+
+
+func reset() -> void:
+	if self.tween:
+		self.tween.kill()
+	self.global_position = self.initial_position
+	self.returning = false
+	on_movement_ended()
