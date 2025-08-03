@@ -13,11 +13,10 @@ extends Node2D
 
 var open_position: Vector2
 var opening := false
-var fire_event := false
+var reset_flag := false
 
 
 func _ready() -> void:
-	self.initial_position = self.animatable_body_2d.global_position
 	set_open_height(open_height)
 	if connected_button is PressurePlate and connected_button.has_signal("button_changed"):
 		connected_button.button_changed.connect(on_button_changed)
@@ -26,7 +25,10 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	if is_squashing_player():
+	if reset_flag:
+		animatable_body_2d.position = Vector2.ZERO
+		reset_flag = false
+	elif is_squashing_player():
 		status_circle.self_modulate = Color.YELLOW
 	elif opening:
 		var moved_door_position := animatable_body_2d.position.move_toward(open_position, door_opening_speed * delta)
@@ -61,6 +63,6 @@ func set_open_height(_open_height: float) -> void:
 
 
 func reset() -> void:
-	self.animatable_body_2d.position = Vector2.ZERO
-	self.opening = false
-	self.status_circle.self_modulate = Color.RED
+	opening = false
+	reset_flag = true
+	status_circle.self_modulate = Color.RED

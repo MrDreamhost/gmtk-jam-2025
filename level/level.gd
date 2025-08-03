@@ -19,9 +19,3 @@ func _process(_delta: float) -> void:
 
 func set_spawn_point(spawn_position: Vector2) -> void:
 	self.spawn_point.global_position = spawn_position
-
-
-func reset_level() -> void:
-	for child in self.get_children():
-		if child.is_in_group("resettable"):
-			child.reset()
