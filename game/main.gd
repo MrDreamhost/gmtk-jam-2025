@@ -11,7 +11,6 @@ const VICTORY_PLAYER = preload("res://player/victory_player.tscn")
 @onready var label: Label = $CanvasLayer/Label
 @onready var player: Player = $Player
 @onready var player_dummy: Node2D = $PlayerDummy
-@onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var shockwave_mat: ShaderMaterial = %ShockwaveOverlay.material
 @onready var animated_timer: AnimatedSprite2D = $CanvasLayer/AnimatedTimer
 @onready var level_complete_panel: LevelCompletePanel = $CanvasLayer/LevelCompletePanel
@@ -208,7 +207,7 @@ func on_voic_finished(animated_player_sprite: AnimatedSprite2D):
 func transition_to_next_level(level_file: String) -> void:
 	var next_level_scene := await LevelTransition.load_with_loading_screen(level_file) as PackedScene
 	LevelTransition.furthest_level = next_level_scene
-	add_child(player)
+	player.visible = true
 	current_level.queue_free()
 	var next_level := next_level_scene.instantiate() as Level
 	load_level(next_level)
