@@ -1,7 +1,8 @@
-[gd_resource type="AudioStreamInteractive" load_steps=11 format=3 uid="uid://bs33eu75rta7c"]
+[gd_resource type="AudioStreamInteractive" load_steps=12 format=3 uid="uid://bs33eu75rta7c"]
 
 [ext_resource type="AudioStream" uid="uid://bqqks5sww0csn" path="res://assets/audio/voicelines/pride.ogg" id="1_p0hwn"]
 [ext_resource type="AudioStream" uid="uid://dwn5oxyl5db3x" path="res://assets/audio/voicelines/history.ogg" id="2_2oimu"]
+[ext_resource type="AudioStream" uid="uid://dtbgp8nce7i5t" path="res://Audio/Streams/VO_test.tres" id="3_2oimu"]
 [ext_resource type="AudioStream" uid="uid://bpwu7rrgmitw5" path="res://assets/audio/voicelines/timbers.ogg" id="3_riqx5"]
 [ext_resource type="AudioStream" uid="uid://hpfwfttlsxj1" path="res://assets/audio/voicelines/civil_serpent.ogg" id="4_vstpe"]
 [ext_resource type="AudioStream" uid="uid://b6ha41sidglvn" path="res://assets/audio/voicelines/asprin.ogg" id="5_u3d7f"]
@@ -12,7 +13,7 @@
 [ext_resource type="AudioStream" uid="uid://b4uhqs1w3n8x3" path="res://assets/audio/voicelines/hard.ogg" id="10_bwsao"]
 
 [resource]
-clip_count = 10
+clip_count = 11
 clip_0/name = &"Level01"
 clip_0/stream = ExtResource("1_p0hwn")
 clip_0/auto_advance = 0
@@ -43,6 +44,9 @@ clip_8/auto_advance = 0
 clip_9/name = &"Level10"
 clip_9/stream = ExtResource("10_bwsao")
 clip_9/auto_advance = 0
+clip_10/name = &"test"
+clip_10/stream = ExtResource("3_2oimu")
+clip_10/auto_advance = 0
 _transitions = {
 Vector2i(-1, -1): {
 "fade_beats": 0.2,

@@ -1,0 +1,11 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=4 format=3 uid="uid://dtbgp8nce7i5t"]
+
+[ext_resource type="AudioStream" uid="uid://da1qqwr62shlo" path="res://assets/audio/voicelines/TEST_isthisthingon.ogg" id="1_2fbps"]
+[ext_resource type="AudioStream" uid="uid://c6v4oeql1bkdd" path="res://assets/audio/voicelines/TEST_serpentime.ogg" id="2_ie2e8"]
+[ext_resource type="AudioStream" uid="uid://fa4csbjr6sk7" path="res://assets/audio/voicelines/TEST_sleeves.ogg" id="3_2huh7"]
+
+[resource]
+streams_count = 3
+stream_0/stream = ExtResource("1_2fbps")
+stream_1/stream = ExtResource("2_ie2e8")
+stream_2/stream = ExtResource("3_2huh7")

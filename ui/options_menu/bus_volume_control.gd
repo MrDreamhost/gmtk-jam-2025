@@ -22,10 +22,6 @@ func _ready():
 	volume_slider.value = db_to_linear(AudioServer.get_bus_volume_db(bus))
 
 
-func _on_muted_check_button_toggled(toggled_on: bool):
-	AudioServer.set_bus_mute(bus, toggled_on)
-
-
 func _on_volume_slider_value_changed(value: float):
 	var muted = value <= volume_slider.min_value
 	AudioServer.set_bus_volume_db(bus, linear_to_db(value))
@@ -36,7 +32,7 @@ func _on_volume_slider_value_changed(value: float):
 
 func _on_volume_slider_drag_ended(value_changed: bool) -> void:
 	if bus == Bus.VOICE:
-		GlobalAudioManager.play_vo("any")
+		GlobalAudioManager.play_vo("test")
 
 
 func _on_volume_slider_mouse_entered() -> void:
