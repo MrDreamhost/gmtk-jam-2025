@@ -125,21 +125,21 @@ func load_level(level: Level) -> void:
 func _on_loop_timer_timeout() -> void:
 	# BUG get_tree().paused = true doesnt work on web export, frezzes game
 	#get_tree().paused = true
-	
+
 	set_shockwave_center_to_spawn_point()
 	var current_spawn: SpawnPoint = self.current_level.spawn_point
-	
+
 	player_dummy.global_position = player.global_position
 	for child in player_dummy.get_children():
 		child.queue_free()
 	player_dummy.add_child(player.animated_sprite_2d.duplicate())
-	
+
 	var tween := create_tween()
 	tween.set_ignore_time_scale(true)
 	tween.set_process_mode(Tween.TWEEN_PROCESS_PHYSICS)
 	tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
 	tween.set_parallel(true)
-	
+
 	# timed callbacks
 	tween.tween_callback(start_timer_reset_animation).set_delay(0.3333)
 	tween.tween_callback(turn_clock_back).set_delay(0.4333)
@@ -147,14 +147,14 @@ func _on_loop_timer_timeout() -> void:
 	# shockwave radius 0.0 -> 1.0 -> 0.0
 	tween.tween_method(set_shockwave_radius, 0.0, 1.0, 0.5)
 	tween.tween_method(set_shockwave_radius, 1.0, 0.0, 0.5).set_delay(0.5)
-	
+
 	player.visible = false
 	player_dummy.visible = true
 	tween.tween_property(player_dummy, "position", current_spawn.global_position, 1.0).from(player.global_position)
 	tween.tween_callback(func (): player_dummy.visible = false).set_delay(1.0)
 	tween.tween_callback(func (): player.visible = true).set_delay(1.0)
 	tween.tween_callback(func (): Engine.time_scale = 1.0).set_delay(1.0)
-	
+
 	Engine.time_scale = 0.0
 
 
@@ -179,6 +179,7 @@ func turn_clock_back() -> void:
 
 func _on_goal_reached(_next_level_file: String) -> void:
 	next_level_file = _next_level_file
+	play_victory_eat_apple_animation()
 	loop_timer.stop()
 	self.animated_timer.stop()
 	self.animated_timer.visible = false
@@ -202,7 +203,7 @@ func _on_goal_reached(_next_level_file: String) -> void:
 	
 	level_complete_panel.set_data(data)
 	level_complete_panel.play_slide_in_from_side_animation(player.global_position)
-	
+
 	GlobalAudioManager.start_level_music("victory")
 	GlobalAudioManager.play_vo(current_level.name)
 
