@@ -175,13 +175,8 @@ func _on_goal_reached(_next_level_file: String) -> void:
 		data.dev_record_time = 4_000.0
 	
 	level_complete_panel.set_data(data)
-	level_complete_panel.visible = true
-	var tween := level_complete_panel.create_tween()
-	var inside_position := Vector2(1300.0, 112.0)
-	var outside_position := inside_position + Vector2.RIGHT * (1930.0 - inside_position.x)
-	tween.tween_property(level_complete_panel, "position", inside_position, 0.5)\
-			.from(outside_position) \
-			.set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_CUBIC)
+	level_complete_panel.play_slide_in_from_side_animation(player.global_position)
+
 
 
 func play_victory_eat_apple_animation() -> void:
@@ -223,12 +218,10 @@ func start_timer_reset_animation() -> void:
 
 
 func _on_level_complete_panel_next_level() -> void:
-	level_complete_panel.visible = false
 	transition_to_next_level(next_level_file)
 
 
 func _on_level_complete_panel_retry_level() -> void:
-	level_complete_panel.visible = false
 	transition_to_next_level(current_level.scene_file_path)
 
 
