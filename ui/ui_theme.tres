@@ -11,6 +11,8 @@
 [ext_resource type="FontFile" uid="uid://c8lo3n7ebaxy8" path="res://assets/fonts/Bitrimus.ttf" id="8_t73vd"]
 
 [resource]
+Button/colors/font_color = Color(0.811765, 0.811765, 0.811765, 1)
+Button/colors/font_hover_color = Color(1, 1, 1, 1)
 Button/font_sizes/font_size = 50
 Button/fonts/font = ExtResource("8_t73vd")
 Button/styles/disabled = ExtResource("1_udl1o")

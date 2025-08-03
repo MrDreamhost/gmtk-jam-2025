@@ -1,3 +1,12 @@
+Art - Sheepy ([Itch](https://sheepyissleepy.itch.io/))
+Design - Ashe "Dreamhost" - ([Itch](https://dreamhost.itch.io/), [BlueSky](https://bsky.app/profile/dreamhostgames.bsky.social))
+Music  - Farley Valens
+Programming  - ChrisGW ([Itch](https://chris-gw.itch.io/)), Daniel "Yametsu" ([GitHub](https://github.com/0xYametsu),[Itch](https://yametsu.itch.io/))
+
+Code is publicly available and released under an MIT license:
+https://github.com/MrDreamhost/gmtk-jam-2025?tab=MIT-1-ov-file
+
+Assets:
 sfx:
 Electrical Shock (Zap).wav by BigKahuna360 -- https://freesound.org/s/160421/ -- License: Creative Commons 0
 Boing.flac by Hajisounds -- https://freesound.org/s/614749/ -- License: Creative Commons 0
