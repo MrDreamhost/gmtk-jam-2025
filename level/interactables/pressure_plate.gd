@@ -50,3 +50,8 @@ func play_sound(sound_name: String) -> void:
 	if !self.sfx_player.playing:
 		self.sfx_player.play()
 	self.sfx_player["parameters/switch_to_clip"] = sound_name
+
+
+func reset() -> void:
+	self.button_pressed = false
+	self.animated_sprite_2d.stop()

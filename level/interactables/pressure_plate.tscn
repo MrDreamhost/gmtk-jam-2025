@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cx2rsen5x1s4c" path="res://assets/sprites/button/0004.png" id="5_gdpg4"]
 [ext_resource type="Texture2D" uid="uid://cphi5omqokhb2" path="res://assets/sprites/button/0005.png" id="6_2hmuf"]
 [ext_resource type="Texture2D" uid="uid://dn3sf0oisxutv" path="res://assets/sprites/button/0006.png" id="7_pdyky"]
-[ext_resource type="AudioStream" uid="uid://blehh13kfdfgk" path="res://Audio/Streams/SFXButton.tres" id="8_vn2xf"]
+[ext_resource type="AudioStream" path="res://Audio/Streams/SFXButton.tres" id="8_vn2xf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vj3bl"]
 size = Vector2(66, 25)
@@ -38,19 +38,12 @@ animations = [{
 "speed": 24.0
 }]
 
-[node name="PressurePlate" type="Area2D"]
+[node name="PressurePlate" type="Area2D" groups=["resettable"]]
 script = ExtResource("1_5bdot")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(51, -12.5)
 shape = SubResource("RectangleShape2D_vj3bl")
-
-[node name="Label" type="Label" parent="."]
-offset_left = -26.0
-offset_top = -98.0
-offset_right = 28.0
-offset_bottom = -75.0
-text = "Pressure Plate"
 
 [node name="Button" type="Button" parent="."]
 visible = false
@@ -63,6 +56,8 @@ one_shot = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(51, -24)
 sprite_frames = SubResource("SpriteFrames_qmruu")
+frame = 5
+frame_progress = 1.0
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_vn2xf")
