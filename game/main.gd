@@ -22,6 +22,7 @@ var next_level_file: String
 var spawned_ghosts: Array[PlayerGhost] = []
 var changed_spawn: bool = false
 var level_record := LevelRecordRepository.LevelRecord.new()
+var animated_timer_tween: Tween
 
 
 # Called when the node enters the scene tree for the first time.
@@ -231,3 +232,19 @@ func _on_level_complete_panel_retry_level() -> void:
 
 func _on_player_died() -> void:
 	level_record.total_death_count += 1
+
+
+func _on_animated_timer_area_body_entered(body: Node2D) -> void:
+	if body is Player:
+		if self.animated_timer_tween:
+			self.animated_timer_tween.kill()
+		self.animated_timer_tween = create_tween()
+		self.animated_timer_tween.tween_property(self.animated_timer, "modulate:a", 0.5, 0.2)
+
+
+func _on_animated_timer_area_body_exited(body: Node2D) -> void:
+	if body is Player:
+		if self.animated_timer_tween:
+			self.animated_timer_tween.kill()
+		self.animated_timer_tween = create_tween()
+		self.animated_timer_tween.tween_property(self.animated_timer, "modulate:a", 1.0, 0.2)
