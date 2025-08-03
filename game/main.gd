@@ -27,6 +27,8 @@ var animated_timer_tween: Tween
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if not LevelTransition.furthest_level == null:
+		self.inital_level = LevelTransition.furthest_level
 	self.load_level(self.inital_level.instantiate())
 	self.level_complete_panel.visible = false
 
@@ -205,6 +207,7 @@ func on_voic_finished(animated_player_sprite: AnimatedSprite2D):
 
 func transition_to_next_level(level_file: String) -> void:
 	var next_level_scene := await LevelTransition.load_with_loading_screen(level_file) as PackedScene
+	LevelTransition.furthest_level = next_level_scene
 	add_child(player)
 	current_level.queue_free()
 	var next_level := next_level_scene.instantiate() as Level

@@ -1,6 +1,9 @@
 extends CanvasLayer
 
+
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+
+var furthest_level: PackedScene = null
 
 
 func load_with_loading_screen(path: String) -> Resource:
