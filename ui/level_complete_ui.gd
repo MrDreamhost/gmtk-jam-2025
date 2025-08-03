@@ -5,7 +5,7 @@ signal next_level()
 
 @export var data: Data : set = set_data
 @export var screen_border_margin := 0.0
-@export var slide_duration_sec := 0.5
+@export var slide_duration_sec := 0.4
 
 @onready var time_value: Label = %TimeValue
 @onready var fastes_time_value: Label = %FastesTimeValue
@@ -39,7 +39,7 @@ func play_slide_in_from_side_animation(player_position: Vector2) -> void:
 	var tween := create_tween()
 	tween.tween_property(self, "position:x", slide_path_x[0], slide_duration_sec) \
 			.from(slide_path_x[1]) \
-			.set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_CUBIC)
+			.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
 
 
 func play_slide_out_animation() -> void:
@@ -55,10 +55,10 @@ func get_slide_path_x() -> Vector2:
 	var outside_x: float
 	var inside_x: float 
 	if slide_from_right_side:
-		outside_x = game_width         + screen_border_margin
+		outside_x = game_width + screen_border_margin
 		inside_x = game_width - size.x - screen_border_margin
 	else:
-		outside_x = 0.0 - screen_border_margin
+		outside_x = 0.0 - size.x - screen_border_margin
 		inside_x = 0.0  + screen_border_margin
 	return Vector2(inside_x, outside_x)
 
