@@ -856,4 +856,4 @@ autoplay = "default"
 libraries = {
 &"": SubResource("AnimationLibrary_ayfj2")
 }
-autoplay = "RESET"
+autoplay = "reset_tut"

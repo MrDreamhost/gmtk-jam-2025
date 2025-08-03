@@ -166,7 +166,23 @@ position = Vector2(1122, 0)
 rotation = 3.14159
 
 [node name="ResizablePlatform6" parent="." instance=ExtResource("4_8jfgd")]
-position = Vector2(1326, 417)
+position = Vector2(1326, 468)
+
+[node name="DeathSpike4" parent="." instance=ExtResource("5_1af40")]
+position = Vector2(306, 264)
+rotation = -3.14159
+
+[node name="DeathSpike10" parent="." instance=ExtResource("5_1af40")]
+position = Vector2(408, 162)
+rotation = -3.14159
+
+[node name="DeathSpike13" parent="." instance=ExtResource("5_1af40")]
+position = Vector2(510, 60)
+rotation = -3.14159
+
+[node name="DeathSpike14" parent="." instance=ExtResource("5_1af40")]
+position = Vector2(612, -42)
+rotation = -3.14159
 
 [node name="MovingPlatform3" parent="." instance=ExtResource("6_5nyk4")]
 position = Vector2(1020, 111)
@@ -178,12 +194,12 @@ movement_trans = 2
 position = Vector2(51, 50)
 shape = SubResource("RectangleShape2D_3dpeq")
 
-[node name="Sprite2D3" type="Sprite2D" parent="MovingPlatform3"]
-position = Vector2(51, 145)
-texture = ExtResource("7_kitai")
-
 [node name="Sprite2D2" type="Sprite2D" parent="MovingPlatform3"]
 position = Vector2(51, 43)
+texture = ExtResource("7_kitai")
+
+[node name="Sprite2D3" type="Sprite2D" parent="MovingPlatform3"]
+position = Vector2(51, 145)
 texture = ExtResource("7_kitai")
 
 [node name="DeathSpike" parent="MovingPlatform3" instance=ExtResource("5_1af40")]
@@ -199,23 +215,7 @@ position = Vector2(102, 102)
 rotation = -4.71238
 
 [node name="ResizablePlatform7" parent="." instance=ExtResource("4_8jfgd")]
-position = Vector2(918, 417)
-
-[node name="DeathSpike" parent="ResizablePlatform7" instance=ExtResource("5_1af40")]
-position = Vector2(-612, -153)
-rotation = -3.14159
-
-[node name="DeathSpike2" parent="ResizablePlatform7" instance=ExtResource("5_1af40")]
-position = Vector2(-510, -255)
-rotation = -3.14159
-
-[node name="DeathSpike3" parent="ResizablePlatform7" instance=ExtResource("5_1af40")]
-position = Vector2(-408, -357)
-rotation = -3.14159
-
-[node name="DeathSpike4" parent="ResizablePlatform7" instance=ExtResource("5_1af40")]
-position = Vector2(-306, -459)
-rotation = -3.14159
+position = Vector2(918, 468)
 
 [node name="MovingPlatform" parent="." instance=ExtResource("6_5nyk4")]
 position = Vector2(1734, 1080)

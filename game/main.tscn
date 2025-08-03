@@ -1,7 +1,7 @@
 [gd_scene load_steps=176 format=3 uid="uid://d2iwwq2sfgujk"]
 
 [ext_resource type="Script" uid="uid://dflftgnlarl0a" path="res://game/main.gd" id="1_xtpaf"]
-[ext_resource type="PackedScene" uid="uid://d3eu8ibj2ld1b" path="res://level/level_01/level_01.tscn" id="2_vop5m"]
+[ext_resource type="PackedScene" uid="uid://cmvll42mba2tv" path="res://level/level_04/level_04.tscn" id="2_fhlij"]
 [ext_resource type="PackedScene" uid="uid://c0dapnlli3qqi" path="res://player/player.tscn" id="3_emt18"]
 [ext_resource type="Script" uid="uid://u358ownj470o" path="res://game/level_record_repository.gd" id="3_mriow"]
 [ext_resource type="Script" uid="uid://4det2vjn1nki" path="res://loop_system/replay_recorder.gd" id="4_vop5m"]
@@ -799,7 +799,7 @@ shader_parameter/color_bleed_weight = 0.2
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_xtpaf")
-inital_level = ExtResource("2_vop5m")
+inital_level = ExtResource("2_fhlij")
 shockwave_offset = Vector2(102, -240)
 
 [node name="LevelRecordRepository" type="Node" parent="."]
