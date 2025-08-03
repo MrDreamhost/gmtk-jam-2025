@@ -756,7 +756,6 @@ position = Vector2(204, 565)
 next_level_file = "uid://dslkeuxkcig4a"
 
 [node name="Vent" type="AnimatedSprite2D" parent="."]
-visible = false
 z_index = -2
 position = Vector2(918, 271)
 sprite_frames = SubResource("SpriteFrames_kyai0")
@@ -764,7 +763,6 @@ autoplay = "default"
 frame_progress = 0.989863
 
 [node name="Vent2" type="AnimatedSprite2D" parent="."]
-visible = false
 z_index = -2
 position = Vector2(766, 271)
 sprite_frames = SubResource("SpriteFrames_kyai0")
@@ -772,7 +770,6 @@ autoplay = "default"
 frame_progress = 0.989863
 
 [node name="Vent3" type="AnimatedSprite2D" parent="."]
-visible = false
 z_index = -2
 position = Vector2(1071, 271)
 sprite_frames = SubResource("SpriteFrames_kyai0")
