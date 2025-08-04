@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bdbp2qfs4v7kn"]
+[gd_scene load_steps=9 format=3 uid="uid://bdbp2qfs4v7kn"]
 
 [ext_resource type="Script" uid="uid://4ojolmisyail" path="res://ui/button.gd" id="1_fxfmk"]
 [ext_resource type="Theme" uid="uid://b0eq1tsqhebcn" path="res://ui/ui_theme.tres" id="1_p172q"]
@@ -7,39 +7,48 @@
 [ext_resource type="AudioStream" uid="uid://copb30blg65ol" path="res://assets/audio/sfx/hover.ogg" id="4_gcioa"]
 [ext_resource type="AudioStream" uid="uid://c25mg1nmg47lq" path="res://assets/audio/sfx/select_press.ogg" id="5_uan0n"]
 
-[node name="Button" type="Button" node_paths=PackedStringArray("sprite")]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -288.0
-offset_top = -58.0
-offset_right = 288.0
-offset_bottom = 58.0
-grow_horizontal = 2
-grow_vertical = 2
+[sub_resource type="AtlasTexture" id="AtlasTexture_p172q"]
+atlas = ExtResource("2_gcioa")
+region = Rect2(0, 39, 576, 116)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2h5bg"]
+atlas = ExtResource("3_uan0n")
+region = Rect2(0, 39, 576, 116)
+
+[node name="Button" type="TextureButton"]
+offset_right = 576.0
+offset_bottom = 116.0
 theme = ExtResource("1_p172q")
-text = "Back To Menu"
+texture_normal = SubResource("AtlasTexture_p172q")
+texture_focused = SubResource("AtlasTexture_2h5bg")
 script = ExtResource("1_fxfmk")
-sprite = NodePath("Sprite2D")
 texture_regular = ExtResource("2_gcioa")
-texture_hover = ExtResource("3_uan0n")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(288, 58)
-texture = ExtResource("2_gcioa")
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="HoverAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_gcioa")
 volume_db = -10.0
 bus = &"SFX"
 
-[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+[node name="SelectAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_uan0n")
 volume_db = -10.0
 bus = &"SFX"
 
+[node name="FocusBorderColorRect" type="ColorRect" parent="."]
+visible = false
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -5.0
+offset_top = -5.0
+offset_right = 5.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
 [connection signal="button_down" from="." to="." method="_on_button_down"]
-[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
+[connection signal="focus_exited" from="." to="." method="_on_focus_exited"]

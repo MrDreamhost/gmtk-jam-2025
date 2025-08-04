@@ -22,7 +22,7 @@ var spawned_ghosts: Array[PlayerGhost] = []
 var changed_spawn: bool = false
 var level_record := LevelRecordRepository.LevelRecord.new()
 var animated_timer_tween: Tween
-var is_transitioning := false
+
 
 
 # Called when the node enters the scene tree for the first time.
@@ -231,7 +231,6 @@ func transition_to_next_level(level_file: String) -> void:
 	current_level.queue_free()
 	var next_level := next_level_scene.instantiate() as Level
 	load_level.call_deferred(next_level)
-	is_transitioning = false
 	LevelTransition.play_fade_out()
 
 
@@ -251,17 +250,13 @@ func start_timer_reset_animation() -> void:
 
 
 func _on_level_complete_panel_next_level() -> void:
-	if not is_transitioning:
-		is_transitioning = true
-		level_complete_panel.play_slide_out_animation()
-		transition_to_next_level(next_level_file)
+	level_complete_panel.play_slide_out_animation()
+	transition_to_next_level(next_level_file)
 
 
 func _on_level_complete_panel_retry_level() -> void:
-	if not is_transitioning:
-		is_transitioning = true
-		level_complete_panel.play_slide_out_animation()
-		transition_to_next_level(current_level.scene_file_path)
+	level_complete_panel.play_slide_out_animation()
+	transition_to_next_level(current_level.scene_file_path)
 
 
 func _on_player_died() -> void:
@@ -282,3 +277,10 @@ func _on_animated_timer_area_body_exited(body: Node2D) -> void:
 			self.animated_timer_tween.kill()
 		self.animated_timer_tween = create_tween()
 		self.animated_timer_tween.tween_property(self.animated_timer, "modulate:a", 1.0, 0.2)
+
+
+static func grab_focus_silently(control: Control) -> void:
+	control.set_block_signals(true)
+	control.grab_focus()
+	#await control.get_tree().process_frame
+	control.set_block_signals(false)

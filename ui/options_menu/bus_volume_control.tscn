@@ -1,22 +1,29 @@
-[gd_scene load_steps=3 format=3 uid="uid://5vtebhia4h4d"]
+[gd_scene load_steps=5 format=3 uid="uid://5vtebhia4h4d"]
 
 [ext_resource type="Script" uid="uid://dpxw1ch2vuw3l" path="res://ui/options_menu/bus_volume_control.gd" id="1_lm8a4"]
+[ext_resource type="Theme" uid="uid://b0eq1tsqhebcn" path="res://ui/ui_theme.tres" id="1_n43va"]
 [ext_resource type="AudioStream" uid="uid://copb30blg65ol" path="res://assets/audio/sfx/hover.ogg" id="2_pf2i3"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_c58uv"]
+font_size = 40
+
 [node name="BusVolumeControl" type="HSplitContainer"]
-offset_right = 208.0
-offset_bottom = 28.0
+offset_right = 448.0
+offset_bottom = 32.0
+theme = ExtResource("1_n43va")
 theme_override_constants/separation = 8
 script = ExtResource("1_lm8a4")
+test_audio = ExtResource("2_pf2i3")
 
 [node name="Label" type="Label" parent="."]
 custom_minimum_size = Vector2(110, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 text = "Master Volume:"
+label_settings = SubResource("LabelSettings_c58uv")
 
 [node name="VolumeSlider" type="HSlider" parent="."]
-custom_minimum_size = Vector2(78, 0)
+custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
@@ -25,14 +32,6 @@ step = 0.01
 value = 0.51
 ticks_on_borders = true
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-volume_db = -10.0
-
-[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+[node name="TestAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_pf2i3")
 volume_db = -10.0
-bus = &"SFX"
-
-[connection signal="drag_ended" from="VolumeSlider" to="." method="_on_volume_slider_drag_ended"]
-[connection signal="mouse_entered" from="VolumeSlider" to="." method="_on_volume_slider_mouse_entered"]
-[connection signal="value_changed" from="VolumeSlider" to="." method="_on_volume_slider_value_changed"]

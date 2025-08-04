@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="SerpenTime"
+config/description="Your Time Machine is malfunctioning and resets itself every 5 seconds. It's even replaying your past movements!
+
+But such trivialities have never stopped Dr. Slithers from getting to his lunch. Maybe he can even use these faults to finally reach those pesky apples that were too high up before!"
 run/main_scene="uid://cn68mku3q7ybn"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/use_filter=false
 boot_splash/image="uid://bq1tigc1j4ein"
 config/icon="uid://dmc8ux3hpe4n7"
 config/windows_native_icon="res://assets/sprites/promo/icon.ico"
@@ -31,9 +35,8 @@ GlobalAudioManager="*res://game/audio_manager.tscn"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
-window/size/mode=3
-window/size/resizable=false
 window/stretch/mode="viewport"
+window/stretch/aspect="expand"
 
 [file_customization]
 

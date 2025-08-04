@@ -6,13 +6,16 @@ signal voice_finished()
 @onready var voice_player : AudioStreamPlayer = $VoiceLinePlayer
 
 
-func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("ui_cancel"):
-		if get_tree().root.get_child(2).name == "BootSplash":
-			return
-		var current_scene := get_tree().current_scene
-		if current_scene.scene_file_path != "res://ui/main_menu/main_menu.tscn":
-			LevelTransition.change_scene_to("res://ui/main_menu/main_menu.tscn")
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_cancel") and should_escape_to_main_menu():
+		LevelTransition.change_scene_to("res://ui/main_menu/main_menu.tscn")
+
+
+func should_escape_to_main_menu() -> bool:
+	var current_scene := get_tree().current_scene
+	var scene_file_path := current_scene.scene_file_path
+	return (scene_file_path != "res://ui/main_menu/main_menu.tscn" 
+		and scene_file_path != "res://ui/boot_splash/boot_splash.tscn")
 
 
 func start_level_music(level_name: String) -> void:

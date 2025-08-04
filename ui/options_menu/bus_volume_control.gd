@@ -1,39 +1,30 @@
 @tool
 extends Container
 
+enum Bus { 
+	MASTER = 0, MUSIC = 1, SFX = 2, VOICE = 3,
+}
 
 @export var bus: Bus = Bus.MASTER
 @export var test_audio: AudioStream
 
-@onready var hover_sound : AudioStreamPlayer = $AudioStreamPlayer2
-@onready var volume_slider = $VolumeSlider as HSlider
-
-enum Bus {
-	MASTER=0, MUSIC=1, SFX=2, VOICE=3
-}
-
+@onready var volume_slider: HSlider = $VolumeSlider
+@onready var test_audio_player: AudioStreamPlayer = $TestAudioStreamPlayer
+ 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$Label.text = AudioServer.get_bus_name(bus) + " Volume:"
-	$AudioStreamPlayer.stream = test_audio
-	$AudioStreamPlayer.bus = AudioServer.get_bus_name(bus)
-	
+	var bus_name := AudioServer.get_bus_name(bus)
+	$Label.text = "%s Volume:" % bus_name
+	test_audio_player.bus = bus_name
+	test_audio_player.stream = test_audio
 	volume_slider.value = db_to_linear(AudioServer.get_bus_volume_db(bus))
+	volume_slider.value_changed.connect(_on_volume_slider_value_changed)
 
 
 func _on_volume_slider_value_changed(value: float):
-	var muted = value <= volume_slider.min_value
+	var muted := value <= volume_slider.min_value
 	AudioServer.set_bus_volume_db(bus, linear_to_db(value))
 	AudioServer.set_bus_mute(bus, muted)
-	if(not $AudioStreamPlayer.playing):
-		$AudioStreamPlayer.play()
-
-
-func _on_volume_slider_drag_ended(value_changed: bool) -> void:
-	if bus == Bus.VOICE:
-		GlobalAudioManager.play_vo("test")
-
-
-func _on_volume_slider_mouse_entered() -> void:
-	hover_sound.play()
+	if is_node_ready() and not test_audio_player.playing:
+		test_audio_player.play()

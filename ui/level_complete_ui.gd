@@ -12,6 +12,9 @@ signal next_level()
 @onready var resets_value: Label = %ResetsValue
 @onready var loops_value: Label = %LoopsValue
 @onready var dev_record_value: Label = %DevRecordValue
+
+@onready var retry_button: TextureButton = %RetryButton
+@onready var next_level_button: TextureButton = %NextLevelButton
 @onready var game_width := get_viewport().get_visible_rect().size.x
 
 var slide_from_right_side := false
@@ -33,7 +36,10 @@ func set_data(_data: Data) -> void:
 
 
 func play_slide_in_from_side_animation(player_position: Vector2) -> void:
+	set_button_disabled(false)
 	visible = true
+	next_level_button.grab_focus()
+	
 	slide_from_right_side = player_position.x < (game_width / 2.0)
 	var slide_path_x := get_slide_path_x()
 	var tween := create_tween()
@@ -43,6 +49,7 @@ func play_slide_in_from_side_animation(player_position: Vector2) -> void:
 
 
 func play_slide_out_animation() -> void:
+	set_button_disabled(true)
 	var slide_path_x := get_slide_path_x()
 	var tween := create_tween()
 	tween.tween_property(self, "position:x", slide_path_x[1], slide_duration_sec) \
@@ -64,10 +71,18 @@ func get_slide_path_x() -> Vector2:
 
 
 func _on_next_level_button_pressed() -> void:
+	play_slide_out_animation()
 	next_level.emit()
+	
 
 func _on_retry_button_pressed() -> void:
+	play_slide_out_animation()
 	retry_level.emit()
+
+
+func set_button_disabled(_disabled: bool) -> void:
+	retry_button.disabled = _disabled
+	next_level_button.disabled = _disabled
 
 
 static func format_as_time(total_seconds: float) -> String:

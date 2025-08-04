@@ -1,16 +1,30 @@
-[gd_scene load_steps=12 format=3 uid="uid://btghplhgx1jj1"]
+[gd_scene load_steps=22 format=3 uid="uid://btghplhgx1jj1"]
 
 [ext_resource type="Theme" uid="uid://b0eq1tsqhebcn" path="res://ui/ui_theme.tres" id="1_4e78x"]
 [ext_resource type="Script" uid="uid://bffw8fr4hf7ou" path="res://ui/main_menu/main_menu.gd" id="1_mu8pm"]
-[ext_resource type="PackedScene" uid="uid://bdbp2qfs4v7kn" path="res://ui/button.tscn" id="3_3c04x"]
+[ext_resource type="PackedScene" uid="uid://siypltggnkg5" path="res://ui/button_audio_player.tscn" id="3_qao3l"]
 [ext_resource type="Texture2D" uid="uid://cfy67ff0ah58a" path="res://assets/sprites/promo/banner.png" id="3_s4pem"]
 [ext_resource type="Texture2D" uid="uid://bktpkl5qxrs3k" path="res://assets/sprites/UI/options.png" id="4_3c04x"]
 [ext_resource type="Texture2D" uid="uid://dypvk7xcy5kc0" path="res://assets/sprites/promo/serpentine.png" id="4_xio0d"]
 [ext_resource type="Texture2D" uid="uid://5x1qf4j8fgm7" path="res://assets/sprites/UI/options_hover.png" id="5_joh67"]
 [ext_resource type="Texture2D" uid="uid://c82bxer8y2ukb" path="res://assets/sprites/UI/credits.png" id="6_w2r0d"]
 [ext_resource type="Texture2D" uid="uid://cc5jge52nxmsk" path="res://assets/sprites/UI/credits_hover.png" id="7_4e78x"]
+[ext_resource type="Texture2D" uid="uid://dfa6jax1pb4ie" path="res://assets/sprites/UI/start_game_hover.png" id="7_qao3l"]
+[ext_resource type="Texture2D" uid="uid://qfjhluhfj1ha" path="res://assets/sprites/UI/start_game.png" id="8_4e78x"]
+[ext_resource type="Texture2D" uid="uid://qs7ox4ch44ss" path="res://assets/sprites/UI/button_focused_large.png" id="8_lknku"]
 [ext_resource type="Texture2D" uid="uid://b6qic5hude7l0" path="res://assets/sprites/UI/quit.png" id="8_s4pem"]
 [ext_resource type="Texture2D" uid="uid://drf1ue4jyqutt" path="res://assets/sprites/UI/quit_hover.png" id="9_xio0d"]
+[ext_resource type="Script" uid="uid://deacq2sppfw43" path="res://ui/options_menu/options_menu.gd" id="15_qewnw"]
+[ext_resource type="PackedScene" uid="uid://5vtebhia4h4d" path="res://ui/options_menu/bus_volume_control.tscn" id="17_db6af"]
+[ext_resource type="FontFile" uid="uid://dnnbp76wclplr" path="res://assets/fonts/fusion-pixel-10px-proportional-sc-latin-400-normal.woff2" id="20_3xnla"]
+[ext_resource type="Texture2D" uid="uid://d3sj6dtt6yxi6" path="res://assets/sprites/UI/next.png" id="21_ln2ma"]
+[ext_resource type="Texture2D" uid="uid://crq2dcns5hrev" path="res://assets/sprites/UI/next_over.png" id="22_5pot6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_abcvk"]
+atlas = ExtResource("21_ln2ma")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mrexm"]
+atlas = ExtResource("22_5pot6")
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -23,62 +37,279 @@ mouse_filter = 1
 theme = ExtResource("1_4e78x")
 script = ExtResource("1_mu8pm")
 
-[node name="BG" type="Sprite2D" parent="."]
-position = Vector2(1150, 540)
-scale = Vector2(2.4, 2.4)
-texture = ExtResource("3_s4pem")
+[node name="ButtonAudioPlayer" parent="." instance=ExtResource("3_qao3l")]
 
-[node name="SnakeSpawnLooper" type="TextureRect" parent="."]
+[node name="DarkenBackground" type="ColorRect" parent="."]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -292.0
-offset_top = -515.0
-offset_right = 375.0
-offset_bottom = -177.523
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+color = Color(0, 0, 0, 0.27451)
+metadata/_edit_lock_ = true
+
+[node name="Background" type="TextureRect" parent="DarkenBackground"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 600.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_s4pem")
+expand_mode = 1
+stretch_mode = 6
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[node name="MainMenuButtons" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.75
+anchor_top = 0.5
+anchor_right = 0.75
+anchor_bottom = 0.5
+offset_left = -298.0
+offset_top = -369.5
+offset_right = 298.0
+offset_bottom = 369.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+metadata/_edit_lock_ = true
+
+[node name="SnakeSpawnLooper" type="TextureRect" parent="MainMenuButtons"]
+layout_mode = 2
 texture = ExtResource("4_xio0d")
 stretch_mode = 4
 
-[node name="StartButton" parent="." instance=ExtResource("3_3c04x")]
-layout_mode = 1
-offset_left = -7.0
-offset_top = -81.0
-offset_right = 569.0
-offset_bottom = 35.0
+[node name="StartButton" type="TextureButton" parent="MainMenuButtons" groups=["start_focus"]]
+unique_name_in_owner = true
+layout_mode = 2
+focus_neighbor_top = NodePath("../QuitButton")
+focus_previous = NodePath("../QuitButton")
+theme = ExtResource("1_4e78x")
+texture_normal = ExtResource("8_4e78x")
+texture_hover = ExtResource("7_qao3l")
+texture_focused = ExtResource("8_lknku")
 
-[node name="OptionsButton" parent="." instance=ExtResource("3_3c04x")]
-layout_mode = 1
-offset_left = -7.0
-offset_top = 69.0
-offset_right = 569.0
-offset_bottom = 185.0
-texture_regular = ExtResource("4_3c04x")
+[node name="OptionsButton" type="TextureButton" parent="MainMenuButtons"]
+layout_mode = 2
+theme = ExtResource("1_4e78x")
+texture_normal = ExtResource("4_3c04x")
 texture_hover = ExtResource("5_joh67")
+texture_focused = ExtResource("8_lknku")
 
-[node name="CreditsButton" parent="." instance=ExtResource("3_3c04x")]
-layout_mode = 1
-offset_left = -7.0
-offset_top = 219.0
-offset_right = 569.0
-offset_bottom = 335.0
-texture_regular = ExtResource("6_w2r0d")
+[node name="CreditsButton" type="TextureButton" parent="MainMenuButtons"]
+layout_mode = 2
+theme = ExtResource("1_4e78x")
+texture_normal = ExtResource("6_w2r0d")
 texture_hover = ExtResource("7_4e78x")
+texture_focused = ExtResource("8_lknku")
 
-[node name="QuitButton" parent="." instance=ExtResource("3_3c04x")]
-layout_mode = 1
-offset_left = -7.0
-offset_top = 369.0
-offset_right = 569.0
-offset_bottom = 485.0
-texture_regular = ExtResource("8_s4pem")
+[node name="QuitButton" type="TextureButton" parent="MainMenuButtons"]
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../StartButton")
+focus_next = NodePath("../StartButton")
+theme = ExtResource("1_4e78x")
+texture_normal = ExtResource("8_s4pem")
 texture_hover = ExtResource("9_xio0d")
+texture_focused = ExtResource("8_lknku")
 
-[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="OptionsButton" to="." method="_on_options_button_pressed"]
-[connection signal="pressed" from="CreditsButton" to="." method="_on_credits_button_pressed"]
-[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
+[node name="OptionsPanel" type="PanelContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.75
+anchor_top = 0.5
+anchor_right = 0.75
+anchor_bottom = 0.5
+offset_left = -384.0
+offset_top = -267.0
+offset_right = 384.0
+offset_bottom = 267.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("15_qewnw")
+metadata/_edit_lock_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="OptionsPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = -68
+theme_override_constants/margin_top = -108
+theme_override_constants/margin_right = -68
+theme_override_constants/margin_bottom = -68
+
+[node name="VBoxContainer" type="VBoxContainer" parent="OptionsPanel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 60
+
+[node name="OptionsHeader" type="TextureRect" parent="OptionsPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("4_3c04x")
+stretch_mode = 3
+
+[node name="MasterBusVolumeControl" parent="OptionsPanel/MarginContainer/VBoxContainer" groups=["start_focus"] instance=ExtResource("17_db6af")]
+layout_mode = 2
+focus_neighbor_left = NodePath("../../BottomAnchor/BackButton")
+split_offset = 250
+dragging_enabled = false
+drag_area_highlight_in_editor = true
+
+[node name="MusicBusVolumeControl" parent="OptionsPanel/MarginContainer/VBoxContainer" instance=ExtResource("17_db6af")]
+layout_mode = 2
+focus_neighbor_left = NodePath("../../BottomAnchor/BackButton")
+split_offset = 250
+dragging_enabled = false
+drag_area_highlight_in_editor = true
+bus = 1
+
+[node name="SfxBusVolumeControl" parent="OptionsPanel/MarginContainer/VBoxContainer" instance=ExtResource("17_db6af")]
+layout_mode = 2
+focus_neighbor_left = NodePath("../../BottomAnchor/BackButton")
+split_offset = 250
+dragging_enabled = false
+drag_area_highlight_in_editor = true
+bus = 2
+
+[node name="VoiceBusVolumeControl" parent="OptionsPanel/MarginContainer/VBoxContainer" instance=ExtResource("17_db6af")]
+layout_mode = 2
+focus_neighbor_left = NodePath("../../BottomAnchor/BackButton")
+split_offset = 250
+dragging_enabled = false
+drag_area_highlight_in_editor = true
+bus = 3
+
+[node name="BottomAnchor" type="Control" parent="OptionsPanel/MarginContainer"]
+layout_mode = 2
+
+[node name="BackButton" type="TextureButton" parent="OptionsPanel/MarginContainer/BottomAnchor"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -271.0
+offset_top = -28.0
+offset_right = -86.0
+offset_bottom = 70.0
+grow_vertical = 0
+focus_neighbor_right = NodePath("../../VBoxContainer")
+focus_next = NodePath("../../VBoxContainer")
+focus_previous = NodePath("../../VBoxContainer")
+theme = ExtResource("1_4e78x")
+texture_normal = SubResource("AtlasTexture_abcvk")
+texture_focused = SubResource("AtlasTexture_mrexm")
+
+[node name="CreditsPanel" type="PanelContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.75
+anchor_top = 0.5
+anchor_right = 0.75
+anchor_bottom = 0.5
+offset_left = -384.0
+offset_top = -465.0
+offset_right = 384.0
+offset_bottom = 465.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="CreditsPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = -68
+theme_override_constants/margin_top = -118
+theme_override_constants/margin_right = -68
+theme_override_constants/margin_bottom = -108
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CreditsPanel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="CreditsHeader" type="TextureRect" parent="CreditsPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+texture = ExtResource("6_w2r0d")
+stretch_mode = 3
+
+[node name="ContributionTextBox" type="RichTextLabel" parent="CreditsPanel/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_neighbor_left = NodePath("../../BottomAnchor/BackButton")
+focus_next = NodePath(".")
+theme_override_fonts/normal_font = ExtResource("20_3xnla")
+theme_override_font_sizes/normal_font_size = 20
+text = "Art & SFX				-	Sheepy
+Design					-	Ashe \"Dreamhost\"
+Music					-	Farley Valens
+Programming				- 	ChrisGW, Daniel \"Yametsu\""
+fit_content = true
+
+[node name="CreditsTextBox" type="RichTextLabel" parent="CreditsPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+focus_neighbor_left = NodePath("../../BottomAnchor/BackButton")
+focus_previous = NodePath(".")
+theme_override_fonts/normal_font = ExtResource("20_3xnla")
+theme_override_font_sizes/normal_font_size = 20
+text = "With Assets by:
+sfx:
+\"Electrical Shock (Zap).wav\" by BigKahuna360
+\"Boing.flac\" by Hajisounds
+\"PlasticImpactB5.wav\" by jomse
+\"SCI-FI_DOOR_2\" by alexo400
+\"Toy Electronic Typewriter Return Lever\" by sprinkleCipher
+\"up5.wav\" by bumpelsnake
+\"Error Bleep 3\" by original_sound
+
+models:
+\"Vending Machine Coca Cola\" by Shivansh Singh
+\"Trophy\" by Urielgc
+\"Sphygmomanometer Low Poly\" by TheGiwi
+\"Ventilation Duct\" by Gunnar Correa
+\"Snake head\" by absol
+
+Full credits and links can be found in credits.txt"
+fit_content = true
+
+[node name="BottomAnchor" type="Control" parent="CreditsPanel/MarginContainer"]
+layout_mode = 2
+
+[node name="BackButton" type="TextureButton" parent="CreditsPanel/MarginContainer/BottomAnchor" groups=["start_focus"]]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -263.0
+offset_top = -68.0
+offset_right = -78.0
+offset_bottom = 30.0
+grow_vertical = 0
+focus_neighbor_right = NodePath("../../VBoxContainer")
+focus_next = NodePath("../../VBoxContainer")
+focus_previous = NodePath("../../VBoxContainer")
+theme = ExtResource("1_4e78x")
+texture_normal = SubResource("AtlasTexture_abcvk")
+texture_focused = SubResource("AtlasTexture_mrexm")
+
+[connection signal="button_down" from="MainMenuButtons/StartButton" to="MainMenuButtons/StartButton" method="_on_button_down"]
+[connection signal="focus_entered" from="MainMenuButtons/StartButton" to="MainMenuButtons/StartButton" method="_on_focus_entered"]
+[connection signal="focus_exited" from="MainMenuButtons/StartButton" to="MainMenuButtons/StartButton" method="_on_focus_exited"]
+[connection signal="pressed" from="MainMenuButtons/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="button_down" from="MainMenuButtons/OptionsButton" to="MainMenuButtons/OptionsButton" method="_on_button_down"]
+[connection signal="focus_entered" from="MainMenuButtons/OptionsButton" to="MainMenuButtons/OptionsButton" method="_on_focus_entered"]
+[connection signal="focus_exited" from="MainMenuButtons/OptionsButton" to="MainMenuButtons/OptionsButton" method="_on_focus_exited"]
+[connection signal="pressed" from="MainMenuButtons/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="button_down" from="MainMenuButtons/CreditsButton" to="MainMenuButtons/CreditsButton" method="_on_button_down"]
+[connection signal="focus_entered" from="MainMenuButtons/CreditsButton" to="MainMenuButtons/CreditsButton" method="_on_focus_entered"]
+[connection signal="focus_exited" from="MainMenuButtons/CreditsButton" to="MainMenuButtons/CreditsButton" method="_on_focus_exited"]
+[connection signal="pressed" from="MainMenuButtons/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="button_down" from="MainMenuButtons/QuitButton" to="MainMenuButtons/QuitButton" method="_on_button_down"]
+[connection signal="focus_entered" from="MainMenuButtons/QuitButton" to="MainMenuButtons/QuitButton" method="_on_focus_entered"]
+[connection signal="focus_exited" from="MainMenuButtons/QuitButton" to="MainMenuButtons/QuitButton" method="_on_focus_exited"]
+[connection signal="pressed" from="MainMenuButtons/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="OptionsPanel/MarginContainer/BottomAnchor/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="CreditsPanel/MarginContainer/BottomAnchor/BackButton" to="." method="_on_back_button_pressed"]

@@ -1,11 +1,19 @@
-[gd_scene load_steps=7 format=3 uid="uid://ccp26w53fo5x3"]
+[gd_scene load_steps=11 format=3 uid="uid://ccp26w53fo5x3"]
 
 [ext_resource type="Script" uid="uid://dko2yos7a75e1" path="res://ui/credits_menu/credits_menu.gd" id="1_brexn"]
 [ext_resource type="Theme" uid="uid://b0eq1tsqhebcn" path="res://ui/ui_theme.tres" id="1_eg47x"]
+[ext_resource type="PackedScene" uid="uid://siypltggnkg5" path="res://ui/button_audio_player.tscn" id="3_bmhfa"]
 [ext_resource type="Texture2D" uid="uid://cfy67ff0ah58a" path="res://assets/sprites/promo/banner.png" id="3_lhn7h"]
 [ext_resource type="FontFile" uid="uid://dnnbp76wclplr" path="res://assets/fonts/fusion-pixel-10px-proportional-sc-latin-400-normal.woff2" id="3_trgga"]
 [ext_resource type="Texture2D" uid="uid://c82bxer8y2ukb" path="res://assets/sprites/UI/credits.png" id="4_u672m"]
-[ext_resource type="PackedScene" uid="uid://bdbp2qfs4v7kn" path="res://ui/button.tscn" id="5_u672m"]
+[ext_resource type="Texture2D" uid="uid://d3sj6dtt6yxi6" path="res://assets/sprites/UI/next.png" id="7_bmhfa"]
+[ext_resource type="Texture2D" uid="uid://crq2dcns5hrev" path="res://assets/sprites/UI/next_over.png" id="8_ydxg7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3dj68"]
+atlas = ExtResource("7_bmhfa")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l6vi6"]
+atlas = ExtResource("8_ydxg7")
 
 [node name="CreditsMenu" type="Control"]
 layout_mode = 3
@@ -17,32 +25,80 @@ grow_vertical = 2
 theme = ExtResource("1_eg47x")
 script = ExtResource("1_brexn")
 
-[node name="BG" type="Sprite2D" parent="."]
-position = Vector2(1150, 540)
-scale = Vector2(2.4, 2.4)
+[node name="ButtonAudioPlayer" parent="." instance=ExtResource("3_bmhfa")]
+
+[node name="DarkenBackground" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.313726)
+metadata/_edit_lock_ = true
+
+[node name="Background" type="TextureRect" parent="DarkenBackground"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 600.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("3_lhn7h")
+expand_mode = 1
+stretch_mode = 6
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
-layout_mode = 0
-offset_left = 360.0
-offset_top = 140.0
-offset_right = 1560.0
-offset_bottom = 940.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.75
+anchor_top = 0.5
+anchor_right = 0.75
+anchor_bottom = 0.5
+offset_left = -358.0
+offset_top = -465.0
+offset_right = 358.0
+offset_bottom = 465.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="TextBox" type="RichTextLabel" parent="."]
-layout_mode = 0
-offset_left = 460.0
-offset_top = 300.0
-offset_right = 1460.0
-offset_bottom = 780.0
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = -68
+theme_override_constants/margin_top = -118
+theme_override_constants/margin_right = -68
+theme_override_constants/margin_bottom = -108
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="CreditsHeader" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+texture = ExtResource("4_u672m")
+stretch_mode = 3
+
+[node name="ContributionTextBox" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("3_trgga")
 theme_override_font_sizes/normal_font_size = 20
 text = "Art & SFX				-	Sheepy
 Design					-	Ashe \"Dreamhost\"
 Music					-	Farley Valens
-Programming				- 	ChrisGW, Daniel \"Yametsu\"
+Programming				- 	ChrisGW, Daniel \"Yametsu\""
+fit_content = true
 
-With Assets by:
+[node name="CreditsTextBox" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("3_trgga")
+theme_override_font_sizes/normal_font_size = 20
+text = "With Assets by:
 sfx:
 \"Electrical Shock (Zap).wav\" by BigKahuna360
 \"Boing.flac\" by Hajisounds
@@ -60,16 +116,27 @@ models:
 \"Snake head\" by absol
 
 Full credits and links can be found in credits.txt"
+fit_content = true
 
-[node name="Credits" type="Sprite2D" parent="."]
-position = Vector2(960, 220)
-texture = ExtResource("4_u672m")
+[node name="BottomAnchor" type="Control" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
 
-[node name="Button" parent="." instance=ExtResource("5_u672m")]
+[node name="BackButton" type="TextureButton" parent="PanelContainer/MarginContainer/BottomAnchor"]
+unique_name_in_owner = true
 layout_mode = 1
-offset_top = 260.0
-offset_bottom = 376.0
-texture_regular = null
-texture_hover = null
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -263.0
+offset_top = -68.0
+offset_right = -78.0
+offset_bottom = 30.0
+grow_vertical = 0
+theme = ExtResource("1_eg47x")
+texture_normal = SubResource("AtlasTexture_3dj68")
+texture_focused = SubResource("AtlasTexture_l6vi6")
 
-[connection signal="pressed" from="Button" to="." method="_on_back_to_menu_button_pressed"]
+[connection signal="button_down" from="PanelContainer/MarginContainer/BottomAnchor/BackButton" to="PanelContainer/MarginContainer/BottomAnchor/BackButton" method="_on_button_down"]
+[connection signal="focus_entered" from="PanelContainer/MarginContainer/BottomAnchor/BackButton" to="PanelContainer/MarginContainer/BottomAnchor/BackButton" method="_on_focus_entered"]
+[connection signal="focus_exited" from="PanelContainer/MarginContainer/BottomAnchor/BackButton" to="PanelContainer/MarginContainer/BottomAnchor/BackButton" method="_on_focus_exited"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/BottomAnchor/BackButton" to="." method="_on_back_to_menu_button_pressed"]

@@ -160,7 +160,12 @@ layout_mode = 2
 theme_override_constants/separation = 42
 
 [node name="RetryButton" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
+focus_neighbor_left = NodePath("../NextLevelButton")
+focus_neighbor_right = NodePath("../NextLevelButton")
+focus_next = NodePath("../NextLevelButton")
+focus_previous = NodePath("../NextLevelButton")
 texture_normal = ExtResource("8_ix8oe")
 texture_hover = ExtResource("9_64j5t")
 
@@ -169,7 +174,12 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="NextLevelButton" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
+focus_neighbor_left = NodePath("../RetryButton")
+focus_neighbor_right = NodePath("../RetryButton")
+focus_next = NodePath("../RetryButton")
+focus_previous = NodePath("../RetryButton")
 texture_normal = ExtResource("10_h1xfr")
 texture_hover = ExtResource("11_coac1")
 

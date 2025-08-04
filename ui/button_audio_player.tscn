@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://siypltggnkg5"]
+
+[ext_resource type="AudioStream" uid="uid://copb30blg65ol" path="res://assets/audio/sfx/hover.ogg" id="1_7ltf4"]
+[ext_resource type="AudioStream" uid="uid://c25mg1nmg47lq" path="res://assets/audio/sfx/select_press.ogg" id="2_abfoy"]
+[ext_resource type="Script" uid="uid://w0an5hk1rjg6" path="res://ui/button_audio.gd" id="3_ghm3d"]
+
+[node name="ButtonAudioPlayer" type="Node"]
+script = ExtResource("3_ghm3d")
+
+[node name="FocusedAudioPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_7ltf4")
+volume_db = -10.0
+
+[node name="PressedAudioPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_abfoy")
+volume_db = -10.0

@@ -1,10 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://cn68mku3q7ybn"]
 
-[ext_resource type="VideoStream" uid="uid://b3g0xp81ue1qx" path="res://assets/animated_splash.ogv" id="1_cd3cd"]
+[ext_resource type="VideoStream" path="res://assets/animated_splash.ogv" id="1_cd3cd"]
 [ext_resource type="Script" uid="uid://doo5jarjmdciq" path="res://ui/boot_splash/boot_splash.gd" id="1_mq0ok"]
 
-[node name="BootSplash" type="Control"]
-layout_mode = 3
+[node name="BootSplash" type="CenterContainer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -13,12 +12,7 @@ grow_vertical = 2
 script = ExtResource("1_mq0ok")
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
 stream = ExtResource("1_cd3cd")
 autoplay = true
 
