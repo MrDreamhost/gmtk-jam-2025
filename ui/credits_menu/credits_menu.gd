@@ -10,11 +10,14 @@ func _ready() -> void:
 
 
 func randomize_contribution_order() -> void:
-	var new_lines := ""
 	var lines := contribution_text_box.text.split("\n", false)
-	for line in lines:
-		randi() % lines.size()
+	var new_lines: Array[String] = []
+	new_lines.append_array(lines)
+	new_lines.shuffle()
+	contribution_text_box.text = new_lines.reduce(func(text, line): 
+		return text + "\n" + line, "")
 
 
 func _on_back_to_menu_button_pressed() -> void:
+	back_button.disabled = true
 	LevelTransition.change_scene_to("res://ui/main_menu/main_menu.tscn")

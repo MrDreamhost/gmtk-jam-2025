@@ -1,12 +1,12 @@
 class_name Player extends CharacterBody2D
 
-signal died()
+signal died
 
 @export var player_config: PlayerConfig = preload("res://player/player_config/player_config.tres")
 
 @onready var hurt_box: HurtBox = $HurtBox
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
-@onready var sfx_player: AudioStreamPlayer2D = $AudioStreamPlayer2D
+@onready var sfx_player: AudioStreamPlayer = $AudioStreamPlayer
 
 var coyote_timer: float = 0.0
 
@@ -37,6 +37,7 @@ func handle_respawn_when_dead() -> void:
 func handle_hit_received(damage: int) -> void:
 	print("Got damaged :( for %d DAMAGE" % damage)
 	%PlayerStateMachine.current_state.finished.emit(%PlayerStateMachine.states[PlayerStateMachine.DEAD])
+	died.emit()
 
 
 func update_coyote_timer(delta: float):

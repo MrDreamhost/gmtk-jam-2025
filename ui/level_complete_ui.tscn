@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cicrk0ag8ysnl"]
+[gd_scene load_steps=15 format=3 uid="uid://cicrk0ag8ysnl"]
 
 [ext_resource type="Theme" uid="uid://b0eq1tsqhebcn" path="res://ui/ui_theme.tres" id="1_vkikq"]
 [ext_resource type="Script" uid="uid://c8udi47mk61iq" path="res://ui/level_complete_ui.gd" id="2_m3tff"]
@@ -9,8 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://7sno3tes8su8" path="res://assets/sprites/UI/icons/0004.png" id="7_df24b"]
 [ext_resource type="Texture2D" uid="uid://c6ype3f6j10ol" path="res://assets/sprites/UI/retry.png" id="8_ix8oe"]
 [ext_resource type="Texture2D" uid="uid://n6npyn5er4m8" path="res://assets/sprites/UI/retry_hover.png" id="9_64j5t"]
+[ext_resource type="Texture2D" uid="uid://cqkxhx1k6ys8" path="res://assets/sprites/UI/button_focused_small.png" id="10_2fkw6"]
 [ext_resource type="Texture2D" uid="uid://d3sj6dtt6yxi6" path="res://assets/sprites/UI/next.png" id="10_h1xfr"]
-[ext_resource type="Texture2D" uid="uid://crq2dcns5hrev" path="res://assets/sprites/UI/next_over.png" id="11_coac1"]
+[ext_resource type="Texture2D" uid="uid://r0xsrbqnlx15" path="res://assets/sprites/UI/next_hover.png" id="12_2fkw6"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_oqr4f"]
 font_size = 90
@@ -168,6 +169,7 @@ focus_next = NodePath("../NextLevelButton")
 focus_previous = NodePath("../NextLevelButton")
 texture_normal = ExtResource("8_ix8oe")
 texture_hover = ExtResource("9_64j5t")
+texture_focused = ExtResource("10_2fkw6")
 
 [node name="Control" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -181,7 +183,8 @@ focus_neighbor_right = NodePath("../RetryButton")
 focus_next = NodePath("../RetryButton")
 focus_previous = NodePath("../RetryButton")
 texture_normal = ExtResource("10_h1xfr")
-texture_hover = ExtResource("11_coac1")
+texture_hover = ExtResource("12_2fkw6")
+texture_focused = ExtResource("10_2fkw6")
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/RetryButton" to="." method="_on_retry_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/NextLevelButton" to="." method="_on_next_level_button_pressed"]

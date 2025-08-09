@@ -15,4 +15,3 @@ func enter(_data := {}) -> void:
 	super()
 	self.player.play_sound("dead")
 	self.player.animated_sprite_2d.play("electrocute")
-	self.player.died.emit()

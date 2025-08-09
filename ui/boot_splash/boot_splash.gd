@@ -3,6 +3,8 @@ extends Control
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	if OS.is_debug_build():
+		_on_video_stream_player_finished()
 
 
 func _on_video_stream_player_finished() -> void:

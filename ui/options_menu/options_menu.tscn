@@ -1,11 +1,28 @@
-[gd_scene load_steps=7 format=3 uid="uid://c5dup0yppydhr"]
+[gd_scene load_steps=15 format=3 uid="uid://c5dup0yppydhr"]
 
 [ext_resource type="Script" uid="uid://deacq2sppfw43" path="res://ui/options_menu/options_menu.gd" id="1_cobfr"]
 [ext_resource type="Theme" uid="uid://b0eq1tsqhebcn" path="res://ui/ui_theme.tres" id="1_kx268"]
 [ext_resource type="PackedScene" uid="uid://5vtebhia4h4d" path="res://ui/options_menu/bus_volume_control.tscn" id="2_8h7tm"]
 [ext_resource type="Texture2D" uid="uid://cfy67ff0ah58a" path="res://assets/sprites/promo/banner.png" id="3_1ubxx"]
 [ext_resource type="Texture2D" uid="uid://bktpkl5qxrs3k" path="res://assets/sprites/UI/options.png" id="3_wakw5"]
-[ext_resource type="PackedScene" uid="uid://bdbp2qfs4v7kn" path="res://ui/button.tscn" id="5_tjtux"]
+[ext_resource type="Texture2D" uid="uid://d3sj6dtt6yxi6" path="res://assets/sprites/UI/next.png" id="5_wakw5"]
+[ext_resource type="Texture2D" uid="uid://r0xsrbqnlx15" path="res://assets/sprites/UI/next_hover.png" id="7_jyblu"]
+[ext_resource type="Texture2D" uid="uid://cqkxhx1k6ys8" path="res://assets/sprites/UI/button_focused_small.png" id="8_6s18u"]
+[ext_resource type="Script" uid="uid://w0an5hk1rjg6" path="res://ui/button_audio.gd" id="8_21oyd"]
+[ext_resource type="AudioStream" uid="uid://copb30blg65ol" path="res://assets/audio/sfx/hover.ogg" id="9_sk6u8"]
+[ext_resource type="AudioStream" uid="uid://c25mg1nmg47lq" path="res://assets/audio/sfx/select_press.ogg" id="10_jyblu"]
+[ext_resource type="Shader" uid="uid://cbtgoxf3ecchm" path="res://assets/shaders/CRT.gdshader" id="12_6s18u"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_jyblu"]
+color = Color(0.294118, 0.568627, 0.803922, 1)
+thickness = 8
+vertical = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kg7lv"]
+shader = ExtResource("12_6s18u")
+shader_parameter/screen_resolution = Vector2(480, 270)
+shader_parameter/scanline_intensity = 0.03
+shader_parameter/color_bleed_weight = 0.2
 
 [node name="OptionsMenu" type="Control"]
 layout_mode = 3
@@ -14,72 +31,132 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 theme = ExtResource("1_kx268")
 script = ExtResource("1_cobfr")
 
-[node name="BG" type="Sprite2D" parent="."]
-position = Vector2(1150, 540)
-scale = Vector2(2.4, 2.4)
-texture = ExtResource("3_1ubxx")
-
-[node name="TabContainer" type="PanelContainer" parent="."]
+[node name="DarkenBackground" type="ColorRect" parent="."]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_top = -350.0
-offset_right = 800.0
-offset_bottom = 350.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.27451)
+metadata/_edit_lock_ = true
 
-[node name="Options" type="Sprite2D" parent="TabContainer"]
-position = Vector2(400, 70)
-texture = ExtResource("3_wakw5")
-
-[node name="Button" parent="." instance=ExtResource("5_tjtux")]
+[node name="Background" type="TextureRect" parent="DarkenBackground"]
+show_behind_parent = true
 layout_mode = 1
-offset_left = 113.0
-offset_top = 217.0
-offset_right = 689.0
-offset_bottom = 333.0
-texture_regular = null
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 600.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("3_1ubxx")
+expand_mode = 1
+stretch_mode = 6
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 2
-offset_left = 1010.0
-offset_top = 390.0
-offset_right = 1710.0
-offset_bottom = 704.0
-theme_override_constants/separation = 50
+[node name="OptionsPanel" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.75
+anchor_top = 0.5
+anchor_right = 0.75
+anchor_bottom = 0.5
+offset_left = -384.0
+offset_top = -267.0
+offset_right = 384.0
+offset_bottom = 267.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
 
-[node name="MasterBusVolumeControl" parent="VBoxContainer" instance=ExtResource("2_8h7tm")]
+[node name="MarginContainer" type="MarginContainer" parent="OptionsPanel"]
 layout_mode = 2
-split_offset = 250
-dragging_enabled = false
-drag_area_highlight_in_editor = true
+theme_override_constants/margin_left = -68
+theme_override_constants/margin_top = -108
+theme_override_constants/margin_right = -68
+theme_override_constants/margin_bottom = -68
 
-[node name="MusicBusVolumeControl" parent="VBoxContainer" instance=ExtResource("2_8h7tm")]
+[node name="VBoxContainer" type="VBoxContainer" parent="OptionsPanel/MarginContainer"]
 layout_mode = 2
-split_offset = 250
-dragging_enabled = false
-drag_area_highlight_in_editor = true
+theme_override_constants/separation = 30
+
+[node name="OptionsHeader" type="TextureRect" parent="OptionsPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("3_wakw5")
+stretch_mode = 3
+
+[node name="MasterBusVolumeControl" parent="OptionsPanel/MarginContainer/VBoxContainer" instance=ExtResource("2_8h7tm")]
+unique_name_in_owner = true
+layout_mode = 2
+skip_first_focus_change = true
+
+[node name="MusicBusVolumeControl" parent="OptionsPanel/MarginContainer/VBoxContainer" instance=ExtResource("2_8h7tm")]
+layout_mode = 2
 bus = 1
 
-[node name="SfxBusVolumeControl" parent="VBoxContainer" instance=ExtResource("2_8h7tm")]
+[node name="SfxBusVolumeControl" parent="OptionsPanel/MarginContainer/VBoxContainer" instance=ExtResource("2_8h7tm")]
 layout_mode = 2
-split_offset = 250
-dragging_enabled = false
-drag_area_highlight_in_editor = true
 bus = 2
 
-[node name="VoiceBusVolumeControl2" parent="VBoxContainer" instance=ExtResource("2_8h7tm")]
+[node name="VoiceBusVolumeControl" parent="OptionsPanel/MarginContainer/VBoxContainer" instance=ExtResource("2_8h7tm")]
 layout_mode = 2
-split_offset = 250
-dragging_enabled = false
-drag_area_highlight_in_editor = true
 bus = 3
 
-[connection signal="pressed" from="Button" to="." method="_on_back_to_menu_button_pressed"]
+[node name="CrtCheckButton" type="CheckButton" parent="OptionsPanel/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_neighbor_left = NodePath("../../BottomAnchor/BackButton")
+focus_neighbor_bottom = NodePath("../../BottomAnchor/BackButton")
+focus_next = NodePath("../../BottomAnchor/BackButton")
+theme_override_styles/focus = SubResource("StyleBoxLine_jyblu")
+text = " Enable CRT Filter:"
+
+[node name="BottomAnchor" type="Control" parent="OptionsPanel/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="BackButton" type="TextureButton" parent="OptionsPanel/MarginContainer/BottomAnchor"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -271.0
+offset_top = -28.0
+offset_right = -86.0
+offset_bottom = 70.0
+grow_vertical = 0
+focus_neighbor_right = NodePath("../../VBoxContainer/CrtCheckButton")
+focus_next = NodePath("../../VBoxContainer/MasterBusVolumeControl")
+focus_previous = NodePath("../../VBoxContainer/CrtCheckButton")
+theme = ExtResource("1_kx268")
+texture_normal = ExtResource("5_wakw5")
+texture_hover = ExtResource("7_jyblu")
+texture_focused = ExtResource("8_6s18u")
+script = ExtResource("8_21oyd")
+focused_sound = ExtResource("9_sk6u8")
+presed_sound = ExtResource("10_jyblu")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="CRT" type="ColorRect" parent="CanvasLayer"]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_kg7lv")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.662928, 0.165793, 0.165793, 1)
+
+[connection signal="toggled" from="OptionsPanel/MarginContainer/VBoxContainer/CrtCheckButton" to="." method="_on_crt_check_button_toggled"]
+[connection signal="pressed" from="OptionsPanel/MarginContainer/BottomAnchor/BackButton" to="." method="_on_back_button_pressed"]

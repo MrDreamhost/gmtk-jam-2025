@@ -74,6 +74,8 @@ animations = [{
 radius = 47.1699
 
 [node name="GoalZone" type="Area2D" groups=["goal_zone"]]
+collision_layer = 0
+collision_mask = 2
 script = ExtResource("1_e63y6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

@@ -181,7 +181,7 @@ size = Vector2(79, 125.75)
 
 [node name="VictoryPlayer" type="RigidBody2D"]
 process_mode = 3
-collision_layer = 0
+collision_layer = 2
 lock_rotation = true
 linear_damp = 2.0
 

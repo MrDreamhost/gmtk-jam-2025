@@ -1,19 +1,14 @@
-[gd_scene load_steps=11 format=3 uid="uid://ccp26w53fo5x3"]
+[gd_scene load_steps=10 format=3 uid="uid://ccp26w53fo5x3"]
 
 [ext_resource type="Script" uid="uid://dko2yos7a75e1" path="res://ui/credits_menu/credits_menu.gd" id="1_brexn"]
 [ext_resource type="Theme" uid="uid://b0eq1tsqhebcn" path="res://ui/ui_theme.tres" id="1_eg47x"]
-[ext_resource type="PackedScene" uid="uid://siypltggnkg5" path="res://ui/button_audio_player.tscn" id="3_bmhfa"]
 [ext_resource type="Texture2D" uid="uid://cfy67ff0ah58a" path="res://assets/sprites/promo/banner.png" id="3_lhn7h"]
 [ext_resource type="FontFile" uid="uid://dnnbp76wclplr" path="res://assets/fonts/fusion-pixel-10px-proportional-sc-latin-400-normal.woff2" id="3_trgga"]
 [ext_resource type="Texture2D" uid="uid://c82bxer8y2ukb" path="res://assets/sprites/UI/credits.png" id="4_u672m"]
 [ext_resource type="Texture2D" uid="uid://d3sj6dtt6yxi6" path="res://assets/sprites/UI/next.png" id="7_bmhfa"]
-[ext_resource type="Texture2D" uid="uid://crq2dcns5hrev" path="res://assets/sprites/UI/next_over.png" id="8_ydxg7"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3dj68"]
-atlas = ExtResource("7_bmhfa")
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_l6vi6"]
-atlas = ExtResource("8_ydxg7")
+[ext_resource type="Texture2D" uid="uid://r0xsrbqnlx15" path="res://assets/sprites/UI/next_hover.png" id="7_ydxg7"]
+[ext_resource type="Texture2D" uid="uid://cqkxhx1k6ys8" path="res://assets/sprites/UI/button_focused_small.png" id="8_3dj68"]
+[ext_resource type="Script" uid="uid://w0an5hk1rjg6" path="res://ui/button_audio.gd" id="9_ydxg7"]
 
 [node name="CreditsMenu" type="Control"]
 layout_mode = 3
@@ -22,10 +17,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 theme = ExtResource("1_eg47x")
 script = ExtResource("1_brexn")
-
-[node name="ButtonAudioPlayer" parent="." instance=ExtResource("3_bmhfa")]
 
 [node name="DarkenBackground" type="ColorRect" parent="."]
 layout_mode = 1
@@ -34,6 +28,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0, 0, 0, 0.313726)
 metadata/_edit_lock_ = true
 
@@ -46,6 +41,7 @@ anchor_bottom = 1.0
 offset_right = 600.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 texture = ExtResource("3_lhn7h")
 expand_mode = 1
 stretch_mode = 6
@@ -120,6 +116,7 @@ fit_content = true
 
 [node name="BottomAnchor" type="Control" parent="PanelContainer/MarginContainer"]
 layout_mode = 2
+mouse_filter = 1
 
 [node name="BackButton" type="TextureButton" parent="PanelContainer/MarginContainer/BottomAnchor"]
 unique_name_in_owner = true
@@ -133,10 +130,9 @@ offset_right = -78.0
 offset_bottom = 30.0
 grow_vertical = 0
 theme = ExtResource("1_eg47x")
-texture_normal = SubResource("AtlasTexture_3dj68")
-texture_focused = SubResource("AtlasTexture_l6vi6")
+texture_normal = ExtResource("7_bmhfa")
+texture_hover = ExtResource("7_ydxg7")
+texture_focused = ExtResource("8_3dj68")
+script = ExtResource("9_ydxg7")
 
-[connection signal="button_down" from="PanelContainer/MarginContainer/BottomAnchor/BackButton" to="PanelContainer/MarginContainer/BottomAnchor/BackButton" method="_on_button_down"]
-[connection signal="focus_entered" from="PanelContainer/MarginContainer/BottomAnchor/BackButton" to="PanelContainer/MarginContainer/BottomAnchor/BackButton" method="_on_focus_entered"]
-[connection signal="focus_exited" from="PanelContainer/MarginContainer/BottomAnchor/BackButton" to="PanelContainer/MarginContainer/BottomAnchor/BackButton" method="_on_focus_exited"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/BottomAnchor/BackButton" to="." method="_on_back_to_menu_button_pressed"]

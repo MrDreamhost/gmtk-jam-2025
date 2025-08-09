@@ -56,6 +56,14 @@ sprite_frames = ExtResource("3_hg6s5")
 animation = &"eat_loop"
 frame_progress = 0.929177
 
+[node name="AudioListener2D" type="AudioListener2D" parent="."]
+current = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("172_ciuuh")
+volume_db = -10.0
+bus = &"SFX"
+
 [node name="PlayerStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 unique_name_in_owner = true
 script = ExtResource("46_j55il")
@@ -77,11 +85,3 @@ metadata/_custom_type_script = "uid://bx3htol1unu61"
 [node name="Dead" type="Node" parent="PlayerStateMachine"]
 script = ExtResource("49_w7j2h")
 metadata/_custom_type_script = "uid://dqsoii2pg2nsu"
-
-[node name="AudioListener2D" type="AudioListener2D" parent="."]
-current = true
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("172_ciuuh")
-volume_db = -10.0
-bus = &"SFX"

@@ -1,14 +1,43 @@
-[gd_resource type="Theme" load_steps=10 format=3 uid="uid://b0eq1tsqhebcn"]
+[gd_resource type="Theme" load_steps=14 format=3 uid="uid://b0eq1tsqhebcn"]
 
 [ext_resource type="StyleBox" uid="uid://bsennm01v4jtp" path="res://ui/style_boxes/empty.tres" id="1_udl1o"]
 [ext_resource type="StyleBox" uid="uid://necisk0tyen1" path="res://ui/style_boxes/panel.tres" id="2_4mq11"]
 [ext_resource type="Texture2D" uid="uid://b6e6ot3sbwdhv" path="res://assets/sprites/UI/Scroll/grabber.png" id="2_bp0j3"]
 [ext_resource type="Texture2D" uid="uid://c6v4v3ch5gasx" path="res://assets/sprites/UI/Scroll/grabber_highlight.png" id="3_cnyj1"]
+[ext_resource type="Texture2D" uid="uid://bxwh3reuqx48b" path="res://assets/sprites/UI/CheckButton/check_button_checked.png" id="3_pw6hc"]
 [ext_resource type="Texture2D" uid="uid://ujpjy6hmqqk1" path="res://assets/sprites/UI/Scroll/tick.png" id="4_cnyj1"]
+[ext_resource type="Texture2D" uid="uid://csa3wkwvcm6ro" path="res://assets/sprites/UI/CheckButton/check_button_unchecked.png" id="4_cw0uh"]
 [ext_resource type="StyleBox" uid="uid://byp1hdm7nmoxp" path="res://ui/style_boxes/grabber_area.tres" id="5_kbk24"]
 [ext_resource type="StyleBox" uid="uid://cjd7wcvlxjt1c" path="res://ui/style_boxes/grabber_area_focused.tres" id="6_mbvn8"]
 [ext_resource type="StyleBox" uid="uid://bbqa624crg37m" path="res://ui/style_boxes/slider.tres" id="7_o52aa"]
 [ext_resource type="FontFile" uid="uid://c8lo3n7ebaxy8" path="res://assets/fonts/Bitrimus.ttf" id="8_t73vd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u4q1l"]
+content_margin_left = 6.0
+content_margin_top = 4.0
+content_margin_right = 6.0
+content_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_340u4"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.75)
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
 
 [resource]
 Button/colors/font_color = Color(0.811765, 0.811765, 0.811765, 1)
@@ -20,12 +49,33 @@ Button/styles/focus = ExtResource("1_udl1o")
 Button/styles/hover = ExtResource("1_udl1o")
 Button/styles/normal = ExtResource("1_udl1o")
 Button/styles/pressed = ExtResource("1_udl1o")
+CheckButton/colors/font_color = Color(0.811765, 0.811765, 0.811765, 1)
+CheckButton/colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
+CheckButton/colors/font_focus_color = Color(1, 1, 1, 1)
+CheckButton/colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+CheckButton/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+CheckButton/colors/font_outline_color = Color(0, 0, 0, 1)
+CheckButton/colors/font_pressed_color = Color(1, 1, 1, 1)
+CheckButton/constants/check_v_offset = 0
+CheckButton/constants/h_separation = 4
+CheckButton/constants/outline_size = 0
+CheckButton/font_sizes/font_size = 50
+CheckButton/fonts/font = ExtResource("8_t73vd")
+CheckButton/icons/checked = ExtResource("3_pw6hc")
+CheckButton/icons/unchecked = ExtResource("4_cw0uh")
+CheckButton/styles/disabled = SubResource("StyleBoxEmpty_u4q1l")
+CheckButton/styles/focus = SubResource("StyleBoxFlat_340u4")
+CheckButton/styles/hover = SubResource("StyleBoxEmpty_u4q1l")
+CheckButton/styles/hover_pressed = SubResource("StyleBoxEmpty_u4q1l")
+CheckButton/styles/normal = SubResource("StyleBoxEmpty_u4q1l")
+CheckButton/styles/pressed = SubResource("StyleBoxEmpty_u4q1l")
 HSlider/icons/grabber = ExtResource("2_bp0j3")
 HSlider/icons/grabber_highlight = ExtResource("3_cnyj1")
 HSlider/icons/tick = ExtResource("4_cnyj1")
 HSlider/styles/grabber_area = ExtResource("5_kbk24")
 HSlider/styles/grabber_area_highlight = ExtResource("6_mbvn8")
 HSlider/styles/slider = ExtResource("7_o52aa")
+Label/colors/font_color = Color(1, 1, 1, 1)
 Label/font_sizes/font_size = 50
 Label/fonts/font = ExtResource("8_t73vd")
 PanelContainer/styles/panel = ExtResource("2_4mq11")

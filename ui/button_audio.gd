@@ -1,28 +1,40 @@
-extends Node
+extends BaseButton
 
-@export var skip_first_focus_change := true
-
-@onready var focused_audio_player: AudioStreamPlayer = $FocusedAudioPlayer
-@onready var pressed_audio_player: AudioStreamPlayer = $PressedAudioPlayer
+@export var skip_first_focus_change := false
+@export var volume_db: float = -10.0
+@export var focused_sound: AudioStream
+@export var presed_sound: AudioStream
 
 
 func _ready() -> void:
-	get_viewport().gui_focus_changed.connect(_on_gui_focus_changed)
+	self.mouse_entered.connect(_on_mouse_entered)
+	self.focus_entered.connect(_on_focus_entered)
+	self.button_down.connect(_on_pressed)
 
 
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_accept"):
-		var focuse_owner := get_viewport().gui_get_focus_owner()
-		if should_play_audio_for(focuse_owner):
-			pressed_audio_player.play()
+func _on_mouse_entered() -> void:
+	grab_focus()
 
 
-func _on_gui_focus_changed(node: Control) -> void:
+func _on_focus_entered() -> void:
 	if skip_first_focus_change:
 		skip_first_focus_change = false
-	elif should_play_audio_for(node):
-		focused_audio_player.play()
+		return
+	print("_on_focus_entered sound" + str(self.name))
+	var audio_stream_player := AudioStreamPlayer.new()
+	audio_stream_player.bus = AudioServer.get_bus_name(BusVolumeControl.Bus.SFX)
+	audio_stream_player.stream = focused_sound
+	audio_stream_player.volume_db = volume_db
+	audio_stream_player.finished.connect(audio_stream_player.queue_free)
+	add_child(audio_stream_player)
+	audio_stream_player.play()
 
 
-func should_play_audio_for(node: Control) -> bool:
-	return node is BaseButton
+func _on_pressed() -> void:
+	var audio_stream_player := AudioStreamPlayer.new()
+	audio_stream_player.bus = AudioServer.get_bus_name(BusVolumeControl.Bus.SFX)
+	audio_stream_player.stream = presed_sound
+	audio_stream_player.volume_db = volume_db
+	audio_stream_player.finished.connect(audio_stream_player.queue_free)
+	add_child(audio_stream_player)
+	audio_stream_player.play()

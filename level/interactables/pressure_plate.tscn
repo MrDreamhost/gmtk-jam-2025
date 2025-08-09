@@ -40,6 +40,8 @@ animations = [{
 }]
 
 [node name="PressurePlate" type="Area2D" groups=["resettable"]]
+collision_layer = 0
+collision_mask = 2
 script = ExtResource("1_5bdot")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

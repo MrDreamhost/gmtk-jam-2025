@@ -31,6 +31,7 @@ func _ready() -> void:
 		self.inital_level = LevelTransition.furthest_level
 	self.load_level(self.inital_level.instantiate())
 	self.level_complete_panel.visible = false
+	$CrtCanvasLayer.visible = GlobalAudioManager.crt_enabled
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -115,6 +116,7 @@ func load_level(level: Level) -> void:
 	var current_spawn := self.current_level.spawn_point
 	current_spawn.loop_timer = loop_timer
 	self.reset_level()
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
 	self.level_record = LevelRecordRepository.LevelRecord.new()
 	self.level_record.level_file = level.scene_file_path
@@ -201,6 +203,7 @@ func _on_goal_reached(_next_level_file: String) -> void:
 	
 	level_complete_panel.set_data(data)
 	level_complete_panel.play_slide_in_from_side_animation(player.global_position)
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 	GlobalAudioManager.start_level_music("victory")
 	GlobalAudioManager.play_vo(current_level.name)
@@ -251,11 +254,13 @@ func start_timer_reset_animation() -> void:
 
 func _on_level_complete_panel_next_level() -> void:
 	level_complete_panel.play_slide_out_animation()
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	transition_to_next_level(next_level_file)
 
 
 func _on_level_complete_panel_retry_level() -> void:
 	level_complete_panel.play_slide_out_animation()
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	transition_to_next_level(current_level.scene_file_path)
 
 
@@ -277,10 +282,3 @@ func _on_animated_timer_area_body_exited(body: Node2D) -> void:
 			self.animated_timer_tween.kill()
 		self.animated_timer_tween = create_tween()
 		self.animated_timer_tween.tween_property(self.animated_timer, "modulate:a", 1.0, 0.2)
-
-
-static func grab_focus_silently(control: Control) -> void:
-	control.set_block_signals(true)
-	control.grab_focus()
-	#await control.get_tree().process_frame
-	control.set_block_signals(false)
