@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dwh7chwhvvwlt"]
+[gd_scene load_steps=15 format=3 uid="uid://dwh7chwhvvwlt"]
 
 [ext_resource type="Script" uid="uid://cr5paax0qa013" path="res://level/level_02/level_02.gd" id="1_74o37"]
 [ext_resource type="PackedScene" uid="uid://bcujsflu4nqbn" path="res://loop_system/spawn_point.tscn" id="2_ijggo"]
@@ -11,15 +11,168 @@
 [ext_resource type="Texture2D" uid="uid://dj5rkfkdh4tyg" path="res://assets/sprites/props/vending machine.png" id="9_gbrfs"]
 [ext_resource type="FontFile" uid="uid://c8lo3n7ebaxy8" path="res://assets/fonts/Bitrimus.ttf" id="10_anv74"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_si3cn"]
-size = Vector2(20, 1100)
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_anv74"]
+normal = Vector2(1, 0)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wteuf"]
-size = Vector2(1960, 20)
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_5ipn6"]
+normal = Vector2(-1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_rkqti"]
+normal = Vector2(0, 1)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_cimcv"]
 
 [node name="Level06" type="Node2D" node_paths=PackedStringArray("spawn_point")]
 script = ExtResource("1_74o37")
 spawn_point = NodePath("SpawnPoint")
+metadata/_edit_lock_ = true
+
+[node name="Bg" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(960, 540)
+texture = ExtResource("8_e2a5p")
+metadata/_edit_lock_ = true
+
+[node name="WorldBoundaries" type="StaticBody2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="Wall Left" type="CollisionShape2D" parent="WorldBoundaries"]
+position = Vector2(0, 540)
+shape = SubResource("WorldBoundaryShape2D_anv74")
+
+[node name="Wall Right" type="CollisionShape2D" parent="WorldBoundaries"]
+position = Vector2(1920, 540)
+shape = SubResource("WorldBoundaryShape2D_5ipn6")
+
+[node name="Ceiling" type="CollisionShape2D" parent="WorldBoundaries"]
+position = Vector2(960, 0)
+shape = SubResource("WorldBoundaryShape2D_rkqti")
+
+[node name="Floor" type="CollisionShape2D" parent="WorldBoundaries"]
+position = Vector2(960, 1080)
+shape = SubResource("WorldBoundaryShape2D_cimcv")
+
+[node name="Platforms" type="Node2D" parent="."]
+
+[node name="ResizablePlatform" parent="Platforms" instance=ExtResource("4_lug6y")]
+position = Vector2(0, 774)
+width_in_pixel = 408
+width_in_tile = 4
+
+[node name="ResizablePlatform22" parent="Platforms" instance=ExtResource("4_lug6y")]
+position = Vector2(0, 468)
+width_in_pixel = 408
+width_in_tile = 4
+
+[node name="ResizablePlatform18" parent="Platforms" instance=ExtResource("4_lug6y")]
+position = Vector2(1326, 774)
+width_in_pixel = 612
+width_in_tile = 6
+
+[node name="ResizablePlatform3" parent="Platforms" instance=ExtResource("4_lug6y")]
+position = Vector2(408, 1080)
+
+[node name="ResizablePlatform24" parent="Platforms" instance=ExtResource("4_lug6y")]
+position = Vector2(408, 468)
+
+[node name="ResizablePlatform25" parent="Platforms" instance=ExtResource("4_lug6y")]
+position = Vector2(408, 366)
+
+[node name="ResizablePlatform26" parent="Platforms" instance=ExtResource("4_lug6y")]
+position = Vector2(408, 264)
+
+[node name="ResizablePlatform28" parent="Platforms" instance=ExtResource("4_lug6y")]
+position = Vector2(408, 162)
+
+[node name="ResizablePlatform27" parent="Platforms" instance=ExtResource("4_lug6y")]
+position = Vector2(408, 60)
+
+[node name="ResizablePlatform4" parent="Platforms" instance=ExtResource("4_lug6y")]
+position = Vector2(408, 978)
+
+[node name="ResizablePlatform5" parent="Platforms" instance=ExtResource("4_lug6y")]
+position = Vector2(408, 876)
+
+[node name="ResizablePlatform6" parent="Platforms" instance=ExtResource("4_lug6y")]
+position = Vector2(408, 774)
+
+[node name="ResizablePlatform23" parent="Platforms" instance=ExtResource("4_lug6y")]
+position = Vector2(408, 774)
+
+[node name="ResizablePlatform8" parent="Platforms" instance=ExtResource("4_lug6y")]
+position = Vector2(1122, 1080)
+
+[node name="ResizablePlatform9" parent="Platforms" instance=ExtResource("4_lug6y")]
+position = Vector2(1122, 978)
+
+[node name="ResizablePlatform10" parent="Platforms" instance=ExtResource("4_lug6y")]
+position = Vector2(1122, 876)
+
+[node name="ResizablePlatform11" parent="Platforms" instance=ExtResource("4_lug6y")]
+position = Vector2(1122, 774)
+width_in_pixel = 204
+width_in_tile = 2
+
+[node name="ResizablePlatform12" parent="Platforms" instance=ExtResource("4_lug6y")]
+position = Vector2(1122, 468)
+
+[node name="ResizablePlatform13" parent="Platforms" instance=ExtResource("4_lug6y")]
+position = Vector2(1122, 366)
+
+[node name="ResizablePlatform14" parent="Platforms" instance=ExtResource("4_lug6y")]
+position = Vector2(1122, 264)
+
+[node name="ResizablePlatform29" parent="Platforms" instance=ExtResource("4_lug6y")]
+position = Vector2(1122, 162)
+
+[node name="ResizablePlatform15" parent="Platforms" instance=ExtResource("4_lug6y")]
+position = Vector2(1122, 60)
+
+[node name="ResizablePlatform7" parent="Platforms" instance=ExtResource("4_lug6y")]
+position = Vector2(510, 1080)
+width_in_pixel = 612
+width_in_tile = 6
+
+[node name="ResizablePlatform17" parent="Platforms" instance=ExtResource("4_lug6y")]
+position = Vector2(510, 60)
+width_in_pixel = 612
+width_in_tile = 6
+texture = ExtResource("5_am200")
+
+[node name="ResizablePlatform2" parent="Platforms" instance=ExtResource("4_lug6y")]
+position = Vector2(816, 774)
+width_in_pixel = 306
+width_in_tile = 3
+
+[node name="ResizablePlatform16" parent="Platforms" instance=ExtResource("4_lug6y")]
+position = Vector2(816, 468)
+width_in_pixel = 306
+width_in_tile = 3
+
+[node name="ResizablePlatform19" parent="Platforms" instance=ExtResource("4_lug6y")]
+position = Vector2(1224, 468)
+width_in_pixel = 714
+width_in_tile = 7
+
+[node name="Door1" parent="." node_paths=PackedStringArray("connected_button") instance=ExtResource("6_n2pwk")]
+position = Vector2(1224, 672)
+connected_button = NodePath("../BottomPressurePlate")
+open_height = 306.0
+door_opening_speed = 300.0
+door_closing_speed = 50.0
+
+[node name="Door2" parent="." node_paths=PackedStringArray("connected_button") instance=ExtResource("6_n2pwk")]
+position = Vector2(1326, 774)
+connected_button = NodePath("../TopPressurePlate")
+open_height = -306.0
+door_opening_speed = 300.0
+door_closing_speed = 50.0
+
+[node name="TopPressurePlate" parent="." instance=ExtResource("5_n2pwk")]
+position = Vector2(918, 366)
+
+[node name="BottomPressurePlate" parent="." instance=ExtResource("5_n2pwk")]
+position = Vector2(918, 978)
 
 [node name="SpawnPoint" parent="." instance=ExtResource("2_ijggo")]
 position = Vector2(0, 672)
@@ -28,150 +181,7 @@ position = Vector2(0, 672)
 position = Vector2(1632, 570)
 next_level_file = "uid://bvmbgv15r7fqt"
 
-[node name="Walls" type="StaticBody2D" parent="."]
-
-[node name="Wall Left" type="CollisionShape2D" parent="Walls"]
-position = Vector2(-10, 540)
-shape = SubResource("RectangleShape2D_si3cn")
-
-[node name="Wall Right" type="CollisionShape2D" parent="Walls"]
-position = Vector2(1930, 540)
-shape = SubResource("RectangleShape2D_si3cn")
-
-[node name="Ceiling" type="CollisionShape2D" parent="Walls"]
-position = Vector2(960, -10)
-shape = SubResource("RectangleShape2D_wteuf")
-
-[node name="Floor" type="CollisionShape2D" parent="Walls"]
-position = Vector2(960, 1090)
-shape = SubResource("RectangleShape2D_wteuf")
-
-[node name="ResizablePlatform" parent="." instance=ExtResource("4_lug6y")]
-position = Vector2(0, 774)
-width_in_pixel = 408
-width_in_tile = 4
-
-[node name="ResizablePlatform22" parent="." instance=ExtResource("4_lug6y")]
-position = Vector2(0, 468)
-width_in_pixel = 408
-width_in_tile = 4
-
-[node name="ResizablePlatform18" parent="." instance=ExtResource("4_lug6y")]
-position = Vector2(1326, 774)
-width_in_pixel = 612
-width_in_tile = 6
-
-[node name="ResizablePlatform3" parent="." instance=ExtResource("4_lug6y")]
-position = Vector2(408, 1080)
-
-[node name="ResizablePlatform24" parent="." instance=ExtResource("4_lug6y")]
-position = Vector2(408, 468)
-
-[node name="ResizablePlatform25" parent="." instance=ExtResource("4_lug6y")]
-position = Vector2(408, 366)
-
-[node name="ResizablePlatform26" parent="." instance=ExtResource("4_lug6y")]
-position = Vector2(408, 264)
-
-[node name="ResizablePlatform28" parent="." instance=ExtResource("4_lug6y")]
-position = Vector2(408, 162)
-
-[node name="ResizablePlatform27" parent="." instance=ExtResource("4_lug6y")]
-position = Vector2(408, 60)
-
-[node name="ResizablePlatform4" parent="." instance=ExtResource("4_lug6y")]
-position = Vector2(408, 978)
-
-[node name="ResizablePlatform5" parent="." instance=ExtResource("4_lug6y")]
-position = Vector2(408, 876)
-
-[node name="ResizablePlatform6" parent="." instance=ExtResource("4_lug6y")]
-position = Vector2(408, 774)
-
-[node name="ResizablePlatform23" parent="." instance=ExtResource("4_lug6y")]
-position = Vector2(408, 774)
-
-[node name="ResizablePlatform8" parent="." instance=ExtResource("4_lug6y")]
-position = Vector2(1122, 1080)
-
-[node name="ResizablePlatform9" parent="." instance=ExtResource("4_lug6y")]
-position = Vector2(1122, 978)
-
-[node name="ResizablePlatform10" parent="." instance=ExtResource("4_lug6y")]
-position = Vector2(1122, 876)
-
-[node name="ResizablePlatform11" parent="." instance=ExtResource("4_lug6y")]
-position = Vector2(1122, 774)
-width_in_pixel = 204
-width_in_tile = 2
-
-[node name="ResizablePlatform12" parent="." instance=ExtResource("4_lug6y")]
-position = Vector2(1122, 468)
-
-[node name="ResizablePlatform13" parent="." instance=ExtResource("4_lug6y")]
-position = Vector2(1122, 366)
-
-[node name="ResizablePlatform14" parent="." instance=ExtResource("4_lug6y")]
-position = Vector2(1122, 264)
-
-[node name="ResizablePlatform29" parent="." instance=ExtResource("4_lug6y")]
-position = Vector2(1122, 162)
-
-[node name="ResizablePlatform15" parent="." instance=ExtResource("4_lug6y")]
-position = Vector2(1122, 60)
-
-[node name="ResizablePlatform7" parent="." instance=ExtResource("4_lug6y")]
-position = Vector2(510, 1080)
-width_in_pixel = 612
-width_in_tile = 6
-
-[node name="ResizablePlatform17" parent="." instance=ExtResource("4_lug6y")]
-position = Vector2(510, 60)
-width_in_pixel = 612
-width_in_tile = 6
-texture = ExtResource("5_am200")
-
-[node name="ResizablePlatform2" parent="." instance=ExtResource("4_lug6y")]
-position = Vector2(816, 774)
-width_in_pixel = 306
-width_in_tile = 3
-
-[node name="ResizablePlatform16" parent="." instance=ExtResource("4_lug6y")]
-position = Vector2(816, 468)
-width_in_pixel = 306
-width_in_tile = 3
-
-[node name="PressurePlate" parent="." instance=ExtResource("5_n2pwk")]
-position = Vector2(918, 978)
-
-[node name="PressurePlate2" parent="." instance=ExtResource("5_n2pwk")]
-position = Vector2(918, 366)
-
-[node name="Door2" parent="." node_paths=PackedStringArray("connected_button") instance=ExtResource("6_n2pwk")]
-position = Vector2(1326, 774)
-connected_button = NodePath("../PressurePlate2")
-open_height = -306.0
-door_opening_speed = 300.0
-door_closing_speed = 50.0
-
-[node name="ResizablePlatform19" parent="." instance=ExtResource("4_lug6y")]
-position = Vector2(1224, 468)
-width_in_pixel = 714
-width_in_tile = 7
-
-[node name="Door" parent="." node_paths=PackedStringArray("connected_button") instance=ExtResource("6_n2pwk")]
-position = Vector2(1224, 672)
-connected_button = NodePath("../PressurePlate")
-open_height = 306.0
-door_opening_speed = 300.0
-door_closing_speed = 50.0
-
-[node name="Bg" type="Sprite2D" parent="."]
-z_index = -2
-position = Vector2(959, 540)
-texture = ExtResource("8_e2a5p")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="SodaMachineSprite2D" type="Sprite2D" parent="."]
 z_index = -2
 position = Vector2(663, 945)
 texture = ExtResource("9_gbrfs")

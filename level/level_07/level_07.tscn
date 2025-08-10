@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bvmbgv15r7fqt"]
+[gd_scene load_steps=19 format=3 uid="uid://bvmbgv15r7fqt"]
 
 [ext_resource type="Script" uid="uid://cr5paax0qa013" path="res://level/level_02/level_02.gd" id="1_aunql"]
 [ext_resource type="PackedScene" uid="uid://bcujsflu4nqbn" path="res://loop_system/spawn_point.tscn" id="2_apcun"]
@@ -8,20 +8,181 @@
 [ext_resource type="Texture2D" uid="uid://dm2xecntp30ti" path="res://assets/sprites/tiles/0004.png" id="5_s7wul"]
 [ext_resource type="PackedScene" uid="uid://dymffw6ntadbo" path="res://level/interactables/pressure_plate.tscn" id="6_2p385"]
 [ext_resource type="PackedScene" uid="uid://d15yq2lgmdi4p" path="res://level/interactables/door.tscn" id="7_s7wul"]
+[ext_resource type="Script" uid="uid://nuq6dpf75flc" path="res://common/hurtbox/hurtbox.gd" id="7_slqa5"]
 [ext_resource type="Texture2D" uid="uid://547sv3d3ar4e" path="res://assets/sprites/tiles_ceiling/0002.png" id="8_ovfi7"]
 [ext_resource type="Texture2D" uid="uid://bwknp1gt3v808" path="res://assets/sprites/tiles/tile_face.png" id="10_7xfsl"]
 [ext_resource type="Texture2D" uid="uid://b2pm01k6xcbwk" path="res://assets/sprites/bg/lvl_7_bg.webp" id="11_421w1"]
 [ext_resource type="FontFile" uid="uid://c8lo3n7ebaxy8" path="res://assets/fonts/Bitrimus.ttf" id="12_421w1"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_si3cn"]
-size = Vector2(20, 1100)
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_421w1"]
+normal = Vector2(1, 0)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wteuf"]
-size = Vector2(1960, 20)
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_slqa5"]
+normal = Vector2(-1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_82eyj"]
+normal = Vector2(0, 1)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vbout"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_82eyj"]
+size = Vector2(102, 102)
 
 [node name="Level07" type="Node2D" node_paths=PackedStringArray("spawn_point")]
 script = ExtResource("1_aunql")
 spawn_point = NodePath("SpawnPoint")
+metadata/_edit_lock_ = true
+
+[node name="Bg" type="Sprite2D" parent="."]
+z_index = -3
+position = Vector2(960, 540)
+texture = ExtResource("11_421w1")
+metadata/_edit_lock_ = true
+
+[node name="WorldBoundaries" type="StaticBody2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="Wall Left" type="CollisionShape2D" parent="WorldBoundaries"]
+position = Vector2(0, 540)
+shape = SubResource("WorldBoundaryShape2D_421w1")
+
+[node name="Wall Right" type="CollisionShape2D" parent="WorldBoundaries"]
+position = Vector2(1920, 540)
+shape = SubResource("WorldBoundaryShape2D_slqa5")
+
+[node name="Ceiling" type="CollisionShape2D" parent="WorldBoundaries"]
+position = Vector2(960, 0)
+shape = SubResource("WorldBoundaryShape2D_82eyj")
+
+[node name="Floor" type="CollisionShape2D" parent="WorldBoundaries"]
+position = Vector2(960, 1080)
+shape = SubResource("WorldBoundaryShape2D_vbout")
+
+[node name="Platforms" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="ResizablePlatform" parent="Platforms" instance=ExtResource("4_3hudp")]
+position = Vector2(0, 876)
+width_in_pixel = 306
+width_in_tile = 3
+
+[node name="ResizablePlatform9" parent="Platforms" instance=ExtResource("4_3hudp")]
+position = Vector2(306, 876)
+texture = ExtResource("5_s7wul")
+
+[node name="ResizablePlatform2" parent="Platforms" instance=ExtResource("4_3hudp")]
+position = Vector2(918, 876)
+width_in_pixel = 510
+width_in_tile = 5
+
+[node name="ResizablePlatform4" parent="Platforms" instance=ExtResource("4_3hudp")]
+position = Vector2(-306, 60)
+width_in_pixel = 612
+width_in_tile = 6
+texture = ExtResource("8_ovfi7")
+
+[node name="ResizablePlatform8" parent="Platforms" instance=ExtResource("4_3hudp")]
+position = Vector2(1224, 60)
+width_in_pixel = 714
+width_in_tile = 7
+texture = ExtResource("8_ovfi7")
+
+[node name="ResizablePlatform5" parent="Platforms" instance=ExtResource("4_3hudp")]
+position = Vector2(1326, 774)
+
+[node name="ResizablePlatform6" parent="Platforms" instance=ExtResource("4_3hudp")]
+position = Vector2(1326, 672)
+
+[node name="ResizablePlatform7" parent="Platforms" instance=ExtResource("4_3hudp")]
+position = Vector2(1326, 570)
+
+[node name="ResizablePlatform3" parent="Platforms" instance=ExtResource("4_3hudp")]
+position = Vector2(1122, 468)
+width_in_pixel = 816
+width_in_tile = 8
+
+[node name="SpikePit" type="Node2D" parent="."]
+
+[node name="DeathSpike" parent="SpikePit" instance=ExtResource("5_4ev6a")]
+position = Vector2(408, 1080)
+
+[node name="DeathSpike2" parent="SpikePit" instance=ExtResource("5_4ev6a")]
+position = Vector2(510, 1080)
+
+[node name="DeathSpike8" parent="SpikePit" instance=ExtResource("5_4ev6a")]
+position = Vector2(306, 876)
+rotation = 1.5708
+
+[node name="DeathSpike11" parent="SpikePit" instance=ExtResource("5_4ev6a")]
+position = Vector2(1020, 978)
+rotation = -1.5708
+
+[node name="DeathSpike3" parent="SpikePit" instance=ExtResource("5_4ev6a")]
+position = Vector2(612, 1080)
+
+[node name="DeathSpike4" parent="SpikePit" instance=ExtResource("5_4ev6a")]
+position = Vector2(714, 1080)
+
+[node name="DeathSpike5" parent="SpikePit" instance=ExtResource("5_4ev6a")]
+position = Vector2(816, 1080)
+
+[node name="LeftCornerHurtBox" type="Area2D" parent="SpikePit"]
+position = Vector2(306, 1080)
+script = ExtResource("7_slqa5")
+metadata/_custom_type_script = "uid://nuq6dpf75flc"
+metadata/_edit_group_ = true
+
+[node name="tile_face" type="Sprite2D" parent="SpikePit/LeftCornerHurtBox"]
+position = Vector2(51, -128)
+texture = ExtResource("10_7xfsl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpikePit/LeftCornerHurtBox"]
+position = Vector2(51, -51)
+shape = SubResource("RectangleShape2D_82eyj")
+debug_color = Color(0.7, 0.0202499, 0, 0.42)
+
+[node name="tile_face5" type="Sprite2D" parent="SpikePit/LeftCornerHurtBox"]
+z_index = -1
+position = Vector2(-51, -128)
+texture = ExtResource("10_7xfsl")
+
+[node name="tile_face6" type="Sprite2D" parent="SpikePit/LeftCornerHurtBox"]
+z_index = -1
+position = Vector2(-51, -230)
+texture = ExtResource("10_7xfsl")
+
+[node name="RightCornerHurtBox" type="Area2D" parent="SpikePit"]
+position = Vector2(918, 1080)
+script = ExtResource("7_slqa5")
+metadata/_custom_type_script = "uid://nuq6dpf75flc"
+metadata/_edit_group_ = true
+
+[node name="tile_face" type="Sprite2D" parent="SpikePit/RightCornerHurtBox"]
+position = Vector2(51, -128)
+texture = ExtResource("10_7xfsl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpikePit/RightCornerHurtBox"]
+position = Vector2(51, -51)
+shape = SubResource("RectangleShape2D_82eyj")
+debug_color = Color(0.7, 0.0202499, 0, 0.42)
+
+[node name="tile_face3" type="Sprite2D" parent="SpikePit/RightCornerHurtBox"]
+z_index = -1
+position = Vector2(153, -128)
+texture = ExtResource("10_7xfsl")
+
+[node name="tile_face4" type="Sprite2D" parent="SpikePit/RightCornerHurtBox"]
+z_index = -1
+position = Vector2(153, -230)
+texture = ExtResource("10_7xfsl")
+
+[node name="PressurePlate" parent="." instance=ExtResource("6_2p385")]
+position = Vector2(1020, 774)
+
+[node name="Door" parent="." node_paths=PackedStringArray("connected_button") instance=ExtResource("7_s7wul")]
+position = Vector2(1122, 366)
+connected_button = NodePath("../PressurePlate")
+door_closing_speed = 200.0
 
 [node name="SpawnPoint" parent="." instance=ExtResource("2_apcun")]
 position = Vector2(0, 774)
@@ -29,122 +190,6 @@ position = Vector2(0, 774)
 [node name="GoalZone" parent="." instance=ExtResource("3_mkrnp")]
 position = Vector2(1326, 264)
 next_level_file = "uid://b2fn736u6ukn1"
-
-[node name="Walls" type="StaticBody2D" parent="."]
-
-[node name="Wall Left" type="CollisionShape2D" parent="Walls"]
-position = Vector2(-10, 540)
-shape = SubResource("RectangleShape2D_si3cn")
-
-[node name="Wall Right" type="CollisionShape2D" parent="Walls"]
-position = Vector2(1930, 540)
-shape = SubResource("RectangleShape2D_si3cn")
-
-[node name="Ceiling" type="CollisionShape2D" parent="Walls"]
-position = Vector2(960, -10)
-shape = SubResource("RectangleShape2D_wteuf")
-
-[node name="Floor" type="CollisionShape2D" parent="Walls"]
-position = Vector2(960, 1090)
-shape = SubResource("RectangleShape2D_wteuf")
-
-[node name="ResizablePlatform" parent="." instance=ExtResource("4_3hudp")]
-position = Vector2(0, 876)
-width_in_pixel = 306
-width_in_tile = 3
-
-[node name="ResizablePlatform9" parent="." instance=ExtResource("4_3hudp")]
-position = Vector2(306, 876)
-texture = ExtResource("5_s7wul")
-
-[node name="ResizablePlatform2" parent="." instance=ExtResource("4_3hudp")]
-position = Vector2(918, 876)
-width_in_pixel = 510
-width_in_tile = 5
-
-[node name="Spikes" type="Node2D" parent="."]
-position = Vector2(408, 1080)
-
-[node name="DeathSpike" parent="Spikes" instance=ExtResource("5_4ev6a")]
-
-[node name="DeathSpike2" parent="Spikes" instance=ExtResource("5_4ev6a")]
-position = Vector2(102, 0)
-
-[node name="DeathSpike8" parent="Spikes" instance=ExtResource("5_4ev6a")]
-position = Vector2(-102, -204)
-rotation = 1.5708
-
-[node name="DeathSpike11" parent="Spikes" instance=ExtResource("5_4ev6a")]
-position = Vector2(612, -102)
-rotation = 4.71239
-
-[node name="DeathSpike3" parent="Spikes" instance=ExtResource("5_4ev6a")]
-position = Vector2(204, 0)
-
-[node name="DeathSpike4" parent="Spikes" instance=ExtResource("5_4ev6a")]
-position = Vector2(306, 0)
-
-[node name="DeathSpike5" parent="Spikes" instance=ExtResource("5_4ev6a")]
-position = Vector2(408, 0)
-
-[node name="PressurePlate" parent="." instance=ExtResource("6_2p385")]
-position = Vector2(1020, 774)
-
-[node name="ResizablePlatform4" parent="." instance=ExtResource("4_3hudp")]
-position = Vector2(-306, 60)
-width_in_pixel = 612
-width_in_tile = 6
-texture = ExtResource("8_ovfi7")
-
-[node name="ResizablePlatform8" parent="." instance=ExtResource("4_3hudp")]
-position = Vector2(1224, 60)
-width_in_pixel = 714
-width_in_tile = 7
-texture = ExtResource("8_ovfi7")
-
-[node name="ResizablePlatform5" parent="." instance=ExtResource("4_3hudp")]
-position = Vector2(1326, 774)
-
-[node name="ResizablePlatform6" parent="." instance=ExtResource("4_3hudp")]
-position = Vector2(1326, 672)
-
-[node name="ResizablePlatform7" parent="." instance=ExtResource("4_3hudp")]
-position = Vector2(1326, 570)
-
-[node name="ResizablePlatform3" parent="." instance=ExtResource("4_3hudp")]
-position = Vector2(1122, 468)
-width_in_pixel = 816
-width_in_tile = 8
-
-[node name="Door2" parent="." node_paths=PackedStringArray("connected_button") instance=ExtResource("7_s7wul")]
-position = Vector2(1122, 366)
-connected_button = NodePath("../PressurePlate")
-door_closing_speed = 200.0
-
-[node name="tile_face" type="Sprite2D" parent="."]
-z_index = -1
-position = Vector2(969, 952)
-texture = ExtResource("10_7xfsl")
-
-[node name="tile_face3" type="Sprite2D" parent="."]
-z_index = -1
-position = Vector2(1071, 952)
-texture = ExtResource("10_7xfsl")
-
-[node name="tile_face4" type="Sprite2D" parent="."]
-z_index = -1
-position = Vector2(1071, 850)
-texture = ExtResource("10_7xfsl")
-
-[node name="tile_face2" type="Sprite2D" parent="."]
-z_index = -1
-position = Vector2(357, 952)
-texture = ExtResource("10_7xfsl")
-
-[node name="Bg" type="Sprite2D" parent="."]
-z_index = -3
-position = Vector2(959, 540)
-texture = ExtResource("11_421w1")
 
 [node name="Label" type="Label" parent="."]
 offset_right = 308.0

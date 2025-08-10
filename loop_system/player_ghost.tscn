@@ -603,7 +603,7 @@ size = Vector2(138, 20)
 radius = 15.0
 
 [node name="PlayerGhost" type="AnimatableBody2D"]
-collision_layer = 2
+collision_layer = 4
 collision_mask = 0
 script = ExtResource("1_344kn")
 
@@ -614,14 +614,14 @@ position = Vector2(96, -98)
 sprite_frames = SubResource("SpriteFrames_r6be4")
 animation = &"electrocute"
 
-[node name="HeadCollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="TopHeadCollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(129, -115)
 shape = SubResource("RectangleShape2D_c80fc")
 one_way_collision = true
 one_way_collision_margin = 4.0
 debug_color = Color(0, 0.695514, 0.7, 0.42)
 
-[node name="LeftBodyCollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="RightHeadCollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(180, -110)
 rotation = 1.5708
 shape = SubResource("CircleShape2D_faxks")
@@ -629,7 +629,14 @@ one_way_collision = true
 one_way_collision_margin = 8.0
 debug_color = Color(0, 0.695514, 0.7, 0.42)
 
-[node name="LeftBodyCollisionShape2D2" type="CollisionShape2D" parent="."]
+[node name="RightBodyCollisionShape2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(155, -15)
+rotation = 1.5708
+polygon = PackedVector2Array(-95.0002, -39.9997, -95, -9.99966, 5.43594e-05, 15, -5.43594e-05, -15)
+one_way_collision = true
+one_way_collision_margin = 8.0
+
+[node name="RightFootCollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(155, -15)
 rotation = 1.5708
 shape = SubResource("CircleShape2D_faxks")
@@ -637,30 +644,23 @@ one_way_collision = true
 one_way_collision_margin = 8.0
 debug_color = Color(0, 0.695514, 0.7, 0.42)
 
-[node name="LeftBodyCollisionShape2D3" type="CollisionPolygon2D" parent="."]
-position = Vector2(155, -15)
-rotation = 1.5708
-polygon = PackedVector2Array(-95.0002, -39.9997, -95, -9.99966, 5.43594e-05, 15, -5.43594e-05, -15)
-one_way_collision = true
-one_way_collision_margin = 8.0
-
-[node name="LeftBodyCollisionShape2D4" type="CollisionPolygon2D" parent="."]
+[node name="LeftHeadCollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(105, -110)
-rotation = 4.71238
-polygon = PackedVector2Array(-95.0002, -39.9997, -95, -9.99966, 5.43594e-05, 15, -5.43594e-05, -15)
-one_way_collision = true
-one_way_collision_margin = 8.0
-
-[node name="RightBodyCollisionShape2D3" type="CollisionShape2D" parent="."]
-position = Vector2(80, -15)
 rotation = -1.57079
 shape = SubResource("CircleShape2D_faxks")
 one_way_collision = true
 one_way_collision_margin = 8.0
 debug_color = Color(0, 0.695514, 0.7, 0.42)
 
-[node name="RightBodyCollisionShape2D4" type="CollisionShape2D" parent="."]
+[node name="LeftBodyCollisionShape2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(105, -110)
+rotation = -1.5708
+polygon = PackedVector2Array(-95.0002, -39.9997, -95, -9.99966, 5.43594e-05, 15, -5.43594e-05, -15)
+one_way_collision = true
+one_way_collision_margin = 8.0
+
+[node name="LeftFootCollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(80, -15)
 rotation = -1.57079
 shape = SubResource("CircleShape2D_faxks")
 one_way_collision = true

@@ -139,6 +139,17 @@
 [ext_resource type="Texture2D" uid="uid://b1vv1a0bcg7qh" path="res://assets/sprites/spawner_loop/0080.png" id="134_vdrqn"]
 [ext_resource type="FontFile" uid="uid://c8lo3n7ebaxy8" path="res://assets/fonts/Bitrimus.ttf" id="137_asni2"]
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_pf6py"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_asni2"]
+normal = Vector2(-1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_5o8k2"]
+normal = Vector2(0, 1)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ep7wn"]
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_m8o30"]
 animations = [{
 "frames": [{
@@ -379,17 +390,6 @@ animations = [{
 "speed": 30.0
 }]
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_pf6py"]
-normal = Vector2(1, 0)
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_asni2"]
-normal = Vector2(-1, 0)
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_5o8k2"]
-normal = Vector2(0, 1)
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ep7wn"]
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_kyai0"]
 animations = [{
 "frames": [{
@@ -521,6 +521,7 @@ animations = [{
 [node name="Level01" type="Node2D" node_paths=PackedStringArray("spawn_point")]
 script = ExtResource("1_2n58o")
 spawn_point = NodePath("SpawnPoint")
+metadata/_edit_lock_ = true
 
 [node name="BackgroundImage" type="Sprite2D" parent="."]
 z_index = -2
@@ -528,51 +529,8 @@ position = Vector2(960, 540)
 texture = ExtResource("18_aceh0")
 metadata/_edit_lock_ = true
 
-[node name="ControlHelpPanelContainer" type="PanelContainer" parent="."]
-offset_left = 630.0
-offset_top = 305.0
-offset_right = 1196.0
-offset_bottom = 561.0
-theme = ExtResource("3_5o8k2")
-
-[node name="KeyboardA" type="Sprite2D" parent="ControlHelpPanelContainer"]
-position = Vector2(52, 52)
-texture = ExtResource("3_pf6py")
-
-[node name="KeyboardD" type="Sprite2D" parent="ControlHelpPanelContainer"]
-position = Vector2(132, 52)
-texture = ExtResource("4_asni2")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ControlHelpPanelContainer"]
-position = Vector2(92, 160)
-scale = Vector2(0.6, 0.6)
-sprite_frames = SubResource("SpriteFrames_m8o30")
-autoplay = "default"
-
-[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="ControlHelpPanelContainer"]
-position = Vector2(292, 160)
-scale = Vector2(0.6, 0.6)
-sprite_frames = SubResource("SpriteFrames_yyh2k")
-autoplay = "default"
-frame = 17
-frame_progress = 0.493448
-
-[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="ControlHelpPanelContainer"]
-position = Vector2(492, 160)
-scale = Vector2(0.6, 0.6)
-sprite_frames = SubResource("SpriteFrames_acbts")
-autoplay = "default"
-frame_progress = 0.517994
-
-[node name="KeyboardShift" type="Sprite2D" parent="ControlHelpPanelContainer"]
-position = Vector2(492, 52)
-texture = ExtResource("77_pf6py")
-
-[node name="KeyboardSpace" type="Sprite2D" parent="ControlHelpPanelContainer"]
-position = Vector2(292, 52)
-texture = ExtResource("78_asni2")
-
 [node name="WorldBoundaries" type="StaticBody2D" parent="."]
+metadata/_edit_lock_ = true
 
 [node name="Wall Left" type="CollisionShape2D" parent="WorldBoundaries"]
 position = Vector2(0, 540)
@@ -591,6 +549,7 @@ position = Vector2(960, 1080)
 shape = SubResource("WorldBoundaryShape2D_ep7wn")
 
 [node name="Platforms" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
 
 [node name="BottomPlatform" parent="Platforms" instance=ExtResource("4_rdi31")]
 position = Vector2(0, 1080)
@@ -747,8 +706,49 @@ width_in_pixel = 306
 width_in_tile = 3
 texture = ExtResource("9_slftr")
 
-[node name="Platform Bottom2" type="Node2D" parent="Platforms"]
-position = Vector2(0, 771)
+[node name="ControlHelpPanelContainer" type="PanelContainer" parent="."]
+offset_left = 630.0
+offset_top = 305.0
+offset_right = 1196.0
+offset_bottom = 561.0
+theme = ExtResource("3_5o8k2")
+
+[node name="KeyboardA" type="Sprite2D" parent="ControlHelpPanelContainer"]
+position = Vector2(52, 52)
+texture = ExtResource("3_pf6py")
+
+[node name="KeyboardD" type="Sprite2D" parent="ControlHelpPanelContainer"]
+position = Vector2(132, 52)
+texture = ExtResource("4_asni2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ControlHelpPanelContainer"]
+position = Vector2(92, 160)
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_m8o30")
+autoplay = "default"
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="ControlHelpPanelContainer"]
+position = Vector2(292, 160)
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_yyh2k")
+autoplay = "default"
+frame = 17
+frame_progress = 0.493448
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="ControlHelpPanelContainer"]
+position = Vector2(492, 160)
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_acbts")
+autoplay = "default"
+frame_progress = 0.517994
+
+[node name="KeyboardShift" type="Sprite2D" parent="ControlHelpPanelContainer"]
+position = Vector2(492, 52)
+texture = ExtResource("77_pf6py")
+
+[node name="KeyboardSpace" type="Sprite2D" parent="ControlHelpPanelContainer"]
+position = Vector2(292, 52)
+texture = ExtResource("78_asni2")
 
 [node name="SpawnPoint" parent="." instance=ExtResource("3_aem8p")]
 position = Vector2(102, 977)

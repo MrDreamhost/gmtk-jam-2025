@@ -41,26 +41,21 @@ animations = [{
 
 [node name="PressurePlate" type="Area2D" groups=["resettable"]]
 collision_layer = 0
-collision_mask = 2
+collision_mask = 6
 script = ExtResource("1_5bdot")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(51, -12.5)
 shape = SubResource("RectangleShape2D_vj3bl")
 
-[node name="Button" type="Button" parent="."]
-visible = false
-offset_right = 8.0
-offset_bottom = 8.0
-
-[node name="ResetDelayTimer" type="Timer" parent="."]
-one_shot = true
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(51, -24)
 sprite_frames = SubResource("SpriteFrames_qmruu")
 frame = 5
 frame_progress = 1.0
+
+[node name="ResetDelayTimer" type="Timer" parent="."]
+one_shot = true
 
 [node name="PressInAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_0pxpj")

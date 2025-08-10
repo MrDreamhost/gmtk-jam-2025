@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dprdcmdnfniia"]
+[gd_scene load_steps=23 format=3 uid="uid://dprdcmdnfniia"]
 
 [ext_resource type="Script" uid="uid://cr5paax0qa013" path="res://level/level_02/level_02.gd" id="1_14ypm"]
 [ext_resource type="Texture2D" uid="uid://10eglsgcgtve" path="res://assets/sprites/tiles/0008.png" id="3_5nkfm"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://dm2xecntp30ti" path="res://assets/sprites/tiles/0004.png" id="7_is05o"]
 [ext_resource type="Texture2D" uid="uid://b1fdgwc4w7vf1" path="res://assets/sprites/tiles/tile_top.png" id="8_ap2b5"]
 [ext_resource type="Texture2D" uid="uid://bwknp1gt3v808" path="res://assets/sprites/tiles/tile_face.png" id="9_obqgw"]
+[ext_resource type="Script" uid="uid://nuq6dpf75flc" path="res://common/hurtbox/hurtbox.gd" id="12_ficsl"]
 [ext_resource type="PackedScene" uid="uid://djuuv8qj84685" path="res://level/interactables/prop_door.tscn" id="15_t2ucb"]
 [ext_resource type="FontFile" uid="uid://c8lo3n7ebaxy8" path="res://assets/fonts/Bitrimus.ttf" id="16_is05o"]
 
@@ -28,82 +29,97 @@ normal = Vector2(0, 1)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_dlqic"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p8ott"]
+size = Vector2(102, 102)
+
 [node name="Level03" type="Node2D" node_paths=PackedStringArray("spawn_point")]
 script = ExtResource("1_14ypm")
 spawn_point = NodePath("SpawnPoint")
+metadata/_edit_lock_ = true
 
-[node name="WorldBoundaries2" type="StaticBody2D" parent="."]
+[node name="Bg" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(960, 540)
+texture = ExtResource("7_cguju")
+metadata/_edit_lock_ = true
 
-[node name="Wall Left" type="CollisionShape2D" parent="WorldBoundaries2"]
+[node name="WorldBoundaries" type="StaticBody2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="Wall Left" type="CollisionShape2D" parent="WorldBoundaries"]
 position = Vector2(0, 540)
 shape = SubResource("WorldBoundaryShape2D_lvqq1")
 
-[node name="Wall Right" type="CollisionShape2D" parent="WorldBoundaries2"]
+[node name="Wall Right" type="CollisionShape2D" parent="WorldBoundaries"]
 position = Vector2(1920, 540)
 shape = SubResource("WorldBoundaryShape2D_si3cn")
 
-[node name="Ceiling" type="CollisionShape2D" parent="WorldBoundaries2"]
+[node name="Ceiling" type="CollisionShape2D" parent="WorldBoundaries"]
 position = Vector2(960, 0)
 shape = SubResource("WorldBoundaryShape2D_wteuf")
 
-[node name="Floor" type="CollisionShape2D" parent="WorldBoundaries2"]
+[node name="Floor" type="CollisionShape2D" parent="WorldBoundaries"]
 position = Vector2(960, 1080)
 shape = SubResource("WorldBoundaryShape2D_dlqic")
 
-[node name="Platform11" parent="." instance=ExtResource("5_lvqq1")]
+[node name="Platforms" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="Platform11" parent="Platforms" instance=ExtResource("5_lvqq1")]
 position = Vector2(1530, 825)
 width_in_pixel = 408
 width_in_tile = 4
 
-[node name="Platform" parent="." instance=ExtResource("5_lvqq1")]
+[node name="Platform" parent="Platforms" instance=ExtResource("5_lvqq1")]
 position = Vector2(0, 1080)
 width_in_pixel = 408
 width_in_tile = 4
 
-[node name="Platform4" parent="." instance=ExtResource("5_lvqq1")]
+[node name="Platform4" parent="Platforms" instance=ExtResource("5_lvqq1")]
 position = Vector2(510, 1080)
 width_in_pixel = 306
 width_in_tile = 3
 texture = ExtResource("3_5nkfm")
 
-[node name="Platform5" parent="." instance=ExtResource("5_lvqq1")]
+[node name="Platform5" parent="Platforms" instance=ExtResource("5_lvqq1")]
 position = Vector2(408, 1080)
 texture = ExtResource("4_dyb8b")
 
-[node name="Platform2" parent="." instance=ExtResource("5_lvqq1")]
+[node name="Platform2" parent="Platforms" instance=ExtResource("5_lvqq1")]
 position = Vector2(0, 60)
 width_in_pixel = 510
 width_in_tile = 5
 texture = ExtResource("3_wteuf")
 
-[node name="Platform3" parent="." instance=ExtResource("5_lvqq1")]
+[node name="Platform3" parent="Platforms" instance=ExtResource("5_lvqq1")]
 position = Vector2(1530, 60)
 width_in_pixel = 510
 width_in_tile = 5
 texture = ExtResource("3_wteuf")
 
-[node name="Platform33" parent="." instance=ExtResource("5_lvqq1")]
+[node name="Platform33" parent="Platforms" instance=ExtResource("5_lvqq1")]
 position = Vector2(1428, 60)
 texture = ExtResource("3_wteuf")
 
-[node name="Platform30" parent="." instance=ExtResource("5_lvqq1")]
+[node name="Platform30" parent="Platforms" instance=ExtResource("5_lvqq1")]
 position = Vector2(1428, 162)
 texture = ExtResource("3_wteuf")
 
-[node name="Platform29" parent="." instance=ExtResource("5_lvqq1")]
+[node name="Platform29" parent="Platforms" instance=ExtResource("5_lvqq1")]
 position = Vector2(1428, 264)
 texture = ExtResource("3_wteuf")
 
-[node name="Platform28" parent="." instance=ExtResource("5_lvqq1")]
+[node name="Platform28" parent="Platforms" instance=ExtResource("5_lvqq1")]
 position = Vector2(1428, 366)
 texture = ExtResource("3_wteuf")
 
-[node name="Platform27" parent="." instance=ExtResource("5_lvqq1")]
+[node name="Platform27" parent="Platforms" instance=ExtResource("5_lvqq1")]
 position = Vector2(1428, 468)
 texture = ExtResource("3_wteuf")
 
 [node name="Tower" type="Node2D" parent="."]
 position = Vector2(918, 1080)
+metadata/_edit_group_ = true
 
 [node name="Platform13" parent="Tower" instance=ExtResource("5_lvqq1")]
 position = Vector2(-102, 0)
@@ -149,28 +165,52 @@ position = Vector2(-102, -612)
 [node name="Platform31" parent="Tower" instance=ExtResource("5_lvqq1")]
 position = Vector2(0, -612)
 
-[node name="DeathSpike" parent="." instance=ExtResource("3_si3cn")]
-position = Vector2(1530, 927)
-rotation = -1.5708
+[node name="DeathPit" type="Node2D" parent="."]
+metadata/_edit_group_ = true
 
-[node name="DeathSpike8" parent="." instance=ExtResource("3_si3cn")]
+[node name="TopDeathSpike" parent="DeathPit" instance=ExtResource("3_si3cn")]
 position = Vector2(1530, 825)
 rotation = -1.5708
 
-[node name="DeathSpike9" parent="." instance=ExtResource("3_si3cn")]
+[node name="tile_top" type="Sprite2D" parent="DeathPit/TopDeathSpike"]
+z_index = -2
+position = Vector2(128, -49.9996)
+rotation = 1.5708
+texture = ExtResource("8_ap2b5")
+
+[node name="DeathSpike2" parent="DeathPit" instance=ExtResource("3_si3cn")]
+position = Vector2(1530, 927)
+rotation = -1.5708
+
+[node name="DeathSpike3" parent="DeathPit" instance=ExtResource("3_si3cn")]
 position = Vector2(1530, 1029)
 rotation = -1.5708
 
-[node name="DeathSpike4" parent="." instance=ExtResource("3_si3cn")]
+[node name="CornerHurtBox" type="Area2D" parent="DeathPit"]
+position = Vector2(1428, 1131)
+script = ExtResource("12_ficsl")
+metadata/_custom_type_script = "uid://nuq6dpf75flc"
+metadata/_edit_group_ = true
+
+[node name="tile_face" type="Sprite2D" parent="DeathPit/CornerHurtBox"]
+position = Vector2(51, -128)
+texture = ExtResource("9_obqgw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathPit/CornerHurtBox"]
+position = Vector2(51, -51)
+shape = SubResource("RectangleShape2D_p8ott")
+debug_color = Color(0.7, 0.0202499, 0, 0.42)
+
+[node name="DeathSpike4" parent="DeathPit" instance=ExtResource("3_si3cn")]
 position = Vector2(1326, 1131)
 
-[node name="DeathSpike5" parent="." instance=ExtResource("3_si3cn")]
+[node name="DeathSpike5" parent="DeathPit" instance=ExtResource("3_si3cn")]
 position = Vector2(1224, 1131)
 
-[node name="DeathSpike6" parent="." instance=ExtResource("3_si3cn")]
+[node name="DeathSpike6" parent="DeathPit" instance=ExtResource("3_si3cn")]
 position = Vector2(1122, 1131)
 
-[node name="DeathSpike7" parent="." instance=ExtResource("3_si3cn")]
+[node name="DeathSpike7" parent="DeathPit" instance=ExtResource("3_si3cn")]
 position = Vector2(1020, 1131)
 
 [node name="SpawnPoint" parent="." instance=ExtResource("4_wteuf")]
@@ -179,21 +219,6 @@ position = Vector2(0, 977)
 [node name="GoalZone" parent="." instance=ExtResource("5_dlqic")]
 position = Vector2(1836, 668)
 next_level_file = "uid://cmvll42mba2tv"
-
-[node name="Bg" type="Sprite2D" parent="."]
-z_index = -2
-position = Vector2(961, 540)
-texture = ExtResource("7_cguju")
-
-[node name="tile_top" type="Sprite2D" parent="."]
-z_index = -2
-position = Vector2(1480, 697)
-texture = ExtResource("8_ap2b5")
-
-[node name="tile_face" type="Sprite2D" parent="."]
-z_index = -2
-position = Vector2(1479, 1003)
-texture = ExtResource("9_obqgw")
 
 [node name="PropDoor" parent="." instance=ExtResource("15_t2ucb")]
 z_index = -1

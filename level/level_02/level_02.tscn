@@ -660,6 +660,7 @@ _data = {
 [node name="Level02" type="Node2D" node_paths=PackedStringArray("spawn_point")]
 script = ExtResource("1_wco2t")
 spawn_point = NodePath("SpawnPoint")
+metadata/_edit_lock_ = true
 
 [node name="BackgroundImage" type="Sprite2D" parent="."]
 z_index = -2
@@ -668,6 +669,7 @@ texture = ExtResource("13_yakuy")
 metadata/_edit_lock_ = true
 
 [node name="WorldBoundaries" type="StaticBody2D" parent="."]
+metadata/_edit_lock_ = true
 
 [node name="Wall Left" type="CollisionShape2D" parent="WorldBoundaries"]
 position = Vector2(0, 540)
@@ -686,6 +688,7 @@ position = Vector2(960, 1080)
 shape = SubResource("WorldBoundaryShape2D_vw6us")
 
 [node name="Platforms" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
 
 [node name="Platform3" parent="Platforms" instance=ExtResource("2_xmyjc")]
 position = Vector2(0, 1080)
@@ -786,6 +789,13 @@ position = Vector2(59, 944)
 z_index = -1
 position = Vector2(1584, 635)
 
+[node name="Label" type="Label" parent="."]
+offset_right = 537.0
+offset_bottom = 102.0
+theme_override_fonts/font = ExtResource("83_6lr50")
+theme_override_font_sizes/font_size = 100
+text = " A Hop and A Skip"
+
 [node name="PanelContainer" type="PanelContainer" parent="."]
 z_index = -2
 offset_left = 125.0
@@ -822,13 +832,6 @@ libraries = {
 &"": SubResource("AnimationLibrary_mbjcn")
 }
 autoplay = "Tutorial"
-
-[node name="Label" type="Label" parent="."]
-offset_right = 308.0
-offset_bottom = 102.0
-theme_override_fonts/font = ExtResource("83_6lr50")
-theme_override_font_sizes/font_size = 100
-text = " A Hop and A Skip"
 
 [node name="PanelContainer2" type="PanelContainer" parent="."]
 z_index = -2

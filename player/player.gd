@@ -18,13 +18,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
-	if (
-		not is_on_floor() 
-		and (
-			%PlayerStateMachine.current_state != %PlayerStateMachine.states[%PlayerStateMachine.JUMP]
-			and not is_dead()
-			)
-	):
+	if (not (is_on_floor() or is_jumping() or is_dead())):
 		velocity += Vector2.DOWN * %PlayerStateMachine/Jump.gravity_down * delta
 	move_and_slide()
 
@@ -51,6 +45,14 @@ func play_sound(sound_name: String) -> void:
 	if !self.sfx_player.playing:
 		self.sfx_player.play()
 	self.sfx_player["parameters/switch_to_clip"] = sound_name
+
+
+func enter_dead_silently() -> void:
+	%PlayerStateMachine.current_state == %PlayerStateMachine.states[%PlayerStateMachine.DEAD]
+
+
+func is_jumping() -> bool:
+	return %PlayerStateMachine.current_state == %PlayerStateMachine.states[%PlayerStateMachine.JUMP]
 
 
 func is_dead() -> bool:

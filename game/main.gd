@@ -44,7 +44,7 @@ func _process(_delta: float) -> void:
 		self.current_level.spawn_point.sprite_2d.play("spawner_placement")
 		self.current_level.set_spawn_point(self.player.global_position)
 		self.player.play_sound("place")
-
+	
 	if Input.is_action_just_pressed("reset_level"):
 		self.reset_level()
 
@@ -72,7 +72,6 @@ func reset_loop() -> void:
 	self.reset_ghosts()
 	reset_timer_no_music()
 	Engine.time_scale = 1.0
-	#get_tree().paused = false
 
 
 func reset_level() -> void:
@@ -130,18 +129,18 @@ func _on_loop_timer_timeout() -> void:
 	#get_tree().paused = true
 	set_shockwave_center_to_spawn_point()
 	var current_spawn: SpawnPoint = self.current_level.spawn_point
-
+	
 	player_dummy.global_position = player.global_position
 	for child in player_dummy.get_children():
 		child.queue_free()
 	player_dummy.add_child(player.animated_sprite_2d.duplicate())
-
+	
 	var tween := create_tween()
 	tween.set_ignore_time_scale(true)
 	tween.set_process_mode(Tween.TWEEN_PROCESS_PHYSICS)
 	tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
 	tween.set_parallel(true)
-
+	
 	# timed callbacks
 	tween.tween_callback(start_timer_reset_animation).set_delay(0.3333)
 	tween.tween_callback(turn_clock_back).set_delay(0.4333)
@@ -149,14 +148,14 @@ func _on_loop_timer_timeout() -> void:
 	# shockwave radius 0.0 -> 1.0 -> 0.0
 	tween.tween_method(set_shockwave_radius, 0.0, 1.0, 0.5)
 	tween.tween_method(set_shockwave_radius, 1.0, 0.0, 0.5).set_delay(0.5)
-
+	
 	player.visible = false
 	player_dummy.visible = true
 	tween.tween_property(player_dummy, "position", current_spawn.global_position, 1.0).from(player.global_position)
 	tween.tween_callback(func (): player_dummy.visible = false).set_delay(1.0)
 	tween.tween_callback(func (): player.visible = true).set_delay(1.0)
 	tween.tween_callback(func (): Engine.time_scale = 1.0).set_delay(1.0)
-
+	
 	Engine.time_scale = 0.0
 
 
@@ -204,23 +203,25 @@ func _on_goal_reached(_next_level_file: String) -> void:
 	level_complete_panel.set_data(data)
 	level_complete_panel.play_slide_in_from_side_animation(player.global_position)
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	add_victory_player.call_deferred()
 
+
+func add_victory_player() -> void:
 	GlobalAudioManager.start_level_music("victory")
 	GlobalAudioManager.play_vo(current_level.name)
-
+	
 	var goal_zone: GoalZone = get_tree().get_first_node_in_group("goal_zone")
 	goal_zone.queue_free()
-	add_victory_player.call_deferred(player.global_position, goal_zone.global_position)
-
-
-func add_victory_player(player_position: Vector2, goal_position: Vector2) -> void:
 	var victory_player: RigidBody2D = VICTORY_PLAYER.instantiate()
-	victory_player.global_position = player_position
+	victory_player.global_position = player.global_position
 	var victory_animation_player: AnimationPlayer = victory_player.get_node("AnimationPlayer")
 	var animation := victory_animation_player.get_animation("victory_eat")
-	animation.track_set_key_value(0, 0, victory_player.to_local(goal_position))
+	animation.track_set_key_value(0, 0, victory_player.to_local(goal_zone.global_position))
 	current_level.add_child(victory_player)
+	victory_player.linear_velocity = player.velocity
+	
 	player.visible = false
+	player.enter_dead_silently()
 
 
 func on_voic_finished(animated_player_sprite: AnimatedSprite2D):
@@ -231,6 +232,7 @@ func transition_to_next_level(level_file: String) -> void:
 	var next_level_scene := await LevelTransition.load_with_loading_screen(level_file) as PackedScene
 	LevelTransition.furthest_level = next_level_scene
 	player.visible = true
+	remove_child(current_level)
 	current_level.queue_free()
 	var next_level := next_level_scene.instantiate() as Level
 	load_level.call_deferred(next_level)

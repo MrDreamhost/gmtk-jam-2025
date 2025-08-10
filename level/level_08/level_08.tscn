@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://b2fn736u6ukn1"]
+[gd_scene load_steps=20 format=3 uid="uid://b2fn736u6ukn1"]
 
 [ext_resource type="Script" uid="uid://cr5paax0qa013" path="res://level/level_02/level_02.gd" id="1_t3hbx"]
 [ext_resource type="PackedScene" uid="uid://bcujsflu4nqbn" path="res://loop_system/spawn_point.tscn" id="2_im1px"]
@@ -14,11 +14,16 @@
 [ext_resource type="Texture2D" uid="uid://8cte4n854qin" path="res://assets/sprites/props/ceiling_light.png" id="12_1p0if"]
 [ext_resource type="FontFile" uid="uid://c8lo3n7ebaxy8" path="res://assets/fonts/Bitrimus.ttf" id="13_1p0if"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_si3cn"]
-size = Vector2(20, 1100)
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_1p0if"]
+normal = Vector2(1, 0)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wteuf"]
-size = Vector2(1960, 20)
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ywdwn"]
+normal = Vector2(-1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_28fxy"]
+normal = Vector2(0, 1)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_3y8py"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mpof3"]
 resource_local_to_scene = true
@@ -31,88 +36,198 @@ size = Vector2(102, 308)
 [node name="Level08" type="Node2D" node_paths=PackedStringArray("spawn_point")]
 script = ExtResource("1_t3hbx")
 spawn_point = NodePath("SpawnPoint")
+metadata/_edit_lock_ = true
 
-[node name="SpawnPoint" parent="." instance=ExtResource("2_im1px")]
-position = Vector2(0, 876)
+[node name="Bg" type="Sprite2D" parent="."]
+z_index = -3
+position = Vector2(960, 540)
+texture = ExtResource("10_uwkdt")
+metadata/_edit_lock_ = true
 
-[node name="GoalZone" parent="." instance=ExtResource("3_ny4bw")]
-position = Vector2(1836, 162)
-next_level_file = "uid://bbqmxv37fcr81"
+[node name="WorldBoundaries" type="StaticBody2D" parent="."]
+metadata/_edit_lock_ = true
 
-[node name="Walls" type="StaticBody2D" parent="."]
+[node name="Wall Left" type="CollisionShape2D" parent="WorldBoundaries"]
+position = Vector2(0, 540)
+shape = SubResource("WorldBoundaryShape2D_1p0if")
 
-[node name="Wall Left" type="CollisionShape2D" parent="Walls"]
-position = Vector2(-10, 540)
-shape = SubResource("RectangleShape2D_si3cn")
+[node name="Wall Right" type="CollisionShape2D" parent="WorldBoundaries"]
+position = Vector2(1920, 540)
+shape = SubResource("WorldBoundaryShape2D_ywdwn")
 
-[node name="Wall Right" type="CollisionShape2D" parent="Walls"]
-position = Vector2(1930, 540)
-shape = SubResource("RectangleShape2D_si3cn")
+[node name="Ceiling" type="CollisionShape2D" parent="WorldBoundaries"]
+position = Vector2(960, 0)
+shape = SubResource("WorldBoundaryShape2D_28fxy")
 
-[node name="Ceiling" type="CollisionShape2D" parent="Walls"]
-position = Vector2(960, -10)
-shape = SubResource("RectangleShape2D_wteuf")
+[node name="Floor" type="CollisionShape2D" parent="WorldBoundaries"]
+position = Vector2(960, 1080)
+shape = SubResource("WorldBoundaryShape2D_3y8py")
 
-[node name="Floor" type="CollisionShape2D" parent="Walls"]
-position = Vector2(960, 1090)
-shape = SubResource("RectangleShape2D_wteuf")
+[node name="Platforms" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
 
-[node name="ResizablePlatform9" parent="." instance=ExtResource("4_gm3n4")]
+[node name="ResizablePlatform9" parent="Platforms" instance=ExtResource("4_gm3n4")]
 position = Vector2(918, 1080)
 texture = ExtResource("5_voget")
 
-[node name="MovingPlatform" parent="." instance=ExtResource("6_mpof3")]
+[node name="ResizablePlatform22" parent="Platforms" instance=ExtResource("4_gm3n4")]
+position = Vector2(306, 1080)
+
+[node name="ResizablePlatform23" parent="Platforms" instance=ExtResource("4_gm3n4")]
+position = Vector2(306, 978)
+texture = ExtResource("5_voget")
+
+[node name="ResizablePlatform6" parent="Platforms" instance=ExtResource("4_gm3n4")]
+position = Vector2(918, 876)
+
+[node name="ResizablePlatform7" parent="Platforms" instance=ExtResource("4_gm3n4")]
+position = Vector2(918, 774)
+
+[node name="ResizablePlatform8" parent="Platforms" instance=ExtResource("4_gm3n4")]
+position = Vector2(918, 672)
+
+[node name="ResizablePlatform10" parent="Platforms" instance=ExtResource("4_gm3n4")]
+position = Vector2(918, 570)
+
+[node name="ResizablePlatform11" parent="Platforms" instance=ExtResource("4_gm3n4")]
+position = Vector2(918, 468)
+
+[node name="ResizablePlatform" parent="Platforms" instance=ExtResource("4_gm3n4")]
+position = Vector2(0, 978)
+width_in_pixel = 306
+width_in_tile = 3
+
+[node name="ResizablePlatform5" parent="Platforms" instance=ExtResource("4_gm3n4")]
+position = Vector2(306, 60)
+texture = ExtResource("8_d6ylt")
+
+[node name="ResizablePlatform4" parent="Platforms" instance=ExtResource("4_gm3n4")]
+position = Vector2(306, 162)
+texture = ExtResource("8_d6ylt")
+
+[node name="ResizablePlatform3" parent="Platforms" instance=ExtResource("4_gm3n4")]
+position = Vector2(306, 264)
+texture = ExtResource("8_d6ylt")
+
+[node name="ResizablePlatform2" parent="Platforms" instance=ExtResource("4_gm3n4")]
+position = Vector2(0, 366)
+width_in_pixel = 408
+width_in_tile = 4
+texture = ExtResource("8_d6ylt")
+
+[node name="ResizablePlatform12" parent="Platforms" instance=ExtResource("4_gm3n4")]
+position = Vector2(1428, 1080)
+
+[node name="ResizablePlatform13" parent="Platforms" instance=ExtResource("4_gm3n4")]
+position = Vector2(1428, 978)
+texture = ExtResource("5_voget")
+
+[node name="ResizablePlatform24" parent="Platforms" instance=ExtResource("4_gm3n4")]
+position = Vector2(1530, 978)
+width_in_pixel = 510
+width_in_tile = 5
+
+[node name="ResizablePlatform14" parent="Platforms" instance=ExtResource("4_gm3n4")]
+position = Vector2(1428, 672)
+width_in_pixel = 204
+width_in_tile = 2
+
+[node name="ResizablePlatform15" parent="Platforms" instance=ExtResource("4_gm3n4")]
+position = Vector2(1734, 366)
+width_in_pixel = 204
+width_in_tile = 2
+
+[node name="ResizablePlatform16" parent="Platforms" instance=ExtResource("4_gm3n4")]
+position = Vector2(1428, 570)
+
+[node name="ResizablePlatform17" parent="Platforms" instance=ExtResource("4_gm3n4")]
+position = Vector2(1428, 468)
+
+[node name="ResizablePlatform18" parent="Platforms" instance=ExtResource("4_gm3n4")]
+position = Vector2(1428, 366)
+
+[node name="ResizablePlatform19" parent="Platforms" instance=ExtResource("4_gm3n4")]
+position = Vector2(1428, 264)
+
+[node name="ResizablePlatform20" parent="Platforms" instance=ExtResource("4_gm3n4")]
+position = Vector2(1428, 162)
+
+[node name="ResizablePlatform21" parent="Platforms" instance=ExtResource("4_gm3n4")]
+position = Vector2(1428, 60)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Platforms"]
+position = Vector2(357, 375)
+texture = ExtResource("12_1p0if")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Platforms"]
+position = Vector2(51, 375)
+texture = ExtResource("12_1p0if")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Platforms"]
+position = Vector2(153, 375)
+texture = ExtResource("12_1p0if")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Platforms"]
+position = Vector2(255, 375)
+texture = ExtResource("12_1p0if")
+
+[node name="Spikes1" type="Node2D" parent="."]
+
+[node name="DeathSpike" parent="Spikes1" instance=ExtResource("5_mpof3")]
+position = Vector2(408, 1080)
+
+[node name="DeathSpike2" parent="Spikes1" instance=ExtResource("5_mpof3")]
+position = Vector2(510, 1080)
+
+[node name="DeathSpike3" parent="Spikes1" instance=ExtResource("5_mpof3")]
+position = Vector2(612, 1080)
+
+[node name="DeathSpike4" parent="Spikes1" instance=ExtResource("5_mpof3")]
+position = Vector2(714, 1080)
+
+[node name="DeathSpike5" parent="Spikes1" instance=ExtResource("5_mpof3")]
+position = Vector2(816, 1080)
+
+[node name="Spikes2" type="Node2D" parent="."]
+position = Vector2(612, 9)
+
+[node name="DeathSpike" parent="Spikes2" instance=ExtResource("5_mpof3")]
+position = Vector2(408, 1071)
+
+[node name="DeathSpike2" parent="Spikes2" instance=ExtResource("5_mpof3")]
+position = Vector2(510, 1071)
+
+[node name="DeathSpike3" parent="Spikes2" instance=ExtResource("5_mpof3")]
+position = Vector2(612, 1071)
+
+[node name="DeathSpike4" parent="Spikes2" instance=ExtResource("5_mpof3")]
+position = Vector2(714, 1071)
+
+[node name="MovingPlatform1" parent="." instance=ExtResource("6_mpof3")]
 position = Vector2(408, 978)
 target_position = Vector2(918, 978)
 move_duration_sec = 5.0
 movement_trans = 2
 
-[node name="CollisionShape2D" parent="MovingPlatform" index="1"]
+[node name="CollisionShape2D" parent="MovingPlatform1" index="1"]
 position = Vector2(255, -51)
 shape = SubResource("RectangleShape2D_mpof3")
 
-[node name="Sprite2D2" type="Sprite2D" parent="MovingPlatform"]
+[node name="Sprite2D2" type="Sprite2D" parent="MovingPlatform1"]
 position = Vector2(153, -59)
 texture = ExtResource("6_8yku1")
 
-[node name="Sprite2D3" type="Sprite2D" parent="MovingPlatform"]
+[node name="Sprite2D3" type="Sprite2D" parent="MovingPlatform1"]
 position = Vector2(255, -59)
 texture = ExtResource("6_8yku1")
 
-[node name="Sprite2D4" type="Sprite2D" parent="MovingPlatform"]
+[node name="Sprite2D4" type="Sprite2D" parent="MovingPlatform1"]
 position = Vector2(357, -59)
 texture = ExtResource("6_8yku1")
 
-[node name="Sprite2D5" type="Sprite2D" parent="MovingPlatform"]
+[node name="Sprite2D5" type="Sprite2D" parent="MovingPlatform1"]
 position = Vector2(459, -59)
 texture = ExtResource("6_8yku1")
-
-[node name="ResizablePlatform22" parent="." instance=ExtResource("4_gm3n4")]
-position = Vector2(306, 1080)
-
-[node name="ResizablePlatform23" parent="." instance=ExtResource("4_gm3n4")]
-position = Vector2(306, 978)
-texture = ExtResource("5_voget")
-
-[node name="ResizablePlatform6" parent="." instance=ExtResource("4_gm3n4")]
-position = Vector2(918, 876)
-
-[node name="ResizablePlatform7" parent="." instance=ExtResource("4_gm3n4")]
-position = Vector2(918, 774)
-
-[node name="ResizablePlatform8" parent="." instance=ExtResource("4_gm3n4")]
-position = Vector2(918, 672)
-
-[node name="ResizablePlatform10" parent="." instance=ExtResource("4_gm3n4")]
-position = Vector2(918, 570)
-
-[node name="ResizablePlatform11" parent="." instance=ExtResource("4_gm3n4")]
-position = Vector2(918, 468)
-
-[node name="ResizablePlatform" parent="." instance=ExtResource("4_gm3n4")]
-position = Vector2(0, 978)
-width_in_pixel = 306
-width_in_tile = 3
 
 [node name="MovingPlatform2" parent="." instance=ExtResource("6_mpof3")]
 position = Vector2(408, 366)
@@ -158,120 +273,16 @@ texture = ExtResource("6_8yku1")
 position = Vector2(51, 43)
 texture = ExtResource("6_8yku1")
 
-[node name="Spikes" type="Node2D" parent="."]
+[node name="SpawnPoint" parent="." instance=ExtResource("2_im1px")]
+position = Vector2(0, 876)
 
-[node name="DeathSpike" parent="Spikes" instance=ExtResource("5_mpof3")]
-position = Vector2(408, 1080)
+[node name="GoalZone" parent="." instance=ExtResource("3_ny4bw")]
+position = Vector2(1836, 162)
+next_level_file = "uid://bbqmxv37fcr81"
 
-[node name="DeathSpike2" parent="Spikes" instance=ExtResource("5_mpof3")]
-position = Vector2(510, 1080)
-
-[node name="DeathSpike3" parent="Spikes" instance=ExtResource("5_mpof3")]
-position = Vector2(612, 1080)
-
-[node name="DeathSpike4" parent="Spikes" instance=ExtResource("5_mpof3")]
-position = Vector2(714, 1080)
-
-[node name="DeathSpike5" parent="Spikes" instance=ExtResource("5_mpof3")]
-position = Vector2(816, 1080)
-
-[node name="Spikes2" type="Node2D" parent="."]
-position = Vector2(612, 9)
-
-[node name="DeathSpike" parent="Spikes2" instance=ExtResource("5_mpof3")]
-position = Vector2(408, 1071)
-
-[node name="DeathSpike2" parent="Spikes2" instance=ExtResource("5_mpof3")]
-position = Vector2(510, 1071)
-
-[node name="DeathSpike3" parent="Spikes2" instance=ExtResource("5_mpof3")]
-position = Vector2(612, 1071)
-
-[node name="DeathSpike4" parent="Spikes2" instance=ExtResource("5_mpof3")]
-position = Vector2(714, 1071)
-
-[node name="ResizablePlatform5" parent="." instance=ExtResource("4_gm3n4")]
-position = Vector2(306, 60)
-texture = ExtResource("8_d6ylt")
-
-[node name="ResizablePlatform4" parent="." instance=ExtResource("4_gm3n4")]
-position = Vector2(306, 162)
-texture = ExtResource("8_d6ylt")
-
-[node name="ResizablePlatform3" parent="." instance=ExtResource("4_gm3n4")]
-position = Vector2(306, 264)
-texture = ExtResource("8_d6ylt")
-
-[node name="ResizablePlatform2" parent="." instance=ExtResource("4_gm3n4")]
-position = Vector2(0, 366)
-width_in_pixel = 408
-width_in_tile = 4
-texture = ExtResource("8_d6ylt")
-
-[node name="ResizablePlatform12" parent="." instance=ExtResource("4_gm3n4")]
-position = Vector2(1428, 1080)
-
-[node name="ResizablePlatform13" parent="." instance=ExtResource("4_gm3n4")]
-position = Vector2(1428, 978)
-texture = ExtResource("5_voget")
-
-[node name="ResizablePlatform24" parent="." instance=ExtResource("4_gm3n4")]
-position = Vector2(1530, 978)
-width_in_pixel = 510
-width_in_tile = 5
-
-[node name="ResizablePlatform14" parent="." instance=ExtResource("4_gm3n4")]
-position = Vector2(1428, 672)
-width_in_pixel = 204
-width_in_tile = 2
-
-[node name="ResizablePlatform15" parent="." instance=ExtResource("4_gm3n4")]
-position = Vector2(1734, 366)
-width_in_pixel = 204
-width_in_tile = 2
-
-[node name="ResizablePlatform16" parent="." instance=ExtResource("4_gm3n4")]
-position = Vector2(1428, 570)
-
-[node name="ResizablePlatform17" parent="." instance=ExtResource("4_gm3n4")]
-position = Vector2(1428, 468)
-
-[node name="ResizablePlatform18" parent="." instance=ExtResource("4_gm3n4")]
-position = Vector2(1428, 366)
-
-[node name="ResizablePlatform19" parent="." instance=ExtResource("4_gm3n4")]
-position = Vector2(1428, 264)
-
-[node name="ResizablePlatform20" parent="." instance=ExtResource("4_gm3n4")]
-position = Vector2(1428, 162)
-
-[node name="ResizablePlatform21" parent="." instance=ExtResource("4_gm3n4")]
-position = Vector2(1428, 60)
-
-[node name="Bg" type="Sprite2D" parent="."]
-z_index = -3
-position = Vector2(959, 540)
-texture = ExtResource("10_uwkdt")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="ControlPanelSprite2D" type="Sprite2D" parent="."]
 position = Vector2(279, 839)
 texture = ExtResource("11_5mkn2")
-
-[node name="Sprite2D2" type="Sprite2D" parent="."]
-position = Vector2(357, 375)
-texture = ExtResource("12_1p0if")
-
-[node name="Sprite2D3" type="Sprite2D" parent="."]
-position = Vector2(51, 375)
-texture = ExtResource("12_1p0if")
-
-[node name="Sprite2D4" type="Sprite2D" parent="."]
-position = Vector2(153, 375)
-texture = ExtResource("12_1p0if")
-
-[node name="Sprite2D5" type="Sprite2D" parent="."]
-position = Vector2(255, 375)
-texture = ExtResource("12_1p0if")
 
 [node name="Label" type="Label" parent="."]
 offset_right = 308.0
@@ -280,6 +291,6 @@ theme_override_fonts/font = ExtResource("13_1p0if")
 theme_override_font_sizes/font_size = 100
 text = " We Float"
 
-[editable path="MovingPlatform"]
+[editable path="MovingPlatform1"]
 [editable path="MovingPlatform2"]
 [editable path="MovingPlatform3"]

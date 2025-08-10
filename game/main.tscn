@@ -699,7 +699,6 @@ one_shot = true
 
 [node name="Player" parent="." instance=ExtResource("3_emt18")]
 position = Vector2(12, 13)
-collision_layer = 2
 
 [node name="PlayerDummy" type="Node2D" parent="."]
 visible = false
@@ -718,6 +717,7 @@ animation = &"timer_reset"
 
 [node name="AnimatedTimerArea" type="Area2D" parent="CanvasLayer/AnimatedTimer"]
 collision_layer = 0
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/AnimatedTimer/AnimatedTimerArea"]
 position = Vector2(0, 0.5)

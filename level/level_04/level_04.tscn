@@ -27,26 +27,35 @@ normal = Vector2(0, 1)
 [node name="Level04" type="Node2D" node_paths=PackedStringArray("spawn_point")]
 script = ExtResource("1_78fuf")
 spawn_point = NodePath("SpawnPoint")
+metadata/_edit_lock_ = true
 
-[node name="WorldBoundaries2" type="StaticBody2D" parent="."]
+[node name="Bg" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(960, 540)
+texture = ExtResource("10_juuh0")
+metadata/_edit_lock_ = true
 
-[node name="Wall Left" type="CollisionShape2D" parent="WorldBoundaries2"]
+[node name="WorldBoundaries" type="StaticBody2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="Wall Left" type="CollisionShape2D" parent="WorldBoundaries"]
 position = Vector2(0, 540)
 shape = SubResource("WorldBoundaryShape2D_usqxq")
 
-[node name="Wall Right" type="CollisionShape2D" parent="WorldBoundaries2"]
+[node name="Wall Right" type="CollisionShape2D" parent="WorldBoundaries"]
 position = Vector2(1920, 540)
 shape = SubResource("WorldBoundaryShape2D_2uuxx")
 
-[node name="Ceiling" type="CollisionShape2D" parent="WorldBoundaries2"]
+[node name="Ceiling" type="CollisionShape2D" parent="WorldBoundaries"]
 position = Vector2(960, 0)
 shape = SubResource("WorldBoundaryShape2D_b1mf7")
 
-[node name="Floor" type="CollisionShape2D" parent="WorldBoundaries2"]
+[node name="Floor" type="CollisionShape2D" parent="WorldBoundaries"]
 position = Vector2(960, 1080)
 shape = SubResource("WorldBoundaryShape2D_juuh0")
 
 [node name="Platforms" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
 
 [node name="Platform20" parent="Platforms" instance=ExtResource("5_b1mf7")]
 position = Vector2(816, 1080)
@@ -117,6 +126,7 @@ position = Vector2(918, 774)
 position = Vector2(918, 672)
 
 [node name="DeathSpikes" type="Node2D" parent="."]
+metadata/_edit_group_ = true
 
 [node name="DeathSpike" parent="DeathSpikes" instance=ExtResource("6_juuh0")]
 position = Vector2(816, 876)
@@ -148,12 +158,7 @@ position = Vector2(918, 570)
 position = Vector2(1760, 515)
 next_level_file = "uid://bipq1jpgurwcy"
 
-[node name="Bg" type="Sprite2D" parent="."]
-z_index = -2
-position = Vector2(961, 540)
-texture = ExtResource("10_juuh0")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="ControlPanelSprite2D" type="Sprite2D" parent="."]
 position = Vector2(1225, 533)
 texture = ExtResource("11_3t25d")
 

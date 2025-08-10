@@ -1,6 +1,5 @@
 class_name HurtBox extends Area2D
 
-
 signal hit_received(damage: int)
 
 
@@ -12,5 +11,4 @@ func _ready() -> void:
 func _on_area_entered(hitbox: Area2D) -> void:
 	if hitbox is not HitBox:
 		return
-	
 	self.hit_received.emit(hitbox.damage)

@@ -7,10 +7,8 @@ var furthest_level: PackedScene = null
 
 
 func load_with_loading_screen(path: String) -> Resource:
-	var start_time := Time.get_ticks_msec()
 	animation_player.play("fade_in")
 	ResourceLoader.load_threaded_request(path)
-	var end_time := Time.get_ticks_msec()
 	await animation_player.animation_finished
 	return ResourceLoader.load_threaded_get(path)
 
