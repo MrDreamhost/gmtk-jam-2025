@@ -48,7 +48,7 @@ func play_sound(sound_name: String) -> void:
 
 
 func enter_dead_silently() -> void:
-	%PlayerStateMachine.current_state == %PlayerStateMachine.states[%PlayerStateMachine.DEAD]
+	%PlayerStateMachine.current_state = %PlayerStateMachine.states[%PlayerStateMachine.DEAD]
 
 
 func is_jumping() -> bool:

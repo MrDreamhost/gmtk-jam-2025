@@ -38,7 +38,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	self.set_label_text()
 	
-	if Input.is_action_just_pressed("set_spawn_point") and not self.player.is_dead() and Engine.time_scale > 0.0:
+	if Input.is_action_just_pressed("set_spawn_point") and not self.player.is_dead():
 		self.changed_spawn = true
 		self.current_level.spawn_point.sprite_2d.stop()
 		self.current_level.spawn_point.sprite_2d.play("spawner_placement")
