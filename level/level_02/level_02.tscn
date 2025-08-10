@@ -1,4 +1,4 @@
-[gd_scene load_steps=133 format=3 uid="uid://dslkeuxkcig4a"]
+[gd_scene load_steps=135 format=3 uid="uid://dslkeuxkcig4a"]
 
 [ext_resource type="Script" uid="uid://cr5paax0qa013" path="res://level/level_02/level_02.gd" id="1_wco2t"]
 [ext_resource type="PackedScene" uid="uid://coobrpw2ubqjw" path="res://level/interactables/Platform.tscn" id="2_xmyjc"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://dnrfm1tcchmq1" path="res://assets/sprites/tiles/0013.png" id="6_7j4iy"]
 [ext_resource type="Texture2D" uid="uid://dm2xecntp30ti" path="res://assets/sprites/tiles/0004.png" id="8_vk5g8"]
 [ext_resource type="Texture2D" uid="uid://ba4o8416eya13" path="res://assets/sprites/tiles/0001.png" id="9_mg46l"]
+[ext_resource type="Script" uid="uid://nuq6dpf75flc" path="res://common/hurtbox/hurtbox.gd" id="11_rqmj8"]
 [ext_resource type="Texture2D" uid="uid://bwxheg1hvr4d5" path="res://assets/sprites/bg/lvl_2_bg.png" id="13_yakuy"]
 [ext_resource type="PackedScene" uid="uid://djuuv8qj84685" path="res://level/interactables/prop_door.tscn" id="14_yakuy"]
 [ext_resource type="Theme" uid="uid://b0eq1tsqhebcn" path="res://ui/ui_theme.tres" id="15_8cphs"]
@@ -126,6 +127,9 @@ normal = Vector2(-1, 0)
 normal = Vector2(0, 1)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vw6us"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y3g2f"]
+size = Vector2(1512, 102)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vvlvx"]
 animations = [{
@@ -751,10 +755,20 @@ position = Vector2(1530, 771)
 width_in_pixel = 204
 width_in_tile = 2
 
+[node name="DeadZone" type="Area2D" parent="."]
+position = Vector2(408, 1157)
+script = ExtResource("11_rqmj8")
+metadata/_custom_type_script = "uid://nuq6dpf75flc"
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeadZone"]
+position = Vector2(756, -51)
+shape = SubResource("RectangleShape2D_y3g2f")
+debug_color = Color(0.7, 0.0202499, 0, 0.42)
+
 [node name="DeathSpikes" type="Node2D" parent="."]
 position = Vector2(813, 905)
 rotation = -0.3368
-metadata/_edit_group_ = true
 
 [node name="DeathSpike1" parent="DeathSpikes" instance=ExtResource("3_3muha")]
 position = Vector2(-128, 0)

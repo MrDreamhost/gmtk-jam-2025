@@ -371,7 +371,7 @@ texture_progress = SubResource("GradientTexture2D_g6rqn")
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(100, -110)
 sprite_frames = SubResource("SpriteFrames_5j141")
-animation = &"loop_spawner"
+animation = &"spawner_placement"
 autoplay = "spawner_placement"
 metadata/_edit_lock_ = true
 

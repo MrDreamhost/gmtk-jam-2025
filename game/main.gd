@@ -38,7 +38,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	self.set_label_text()
 	
-	if Input.is_action_just_pressed("set_spawn_point") and not self.player.is_dead():
+	if Input.is_action_just_pressed("set_spawn_point") and not self.player.is_dead() and Engine.time_scale > 0.0:
 		self.changed_spawn = true
 		self.current_level.spawn_point.sprite_2d.stop()
 		self.current_level.spawn_point.sprite_2d.play("spawner_placement")
@@ -63,6 +63,8 @@ func respawn_player() -> void:
 
 
 func reset_loop() -> void:
+	player_dummy.visible = false
+	player.visible = true
 	if self.changed_spawn:
 		self.spawn_ghost()
 		self.level_record.loop_count += 1
@@ -125,38 +127,45 @@ func load_level(level: Level) -> void:
 
 
 func _on_loop_timer_timeout() -> void:
-	# BUG get_tree().paused = true doesnt work on web export, frezzes game
-	#get_tree().paused = true
-	set_shockwave_center_to_spawn_point()
-	var current_spawn: SpawnPoint = self.current_level.spawn_point
-	
-	player_dummy.global_position = player.global_position
-	for child in player_dummy.get_children():
-		child.queue_free()
-	player_dummy.add_child(player.animated_sprite_2d.duplicate())
-	
 	var tween := create_tween()
 	tween.set_ignore_time_scale(true)
-	tween.set_process_mode(Tween.TWEEN_PROCESS_PHYSICS)
+	tween.set_process_mode(Tween.TWEEN_PROCESS_IDLE)
 	tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
 	tween.set_parallel(true)
 	
-	# timed callbacks
+	# clocks turn back animations
 	tween.tween_callback(start_timer_reset_animation).set_delay(0.3333)
-	tween.tween_callback(turn_clock_back).set_delay(0.4333)
-	tween.tween_callback(reset_loop).set_delay(1.0)
+	tween.tween_method(turn_clock_back, 1.0, 0.0, 0.5).set_delay(0.5)
+	
 	# shockwave radius 0.0 -> 1.0 -> 0.0
+	set_shockwave_center_to_spawn_point()
 	tween.tween_method(set_shockwave_radius, 0.0, 1.0, 0.5)
 	tween.tween_method(set_shockwave_radius, 1.0, 0.0, 0.5).set_delay(0.5)
 	
-	player.visible = false
-	player_dummy.visible = true
-	tween.tween_property(player_dummy, "position", current_spawn.global_position, 1.0).from(player.global_position)
-	tween.tween_callback(func (): player_dummy.visible = false).set_delay(1.0)
-	tween.tween_callback(func (): player.visible = true).set_delay(1.0)
-	tween.tween_callback(func (): Engine.time_scale = 1.0).set_delay(1.0)
+	# replace player with dummy and snap the dummy back to spawn point
+	place_player_dummy()
+	var current_spawn: SpawnPoint = self.current_level.spawn_point
+	tween.tween_property(player_dummy, "position", current_spawn.global_position, 0.5).set_delay(0.5)
 	
+	# callbacks at the end of 1s
+	tween.tween_callback(func (): Engine.time_scale = 1.0).set_delay(1.0)
+	tween.tween_callback(reset_loop).set_delay(1.0)
+	
+	# BUG get_tree().paused = true doesnt work on web export, frezzes game
+	#get_tree().paused = true
 	Engine.time_scale = 0.0
+
+
+func place_player_dummy() -> void:
+	player.visible = false
+	player.enter_dead_silently()
+	
+	player_dummy.global_position = player.global_position
+	# replace dummy animation_sprite with duplicate from player
+	for child in player_dummy.get_children():
+		child.queue_free()
+	player_dummy.add_child(player.animated_sprite_2d.duplicate())
+	player_dummy.visible = true
 
 
 func set_shockwave_radius(radius: float) -> void:
@@ -173,8 +182,9 @@ func set_shockwave_center_to_spawn_point() -> void:
 	shockwave_mat.set_shader_parameter("center", uv_pos)
 
 
-func turn_clock_back() -> void:
-	current_level.spawn_point.reversed = true
+func turn_clock_back(value: float) -> void:
+	var spawn_point := current_level.spawn_point as SpawnPoint
+	spawn_point.timer_progress_bar.value = value
 
 
 func _on_goal_reached(_next_level_file: String) -> void:

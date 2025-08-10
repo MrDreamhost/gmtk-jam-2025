@@ -20,7 +20,6 @@ func _on_focus_entered() -> void:
 	if skip_first_focus_change:
 		skip_first_focus_change = false
 		return
-	print("_on_focus_entered sound" + str(self.name))
 	var audio_stream_player := AudioStreamPlayer.new()
 	audio_stream_player.bus = AudioServer.get_bus_name(BusVolumeControl.Bus.SFX)
 	audio_stream_player.stream = focused_sound
