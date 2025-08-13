@@ -9,7 +9,7 @@ extends BaseButton
 func _ready() -> void:
 	self.mouse_entered.connect(_on_mouse_entered)
 	self.focus_entered.connect(_on_focus_entered)
-	self.button_down.connect(_on_pressed)
+	self.button_down.connect(_on_button_down)
 
 
 func _on_mouse_entered() -> void:
@@ -29,7 +29,7 @@ func _on_focus_entered() -> void:
 	audio_stream_player.play()
 
 
-func _on_pressed() -> void:
+func _on_button_down() -> void:
 	var audio_stream_player := AudioStreamPlayer.new()
 	audio_stream_player.bus = AudioServer.get_bus_name(BusVolumeControl.Bus.SFX)
 	audio_stream_player.stream = presed_sound

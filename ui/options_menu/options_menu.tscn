@@ -5,8 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://5vtebhia4h4d" path="res://ui/options_menu/bus_volume_control.tscn" id="2_8h7tm"]
 [ext_resource type="Texture2D" uid="uid://cfy67ff0ah58a" path="res://assets/sprites/promo/banner.png" id="3_1ubxx"]
 [ext_resource type="Texture2D" uid="uid://bktpkl5qxrs3k" path="res://assets/sprites/UI/options.png" id="3_wakw5"]
-[ext_resource type="Texture2D" uid="uid://d3sj6dtt6yxi6" path="res://assets/sprites/UI/next.png" id="5_wakw5"]
-[ext_resource type="Texture2D" uid="uid://r0xsrbqnlx15" path="res://assets/sprites/UI/next_hover.png" id="7_jyblu"]
+[ext_resource type="Texture2D" uid="uid://cdleat2l64nlo" path="res://assets/sprites/UI/return.png" id="6_6s18u"]
+[ext_resource type="Texture2D" uid="uid://bwtq7htuap1r0" path="res://assets/sprites/UI/return_hover.png" id="7_kg7lv"]
 [ext_resource type="Texture2D" uid="uid://cqkxhx1k6ys8" path="res://assets/sprites/UI/button_focused_small.png" id="8_6s18u"]
 [ext_resource type="Script" uid="uid://w0an5hk1rjg6" path="res://ui/button_audio.gd" id="8_21oyd"]
 [ext_resource type="AudioStream" uid="uid://copb30blg65ol" path="res://assets/audio/sfx/hover.ogg" id="9_sk6u8"]
@@ -114,17 +114,20 @@ bus = 3
 [node name="CrtCheckButton" type="CheckButton" parent="OptionsPanel/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-focus_neighbor_left = NodePath("../../BottomAnchor/BackButton")
-focus_neighbor_bottom = NodePath("../../BottomAnchor/BackButton")
-focus_next = NodePath("../../BottomAnchor/BackButton")
+focus_neighbor_left = NodePath("../../BottomAnchor/ReturnButton")
+focus_neighbor_bottom = NodePath("../../BottomAnchor/ReturnButton")
+focus_next = NodePath("../../BottomAnchor/ReturnButton")
 theme_override_styles/focus = SubResource("StyleBoxLine_jyblu")
 text = " Enable CRT Filter:"
+script = ExtResource("8_21oyd")
+focused_sound = ExtResource("9_sk6u8")
+presed_sound = ExtResource("10_jyblu")
 
 [node name="BottomAnchor" type="Control" parent="OptionsPanel/MarginContainer"]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="BackButton" type="TextureButton" parent="OptionsPanel/MarginContainer/BottomAnchor"]
+[node name="ReturnButton" type="TextureButton" parent="OptionsPanel/MarginContainer/BottomAnchor"]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -138,8 +141,8 @@ focus_neighbor_right = NodePath("../../VBoxContainer/CrtCheckButton")
 focus_next = NodePath("../../VBoxContainer/MasterBusVolumeControl")
 focus_previous = NodePath("../../VBoxContainer/CrtCheckButton")
 theme = ExtResource("1_kx268")
-texture_normal = ExtResource("5_wakw5")
-texture_hover = ExtResource("7_jyblu")
+texture_normal = ExtResource("6_6s18u")
+texture_hover = ExtResource("7_kg7lv")
 texture_focused = ExtResource("8_6s18u")
 script = ExtResource("8_21oyd")
 focused_sound = ExtResource("9_sk6u8")
@@ -157,6 +160,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 color = Color(0.662928, 0.165793, 0.165793, 1)
+metadata/_edit_lock_ = true
 
 [connection signal="toggled" from="OptionsPanel/MarginContainer/VBoxContainer/CrtCheckButton" to="." method="_on_crt_check_button_toggled"]
-[connection signal="pressed" from="OptionsPanel/MarginContainer/BottomAnchor/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="OptionsPanel/MarginContainer/BottomAnchor/ReturnButton" to="." method="_on_back_button_pressed"]
